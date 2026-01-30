@@ -137,11 +137,28 @@ Only the **username** and **password** need to be changed.
 </p>
 
 
+### Troubleshooting: No "Generate new token" button?
+
+If you don’t see **“Generate new token”** in Snowsight (**Settings → Authentication → Programmatic access tokens**), create a PAT via SQL:
+
+1) Open **Worksheets** → **New Worksheet**  
+2) Run:
+
+```sql
+ALTER USER ADD PROGRAMMATIC ACCESS TOKEN SPIDER2_PAT ROLE_RESTRICTION = 'PARTICIPANT' DAYS_TO_EXPIRY = 365;
+```
 
 
 
+<p align="center">
+  <img src="spider2_update_1107_assets/14.png" alt="Select Snowflake" width="80%">
+</p>
 
+<p align="center">
+  <img src="spider2_update_1107_assets/15.png" alt="Select Snowflake" width="80%">
+</p>
 
-
-
+<p align="center">
+  <img src="spider2_update_1107_assets/16.png" alt="Select Snowflake" width="80%">
+</p>
 
