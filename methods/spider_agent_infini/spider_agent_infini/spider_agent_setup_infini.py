@@ -92,9 +92,7 @@ def add_database_to_infini():
 
         print(f"  schemas: {schemas}")
         for schema in schemas:
-            database_name = (
-                f"{db_id}_{schema}" if len(schemas) > 1 else db_id
-            )
+            database_name = schema
             description = f"This database is {db_id} and schema is {schema}"
 
             try:
