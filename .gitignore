@@ -148,3 +148,6 @@ methods/spider-agent-tc/results/
 .venv/
 
 *.log
+methods/spider_agent_infini/output/*
+methods/spider_agent_infini/spider_agent_infini/example_submission_folder/*
+methods/spider_agent_infini/spider_agent_infini/example_submission_folder_csv/*
