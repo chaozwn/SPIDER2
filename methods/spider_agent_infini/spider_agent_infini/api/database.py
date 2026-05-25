@@ -168,6 +168,119 @@ def delete_databases(
         return {"status_code": resp.status_code}
 
 
+def list_databases(
+    name: str | None = None,
+    type: str | None = None,
+    enabled: int | None = None,
+    source: str = "all",
+    page: int = 1,
+    page_size: int = 10000,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> list[dict[str, Any]]:
+    """List databases via `GET /api/ai_database/list`.
+
+    Returns the `items` array from the paginated response. Defaults to a large
+    `pageSize` so that a single call typically returns everything.
+    """
+    params: dict[str, Any] = {"page": page, "pageSize": page_size, "source": source}
+    if name is not None:
+        params["name"] = name
+    if type is not None:
+        params["type"] = type
+    if enabled is not None:
+        params["enabled"] = enabled
+
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    resp = client.get("/api/ai_database/list", params=params)
+    data = unwrap(resp.json())
+    if isinstance(data, dict) and "items" in data:
+        return list(data["items"] or [])
+    if isinstance(data, list):
+        return data
+    return []
+
+
+def clear_all_databases(
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any] | None:
+    """Delete every database registered in InfiniSynapse.
+
+    Lists all databases via `/api/ai_database/list` and batch-deletes them via
+    `POST /api/ai_database/delete`. Returns the unwrapped delete response, or
+    `None` if there was nothing to delete.
+    """
+    items = list_databases(credential_path=credential_path, timeout=timeout)
+    ids = [item["id"] for item in items if isinstance(item, dict) and item.get("id")]
+    if not ids:
+        return None
+    return delete_databases(ids, credential_path=credential_path, timeout=timeout)
+
+
+def select_databases_by_snowflake_database(
+    snowflake_database: str,
+    enable_matching: bool = True,
+    disable_others: bool = True,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> list[dict[str, Any]]:
+    """Select Snowflake data sources whose `config.snowflake_database` matches.
+
+    Iterates all `snowflake` databases, parses each `config` JSON string and
+    returns the ones whose `snowflake_database` equals the given value.
+
+    When `enable_matching` is True, the matching databases are enabled via
+    `POST /api/ai_database/enabled`. When `disable_others` is True, every other
+    Snowflake database is disabled in the same way. Returns the list of
+    matching database records.
+    """
+    items = list_databases(
+        type="snowflake",
+        credential_path=credential_path,
+        timeout=timeout,
+    )
+
+    matching: list[dict[str, Any]] = []
+    others: list[dict[str, Any]] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        raw_cfg = item.get("config")
+        cfg: dict[str, Any] = {}
+        if isinstance(raw_cfg, str) and raw_cfg:
+            try:
+                cfg = json.loads(raw_cfg)
+            except (ValueError, TypeError):
+                cfg = {}
+        elif isinstance(raw_cfg, dict):
+            cfg = raw_cfg
+        if cfg.get("snowflake_database") == snowflake_database:
+            matching.append(item)
+        else:
+            others.append(item)
+
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+
+    if enable_matching:
+        ids = [it["id"] for it in matching if it.get("id")]
+        if ids:
+            client.post(
+                "/api/ai_database/enabled",
+                json_body={"ids": ids, "enabled": 1},
+            )
+
+    if disable_others:
+        ids = [it["id"] for it in others if it.get("id")]
+        if ids:
+            client.post(
+                "/api/ai_database/enabled",
+                json_body={"ids": ids, "enabled": 0},
+            )
+
+    return matching
+
+
 if __name__ == "__main__":
     import sys
 
