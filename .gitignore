@@ -141,3 +141,8 @@ spider2-lite/resource/databases/spider2-localdb
 credentials/
 **/credentials/
 
+
+# spider-agent-tc local secrets / outputs
+methods/spider-agent-tc/.env
+methods/spider-agent-tc/results/
+.venv/
