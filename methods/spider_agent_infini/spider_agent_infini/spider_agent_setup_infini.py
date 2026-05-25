@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from pathlib import Path
 
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -9,8 +10,16 @@ DATABASE_PATH = str(_REPO_ROOT / "spider2-snow" / "resource" / "databases") + "/
 DOCUMENT_PATH = str(_REPO_ROOT / "spider2-snow" / "resource" / "documents")
 INFINI_CREDENTIAL_PATH = str(_PROJECT_ROOT / "infini_credential.json")
 SNOWFLAKE_CREDENTIAL_PATH = str(_PROJECT_ROOT / "snowflake_credential.json")
+FAILURE_LOG_PATH = str(_PROJECT_ROOT / "setup_failures.log")
 
 EXCLUDED_SCHEMAS = {"INFORMATION_SCHEMA", "PUBLIC"}
+
+
+def _log_failure(message: str) -> None:
+    line = f"[{datetime.now().isoformat(timespec='seconds')}] {message}"
+    print(f"  [error] {message}")
+    with open(FAILURE_LOG_PATH, "a", encoding="utf-8") as f:
+        f.write(line + "\n")
 
 
 def _load_db_ids(jsonl_path: str) -> list[str]:
@@ -82,9 +91,8 @@ def add_database_to_infini():
         try:
             schemas = _list_snowflake_schemas(db_id, SNOWFLAKE_CREDENTIAL_PATH)
         except Exception as e:
-            raise RuntimeError(
-                f"Failed to list schemas for db_id={db_id!r}: {e}"
-            ) from e
+            _log_failure(f"Failed to list schemas for db_id={db_id!r}: {e}")
+            continue
 
         if not schemas:
             print(f"  [skip] no usable schemas under {db_id}")
@@ -123,10 +131,11 @@ def add_database_to_infini():
                     )
                 print(f"  [ok    ] {database_name}: {test_result}")
             except Exception as e:
-                raise RuntimeError(
+                _log_failure(
                     f"Failed to set up database {database_name!r} "
                     f"(db_id={db_id}, schema={schema}): {e}"
-                ) from e
+                )
+                continue
 
 
 if __name__ == "__main__":
