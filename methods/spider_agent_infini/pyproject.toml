@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spider-agent-infini"
+version = "0.1.0"
+description = "Spider2 InfiniSynapse agent integration."
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["spider_agent_infini*"]
