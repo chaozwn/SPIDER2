@@ -448,6 +448,295 @@ def new_task(
     return unwrap(resp.json())
 
 
+def list_task_workspace(
+    task_id: str,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any]:
+    """List a task's workspace files via `GET /api/ai_task/getTaskWorkspace/{taskId}`.
+
+    Returns `{"cwd": "...", "files": ["a.csv", "sub/b.json", ...]}`.
+    """
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    resp = client.get("/api/ai_task/getTaskWorkspace", task_id)
+    return unwrap(resp.json())
+
+
+def download_task_file(
+    task_id: str,
+    remote_path: str,
+    dest: str | os.PathLike,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = 300.0,
+    chunk_size: int = 64 * 1024,
+) -> str:
+    """Download a single file from the task workspace.
+
+    Calls `GET /api/tools/storage/downloadTaskFile/{taskId}?path=<remote_path>`,
+    streaming the response to disk. If ``dest`` is an existing directory,
+    the file is saved as ``dest/<basename(remote_path)>``; otherwise ``dest``
+    is treated as the full destination path.
+
+    Returns the local absolute path to the saved file.
+    """
+    from urllib.parse import quote as _quote
+
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    url = (
+        f"{client.api_url}/api/tools/storage/downloadTaskFile/"
+        f"{_quote(task_id, safe='')}?path={_quote(remote_path, safe='')}"
+    )
+
+    dest_path = Path(dest)
+    if dest_path.exists() and dest_path.is_dir():
+        dest_path = dest_path / Path(remote_path).name
+    dest_path.parent.mkdir(parents=True, exist_ok=True)
+
+    import requests as _requests
+    with _requests.get(
+        url,
+        headers=client._headers(),
+        stream=True,
+        timeout=timeout,
+    ) as resp:
+        resp.raise_for_status()
+        with open(dest_path, "wb") as fh:
+            for chunk in resp.iter_content(chunk_size=chunk_size):
+                if chunk:
+                    fh.write(chunk)
+    return str(dest_path.resolve())
+
+
+def download_task_zip(
+    task_id: str,
+    dest: str | os.PathLike,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = 600.0,
+    chunk_size: int = 256 * 1024,
+) -> str:
+    """Download the whole task workspace as a ZIP.
+
+    Calls `GET /api/ai_task/downloadZip?taskId=<id>`. Server-side ignores
+    ``node_modules`` and other dot-prefixed cache directories. Returns the
+    local absolute path of the saved zip.
+    """
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    url = f"{client.api_url}/api/ai_task/downloadZip"
+
+    dest_path = Path(dest)
+    if dest_path.exists() and dest_path.is_dir():
+        dest_path = dest_path / f"{task_id}.zip"
+    dest_path.parent.mkdir(parents=True, exist_ok=True)
+
+    import requests as _requests
+    with _requests.get(
+        url,
+        params={"taskId": task_id},
+        headers=client._headers(),
+        stream=True,
+        timeout=timeout,
+    ) as resp:
+        resp.raise_for_status()
+        with open(dest_path, "wb") as fh:
+            for chunk in resp.iter_content(chunk_size=chunk_size):
+                if chunk:
+                    fh.write(chunk)
+    return str(dest_path.resolve())
+
+
+def download_task_workspace(
+    task_id: str,
+    dest_dir: str | os.PathLike,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = 300.0,
+) -> list[str]:
+    """Convenience helper: list workspace + download each file individually.
+
+    Files are saved preserving their relative paths under ``dest_dir``.
+    Returns the list of local absolute paths.
+    """
+    ws = list_task_workspace(
+        task_id, credential_path=credential_path, timeout=timeout
+    )
+    files = ws.get("files") or []
+    out_root = Path(dest_dir)
+    out_root.mkdir(parents=True, exist_ok=True)
+    saved: list[str] = []
+    for rel in files:
+        local = out_root / rel
+        local.parent.mkdir(parents=True, exist_ok=True)
+        saved.append(
+            download_task_file(
+                task_id,
+                rel,
+                local,
+                credential_path=credential_path,
+                timeout=timeout,
+            )
+        )
+    return saved
+
+
+def _iter_sse(resp) -> Iterable[tuple[str, str]]:
+    """Minimal SSE parser: yields ``(event, data)`` tuples."""
+    event = ""
+    data_lines: list[str] = []
+    for raw in resp.iter_lines(decode_unicode=True):
+        if raw is None:
+            continue
+        if raw == "":
+            if data_lines:
+                yield event or "message", "\n".join(data_lines)
+            event = ""
+            data_lines = []
+            continue
+        if raw.startswith(":"):
+            continue
+        if raw.startswith("event:"):
+            event = raw[6:].strip()
+        elif raw.startswith("data:"):
+            data_lines.append(raw[5:].lstrip())
+
+
+def new_task_and_wait(
+    text: str,
+    task_id: str | None = None,
+    file_paths: Sequence[str | os.PathLike] | None = None,
+    reference_paths: Sequence[str | os.PathLike] | None = None,
+    files: Sequence[dict[str, Any]] | None = None,
+    images: Sequence[str] | None = None,
+    on_message: Any = None,
+    stop_on_ask: bool = True,
+    sse_connect_timeout: float = 15.0,
+    sse_read_timeout: float | None = None,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = 300.0,
+    extra: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Create a `newTask` and stream SSE events until the task completes.
+
+    Equivalent to the ``infinisynapse-cli task new`` flow:
+    1. Subscribe to ``GET /api/ai/events?connId=<connId>`` (SSE).
+    2. POST ``/api/ai/message`` with ``type='newTask'`` and the same ``connId``.
+    3. Read SSE events; stop when a ``message.add`` with
+       ``say='completion_result' && !partial`` arrives.
+
+    Args:
+        on_message: optional callback ``fn(event_name, message_dict)``.
+        stop_on_ask: if True, also stop when the Agent emits a non-partial
+            ``ask`` (other than ``completion_result``) so the script doesn't
+            hang waiting for user input. Set False if you intend to call
+            ``askResponse`` from another thread.
+
+    Returns: ``{taskId, connId, lastMessage, ack}``.
+    """
+    import threading
+    import requests as _requests
+
+    conn_id = str(uuid.uuid4())
+    tid = task_id or str(uuid.uuid4())
+
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    sse_url = f"{client.api_url}/api/ai/events"
+    sse_headers = client._headers({"Accept": "text/event-stream"})
+
+    sse_resp = _requests.get(
+        sse_url,
+        params={"connId": conn_id},
+        headers=sse_headers,
+        stream=True,
+        timeout=(sse_connect_timeout, sse_read_timeout),
+    )
+    sse_resp.raise_for_status()
+
+    file_items: list[dict[str, Any]] = []
+    if file_paths or reference_paths:
+        file_items.extend(
+            _build_file_items(
+                task_id=tid,
+                file_paths=file_paths,
+                reference_paths=reference_paths,
+                credential_path=credential_path,
+                timeout=timeout,
+            )
+        )
+    if files:
+        file_items.extend(files)
+
+    payload: dict[str, Any] = {
+        "type": "newTask",
+        "taskId": tid,
+        "connId": conn_id,
+        "text": text,
+        "commandId": str(uuid.uuid4()),
+        "clientMessageId": str(uuid.uuid4()),
+    }
+    if images:
+        payload["images"] = list(images)
+    if file_items:
+        payload["files"] = file_items
+    if extra:
+        payload.update(extra)
+
+    post_result: dict[str, Any] = {}
+
+    def _post() -> None:
+        try:
+            resp = client.post("/api/ai/message", json_body=payload)
+            post_result["ack"] = unwrap(resp.json())
+        except Exception as exc:  # noqa: BLE001
+            post_result["error"] = exc
+
+    poster = threading.Thread(target=_post, daemon=True)
+    poster.start()
+
+    last_message: dict[str, Any] | None = None
+    try:
+        for event, data in _iter_sse(sse_resp):
+            if event == "heartbeat":
+                continue
+            if event not in ("message.partial", "message.add"):
+                continue
+            try:
+                obj = json.loads(data)
+            except (ValueError, TypeError):
+                continue
+            msg = obj.get("message") or {}
+            if callable(on_message):
+                try:
+                    on_message(event, msg)
+                except Exception:
+                    logger.exception("on_message callback failed")
+
+            mtype = msg.get("type")
+            partial = bool(msg.get("partial"))
+            if mtype == "say" and not partial:
+                last_message = msg
+                if event == "message.add" and msg.get("say") == "completion_result":
+                    break
+            elif mtype == "ask" and not partial:
+                if msg.get("ask") != "completion_result":
+                    last_message = msg
+                if stop_on_ask:
+                    break
+    finally:
+        try:
+            sse_resp.close()
+        except Exception:
+            pass
+
+    poster.join(timeout=10)
+    if "error" in post_result and "ack" not in post_result:
+        raise post_result["error"]
+
+    return {
+        "taskId": tid,
+        "connId": conn_id,
+        "lastMessage": last_message,
+        "ack": post_result.get("ack"),
+    }
+
+
 def get_task_data(
     task_id: str,
     credential_path: str | os.PathLike | None = None,
