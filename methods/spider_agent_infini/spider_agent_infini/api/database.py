@@ -62,7 +62,7 @@ def add_snowflake_database(
         sf = json.load(f)
 
     config = {
-        "snowflake_host": sf["account"],
+        "snowflake_host": sf["host"],
         "snowflake_username": sf["user"],
         "snowflake_password": sf["password"],
         "snowflake_database": snowflake_database or database_name,
@@ -101,7 +101,7 @@ def test_snowflake_connection(
         sf = json.load(f)
 
     config = {
-        "snowflake_host": sf["account"],
+        "snowflake_host": sf["host"],
         "snowflake_username": sf["user"],
         "snowflake_password": sf["password"],
         "snowflake_database": snowflake_database,
