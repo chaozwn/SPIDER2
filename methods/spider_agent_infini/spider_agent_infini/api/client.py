@@ -8,6 +8,7 @@ and payload.
 from __future__ import annotations
 
 import json
+import logging
 import os
 from pathlib import Path
 from typing import Any, Mapping
@@ -18,6 +19,8 @@ import requests
 from spider_agent_infini.spider_agent_setup_infini import INFINI_CREDENTIAL_PATH
 
 DEFAULT_TIMEOUT: float = 10.0
+
+logger = logging.getLogger("spider_agent_infini")
 
 
 def _load_credential(
@@ -66,18 +69,27 @@ class InfiniClient:
         *path_params: str,
         params: Mapping[str, Any] | None = None,
         json_body: Any = None,
+        data: Any = None,
+        files: Any = None,
         headers: Mapping[str, str] | None = None,
         timeout: float | None = None,
         raise_for_status: bool = True,
     ) -> requests.Response:
-        resp = requests.request(
-            method,
-            self._url(path, *path_params),
-            headers=self._headers(headers),
-            params=params,
-            json=json_body,
-            timeout=timeout if timeout is not None else self.timeout,
-        )
+        kwargs: dict[str, Any] = {
+            "headers": self._headers(headers),
+            "params": params,
+            "timeout": timeout if timeout is not None else self.timeout,
+        }
+        if files is not None:
+            # multipart/form-data: let requests build the boundary; don't pass json
+            kwargs["files"] = files
+            if data is not None:
+                kwargs["data"] = data
+        elif data is not None:
+            kwargs["data"] = data
+        else:
+            kwargs["json"] = json_body
+        resp = requests.request(method, self._url(path, *path_params), **kwargs)
         if raise_for_status and resp.status_code >= 400 and resp.status_code != 404:
             resp.raise_for_status()
         return resp

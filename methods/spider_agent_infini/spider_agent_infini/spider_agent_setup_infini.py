@@ -1,6 +1,9 @@
 import json
+import logging
 from datetime import datetime
 from pathlib import Path
+
+logger = logging.getLogger("spider_agent_infini")
 
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
 _REPO_ROOT = _PROJECT_ROOT.parent.parent
@@ -17,7 +20,7 @@ EXCLUDED_SCHEMAS = {"INFORMATION_SCHEMA", "PUBLIC"}
 
 def _log_failure(message: str) -> None:
     line = f"[{datetime.now().isoformat(timespec='seconds')}] {message}"
-    print(f"  [error] {message}")
+    logger.error(message)
     with open(FAILURE_LOG_PATH, "a", encoding="utf-8") as f:
         f.write(line + "\n")
 
@@ -84,10 +87,10 @@ def add_database_to_infini():
     )
 
     db_ids = _load_db_ids(JSONL_PATH)
-    print(f"Found {len(db_ids)} distinct db_id(s) in {JSONL_PATH}")
+    logger.info("Found %d distinct db_id(s) in %s", len(db_ids), JSONL_PATH)
 
     for db_id in db_ids:
-        print(f"\n=== Processing db_id={db_id} ===")
+        logger.info("=== Processing db_id=%s ===", db_id)
         try:
             schemas = _list_snowflake_schemas(db_id, SNOWFLAKE_CREDENTIAL_PATH)
         except Exception as e:
@@ -95,20 +98,20 @@ def add_database_to_infini():
             continue
 
         if not schemas:
-            print(f"  [skip] no usable schemas under {db_id}")
+            logger.info("[skip] no usable schemas under %s", db_id)
             continue
 
-        print(f"  schemas: {schemas}")
+        logger.info("  schemas: %s", schemas)
         for schema in schemas:
             database_name = schema
             description = f"This database is {db_id} and schema is {schema}"
 
             try:
                 if check_database_exists(database_name):
-                    print(f"  [delete] {database_name} already exists, deleting")
+                    logger.info("[delete] %s already exists, deleting", database_name)
                     delete_database(database_name)
 
-                print(f"  [create] {database_name} (schema={schema})")
+                logger.info("[create] %s (schema=%s)", database_name, schema)
                 add_snowflake_database(
                     database_name=database_name,
                     snowflake_credential_path=SNOWFLAKE_CREDENTIAL_PATH,
@@ -117,7 +120,7 @@ def add_database_to_infini():
                     description=description,
                 )
 
-                print(f"  [test  ] {database_name}")
+                logger.info("[test  ] %s", database_name)
                 test_result = test_snowflake_connection(
                     snowflake_credential_path=SNOWFLAKE_CREDENTIAL_PATH,
                     snowflake_database=db_id,
@@ -129,7 +132,7 @@ def add_database_to_infini():
                     raise RuntimeError(
                         f"connection test failed: {test_result}"
                     )
-                print(f"  [ok    ] {database_name}: {test_result}")
+                logger.info("[ok    ] %s: %s", database_name, test_result)
             except Exception as e:
                 _log_failure(
                     f"Failed to set up database {database_name!r} "
