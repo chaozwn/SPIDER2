@@ -222,24 +222,34 @@ def run_one(task: dict, mode: str) -> bool:
         logger.error("[fail ] %s: unzip failed: %s", instance_id, e)
         return False
 
-    # 6) Locate the deliverables anywhere within the extracted workspace and
-    # copy the one corresponding to the selected submission mode.
-    if mode == "csv":
-        name = f"{instance_id}.csv"
-        dst_dir = SUBMISSION_DIR_CSV
-    else:
-        name = f"{instance_id}.sql"
-        dst_dir = SUBMISSION_DIR_SQL
+    # 6) Locate the deliverables anywhere within the extracted workspace.
+    # The agent is prompted to produce BOTH `<id>.csv` and `<id>.sql`, so we
+    # always try to harvest both. `mode` only decides which one is REQUIRED
+    # for the run to count as successful.
+    deliverables = [
+        ("csv", f"{instance_id}.csv", SUBMISSION_DIR_CSV),
+        ("sql", f"{instance_id}.sql", SUBMISSION_DIR_SQL),
+    ]
 
-    src = _find_first(extract_dir, name)
-    if src is None:
-        logger.warning("[miss ] %s: %s not found in task workspace", instance_id, name)
+    saved: dict[str, Path] = {}
+    for kind, name, dst_dir in deliverables:
+        src = _find_first(extract_dir, name)
+        if src is None:
+            continue
+        dst_dir.mkdir(parents=True, exist_ok=True)
+        dst = dst_dir / name
+        shutil.copyfile(src, dst)
+        saved[kind] = dst
+        logger.info("[%s  ] %s: saved -> %s", kind, instance_id, dst)
+
+    if mode not in saved:
+        # The required deliverable for this --mode is missing.
+        required_name = f"{instance_id}.{mode}"
+        logger.warning(
+            "[miss ] %s: required deliverable %s not found in task workspace",
+            instance_id, required_name,
+        )
         return False
-
-    dst_dir.mkdir(parents=True, exist_ok=True)
-    dst = dst_dir / name
-    shutil.copyfile(src, dst)
-    logger.info("[%s  ] %s: saved -> %s", mode, instance_id, dst)
     return True
 
 

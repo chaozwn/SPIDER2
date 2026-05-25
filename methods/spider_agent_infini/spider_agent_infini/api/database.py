@@ -753,6 +753,42 @@ def get_task_data(
     return unwrap(resp.json())
 
 
+def _last_non_partial_message(messages: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """Return the last finalized (non-partial) message, if any."""
+    for m in reversed(messages or []):
+        if not isinstance(m, dict):
+            continue
+        if m.get("partial"):
+            continue
+        return m
+    return None
+
+
+def _is_terminal_message(msg: dict[str, Any] | None) -> bool:
+    """Detect a terminal "task is done" message from the slimmed message stream.
+
+    The server-side `keepRegisteredOnAskExit=true` path leaves the Infini
+    instance registered after `attempt_completion`, so `isRunning` stays True
+    and `taskInfo.status` stays "running" until the runtime is parked
+    (default 10min) or the user resumes the task. The authoritative signal in
+    that window is the message stream itself, mirroring how the web UI and
+    `new_task_and_wait` detect completion.
+    """
+    if not msg:
+        return False
+    mtype = msg.get("type")
+    if mtype == "say" and msg.get("say") == "completion_result":
+        return True
+    if mtype == "ask":
+        # Any finalized ask other than the user-driven resume prompts means the
+        # agent has handed control back: completion_result, followup,
+        # api_req_failed, mistake_limit_reached, plan_mode_response, etc.
+        ask = msg.get("ask")
+        if ask and ask not in ("resume_task", "resume_completed_task"):
+            return True
+    return False
+
+
 def wait_for_task(
     task_id: str,
     poll_interval: float = 3.0,
@@ -761,10 +797,19 @@ def wait_for_task(
     credential_path: str | os.PathLike | None = None,
     timeout: float = DEFAULT_TIMEOUT,
 ) -> dict[str, Any]:
-    """Poll a task until it is no longer running, or `max_wait` elapses.
+    """Poll a task until it has handed control back to the caller.
 
-    Considers a task finished when `isRunning` is False AND
-    ``taskInfo.status`` is one of ``completed``/``failed``/``cancelled``/``error``.
+    A task is considered finished when **any** of the following holds:
+
+    1. ``isRunning`` is False AND ``taskInfo.status`` is a terminal status
+       (``completed``/``failed``/``cancelled``/``error``); or
+    2. The last finalized (``partial=false``) message is a ``completion_result``
+       or any non-resume ``ask`` — i.e. the agent has produced its final
+       deliverable and is waiting for user input. This is required because the
+       server keeps the Infini instance registered after ``attempt_completion``
+       (``keepRegisteredOnAskExit=true``), so ``isRunning`` will remain True
+       and ``taskInfo.status`` will remain ``"running"`` even though the task
+       is, from the agent's perspective, done.
 
     Args:
         poll_interval: seconds between polls.
@@ -797,13 +842,13 @@ def wait_for_task(
             status = str(info.get("status") or "").lower()
         messages = data.get("messages") or []
 
-        # Mark "alive" once the task runtime is visible on the server, so we
-        # don't bail out on the initial race where newTask was just acked but
-        # the runtime hasn't registered yet (isRunning=False, status=None).
         if is_running or status or messages or info:
             seen_alive = True
 
         if seen_alive and not is_running and status in terminal_status:
+            return data
+
+        if seen_alive and _is_terminal_message(_last_non_partial_message(messages)):
             return data
 
         if time.time() - start > max_wait:
