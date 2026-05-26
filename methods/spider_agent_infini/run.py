@@ -56,8 +56,14 @@ logger.addHandler(sdebug_handler)
 
 
 _PROJECT_ROOT = Path(__file__).resolve().parent
-SUBMISSION_DIR_SQL = _PROJECT_ROOT / "spider_agent_infini" / "example_submission_folder"
-SUBMISSION_DIR_CSV = _PROJECT_ROOT / "spider_agent_infini" / "example_submission_folder_csv"
+# Repo layout: <repo>/methods/spider_agent_infini/run.py
+_REPO_ROOT = _PROJECT_ROOT.parent.parent
+_EVAL_SUITE_DIR = _REPO_ROOT / "spider2-snow" / "evaluation_suite"
+# Successful runs drop deliverables directly into the evaluation_suite so that
+# `python evaluate.py --result_dir example_submission_folder[_csv]` can be run
+# immediately afterwards without an extra copy step.
+SUBMISSION_DIR_SQL = _EVAL_SUITE_DIR / "example_submission_folder"
+SUBMISSION_DIR_CSV = _EVAL_SUITE_DIR / "example_submission_folder_csv"
 OUTPUT_DIR = _PROJECT_ROOT / "output"
 
 # Hard timeout for a single InfiniSynapse task run (seconds).
