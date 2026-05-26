@@ -15,7 +15,7 @@ INFINI_CREDENTIAL_PATH = str(_PROJECT_ROOT / "infini_credential.json")
 SNOWFLAKE_CREDENTIAL_PATH = str(_PROJECT_ROOT / "snowflake_credential.json")
 FAILURE_LOG_PATH = str(_PROJECT_ROOT / "setup_failures.log")
 
-EXCLUDED_SCHEMAS = {"INFORMATION_SCHEMA", "PUBLIC"}
+EXCLUDED_SCHEMAS = {"INFORMATION_SCHEMA"}
 
 
 def _log_failure(message: str) -> None:

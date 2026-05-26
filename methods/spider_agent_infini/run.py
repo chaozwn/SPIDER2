@@ -296,11 +296,13 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
             return False
 
     if not matching:
-        logger.warning(
-            "[warn ] %s: no InfiniSynapse data sources match db_id=%s; "
-            "did `add_database_to_infini` succeed for this db?",
+        logger.error(
+            "[fail ] %s: no InfiniSynapse data sources match db_id=%s; "
+            "skipping execution. Re-run `add_database_to_infini` (or check "
+            "whether the upstream Snowflake share is still available).",
             instance_id, db_id,
         )
+        return False
 
     enabled_names = [m.get("name") for m in matching if isinstance(m, dict)]
     logger.info("[src  ] %s: enabled %d source(s): %s",
