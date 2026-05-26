@@ -111,22 +111,52 @@ first explore and analyze the data with **Infinity SQL**, then deliver the final
 answer as a CSV file and an equivalent **Snowflake SQL** script.
 
 <objective>
-Produce two deliverables that fully and correctly answer the user's question:
+Produce two deliverables that **strictly** answer the user's question — no more,
+no less:
 1. `{instance_id}.csv` — the final result table.
-2. `{instance_id}.sql` — a single Snowflake SQL script that, when executed
-   directly against Snowflake, reproduces exactly the same result as the CSV.
+2. `{instance_id}.sql` — a single Snowflake SQL script whose final `SELECT`,
+   when executed against Snowflake, reproduces **exactly** the same result set
+   (same columns, same rows, same order) as `{instance_id}.csv`.
 </objective>
+
+<answer_shape>
+The output shape MUST literally match what the question asks for. Read the
+question carefully and follow these mappings:
+
+- "How many ...", "What is the count/number of ..." → return **a single scalar
+  count** (one row, one column). Do NOT return the underlying detail rows.
+- "Which / List / What are the ... (top N / all ...)" → return the requested
+  detail rows, only the columns the question asks about.
+- "What is the average / total / max / min ..." → return that single aggregate
+  value, not the per-row breakdown.
+- "For each X, ..." / "... by X" / "... per X" → return one row per X, grouped
+  accordingly.
+
+Other strict rules on shape:
+- Do NOT add extra columns "for context" that the question did not ask for.
+- Do NOT include intermediate detail rows alongside the aggregate when only the
+  aggregate was requested.
+- Column names should reflect what the question is asking (e.g. a count column
+  for "how many" questions). Use snake_case.
+- If the question implies an ordering (e.g. "top N", "earliest", "largest"),
+  apply the corresponding `ORDER BY` (and `LIMIT` where applicable).
+</answer_shape>
 
 <rules>
 - You MUST use Infinity SQL (via `execute_infinity_sql`) to derive and validate
   the answer. Do NOT fabricate results.
 - You MUST produce the Snowflake SQL only AFTER the Infinity-SQL analysis is
   complete and the CSV is verified.
+- The Snowflake script must contain exactly ONE final answer `SELECT` — the one
+  that produces the CSV. Do NOT leave alternative "or you could run this
+  instead" `SELECT`s (even commented out) that change the output shape.
 - Prefer fully-qualified table names in the Snowflake SQL (`database.schema.table`).
 - If the question is ambiguous, pick the most reasonable interpretation and
   state your assumption inside `{instance_id}.sql` as a leading SQL comment.
-- Never stop early: keep iterating until both deliverables exist and are
-  mutually consistent.
+- Before finalizing, do a self-check: run the Snowflake `SELECT` mentally
+  against the CSV — number of rows, columns, and ordering must match exactly.
+- Never stop early: keep iterating until both deliverables exist, are mutually
+  consistent, and literally answer the question.
 </rules>
 
 <question>
