@@ -5,7 +5,9 @@ import logging
 import os
 import shutil
 import sys
+import threading
 import zipfile
+from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
 from pathlib import Path
 
 from spider_agent_infini.api.database import (
@@ -39,7 +41,7 @@ stdout_handler.setLevel(logging.INFO)
 sdebug_handler.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter(
-    fmt="\x1b[1;33m[%(asctime)s \x1b[31m%(levelname)s \x1b[32m%(module)s/%(lineno)d-%(processName)s\x1b[1;33m] \x1b[0m%(message)s")
+    fmt="\x1b[1;33m[%(asctime)s \x1b[31m%(levelname)s \x1b[32m%(module)s/%(lineno)d-%(processName)s/%(threadName)s\x1b[1;33m] \x1b[0m%(message)s")
 file_handler.setFormatter(formatter)
 debug_handler.setFormatter(formatter)
 stdout_handler.setFormatter(formatter)
@@ -68,6 +70,15 @@ OUTPUT_DIR = _PROJECT_ROOT / "output"
 
 # Hard timeout for a single InfiniSynapse task run (seconds).
 TASK_MAX_WAIT = 1800.0
+
+# Serializes the InfiniSynapse "enable matching / disable others" HTTP
+# calls so concurrent workers don't issue overlapping toggles. Note this
+# only protects the HTTP traffic itself; it does NOT prevent cross-task
+# interference when workers target different `db_id`s — the server-side
+# enabled-set is global, so a later worker's toggle will overwrite an
+# earlier worker's. For best results, batch tasks that share a `db_id`
+# when running with `--workers > 1`.
+_TOGGLE_LOCK = threading.Lock()
 
 
 def config() -> argparse.Namespace:
@@ -106,7 +117,20 @@ def config() -> argparse.Namespace:
              "existing .sql/.csv submissions for the targeted instance(s) "
              "will be deleted before the run.",
     )
-    return parser.parse_args()
+    parser.add_argument(
+        "--workers",
+        "-j",
+        type=int,
+        default=1,
+        help="number of tasks to run concurrently (default: 1 = sequential). "
+             "Tasks are I/O-bound (HTTP + SSE), so threads parallelize well; "
+             "the data-source toggle + newTask submit step is serialized "
+             "internally to avoid clobbering server-side state.",
+    )
+    args = parser.parse_args()
+    if args.workers < 1:
+        parser.error(f"--workers must be >= 1 (got {args.workers})")
+    return args
 
 
 def _parse_range(spec: str, total: int) -> tuple[int, int]:
@@ -257,17 +281,19 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
 
     logger.info("=== Running %s (db_id=%s) ===", instance_id, db_id)
 
-    # 1) Toggle data sources: enable everything tied to this db_id, disable others
-    try:
-        matching = select_databases_by_snowflake_database(
-            snowflake_database=db_id,
-            enable_matching=True,
-            disable_others=True,
-        )
-    except Exception as e:
-        logger.error("[fail ] %s: failed to enable data sources for db_id=%s: %s",
-                     instance_id, db_id, e)
-        return False
+    # 1) Toggle data sources: enable everything tied to this db_id, disable
+    # others. Locked so concurrent workers don't interleave their toggles.
+    with _TOGGLE_LOCK:
+        try:
+            matching = select_databases_by_snowflake_database(
+                snowflake_database=db_id,
+                enable_matching=True,
+                disable_others=True,
+            )
+        except Exception as e:
+            logger.error("[fail ] %s: failed to enable data sources for db_id=%s: %s",
+                         instance_id, db_id, e)
+            return False
 
     if not matching:
         logger.warning(
@@ -397,20 +423,68 @@ def run():
     SUBMISSION_DIR_SQL.mkdir(parents=True, exist_ok=True)
 
     total = len(task_configs)
-    n_ok = 0
-    for idx, task in enumerate(task_configs, 1):
+    workers = min(args.workers, total) if total > 0 else 1
+
+    def _run_safely(idx: int, task: dict) -> tuple[int, str, bool]:
         instance_id = task.get("instance_id", f"<index-{idx}>")
-        logger.info("---- [%d/%d] %s ----", idx, total, instance_id)
+        logger.info("---- [%d/%d] %s start ----", idx, total, instance_id)
         try:
             ok = run_one(task, args.mode, rerun=args.rerun)
         except KeyboardInterrupt:
-            logger.warning("Interrupted by user during %s", instance_id)
             raise
         except Exception as e:
             logger.exception("[fail ] %s: unhandled exception: %s", instance_id, e)
             ok = False
-        n_ok += int(ok)
         logger.info("---- [%d/%d] %s done (ok=%s) ----", idx, total, instance_id, ok)
+        return idx, instance_id, ok
+
+    n_ok = 0
+    if workers <= 1:
+        for idx, task in enumerate(task_configs, 1):
+            try:
+                _, _, ok = _run_safely(idx, task)
+            except KeyboardInterrupt:
+                logger.warning("Interrupted by user")
+                raise
+            n_ok += int(ok)
+    else:
+        logger.info("Running %d task(s) with %d worker(s)", total, workers)
+        executor = ThreadPoolExecutor(
+            max_workers=workers, thread_name_prefix="task"
+        )
+        futures: dict[Future, tuple[int, str]] = {}
+        try:
+            for idx, task in enumerate(task_configs, 1):
+                instance_id = task.get("instance_id", f"<index-{idx}>")
+                fut = executor.submit(_run_safely, idx, task)
+                futures[fut] = (idx, instance_id)
+
+            pending = set(futures.keys())
+            while pending:
+                done, pending = wait(pending, return_when=FIRST_COMPLETED)
+                for fut in done:
+                    idx, instance_id = futures[fut]
+                    try:
+                        _, _, ok = fut.result()
+                    except Exception as e:
+                        logger.exception(
+                            "[fail ] %s: worker raised: %s", instance_id, e,
+                        )
+                        ok = False
+                    n_ok += int(ok)
+        except KeyboardInterrupt:
+            logger.warning(
+                "Interrupted by user; cancelling pending tasks "
+                "(in-flight tasks will keep running until they finish or "
+                "their next blocking I/O is interrupted)..."
+            )
+            for fut in futures:
+                if not fut.done():
+                    fut.cancel()
+            executor.shutdown(wait=False, cancel_futures=True)
+            raise
+        else:
+            executor.shutdown(wait=True)
 
     logger.info("All tasks finished: %d/%d succeeded", n_ok, total)
 
