@@ -88,7 +88,43 @@ def config() -> argparse.Namespace:
         default=None,
         help="if set, only run this single instance_id from the jsonl",
     )
+    parser.add_argument(
+        "--range",
+        dest="index_range",
+        type=str,
+        default=None,
+        help="run a 1-indexed inclusive range of lines from the jsonl, "
+             "formatted as 'start,end' (e.g. '1,2' runs lines 1-2, "
+             "'3,10' runs lines 3-10).",
+    )
     return parser.parse_args()
+
+
+def _parse_range(spec: str, total: int) -> tuple[int, int]:
+    """Parse a '<start>,<end>' 1-indexed inclusive range string."""
+    parts = [p.strip() for p in spec.split(",")]
+    if len(parts) != 2 or not all(parts):
+        raise ValueError(
+            f"--range must look like 'start,end' (got {spec!r})"
+        )
+    try:
+        start, end = int(parts[0]), int(parts[1])
+    except ValueError as e:
+        raise ValueError(
+            f"--range bounds must be integers (got {spec!r})"
+        ) from e
+    if start < 1 or end < 1:
+        raise ValueError(f"--range bounds must be >= 1 (got {spec!r})")
+    if start > end:
+        raise ValueError(
+            f"--range start must be <= end (got start={start}, end={end})"
+        )
+    if start > total:
+        raise ValueError(
+            f"--range start ({start}) is past the end of the jsonl ({total} lines)"
+        )
+    end = min(end, total)
+    return start, end
 
 
 def _is_done(instance_id: str, mode: str) -> bool:
@@ -296,6 +332,10 @@ def run():
     with open(JSONL_PATH, "r", encoding="utf-8") as f:
         task_configs = [json.loads(line) for line in f if line.strip()]
 
+    if args.instance_id and args.index_range:
+        logger.error("--instance_id and --range are mutually exclusive")
+        return
+
     if args.instance_id:
         task_configs = [
             t for t in task_configs if t.get("instance_id") == args.instance_id
@@ -304,6 +344,16 @@ def run():
             logger.error("instance_id %r not found in %s",
                          args.instance_id, JSONL_PATH)
             return
+    elif args.index_range:
+        try:
+            start, end = _parse_range(args.index_range, len(task_configs))
+        except ValueError as e:
+            logger.error("%s", e)
+            return
+        # 1-indexed inclusive -> 0-indexed slice
+        task_configs = task_configs[start - 1:end]
+        logger.info("Running jsonl lines %d-%d (%d task(s))",
+                    start, end, len(task_configs))
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     SUBMISSION_DIR_CSV.mkdir(parents=True, exist_ok=True)
