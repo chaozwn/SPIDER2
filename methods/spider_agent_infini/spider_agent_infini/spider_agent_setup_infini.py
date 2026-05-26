@@ -73,8 +73,13 @@ def add_database_to_infini():
     """For each db_id in the spider2-snow JSONL, register all non-system
     schemas as separate InfiniSynapse databases.
 
-    - Database name: `${db_id}` when only one schema remains, else
-      `${db_id}_${schema_name}`.
+    - Database name: ``${db_id}_${schema_name}``. We always namespace by
+      ``db_id`` because InfiniSynapse's database ``name`` is a global unique
+      key, and Snowflake schemas frequently collide across databases (e.g.
+      both ``PATENTS`` and ``PATENTS_USPTO`` have a schema named ``PATENTS``).
+      Using just the schema name caused the later db_id to delete-and-replace
+      the earlier one, which silently broke
+      ``select_databases_by_snowflake_database`` for the loser.
     - Description: `This database is ${db_id} and schema is ${schema_name}`.
     - If the InfiniSynapse database already exists, it is deleted first and
       re-created. Connection is then tested; any failure aborts the run.
@@ -103,7 +108,7 @@ def add_database_to_infini():
 
         logger.info("  schemas: %s", schemas)
         for schema in schemas:
-            database_name = schema
+            database_name = f"{db_id}_{schema}"
             description = f"This database is {db_id} and schema is {schema}"
 
             try:

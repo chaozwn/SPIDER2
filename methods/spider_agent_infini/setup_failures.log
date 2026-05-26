@@ -2,3 +2,7 @@
 Shared database is no longer available for use. It will need to be re-created if and when the publisher makes it available again.
 [2026-05-25T17:43:32] Failed to list schemas for db_id='NETHERLANDS_OPEN_MAP_DATA': 003030 (02000): SQL compilation error:
 Shared database is no longer available for use. It will need to be re-created if and when the publisher makes it available again.
+[2026-05-26T18:07:46] Failed to list schemas for db_id='AMAZON_VENDOR_ANALYTICS__SAMPLE_DATASET': 003030 (02000): SQL compilation error:
+Shared database is no longer available for use. It will need to be re-created if and when the publisher makes it available again.
+[2026-05-26T18:07:52] Failed to list schemas for db_id='NETHERLANDS_OPEN_MAP_DATA': 003030 (02000): SQL compilation error:
+Shared database is no longer available for use. It will need to be re-created if and when the publisher makes it available again.
