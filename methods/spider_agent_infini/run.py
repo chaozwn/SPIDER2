@@ -97,6 +97,15 @@ def config() -> argparse.Namespace:
              "formatted as 'start,end' (e.g. '1,2' runs lines 1-2, "
              "'3,10' runs lines 3-10).",
     )
+    parser.add_argument(
+        "--rerun",
+        "--force",
+        dest="rerun",
+        action="store_true",
+        help="force re-run even if the submission already exists; "
+             "existing .sql/.csv submissions for the targeted instance(s) "
+             "will be deleted before the run.",
+    )
     return parser.parse_args()
 
 
@@ -131,6 +140,26 @@ def _is_done(instance_id: str, mode: str) -> bool:
     if mode == "csv":
         return (SUBMISSION_DIR_CSV / f"{instance_id}.csv").exists()
     return (SUBMISSION_DIR_SQL / f"{instance_id}.sql").exists()
+
+
+def _clear_submissions(instance_id: str) -> list[Path]:
+    """Remove any existing .sql/.csv submission files for this instance.
+
+    Returns the list of paths that were actually deleted (useful for logging).
+    """
+    removed: list[Path] = []
+    for path in (
+        SUBMISSION_DIR_CSV / f"{instance_id}.csv",
+        SUBMISSION_DIR_SQL / f"{instance_id}.sql",
+    ):
+        if path.exists():
+            try:
+                path.unlink()
+                removed.append(path)
+            except OSError as e:
+                logger.warning("[warn ] %s: failed to delete %s: %s",
+                               instance_id, path, e)
+    return removed
 
 
 def _extract_zip(zip_path: str | os.PathLike, dest: Path) -> None:
@@ -207,7 +236,7 @@ Other strict rules on shape:
 """
 
 
-def run_one(task: dict, mode: str) -> bool:
+def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
     """Run a single benchmark example end-to-end. Returns True on success."""
     instance_id = task["instance_id"]
     instruction = task["instruction"]
@@ -215,8 +244,16 @@ def run_one(task: dict, mode: str) -> bool:
     external_knowledge = task.get("external_knowledge")
 
     if _is_done(instance_id, mode):
-        logger.info("[skip ] %s already has a .%s submission", instance_id, mode)
-        return True
+        if rerun:
+            removed = _clear_submissions(instance_id)
+            if removed:
+                logger.info(
+                    "[rerun] %s: removed %d existing submission(s): %s",
+                    instance_id, len(removed), [str(p) for p in removed],
+                )
+        else:
+            logger.info("[skip ] %s already has a .%s submission", instance_id, mode)
+            return True
 
     logger.info("=== Running %s (db_id=%s) ===", instance_id, db_id)
 
@@ -365,7 +402,7 @@ def run():
         instance_id = task.get("instance_id", f"<index-{idx}>")
         logger.info("---- [%d/%d] %s ----", idx, total, instance_id)
         try:
-            ok = run_one(task, args.mode)
+            ok = run_one(task, args.mode, rerun=args.rerun)
         except KeyboardInterrupt:
             logger.warning("Interrupted by user during %s", instance_id)
             raise

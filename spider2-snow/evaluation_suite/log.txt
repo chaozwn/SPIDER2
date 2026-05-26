@@ -1,5 +1,5 @@
-Evaluating Exec Results:   0%|          | 0/2 [00:00<?, ?it/s]Evaluating Exec Results: 100%|##########| 2/2 [00:00<00:00, 511.53it/s]
-{'sf_bq011': 1, 'sf_bq010': 1}
-Final score: 1.0, Correct examples: 2, Total examples: 2
-Real score: 0.003656307129798903, Correct examples: 2, Total examples: 547
+Evaluating Exec Results:   0%|          | 0/10 [00:00<?, ?it/s]Evaluating Exec Results:  20%|##        | 2/10 [00:00<00:00, 19.85it/s]Evaluating Exec Results: 100%|##########| 10/10 [00:00<00:00, 88.81it/s]
+{'sf_bq269': 1, 'sf_bq008': 0, 'sf_bq011': 1, 'sf_bq010': 1, 'sf_bq002': 1, 'sf_bq268': 1, 'sf_bq003': 0, 'sf_bq001': 1, 'sf_bq009': 0, 'sf_bq004': 1}
+Final score: 0.7, Correct examples: 7, Total examples: 10
+Real score: 0.012797074954296161, Correct examples: 7, Total examples: 547
 Correct IDs saved to: example_submission_folder_csv.csv
