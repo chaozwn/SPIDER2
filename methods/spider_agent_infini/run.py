@@ -88,10 +88,11 @@ def config() -> argparse.Namespace:
     parser.add_argument(
         "--mode",
         type=str,
-        choices=["sql", "csv"],
+        choices=["sql", "csv", "both"],
         default="csv",
         help="submission mode: 'sql' to submit a .sql file, "
-             "'csv' to submit a .csv result file",
+             "'csv' to submit a .csv result file, "
+             "'both' to require both .sql and .csv deliverables",
     )
     parser.add_argument(
         "--instance_id",
@@ -160,10 +161,19 @@ def _parse_range(spec: str, total: int) -> tuple[int, int]:
     return start, end
 
 
+def _required_kinds(mode: str) -> tuple[str, ...]:
+    """Return the deliverable kinds required by the given submission mode."""
+    if mode == "both":
+        return ("csv", "sql")
+    return (mode,)
+
+
 def _is_done(instance_id: str, mode: str) -> bool:
-    if mode == "csv":
-        return (SUBMISSION_DIR_CSV / f"{instance_id}.csv").exists()
-    return (SUBMISSION_DIR_SQL / f"{instance_id}.sql").exists()
+    checks = {
+        "csv": SUBMISSION_DIR_CSV / f"{instance_id}.csv",
+        "sql": SUBMISSION_DIR_SQL / f"{instance_id}.sql",
+    }
+    return all(checks[kind].exists() for kind in _required_kinds(mode))
 
 
 def _clear_submissions(instance_id: str) -> list[Path]:
@@ -199,22 +209,7 @@ def _find_first(root: Path, name: str) -> Path | None:
     return None
 
 
-def _build_prompt(instance_id: str, instruction: str) -> str:
-    return f"""
-You are a Data Analysis Agent. Solve the following business question end-to-end:
-first explore and analyze the data with **Infinity SQL**, then deliver the final
-answer as a CSV file and an equivalent **Snowflake SQL** script.
-
-<objective>
-Produce two deliverables that **strictly** answer the user's question — no more,
-no less:
-1. `{instance_id}.csv` — the final result table.
-2. `{instance_id}.sql` — a single Snowflake SQL script whose final `SELECT`,
-   when executed against Snowflake, reproduces **exactly** the same result set
-   (same columns, same rows, same order) as `{instance_id}.csv`.
-</objective>
-
-<answer_shape>
+_ANSWER_SHAPE_SECTION = """<answer_shape>
 The output shape MUST literally match what the question asks for. Read the
 question carefully and follow these mappings:
 
@@ -235,24 +230,143 @@ Other strict rules on shape:
   for "how many" questions). Use snake_case.
 - If the question implies an ordering (e.g. "top N", "earliest", "largest"),
   apply the corresponding `ORDER BY` (and `LIMIT` where applicable).
-</answer_shape>
+</answer_shape>"""
 
-<rules>
-- You MUST use Infinity SQL (via `execute_infinity_sql`) to derive and validate
-  the answer. Do NOT fabricate results.
-- You MUST produce the Snowflake SQL only AFTER the Infinity-SQL analysis is
-  complete and the CSV is verified.
-- The Snowflake script must contain exactly ONE final answer `SELECT` — the one
-  that produces the CSV. Do NOT leave alternative "or you could run this
-  instead" `SELECT`s (even commented out) that change the output shape.
-- Prefer fully-qualified table names in the Snowflake SQL (`database.schema.table`).
-- If the question is ambiguous, pick the most reasonable interpretation and
-  state your assumption inside `{instance_id}.sql` as a leading SQL comment.
-- Before finalizing, do a self-check: run the Snowflake `SELECT` mentally
-  against the CSV — number of rows, columns, and ordering must match exactly.
-- Never stop early: keep iterating until both deliverables exist, are mutually
-  consistent, and literally answer the question.
-</rules>
+
+def _build_prompt(instance_id: str, instruction: str, mode: str) -> str:
+    needs_csv = mode in ("csv", "both")
+    needs_sql = mode in ("sql", "both")
+
+    if mode == "both":
+        intro = (
+            "You are a Data Analysis Agent. Solve the following business "
+            "question end-to-end: first explore and analyze the data with "
+            "**Infinity SQL**, then deliver the final answer as a CSV file "
+            "and an equivalent **Snowflake SQL** script."
+        )
+    elif mode == "csv":
+        intro = (
+            "You are a Data Analysis Agent. Solve the following business "
+            "question end-to-end: explore and analyze the data with "
+            "**Infinity SQL**, then deliver the final answer as a CSV file."
+        )
+    else:  # sql
+        intro = (
+            "You are a Data Analysis Agent. Solve the following business "
+            "question end-to-end: first explore and analyze the data with "
+            "**Infinity SQL** to determine the correct answer, then deliver "
+            "the final answer as a **Snowflake SQL** script that reproduces "
+            "it."
+        )
+
+    objective_items: list[str] = []
+    if needs_csv:
+        objective_items.append(f"`{instance_id}.csv` — the final result table.")
+    if needs_sql:
+        if needs_csv:
+            objective_items.append(
+                f"`{instance_id}.sql` — a single Snowflake SQL script whose "
+                f"final `SELECT`, when executed against Snowflake, reproduces "
+                f"**exactly** the same result set (same columns, same rows, "
+                f"same order) as `{instance_id}.csv`."
+            )
+        else:
+            objective_items.append(
+                f"`{instance_id}.sql` — a single Snowflake SQL script whose "
+                f"final `SELECT`, when executed against Snowflake, returns "
+                f"**exactly** the result that answers the question (same "
+                f"columns, same rows, same order)."
+            )
+    if len(objective_items) == 1:
+        deliverable_lead = "one deliverable that **strictly** answers"
+    else:
+        deliverable_lead = "two deliverables that **strictly** answer"
+    objective_body = "\n".join(
+        f"{i}. {item}" for i, item in enumerate(objective_items, 1)
+    )
+    objective = (
+        "<objective>\n"
+        f"Produce {deliverable_lead} the user's question — no more, no less:\n"
+        f"{objective_body}\n"
+        "</objective>"
+    )
+
+    rule_lines: list[str] = [
+        "You MUST use Infinity SQL (via `execute_infinity_sql`) to derive and "
+        "validate the answer. Do NOT fabricate results.",
+    ]
+    if needs_sql and needs_csv:
+        rule_lines.append(
+            "You MUST produce the Snowflake SQL only AFTER the Infinity-SQL "
+            "analysis is complete and the CSV is verified."
+        )
+        rule_lines.append(
+            "The Snowflake script must contain exactly ONE final answer "
+            "`SELECT` — the one that produces the CSV. Do NOT leave "
+            "alternative \"or you could run this instead\" `SELECT`s (even "
+            "commented out) that change the output shape."
+        )
+    elif needs_sql:
+        rule_lines.append(
+            "You MUST produce the Snowflake SQL only AFTER the Infinity-SQL "
+            "analysis has confirmed the correct answer."
+        )
+        rule_lines.append(
+            "The Snowflake script must contain exactly ONE final answer "
+            "`SELECT` — the one that returns the answer. Do NOT leave "
+            "alternative \"or you could run this instead\" `SELECT`s (even "
+            "commented out) that change the output shape."
+        )
+    if needs_sql:
+        rule_lines.append(
+            "Prefer fully-qualified table names in the Snowflake SQL "
+            "(`database.schema.table`)."
+        )
+        rule_lines.append(
+            "If the question is ambiguous, pick the most reasonable "
+            "interpretation and state your assumption inside "
+            f"`{instance_id}.sql` as a leading SQL comment."
+        )
+    else:
+        rule_lines.append(
+            "If the question is ambiguous, pick the most reasonable "
+            "interpretation and clearly state your assumption in your final "
+            "message (keep the CSV itself pure data — no comment rows)."
+        )
+    if needs_sql and needs_csv:
+        rule_lines.append(
+            "Before finalizing, do a self-check: run the Snowflake `SELECT` "
+            "mentally against the CSV — number of rows, columns, and "
+            "ordering must match exactly."
+        )
+        completion_clause = (
+            "both deliverables exist, are mutually consistent, and literally "
+            "answer the question"
+        )
+    elif needs_sql:
+        completion_clause = (
+            f"`{instance_id}.sql` exists and its final `SELECT` literally "
+            "answers the question"
+        )
+    else:
+        completion_clause = (
+            f"`{instance_id}.csv` exists and literally answers the question"
+        )
+    rule_lines.append(
+        f"Never stop early: keep iterating until {completion_clause}."
+    )
+    rules_section = (
+        "<rules>\n" + "\n".join(f"- {r}" for r in rule_lines) + "\n</rules>"
+    )
+
+    return f"""
+{intro}
+
+{objective}
+
+{_ANSWER_SHAPE_SECTION}
+
+{rules_section}
 
 <question>
 {instruction}
@@ -276,7 +390,8 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
                     instance_id, len(removed), [str(p) for p in removed],
                 )
         else:
-            logger.info("[skip ] %s already has a .%s submission", instance_id, mode)
+            kinds = ", ".join(f".{k}" for k in _required_kinds(mode))
+            logger.info("[skip ] %s already has %s submission(s)", instance_id, kinds)
             return True
 
     logger.info("=== Running %s (db_id=%s) ===", instance_id, db_id)
@@ -319,7 +434,7 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
                            instance_id, doc_path)
 
     # 3) Submit the new task and stream events until completion
-    prompt = _build_prompt(instance_id, instruction)
+    prompt = _build_prompt(instance_id, instruction, mode)
     try:
         result = new_task_and_wait(
             text=prompt,
@@ -360,9 +475,10 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
         return False
 
     # 6) Locate the deliverables anywhere within the extracted workspace.
-    # The agent is prompted to produce BOTH `<id>.csv` and `<id>.sql`, so we
-    # always try to harvest both. `mode` only decides which one is REQUIRED
-    # for the run to count as successful.
+    # We always try to harvest both `<id>.csv` and `<id>.sql` if present —
+    # the agent may volunteer a side product even in single-mode runs.
+    # `mode` decides which one(s) are REQUIRED for the run to count as
+    # successful (see `_required_kinds`).
     deliverables = [
         ("csv", f"{instance_id}.csv", SUBMISSION_DIR_CSV),
         ("sql", f"{instance_id}.sql", SUBMISSION_DIR_SQL),
@@ -379,12 +495,12 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
         saved[kind] = dst
         logger.info("[%s  ] %s: saved -> %s", kind, instance_id, dst)
 
-    if mode not in saved:
-        # The required deliverable for this --mode is missing.
-        required_name = f"{instance_id}.{mode}"
+    missing = [kind for kind in _required_kinds(mode) if kind not in saved]
+    if missing:
+        required_names = [f"{instance_id}.{kind}" for kind in missing]
         logger.warning(
-            "[miss ] %s: required deliverable %s not found in task workspace",
-            instance_id, required_name,
+            "[miss ] %s: required deliverable(s) %s not found in task workspace",
+            instance_id, required_names,
         )
         return False
     return True
