@@ -11,6 +11,25 @@ from spider_agent_infini.api.client import DEFAULT_TIMEOUT, InfiniClient, unwrap
 logger = logging.getLogger("spider_agent_infini")
 
 
+def normalize_database_name(name: str) -> str:
+    """Normalize a string for use as an InfiniSynapse data source ``name``.
+
+    InfiniSynapse currently rejects ``-`` in registered database names, and we
+    also lowercase to keep lookups deterministic across casing variants
+    (``Db-IMDB`` and ``db_imdb`` would otherwise be treated as different
+    sources). Both the setup pipeline and the runtime selectors call through
+    this helper so writes and reads stay in lock-step — never compute the
+    server-side name by hand.
+
+    Examples:
+        ``"Db-IMDB"        → "db_imdb"``
+        ``"E_commerce"     → "e_commerce"``
+        ``"sqlite-sakila"  → "sqlite_sakila"``
+        ``"GA4_PATENTS"    → "ga4_patents"``
+    """
+    return name.lower().replace("-", "_")
+
+
 def check_database_exists(
     database_name: str,
     credential_path: str | os.PathLike | None = None,
@@ -20,7 +39,13 @@ def check_database_exists(
 
     Calls `GET /api/ai_database/getDatabaseByName/{name}` with Bearer auth.
     Returns True iff the API responds 200 and the payload references the name.
+
+    The ``database_name`` is auto-normalized via :func:`normalize_database_name`
+    before being sent to the server, so callers can pass either the raw
+    ``db_id`` (e.g. ``"Db-IMDB"``) or the already-normalized name
+    (``"db_imdb"``) and get the same answer.
     """
+    database_name = normalize_database_name(database_name)
     client = InfiniClient(credential_path=credential_path, timeout=timeout)
     resp = client.get(
         "/api/ai_database/getDatabaseByName",
@@ -43,6 +68,164 @@ def check_database_exists(
     if isinstance(data, dict):
         return bool(data.get("name") or data.get("id"))
     return True
+
+
+def create_upload_directory(
+    directory_name: str,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any]:
+    """Create a single-level upload directory under the user's upload root.
+
+    Calls ``POST /api/tools/createDirectory`` with ``{directoryName}``.
+    Returns the unwrapped payload (typically ``{directoryPath, message}``).
+
+    The server allows only single-level directory names (no path separators)
+    matching ``[\\w\\u4E00-\\u9FA5-]+``. Directories prefixed with
+    ``sqlite_tmp_`` are recognized by the server as transient SQLite upload
+    staging areas and are excluded from normal directory listings; the
+    server moves uploaded files out of them when the SQLite data source is
+    finalized via ``POST /api/ai_database/add``.
+    """
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    resp = client.post(
+        "/api/tools/createDirectory",
+        json_body={"directoryName": directory_name},
+        raise_for_status=False,
+    )
+    if resp.status_code == 400 and "already exists" in resp.text.lower():
+        return {"directoryPath": directory_name, "message": "already exists"}
+    if resp.status_code >= 400:
+        resp.raise_for_status()
+    return unwrap(resp.json())
+
+
+def upload_file_to_directory(
+    directory: str,
+    file_path: str | os.PathLike,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = 600.0,
+) -> str:
+    """Upload a local file under a user-upload directory.
+
+    Calls ``POST /api/tools/upload/{directory}`` with ``multipart/form-data``.
+    Returns the absolute server-side path of the saved file (the ``filename``
+    field of the response), which can be passed straight into a SQLite data
+    source ``config.sqlite_path``.
+    """
+    fp = Path(file_path)
+    if not fp.is_file():
+        raise FileNotFoundError(f"upload file not found: {fp}")
+
+    mime, _ = mimetypes.guess_type(fp.name)
+    mime = mime or "application/octet-stream"
+
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    with open(fp, "rb") as fh:
+        files = {"file": (fp.name, fh, mime)}
+        resp = client.post("/api/tools/upload", directory, files=files)
+    payload = unwrap(resp.json())
+    if not isinstance(payload, dict) or not payload.get("filename"):
+        raise RuntimeError(
+            f"upload to {directory!r} returned unexpected payload: {payload!r}"
+        )
+    return str(payload["filename"])
+
+
+def add_sqlite_database(
+    database_name: str,
+    sqlite_path: str,
+    nickname: str | None = None,
+    description: str | None = None,
+    enabled: int = 1,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any]:
+    """Register a SQLite data source in InfiniSynapse.
+
+    POSTs to ``/api/ai_database/add`` with ``type='sqlite'``. The ``config``
+    field is a JSON-encoded string carrying ``{"sqlite_path": <abs path>}``,
+    where ``sqlite_path`` MUST point to a SQLite file under the current
+    user's upload root inside a ``sqlite_tmp_*`` staging directory. The
+    InfiniSynapse server validates the SQLite header (``SQLite format 3\\0``)
+    and atomically moves the file into its permanent location
+    (``<upload_root>/sqlite/<databaseId>/database.sqlite``) before persisting
+    the data source.
+    """
+    config = {"sqlite_path": sqlite_path}
+    payload: dict[str, Any] = {
+        "name": database_name,
+        "nickname": nickname or database_name,
+        "description": description if description is not None else database_name,
+        "type": "sqlite",
+        "enabled": enabled,
+        "config": json.dumps(config, ensure_ascii=False),
+    }
+
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    resp = client.post("/api/ai_database/add", json_body=payload)
+    return unwrap(resp.json())
+
+
+def select_databases_by_sqlite_db_id(
+    db_id: str,
+    enable_matching: bool = True,
+    disable_others: bool = True,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> list[dict[str, Any]]:
+    """Select SQLite data sources whose ``name`` matches the given ``db_id``.
+
+    Mirrors :func:`select_databases_by_snowflake_database`, but for SQLite.
+    Each spider2-lite ``db_id`` (e.g. ``E_commerce``, ``Baseball``) maps to
+    exactly one SQLite file, so we identify the source by its registered
+    ``name`` (set to ``db_id`` at setup time).
+
+    When ``enable_matching`` is True the matching SQLite source is enabled;
+    when ``disable_others`` is True every other SQLite source is disabled.
+    Snowflake / other-type sources are NOT touched here — orchestrate cross-
+    type isolation in the caller if needed.
+    """
+    items = list_databases(
+        type="sqlite",
+        credential_path=credential_path,
+        timeout=timeout,
+    )
+
+    # Normalize on lookup so the caller can pass the raw db_id from the
+    # spider2-lite jsonl (e.g. ``Db-IMDB``) and we still match the registered
+    # source whose ``name`` was normalized at setup time (``db_imdb``).
+    target_name = normalize_database_name(db_id)
+
+    matching: list[dict[str, Any]] = []
+    others: list[dict[str, Any]] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        if normalize_database_name(str(item.get("name") or "")) == target_name:
+            matching.append(item)
+        else:
+            others.append(item)
+
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+
+    if enable_matching:
+        ids = [it["id"] for it in matching if it.get("id")]
+        if ids:
+            client.post(
+                "/api/ai_database/enabled",
+                json_body={"ids": ids, "enabled": 1},
+            )
+
+    if disable_others:
+        ids = [it["id"] for it in others if it.get("id")]
+        if ids:
+            client.post(
+                "/api/ai_database/enabled",
+                json_body={"ids": ids, "enabled": 0},
+            )
+
+    return matching
 
 
 def add_snowflake_database(
@@ -133,7 +316,12 @@ def delete_database(
     Looks up the database id via `GET /api/ai_database/getDatabaseByName/{name}`
     and then calls `POST /api/ai_database/delete` with `{"ids": [<id>]}`.
     Returns the unwrapped response payload, or None if the database does not exist.
+
+    The ``database_name`` is auto-normalized via :func:`normalize_database_name`
+    before being sent, so callers can pass either the raw ``db_id`` or the
+    normalized name interchangeably.
     """
+    database_name = normalize_database_name(database_name)
     client = InfiniClient(credential_path=credential_path, timeout=timeout)
     resp = client.get(
         "/api/ai_database/getDatabaseByName",
@@ -608,7 +796,7 @@ def new_task_and_wait(
     on_message: Any = None,
     stop_on_ask: bool = True,
     sse_connect_timeout: float = 15.0,
-    sse_read_timeout: float | None = None,
+    sse_read_timeout: float | None = 60.0,
     credential_path: str | os.PathLike | None = None,
     timeout: float = 300.0,
     extra: dict[str, Any] | None = None,
@@ -719,6 +907,12 @@ def new_task_and_wait(
                     last_message = msg
                 if stop_on_ask:
                     break
+    except (_requests.exceptions.ReadTimeout, _requests.exceptions.ConnectionError) as exc:
+        logger.info(
+            "SSE stream for task %s ended or timed out; falling back to polling: %s",
+            tid,
+            exc,
+        )
     finally:
         try:
             sse_resp.close()
@@ -764,7 +958,11 @@ def _last_non_partial_message(messages: list[dict[str, Any]]) -> dict[str, Any] 
     return None
 
 
-def _is_terminal_message(msg: dict[str, Any] | None) -> bool:
+def _is_terminal_message(
+    msg: dict[str, Any] | None,
+    *,
+    terminal_on_any_ask: bool = True,
+) -> bool:
     """Detect a terminal "task is done" message from the slimmed message stream.
 
     The server-side `keepRegisteredOnAskExit=true` path leaves the Infini
@@ -780,10 +978,14 @@ def _is_terminal_message(msg: dict[str, Any] | None) -> bool:
     if mtype == "say" and msg.get("say") == "completion_result":
         return True
     if mtype == "ask":
+        ask = msg.get("ask")
+        if ask == "completion_result":
+            return True
+        if not terminal_on_any_ask:
+            return False
         # Any finalized ask other than the user-driven resume prompts means the
         # agent has handed control back: completion_result, followup,
         # api_req_failed, mistake_limit_reached, plan_mode_response, etc.
-        ask = msg.get("ask")
         if ask and ask not in ("resume_task", "resume_completed_task"):
             return True
     return False
@@ -794,6 +996,7 @@ def wait_for_task(
     poll_interval: float = 3.0,
     max_wait: float = 1800.0,
     on_progress: Any = None,
+    terminal_on_any_ask: bool = True,
     credential_path: str | os.PathLike | None = None,
     timeout: float = DEFAULT_TIMEOUT,
 ) -> dict[str, Any]:
@@ -801,7 +1004,7 @@ def wait_for_task(
 
     A task is considered finished when **any** of the following holds:
 
-    1. ``isRunning`` is False AND ``taskInfo.status`` is a terminal status
+    1. ``taskInfo.status`` is a terminal status
        (``completed``/``failed``/``cancelled``/``error``); or
     2. The last finalized (``partial=false``) message is a ``completion_result``
        or any non-resume ``ask`` — i.e. the agent has produced its final
@@ -816,6 +1019,9 @@ def wait_for_task(
         max_wait: hard timeout in seconds; raises ``TimeoutError`` when exceeded.
         on_progress: optional callable ``fn(data) -> None`` invoked on every
             poll for custom logging / streaming the latest message count.
+        terminal_on_any_ask: when True, any finalized non-resume ``ask`` is
+            treated as terminal. Benchmark runners pass False so transient
+            tool-error / retry prompts do not cause an early workspace download.
 
     Returns:
         The final ``get_task_data`` payload.
@@ -845,10 +1051,13 @@ def wait_for_task(
         if is_running or status or messages or info:
             seen_alive = True
 
-        if seen_alive and not is_running and status in terminal_status:
+        if seen_alive and status in terminal_status:
             return data
 
-        if seen_alive and _is_terminal_message(_last_non_partial_message(messages)):
+        if seen_alive and _is_terminal_message(
+            _last_non_partial_message(messages),
+            terminal_on_any_ask=terminal_on_any_ask,
+        ):
             return data
 
         if time.time() - start > max_wait:

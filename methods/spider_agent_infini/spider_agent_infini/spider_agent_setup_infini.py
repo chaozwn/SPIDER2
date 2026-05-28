@@ -1,5 +1,7 @@
+import argparse
 import json
 import logging
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -14,6 +16,15 @@ DOCUMENT_PATH = str(_REPO_ROOT / "spider2-snow" / "resource" / "documents")
 INFINI_CREDENTIAL_PATH = str(_PROJECT_ROOT / "infini_credential.json")
 SNOWFLAKE_CREDENTIAL_PATH = str(_PROJECT_ROOT / "snowflake_credential.json")
 FAILURE_LOG_PATH = str(_PROJECT_ROOT / "setup_failures.log")
+
+# spider2-lite (SQLite) layout — used by `add_sqlite_database_to_infini` and
+# the `run_lite.py` runner. Each `local*` instance maps to a `db_id` whose
+# corresponding `<db_id>.sqlite` file lives in the spider2-localdb resource
+# folder. The mapping itself is mirrored in `local-map.jsonl`.
+LITE_JSONL_PATH = str(_REPO_ROOT / "spider2-lite" / "spider2-lite.jsonl")
+LITE_DOCUMENT_PATH = str(_REPO_ROOT / "spider2-lite" / "resource" / "documents")
+SQLITE_DATABASE_DIR = _REPO_ROOT / "spider2-lite" / "resource" / "databases" / "spider2-localdb"
+LOCAL_MAP_PATH = str(SQLITE_DATABASE_DIR / "local-map.jsonl")
 
 EXCLUDED_SCHEMAS = {"INFORMATION_SCHEMA"}
 
@@ -88,6 +99,7 @@ def add_database_to_infini():
         add_snowflake_database,
         check_database_exists,
         delete_database,
+        normalize_database_name,
         test_snowflake_connection,
     )
 
@@ -108,7 +120,12 @@ def add_database_to_infini():
 
         logger.info("  schemas: %s", schemas)
         for schema in schemas:
-            database_name = f"{db_id}_{schema}"
+            # InfiniSynapse rejects `-` in the data source `name`, and we
+            # lowercase to keep lookups deterministic across casing variants.
+            # The raw `db_id` / `schema` are still threaded into the SQL
+            # config via `snowflake_database` / `snowflake_schema` below, so
+            # the actual Snowflake query path is unaffected.
+            database_name = normalize_database_name(f"{db_id}_{schema}")
             description = f"This database is {db_id} and schema is {schema}"
 
             try:
@@ -146,5 +163,177 @@ def add_database_to_infini():
                 continue
 
 
+def _load_sqlite_db_ids(local_map_path: str = LOCAL_MAP_PATH) -> list[str]:
+    """Return the unique sqlite ``db_id``s referenced by ``local-map.jsonl``.
+
+    The map file is a small JSONL — typically a single line — whose objects
+    are flat ``{instance_id: db_id}`` dicts. We iterate every value in
+    insertion order and return the unique ``db_id``s, skipping blanks.
+    """
+    seen: set[str] = set()
+    ordered: list[str] = []
+    with open(local_map_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            mapping = json.loads(line)
+            if not isinstance(mapping, dict):
+                continue
+            for db_id in mapping.values():
+                if db_id and db_id not in seen:
+                    seen.add(db_id)
+                    ordered.append(db_id)
+    return ordered
+
+
+def add_sqlite_database_to_infini():
+    """For each unique sqlite ``db_id`` in ``local-map.jsonl``, register the
+    corresponding ``<db_id>.sqlite`` file as an InfiniSynapse SQLite data
+    source.
+
+    - Database name: ``db_id`` itself (e.g. ``E_commerce``, ``Baseball``).
+      Each spider2-lite ``db_id`` maps to exactly one ``.sqlite`` file, so
+      we don't fan out across schemas the way the Snowflake path does.
+    - Upload flow: a fresh ``sqlite_tmp_${db_id}`` directory is created,
+      the local ``.sqlite`` file is uploaded into it, and then
+      ``/api/ai_database/add`` is called with ``type='sqlite'`` and
+      ``config.sqlite_path`` set to the absolute upload path. The server
+      validates the SQLite header, atomically moves the file into its
+      permanent location and persists the data source.
+    - If the InfiniSynapse database already exists, it is deleted first
+      (which also drops the previously-finalized SQLite file from the
+      server-side ``sqlite/<id>/`` directory) and re-created. Failures are
+      logged to ``setup_failures.log`` and the run continues with the next
+      ``db_id``.
+    """
+    from spider_agent_infini.api.database import (
+        add_sqlite_database,
+        check_database_exists,
+        create_upload_directory,
+        delete_database,
+        normalize_database_name,
+        upload_file_to_directory,
+    )
+
+    db_ids = _load_sqlite_db_ids()
+    logger.info(
+        "Found %d distinct sqlite db_id(s) in %s", len(db_ids), LOCAL_MAP_PATH
+    )
+
+    for db_id in db_ids:
+        sqlite_file = SQLITE_DATABASE_DIR / f"{db_id}.sqlite"
+        logger.info("=== Processing sqlite db_id=%s ===", db_id)
+
+        if not sqlite_file.is_file():
+            _log_failure(
+                f"sqlite file missing for db_id={db_id!r}: {sqlite_file}"
+            )
+            continue
+
+        # Normalized data source name: lowercase + `-`→`_`. e.g.
+        # ``Db-IMDB``→``db_imdb``, ``sqlite-sakila``→``sqlite_sakila``.
+        # `select_databases_by_sqlite_db_id` applies the same normalization
+        # at lookup time, so callers can still query with the raw db_id.
+        database_name = normalize_database_name(db_id)
+        description = f"This sqlite database is {db_id}"
+
+        try:
+            if check_database_exists(database_name):
+                logger.info("[delete] %s already exists, deleting", database_name)
+                delete_database(database_name)
+
+            tmp_dir = f"sqlite_tmp_{database_name}"
+            logger.info("[mkdir ] %s", tmp_dir)
+            create_upload_directory(tmp_dir)
+
+            logger.info("[upload] %s -> %s", sqlite_file, tmp_dir)
+            absolute_path = upload_file_to_directory(tmp_dir, str(sqlite_file))
+
+            logger.info("[create] %s (sqlite_path=%s)", database_name, absolute_path)
+            add_sqlite_database(
+                database_name=database_name,
+                sqlite_path=absolute_path,
+                description=description,
+            )
+            logger.info("[ok    ] %s", database_name)
+        except Exception as e:
+            _log_failure(
+                f"Failed to set up sqlite database {database_name!r} "
+                f"(db_id={db_id}, file={sqlite_file}): {e}"
+            )
+            continue
+
+
+def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Register InfiniSynapse data sources for the Spider 2.0 splits. "
+            "By default registers BOTH Snowflake (spider2-snow) and SQLite "
+            "(spider2-lite) sources; pass a flag to scope to one side."
+        ),
+    )
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument(
+        "--snowflake-only",
+        dest="only",
+        action="store_const",
+        const="snowflake",
+        help="only register Snowflake data sources from spider2-snow.jsonl",
+    )
+    group.add_argument(
+        "--sqlite-only",
+        dest="only",
+        action="store_const",
+        const="sqlite",
+        help="only register SQLite data sources from local-map.jsonl",
+    )
+    parser.add_argument(
+        "--types",
+        nargs="+",
+        choices=("snowflake", "sqlite"),
+        default=None,
+        help=(
+            "explicit list of source types to register (alternative to "
+            "--snowflake-only / --sqlite-only). e.g. `--types sqlite` or "
+            "`--types snowflake sqlite`."
+        ),
+    )
+    parser.set_defaults(only=None)
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> None:
+    args = _parse_args(argv)
+
+    if args.types is not None and args.only is not None:
+        # argparse can't express "mutually exclusive across a group and a
+        # standalone arg" cleanly, so we enforce it manually.
+        print(
+            "error: --types is mutually exclusive with --snowflake-only / "
+            "--sqlite-only",
+            file=sys.stderr,
+        )
+        raise SystemExit(2)
+
+    if args.types is not None:
+        selected = list(dict.fromkeys(args.types))  # preserve order, dedupe
+    elif args.only is not None:
+        selected = [args.only]
+    else:
+        selected = ["snowflake", "sqlite"]
+
+    logger.info("Setup will register source type(s): %s", selected)
+
+    # Snowflake first (slower per-db_id because it iterates schemas) so any
+    # transient SQLite-side failures don't block the Snowflake pipeline.
+    if "snowflake" in selected:
+        logger.info("=== STEP: register Snowflake data sources ===")
+        add_database_to_infini()
+    if "sqlite" in selected:
+        logger.info("=== STEP: register SQLite data sources ===")
+        add_sqlite_database_to_infini()
+
+
 if __name__ == "__main__":
-    add_database_to_infini()
+    main()

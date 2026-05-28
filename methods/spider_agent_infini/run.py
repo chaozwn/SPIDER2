@@ -6,6 +6,7 @@ import os
 import shutil
 import sys
 import threading
+import time
 import zipfile
 from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
 from pathlib import Path
@@ -70,6 +71,13 @@ OUTPUT_DIR = _PROJECT_ROOT / "output"
 
 # Hard timeout for a single InfiniSynapse task run (seconds).
 TASK_MAX_WAIT = 1800.0
+
+# Stagger interval (seconds) between successive task submissions when running
+# with `--workers > 1`. Tasks are still submitted in jsonl order, but we sleep
+# this many seconds between consecutive `executor.submit(...)` calls so that
+# the InfiniSynapse server doesn't see a burst of simultaneous newTask
+# requests / data-source toggles.
+SUBMIT_STAGGER_SECONDS = 5.0
 
 # Serializes the InfiniSynapse "enable matching / disable others" HTTP
 # calls so concurrent workers don't issue overlapping toggles. Note this
@@ -439,6 +447,8 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
         result = new_task_and_wait(
             text=prompt,
             reference_paths=reference_paths or None,
+            stop_on_ask=False,
+            sse_read_timeout=15.0,
         )
     except Exception as e:
         logger.error("[fail ] %s: newTask failed: %s", instance_id, e)
@@ -449,7 +459,12 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
 
     # 4) Best-effort: make sure the runtime actually finished before downloading
     try:
-        wait_for_task(task_id, poll_interval=3.0, max_wait=TASK_MAX_WAIT)
+        wait_for_task(
+            task_id,
+            poll_interval=3.0,
+            max_wait=TASK_MAX_WAIT,
+            terminal_on_any_ask=False,
+        )
     except TimeoutError as e:
         logger.warning("[warn ] %s: %s", instance_id, e)
     except Exception as e:
@@ -573,7 +588,16 @@ def run():
         futures: dict[Future, tuple[int, str]] = {}
         try:
             for idx, task in enumerate(task_configs, 1):
+                if idx > 1 and SUBMIT_STAGGER_SECONDS > 0:
+                    logger.info(
+                        "[stagger] sleeping %.1fs before submitting task %d/%d",
+                        SUBMIT_STAGGER_SECONDS, idx, total,
+                    )
+                    time.sleep(SUBMIT_STAGGER_SECONDS)
                 instance_id = task.get("instance_id", f"<index-{idx}>")
+                logger.info(
+                    "[submit] %d/%d %s -> queued", idx, total, instance_id,
+                )
                 fut = executor.submit(_run_safely, idx, task)
                 futures[fut] = (idx, instance_id)
 
