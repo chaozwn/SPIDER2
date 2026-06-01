@@ -1,2 +1,2 @@
-highest_month,highest_positive_count,highest_avg_balance,lowest_month,lowest_positive_count,lowest_avg_balance,avg_balance_difference
-2020-01,424,557.704,2020-05,0,0.0,557.704
+highest_positive_count_month_avg_balance,lowest_positive_count_month_avg_balance,difference
+557.704,137.71,419.9939999999999

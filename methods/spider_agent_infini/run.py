@@ -234,6 +234,10 @@ Other strict rules on shape:
 - Do NOT add extra columns "for context" that the question did not ask for.
 - Do NOT include intermediate detail rows alongside the aggregate when only the
   aggregate was requested.
+- A metric used to compute a requested rank, quintile, bucket, top-percent
+  selection, or comparison is part of what the question asks for. Include that
+  original metric in the final CSV unless the user explicitly asks for only the
+  label or only the selected entity.
 - Column names should reflect what the question is asking (e.g. a count column
   for "how many" questions). Use snake_case.
 - If the question implies an ordering (e.g. "top N", "earliest", "largest"),
