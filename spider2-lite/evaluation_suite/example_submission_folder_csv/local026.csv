@@ -1,4 +1,4 @@
-bowler_name,runs_conceded,match_date,venue,match_id,innings_no,over_id
-P Parameswaran,37,2011-05-08,M Chinnaswamy Stadium,501252,2,3
-RS Bopara,33,2010-04-04,Eden Gardens,419144,1,13
-P Awana,33,2014-05-30,Wankhede Stadium,734052,2,6
+bowler_name,match_id,runs_conceded
+P Parameswaran,501252,37
+RS Bopara,419144,33
+P Awana,734052,33
