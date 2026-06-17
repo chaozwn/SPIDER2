@@ -29,15 +29,14 @@ import logging
 import os
 import shutil
 import sys
-import threading
-import time
+import uuid
 import zipfile
-from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from spider_agent_infini.api.database import (
     download_task_zip,
-    new_task_and_wait,
+    new_task,
     select_databases_by_sqlite_db_id,
     wait_for_task,
 )
@@ -50,7 +49,6 @@ from spider_agent_infini.spider_agent_setup_infini import (
 # Reuse the prompt-shape boilerplate, range parser and shared knobs from the
 # Snowflake runner so the two stay in lock-step.
 from run import (
-    SUBMIT_STAGGER_SECONDS,
     TASK_MAX_WAIT,
     _ANSWER_SHAPE_SECTION,
     _find_first,
@@ -105,13 +103,6 @@ _EVAL_SUITE_DIR = _REPO_ROOT / "spider2-lite" / "evaluation_suite"
 SUBMISSION_DIR_SQL = _EVAL_SUITE_DIR / "example_submission_folder"
 SUBMISSION_DIR_CSV = _EVAL_SUITE_DIR / "example_submission_folder_csv"
 OUTPUT_DIR = _PROJECT_ROOT / "output_lite"
-
-# See `run._TOGGLE_LOCK`. Same justification: serialize the data-source
-# enable/disable HTTP traffic so concurrent workers don't interleave their
-# toggles. Note this lock is local to `run_lite.py` and is independent from
-# the Snowflake runner's lock — running both runners in the same process
-# concurrently is not supported and has never been a goal here.
-_TOGGLE_LOCK = threading.Lock()
 
 
 def config() -> argparse.Namespace:
@@ -266,6 +257,10 @@ def _build_prompt(instance_id: str, instruction: str, mode: str) -> str:
     rule_lines: list[str] = [
         "You MUST use Infinity SQL (via `execute_infinity_sql`) to derive and "
         "validate the answer. Do NOT fabricate results.",
+        "Do NOT use any machine-learning methods/functions in Infinity SQL "
+        "(no model training/inference, clustering, regression, forecasting, "
+        "or other ML-based operators). Use only plain SQL "
+        "(filters, joins, aggregations, window functions, etc.).",
     ]
     if needs_sql and needs_csv:
         rule_lines.append(
@@ -446,20 +441,35 @@ def run_one(
 
     logger.info("=== Running %s (db_id=%s) ===", instance_id, db_id)
 
-    # 1) Toggle data sources: enable the matching SQLite source for this
-    # db_id, disable other SQLite sources. Locked so concurrent workers
-    # don't interleave their toggles.
-    with _TOGGLE_LOCK:
-        try:
-            matching = select_databases_by_sqlite_db_id(
-                db_id=db_id,
-                enable_matching=True,
-                disable_others=True,
-            )
-        except Exception as e:
-            logger.error("[fail ] %s: failed to enable sqlite source for db_id=%s: %s",
-                         instance_id, db_id, e)
-            return False
+    # Locate the external-knowledge document (uploaded as reference). Done
+    # before the lock so the critical section stays as short as possible.
+    reference_paths: list[str] = []
+    if external_knowledge:
+        doc_path = Path(LITE_DOCUMENT_PATH) / external_knowledge
+        if doc_path.is_file():
+            reference_paths.append(str(doc_path))
+        else:
+            logger.warning("[warn ] %s: external_knowledge not found at %s",
+                           instance_id, doc_path)
+
+    prompt = _build_prompt(instance_id, instruction, mode)
+    task_id = str(uuid.uuid4())
+
+    # 1) Resolve this db_id's SQLite source id (no global enable/disable
+    # toggle) and submit the newTask scoped to it via `databaseIds`. Because
+    # the source is selected per-task on the server, workers run fully in
+    # parallel without a shared lock — concurrent tasks can target different
+    # databases at the same time.
+    try:
+        matching = select_databases_by_sqlite_db_id(
+            db_id=db_id,
+            enable_matching=False,
+            disable_others=False,
+        )
+    except Exception as e:
+        logger.error("[fail ] %s: failed to resolve sqlite source for db_id=%s: %s",
+                     instance_id, db_id, e)
+        return False
 
     if not matching:
         logger.error(
@@ -470,37 +480,32 @@ def run_one(
         )
         return False
 
-    enabled_names = [m.get("name") for m in matching if isinstance(m, dict)]
-    logger.info("[src  ] %s: enabled %d sqlite source(s): %s",
-                instance_id, len(enabled_names), enabled_names)
+    database_ids = [m["id"] for m in matching if isinstance(m, dict) and m.get("id")]
+    if not database_ids:
+        logger.error(
+            "[fail ] %s: sqlite source(s) for db_id=%s have no usable id: %s",
+            instance_id, db_id, matching,
+        )
+        return False
 
-    # 2) Locate the external-knowledge document (uploaded as reference)
-    reference_paths: list[str] = []
-    if external_knowledge:
-        doc_path = Path(LITE_DOCUMENT_PATH) / external_knowledge
-        if doc_path.is_file():
-            reference_paths.append(str(doc_path))
-        else:
-            logger.warning("[warn ] %s: external_knowledge not found at %s",
-                           instance_id, doc_path)
+    source_names = [m.get("name") for m in matching if isinstance(m, dict)]
+    logger.info("[src  ] %s: using %d sqlite source(s): %s (ids=%s)",
+                instance_id, len(database_ids), source_names, database_ids)
 
-    # 3) Submit the new task and stream events until completion
-    prompt = _build_prompt(instance_id, instruction, mode)
     try:
-        result = new_task_and_wait(
+        new_task(
             text=prompt,
+            task_id=task_id,
             reference_paths=reference_paths or None,
-            stop_on_ask=False,
-            sse_read_timeout=15.0,
+            database_ids=database_ids,
         )
     except Exception as e:
         logger.error("[fail ] %s: newTask failed: %s", instance_id, e)
         return False
 
-    task_id = result.get("taskId")
-    logger.info("[task ] %s -> taskId=%s", instance_id, task_id)
+    logger.info("[task ] %s -> taskId=%s (submitted)", instance_id, task_id)
 
-    # 4) Best-effort: make sure the runtime actually finished before downloading
+    # 2) Best-effort: make sure the runtime actually finished before downloading
     try:
         wait_for_task(
             task_id,
@@ -513,7 +518,7 @@ def run_one(
     except Exception as e:
         logger.warning("[warn ] %s: wait_for_task error: %s", instance_id, e)
 
-    # 5) Download workspace zip and extract
+    # 3) Download workspace zip and extract
     task_output_dir = OUTPUT_DIR / instance_id
     task_output_dir.mkdir(parents=True, exist_ok=True)
     try:
@@ -532,7 +537,7 @@ def run_one(
         logger.error("[fail ] %s: unzip failed: %s", instance_id, e)
         return False
 
-    # 6) Locate the deliverables anywhere within the extracted workspace.
+    # 4) Locate the deliverables anywhere within the extracted workspace.
     deliverables = [
         ("csv", f"{instance_id}.csv", SUBMISSION_DIR_CSV),
         ("sql", f"{instance_id}.sql", SUBMISSION_DIR_SQL),
@@ -686,47 +691,36 @@ def run():
             n_ok += int(ok)
     else:
         logger.info("Running %d task(s) with %d worker(s)", total, workers)
+        # Hand every task to the pool up front; the executor runs at most
+        # `workers` of them concurrently and queues the rest. Each worker
+        # runs a task end-to-end (toggle source, submit, wait, download,
+        # copy CSV) fully in parallel — no shared lock between workers.
         executor = ThreadPoolExecutor(
             max_workers=workers, thread_name_prefix="lite"
         )
-        futures: dict[Future, tuple[int, str]] = {}
+        futures = {
+            executor.submit(_run_safely, idx, task): (
+                idx, task.get("instance_id", f"<index-{idx}>")
+            )
+            for idx, task in enumerate(task_configs, 1)
+        }
         try:
-            for idx, task in enumerate(task_configs, 1):
-                if idx > 1 and SUBMIT_STAGGER_SECONDS > 0:
-                    logger.info(
-                        "[stagger] sleeping %.1fs before submitting task %d/%d",
-                        SUBMIT_STAGGER_SECONDS, idx, total,
+            for fut in as_completed(futures):
+                idx, instance_id = futures[fut]
+                try:
+                    _, _, ok = fut.result()
+                except Exception as e:
+                    logger.exception(
+                        "[fail ] %s: worker raised: %s", instance_id, e,
                     )
-                    time.sleep(SUBMIT_STAGGER_SECONDS)
-                instance_id = task.get("instance_id", f"<index-{idx}>")
-                logger.info(
-                    "[submit] %d/%d %s -> queued", idx, total, instance_id,
-                )
-                fut = executor.submit(_run_safely, idx, task)
-                futures[fut] = (idx, instance_id)
-
-            pending = set(futures.keys())
-            while pending:
-                done, pending = wait(pending, return_when=FIRST_COMPLETED)
-                for fut in done:
-                    idx, instance_id = futures[fut]
-                    try:
-                        _, _, ok = fut.result()
-                    except Exception as e:
-                        logger.exception(
-                            "[fail ] %s: worker raised: %s", instance_id, e,
-                        )
-                        ok = False
-                    n_ok += int(ok)
+                    ok = False
+                n_ok += int(ok)
         except KeyboardInterrupt:
             logger.warning(
                 "Interrupted by user; cancelling pending tasks "
                 "(in-flight tasks will keep running until they finish or "
                 "their next blocking I/O is interrupted)..."
             )
-            for fut in futures:
-                if not fut.done():
-                    fut.cancel()
             executor.shutdown(wait=False, cancel_futures=True)
             raise
         else:

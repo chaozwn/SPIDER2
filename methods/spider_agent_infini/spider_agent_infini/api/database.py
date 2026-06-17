@@ -565,6 +565,8 @@ def new_task(
     reference_paths: Sequence[str | os.PathLike] | None = None,
     files: Sequence[dict[str, Any]] | None = None,
     images: Sequence[str] | None = None,
+    database_ids: Sequence[str] | None = None,
+    rag_ids: Sequence[str] | None = None,
     command_id: str | None = None,
     client_message_id: str | None = None,
     extra: dict[str, Any] | None = None,
@@ -590,6 +592,12 @@ def new_task(
         files: already pre-uploaded ``WebviewMessageFileItemDto`` items
             (merged after `file_paths` / `reference_paths`).
         images: image list (Base64 data URLs or accessible URLs).
+        database_ids: per-task data source ids to scope this task to (sent as
+            ``databaseIds``). When provided, the task uses exactly these
+            sources regardless of which sources are globally enabled — this
+            is what lets concurrent tasks target different databases without
+            a global enable/disable toggle.
+        rag_ids: per-task RAG knowledge-base ids (sent as ``ragIds``).
         command_id / client_message_id: idempotency identifiers; auto-filled
             if omitted.
         extra: additional fields to merge into the request body (e.g.
@@ -628,6 +636,10 @@ def new_task(
         payload["images"] = list(images)
     if file_items:
         payload["files"] = file_items
+    if database_ids:
+        payload["databaseIds"] = list(database_ids)
+    if rag_ids:
+        payload["ragIds"] = list(rag_ids)
     if extra:
         payload.update(extra)
 

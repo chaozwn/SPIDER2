@@ -77,7 +77,7 @@ TASK_MAX_WAIT = 1800.0
 # this many seconds between consecutive `executor.submit(...)` calls so that
 # the InfiniSynapse server doesn't see a burst of simultaneous newTask
 # requests / data-source toggles.
-SUBMIT_STAGGER_SECONDS = 5.0
+SUBMIT_STAGGER_SECONDS = 2.0
 
 # Serializes the InfiniSynapse "enable matching / disable others" HTTP
 # calls so concurrent workers don't issue overlapping toggles. Note this
