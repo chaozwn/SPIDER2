@@ -1,6 +1,9 @@
-path,total_sessions
-/detail/,9
-/search_list/,7
+page,unique_session_count
 /,2
-/search_input/,2
 /complete,2
+/detail,7
+/detail/,8
+/search_input,2
+/search_input/,1
+/search_list,3
+/search_list/,7

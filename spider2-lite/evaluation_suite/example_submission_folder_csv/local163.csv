@@ -1,4 +1,4 @@
-FacRank,FacFirstName,FacLastName,FacSalary
+rank,first_name,last_name,salary
 ASSC,LEONARD,FIBON,70000
 ASSC,JULIA,MILLS,75000
 ASST,CRISTOPHER,COLAN,40000
