@@ -1,4 +1,4 @@
-bowler_id,bowler_first_name,bowler_last_name,match_number,game_number,handicap_score,tournament_date,location
+bowler_id,first_name,last_name,match_number,game_number,handicap_score,tournament_date,location
 13,Elizabeth,Hallmark,10,1,189,2017-09-18,Bolero Lanes
 13,Elizabeth,Hallmark,24,3,190,2017-10-09,Totem Lanes
 13,Elizabeth,Hallmark,34,1,189,2017-10-30,Thunderbird Lanes

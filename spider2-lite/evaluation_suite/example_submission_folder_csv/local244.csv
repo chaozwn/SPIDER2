@@ -1,4 +1,4 @@
 category,min_time_minutes,max_time_minutes,total_revenue
-long,47.73,88.12,41.79
-medium,3.29,47.09,1817.55
 short,0.02,3.29,469.26
+medium,3.29,47.09,1817.55
+long,47.73,88.12,41.79

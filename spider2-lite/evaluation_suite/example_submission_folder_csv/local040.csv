@@ -1,4 +1,4 @@
-boroname,tree_count,avg_mean_income
-Queens,250364,79366.74
-Brooklyn,175358,73555.19
-Staten Island,105318,94029.33
+borough,tree_count,avg_mean_income
+Queens,252846,79366.74
+Brooklyn,177132,73555.19
+Staten Island,106374,94029.33

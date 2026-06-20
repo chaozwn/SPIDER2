@@ -1,4 +1,4 @@
-region_name,number_of_orders,total_sales_amount,sales_rep_name,sales_rep_sales_amount
+region_name,order_count,total_sales_amount,top_rep_name,top_rep_sales_amount
 Midwest,897,3013486.51,Charles Bidwell,675637.19
 Northeast,2357,7744405.36,Tia Amato,1010690.6
 Southeast,2024,6458497.0,Earlie Schleusner,1098137.72
