@@ -163,6 +163,64 @@ def add_database_to_infini():
                 continue
 
 
+def add_remote_database_to_infini():
+    """For each db_id in the spider2-snow JSONL, register ONE remote Snowflake
+    data source through the nest-admin console API.
+
+    Differences from :func:`add_database_to_infini`:
+
+    - Targets the console API (``console_url``, e.g. ``http://localhost:3000``)
+      via the ``sk-*`` API key instead of the InfiniSynapse runtime API.
+    - Registers at the *database* level — a single source per ``db_id`` with an
+      empty ``snowflake_schema`` — rather than fanning out one source per
+      schema. No Snowflake connection / schema listing is performed.
+    - The data source name is forced to start with ``remote_`` and carries
+      role-based access (``roles`` / ``reviewRoles`` / ``tableAccessRules``),
+      all defaulting to :data:`DEFAULT_REMOTE_ROLE_ID`.
+    - Connection is NOT tested; the source is added directly. If it already
+      exists it is deleted first and re-created.
+    """
+    from spider_agent_infini.api.database import (
+        DEFAULT_REMOTE_ROLE_ID,
+        add_remote_snowflake_database,
+        check_remote_database_exists,
+        delete_remote_database,
+        normalize_remote_database_name,
+    )
+
+    db_ids = _load_db_ids(JSONL_PATH)
+    logger.info("Found %d distinct db_id(s) in %s", len(db_ids), JSONL_PATH)
+
+    for db_id in db_ids:
+        database_name = normalize_remote_database_name(db_id)
+        description = db_id
+        logger.info("=== Processing remote db_id=%s -> %s ===", db_id, database_name)
+
+        try:
+            if check_remote_database_exists(database_name):
+                logger.info("[delete] %s already exists, deleting", database_name)
+                delete_remote_database(database_name)
+
+            logger.info("[create] %s (snowflake_database=%s)", database_name, db_id)
+            add_remote_snowflake_database(
+                database_name=database_name,
+                snowflake_credential_path=SNOWFLAKE_CREDENTIAL_PATH,
+                snowflake_database=db_id,
+                snowflake_schema="",
+                nickname=db_id,
+                description=description,
+                roles=[DEFAULT_REMOTE_ROLE_ID],
+                review_roles=[DEFAULT_REMOTE_ROLE_ID],
+            )
+            logger.info("[ok    ] %s", database_name)
+        except Exception as e:
+            _log_failure(
+                f"Failed to set up remote database {database_name!r} "
+                f"(db_id={db_id}): {e}"
+            )
+            continue
+
+
 def _load_sqlite_db_ids(local_map_path: str = LOCAL_MAP_PATH) -> list[str]:
     """Return the unique sqlite ``db_id``s referenced by ``local-map.jsonl``.
 
@@ -288,15 +346,25 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         const="sqlite",
         help="only register SQLite data sources from local-map.jsonl",
     )
+    group.add_argument(
+        "--remote-only",
+        dest="only",
+        action="store_const",
+        const="remote",
+        help=(
+            "only register remote Snowflake data sources (nest-admin console "
+            "API) from spider2-snow.jsonl"
+        ),
+    )
     parser.add_argument(
         "--types",
         nargs="+",
-        choices=("snowflake", "sqlite"),
+        choices=("snowflake", "sqlite", "remote"),
         default=None,
         help=(
             "explicit list of source types to register (alternative to "
-            "--snowflake-only / --sqlite-only). e.g. `--types sqlite` or "
-            "`--types snowflake sqlite`."
+            "--snowflake-only / --sqlite-only / --remote-only). e.g. "
+            "`--types sqlite` or `--types snowflake sqlite`."
         ),
     )
     parser.set_defaults(only=None)
@@ -311,7 +379,7 @@ def main(argv: list[str] | None = None) -> None:
         # standalone arg" cleanly, so we enforce it manually.
         print(
             "error: --types is mutually exclusive with --snowflake-only / "
-            "--sqlite-only",
+            "--sqlite-only / --remote-only",
             file=sys.stderr,
         )
         raise SystemExit(2)
@@ -333,6 +401,9 @@ def main(argv: list[str] | None = None) -> None:
     if "sqlite" in selected:
         logger.info("=== STEP: register SQLite data sources ===")
         add_sqlite_database_to_infini()
+    if "remote" in selected:
+        logger.info("=== STEP: register remote Snowflake data sources ===")
+        add_remote_database_to_infini()
 
 
 if __name__ == "__main__":

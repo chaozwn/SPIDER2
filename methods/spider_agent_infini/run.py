@@ -1,3 +1,23 @@
+"""Run end-to-end evaluation on the spider2-snow Snowflake split.
+
+This is the Snowflake sibling of :mod:`run_lite` (which targets the
+spider2-lite SQLite ``local*`` split). The two scripts share the same
+overall flow — resolve the matching InfiniSynapse data source for a task,
+submit a ``newTask``, wait for completion, and harvest deliverables into
+the appropriate evaluation_suite folder — but differ in:
+
+- JSONL: ``spider2-snow/spider2-snow.jsonl`` (``db_id`` / ``instruction``).
+- Data source toggle: :func:`select_databases_by_snowflake_database` instead
+  of :func:`select_databases_by_sqlite_db_id`.
+- Evaluation suite: ``spider2-snow/evaluation_suite/{example_submission_folder,
+  example_submission_folder_csv}``.
+
+Both runners accept ``--mode {sql,csv,both}`` to control which deliverable(s)
+the agent must produce and which file(s) count as a successful run.
+"""
+
+from __future__ import annotations
+
 import argparse
 import datetime
 import json
@@ -91,7 +111,7 @@ _TOGGLE_LOCK = threading.Lock()
 
 def config() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Run end-to-end evaluation on the benchmark"
+        description="Run end-to-end evaluation on the spider2-snow split"
     )
     parser.add_argument(
         "--mode",
@@ -106,7 +126,10 @@ def config() -> argparse.Namespace:
         "--instance_id",
         type=str,
         default=None,
-        help="if set, only run this single instance_id from the jsonl",
+        help="if set, only run the given instance_id(s) from the jsonl. "
+             "Accepts a single id (e.g. 'sf_local003') or a comma-separated "
+             "list (e.g. 'sf_local003,sf_local004'). Order is preserved "
+             "as given on the command line.",
     )
     parser.add_argument(
         "--range",
@@ -306,6 +329,10 @@ def _build_prompt(instance_id: str, instruction: str, mode: str) -> str:
     rule_lines: list[str] = [
         "You MUST use Infinity SQL (via `execute_infinity_sql`) to derive and "
         "validate the answer. Do NOT fabricate results.",
+        "Do NOT use any machine-learning methods/functions in Infinity SQL "
+        "(no model training/inference, clustering, regression, forecasting, "
+        "or other ML-based operators). Use only plain SQL "
+        "(filters, joins, aggregations, window functions, etc.).",
     ]
     if needs_sql and needs_csv:
         rule_lines.append(
@@ -537,13 +564,36 @@ def run():
         return
 
     if args.instance_id:
-        task_configs = [
-            t for t in task_configs if t.get("instance_id") == args.instance_id
+        requested_ids = [
+            tok.strip() for tok in args.instance_id.split(",") if tok.strip()
         ]
-        if not task_configs:
-            logger.error("instance_id %r not found in %s",
-                         args.instance_id, JSONL_PATH)
+        if not requested_ids:
+            logger.error("--instance_id is empty after parsing %r", args.instance_id)
             return
+
+        seen: set[str] = set()
+        unique_requested: list[str] = []
+        for iid in requested_ids:
+            if iid in seen:
+                logger.warning("[arg  ] duplicate instance_id %r ignored", iid)
+                continue
+            seen.add(iid)
+            unique_requested.append(iid)
+
+        by_id = {str(t.get("instance_id")): t for t in task_configs}
+        missing = [iid for iid in unique_requested if iid not in by_id]
+        if missing:
+            logger.error(
+                "instance_id(s) %s not found in %s",
+                missing, JSONL_PATH,
+            )
+            return
+
+        task_configs = [by_id[iid] for iid in unique_requested]
+        logger.info(
+            "Running %d explicitly-requested instance(s): %s",
+            len(task_configs), unique_requested,
+        )
     elif args.index_range:
         try:
             start, end = _parse_range(args.index_range, len(task_configs))
