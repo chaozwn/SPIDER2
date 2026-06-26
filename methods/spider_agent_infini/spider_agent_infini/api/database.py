@@ -10,6 +10,25 @@ from spider_agent_infini.api.client import DEFAULT_TIMEOUT, InfiniClient, unwrap
 
 logger = logging.getLogger("spider_agent_infini")
 
+# Default role id granted access (and review) to the remote data sources we
+# register through the nest-admin console API. Mirrors the `roles` /
+# `reviewRoles` ids used by the front-end "add data source" flow.
+DEFAULT_REMOTE_ROLE_ID = "4bd03f9ae690edc1916b7c41"
+
+
+def normalize_remote_database_name(name: str) -> str:
+    """Normalize a name for the nest-admin console (``remote_*``) data source.
+
+    The console server (see ``database.service.ts#normalizeDatabaseName``)
+    auto-prefixes ``remote_`` when absent and otherwise keeps the string as-is
+    (no lowercasing, no ``-``→``_`` rewriting, unlike
+    :func:`normalize_database_name` used for the InfiniSynapse runtime API).
+    We pre-compute the same value here so that ``add`` / ``getDatabaseByName``
+    / ``delete`` all agree on the stored ``name``.
+    """
+    name = name.strip()
+    return name if name.startswith("remote_") else f"remote_{name}"
+
 
 def normalize_database_name(name: str) -> str:
     """Normalize a string for use as an InfiniSynapse data source ``name``.
@@ -303,6 +322,174 @@ def test_snowflake_connection(
 
     client = InfiniClient(credential_path=credential_path, timeout=timeout)
     resp = client.post("/api/ai_database/testConnection", json_body=payload)
+    return unwrap(resp.json())
+
+
+# ---------------------------------------------------------------------------
+# Remote data sources (nest-admin / proxy console API)
+#
+# These talk to the console API (`console_url`, e.g. http://localhost:3000)
+# rather than the InfiniSynapse runtime API. The console layer adds role-based
+# access control (`roles` / `reviewRoles` / `tableAccessRules`), stores the
+# `config` as a plain JSON object (NOT a JSON-encoded string), and forces every
+# data source `name` to start with `remote_`. Auth uses the same `sk-*` API key
+# via Bearer token (the front-end uses a JWT; we switch to the API key here).
+# ---------------------------------------------------------------------------
+
+
+def check_remote_database_exists(
+    database_name: str,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> bool:
+    """Check whether a remote data source exists via the console API.
+
+    Calls ``GET /api/admin/database/getDatabaseByName/{name}``. The console
+    server normalizes the name with a ``remote_`` prefix on lookup, so callers
+    may pass either the raw ``db_id`` or the already-prefixed name.
+    """
+    database_name = normalize_remote_database_name(database_name)
+    client = InfiniClient(
+        credential_path=credential_path, timeout=timeout, use_console=True
+    )
+    resp = client.get(
+        "/api/admin/database/getDatabaseByName",
+        database_name,
+        raise_for_status=False,
+    )
+    if resp.status_code == 404:
+        return False
+    if resp.status_code != 200:
+        resp.raise_for_status()
+    try:
+        data = unwrap(resp.json())
+    except ValueError:
+        return False
+    if isinstance(data, dict):
+        return bool(data.get("id") or data.get("_id") or data.get("name"))
+    return bool(data)
+
+
+def delete_remote_database(
+    database_name: str,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any] | None:
+    """Delete a remote data source by name via the console API.
+
+    Resolves the id through ``GET /api/admin/database/getDatabaseByName/{name}``
+    then calls ``POST /api/admin/database/delete`` with ``{"ids": [<id>]}``.
+    Returns the unwrapped response, or ``None`` if the source does not exist.
+    """
+    database_name = normalize_remote_database_name(database_name)
+    client = InfiniClient(
+        credential_path=credential_path, timeout=timeout, use_console=True
+    )
+    resp = client.get(
+        "/api/admin/database/getDatabaseByName",
+        database_name,
+        raise_for_status=False,
+    )
+    if resp.status_code == 404:
+        return None
+    if resp.status_code != 200:
+        resp.raise_for_status()
+
+    data = unwrap(resp.json())
+    if not isinstance(data, dict):
+        return None
+    db_id = data.get("id") or data.get("_id")
+    if not db_id:
+        return None
+
+    del_resp = client.post(
+        "/api/admin/database/delete",
+        json_body={"ids": [db_id]},
+    )
+    try:
+        return unwrap(del_resp.json())
+    except ValueError:
+        return {"status_code": del_resp.status_code}
+
+
+def add_remote_snowflake_database(
+    database_name: str,
+    snowflake_credential_path: str | os.PathLike,
+    snowflake_database: str | None = None,
+    snowflake_schema: str = "",
+    nickname: str | None = None,
+    description: str | None = None,
+    roles: Sequence[str] | None = None,
+    review_roles: Sequence[str] | None = None,
+    table_access_rules: Sequence[dict[str, Any]] | None = None,
+    rag_names: Sequence[str] | None = None,
+    public: bool = False,
+    deep_optimization: bool = True,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any]:
+    """Register a remote Snowflake data source via the console API.
+
+    POSTs to ``/api/admin/database/add`` (``DatabaseAddDto``) on the nest-admin
+    console. Unlike :func:`add_snowflake_database`, the ``config`` is sent as a
+    plain JSON object and the source carries role-based access control.
+
+    The data source is registered at the *database* level: ``snowflake_schema``
+    defaults to empty (no per-schema fan-out). The stored ``name`` is forced to
+    start with ``remote_`` (the server normalizes it; we pre-normalize so the
+    value is deterministic for later lookups).
+
+    Args:
+        database_name: logical name (``remote_`` prefix added if missing).
+        snowflake_database: Snowflake database/catalog; defaults to the raw
+            (un-prefixed) ``database_name``.
+        roles / review_roles: role ids granted access / review rights. Both
+            default to ``[DEFAULT_REMOTE_ROLE_ID]``.
+        table_access_rules: optional per-role table whitelists; defaults to a
+            single unrestricted rule for each access role.
+    """
+    with open(Path(snowflake_credential_path), "r", encoding="utf-8") as f:
+        sf = json.load(f)
+
+    name = normalize_remote_database_name(database_name)
+    raw_name = name[len("remote_"):] if name.startswith("remote_") else name
+    sf_database = snowflake_database or raw_name
+
+    role_ids = list(roles) if roles is not None else [DEFAULT_REMOTE_ROLE_ID]
+    review_role_ids = (
+        list(review_roles) if review_roles is not None else list(role_ids)
+    )
+    if table_access_rules is not None:
+        rules = list(table_access_rules)
+    else:
+        rules = [{"role": rid, "tables": []} for rid in role_ids]
+
+    config = {
+        "snowflake_host": sf["host"],
+        "snowflake_username": sf["user"],
+        "snowflake_password": sf["password"],
+        "snowflake_database": sf_database,
+        "snowflake_schema": snowflake_schema,
+        "deep_optimization": deep_optimization,
+    }
+
+    payload: dict[str, Any] = {
+        "name": name,
+        "nickname": nickname or raw_name,
+        "description": description if description is not None else raw_name,
+        "type": "snowflake",
+        "ragNames": list(rag_names) if rag_names is not None else [],
+        "roles": role_ids,
+        "reviewRoles": review_role_ids,
+        "tableAccessRules": rules,
+        "public": public,
+        "config": config,
+    }
+
+    client = InfiniClient(
+        credential_path=credential_path, timeout=timeout, use_console=True
+    )
+    resp = client.post("/api/admin/database/add", json_body=payload)
     return unwrap(resp.json())
 
 

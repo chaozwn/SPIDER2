@@ -25,23 +25,51 @@ logger = logging.getLogger("spider_agent_infini")
 
 def _load_credential(
     credential_path: str | os.PathLike | None = None,
-) -> tuple[str, str]:
-    """Load (api_url, api_key) from the InfiniSynapse credential JSON file."""
+) -> tuple[str, str, str | None]:
+    """Load ``(api_url, api_key, console_url)`` from the credential JSON file.
+
+    ``api_url`` is the InfiniSynapse runtime API (e.g. ``http://localhost:7001``)
+    used by the ``/api/ai_database/*`` and ``/api/ai/*`` endpoints. ``console_url``
+    is the optional nest-admin / proxy console API (e.g. ``http://localhost:3000``)
+    that hosts the ``/api/admin/database/*`` data-source management endpoints with
+    role/permission support. ``console_url`` is ``None`` when not configured.
+    """
     path = Path(credential_path) if credential_path else INFINI_CREDENTIAL_PATH
     with open(path, "r", encoding="utf-8") as f:
         cred = json.load(f)
-    return cred["api_url"].rstrip("/"), cred["api_key"]
+    console_url = cred.get("console_url")
+    return (
+        cred["api_url"].rstrip("/"),
+        cred["api_key"],
+        console_url.rstrip("/") if isinstance(console_url, str) and console_url else None,
+    )
 
 
 class InfiniClient:
-    """Thin wrapper around `requests` that injects base URL and Bearer auth."""
+    """Thin wrapper around `requests` that injects base URL and Bearer auth.
+
+    Pass ``use_console=True`` to target the nest-admin / proxy console API
+    (``console_url``) instead of the InfiniSynapse runtime API (``api_url``).
+    Both share the same ``sk-*`` API key for Bearer auth.
+    """
 
     def __init__(
         self,
         credential_path: str | os.PathLike | None = None,
         timeout: float = DEFAULT_TIMEOUT,
+        use_console: bool = False,
     ) -> None:
-        self.api_url, self._api_key = _load_credential(credential_path)
+        api_url, self._api_key, console_url = _load_credential(credential_path)
+        if use_console:
+            if not console_url:
+                raise ValueError(
+                    "console_url is not configured in the credential file; "
+                    "add a 'console_url' entry (e.g. 'http://localhost:3000') "
+                    "to use the nest-admin console API."
+                )
+            self.api_url = console_url
+        else:
+            self.api_url = api_url
         self.timeout = timeout
 
     def _headers(self, extra: Mapping[str, str] | None = None) -> dict[str, str]:
