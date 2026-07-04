@@ -1,4 +1,4 @@
-assignee_name,total_applications,peak_year,peak_year_app_count,peak_year_top_country
-LELY NV C VAN DER,5,1984,1,GB
-DEERE & CO,4,1980,1,NL
-AMAZONEN WERKE DREYER H,2,1980,1,AT
+assignee_name,total_applications,top_year,applications_in_top_year,top_country_code
+LELY NV C VAN DER,5,1975,1,NL
+DEERE & CO,4,1979,1,NL
+AMAZONEN WERKE DREYER H,2,1979,2,AT

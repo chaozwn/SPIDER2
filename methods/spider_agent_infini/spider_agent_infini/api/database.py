@@ -196,9 +196,6 @@ def select_databases_by_sqlite_db_id(
     """Select SQLite data sources whose ``name`` matches the given ``db_id``.
 
     Mirrors :func:`select_databases_by_snowflake_database`, but for SQLite.
-    Each spider2-lite ``db_id`` (e.g. ``E_commerce``, ``Baseball``) maps to
-    exactly one SQLite file, so we identify the source by its registered
-    ``name`` (set to ``db_id`` at setup time).
 
     When ``enable_matching`` is True the matching SQLite source is enabled;
     when ``disable_others`` is True every other SQLite source is disabled.
@@ -548,6 +545,26 @@ def delete_databases(
         return {"status_code": resp.status_code}
 
 
+def list_available_engines(
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> list[dict[str, Any]]:
+    """List selectable InfiniSQL engines via ``GET /api/ai_byzer/available``.
+
+    Returns enabled engines the current user may bind to a task via
+    ``engineId`` on ``newTask``. Each item typically includes ``id``,
+    ``name``, and ``url``.
+    """
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    resp = client.get("/api/ai_byzer/available")
+    data = unwrap(resp.json())
+    if isinstance(data, dict) and "items" in data:
+        return list(data["items"] or [])
+    if isinstance(data, list):
+        return data
+    return []
+
+
 def list_databases(
     name: str | None = None,
     type: str | None = None,
@@ -605,15 +622,18 @@ def select_databases_by_snowflake_database(
     credential_path: str | os.PathLike | None = None,
     timeout: float = DEFAULT_TIMEOUT,
 ) -> list[dict[str, Any]]:
-    """Select Snowflake data sources whose `config.snowflake_database` matches.
+    """Select the remote Snowflake data source whose ``name`` matches ``db_id``.
 
-    Iterates all `snowflake` databases, parses each `config` JSON string and
-    returns the ones whose `snowflake_database` equals the given value.
+    Each spider2-snow ``db_id`` maps to exactly one nest-admin remote Snowflake
+    source registered as ``remote_<db_id>`` (see
+    :func:`normalize_remote_database_name` and
+    :func:`add_remote_database_to_infini`).
 
-    When `enable_matching` is True, the matching databases are enabled via
-    `POST /api/ai_database/enabled`. When `disable_others` is True, every other
-    Snowflake database is disabled in the same way. Returns the list of
-    matching database records.
+    When ``enable_matching`` is True the matching source is enabled; when
+    ``disable_others`` is True every other Snowflake source is disabled.
+    Prefer passing the resolved id(s) via ``databaseIds`` on ``newTask``
+    (see :func:`new_task`) instead of toggling the global enabled-set when
+    running concurrent workers.
     """
     items = list_databases(
         type="snowflake",
@@ -621,21 +641,14 @@ def select_databases_by_snowflake_database(
         timeout=timeout,
     )
 
+    target_name = normalize_remote_database_name(snowflake_database)
+
     matching: list[dict[str, Any]] = []
     others: list[dict[str, Any]] = []
     for item in items:
         if not isinstance(item, dict):
             continue
-        raw_cfg = item.get("config")
-        cfg: dict[str, Any] = {}
-        if isinstance(raw_cfg, str) and raw_cfg:
-            try:
-                cfg = json.loads(raw_cfg)
-            except (ValueError, TypeError):
-                cfg = {}
-        elif isinstance(raw_cfg, dict):
-            cfg = raw_cfg
-        if cfg.get("snowflake_database") == snowflake_database:
+        if normalize_remote_database_name(str(item.get("name") or "")) == target_name:
             matching.append(item)
         else:
             others.append(item)
@@ -754,6 +767,7 @@ def new_task(
     images: Sequence[str] | None = None,
     database_ids: Sequence[str] | None = None,
     rag_ids: Sequence[str] | None = None,
+    engine_id: str | None = None,
     command_id: str | None = None,
     client_message_id: str | None = None,
     extra: dict[str, Any] | None = None,
@@ -785,6 +799,8 @@ def new_task(
             is what lets concurrent tasks target different databases without
             a global enable/disable toggle.
         rag_ids: per-task RAG knowledge-base ids (sent as ``ragIds``).
+        engine_id: per-task InfiniSQL engine id (sent as ``engineId``). When
+            provided, all Infinity SQL for this task runs on that engine.
         command_id / client_message_id: idempotency identifiers; auto-filled
             if omitted.
         extra: additional fields to merge into the request body (e.g.
@@ -827,6 +843,8 @@ def new_task(
         payload["databaseIds"] = list(database_ids)
     if rag_ids:
         payload["ragIds"] = list(rag_ids)
+    if engine_id:
+        payload["engineId"] = engine_id
     if extra:
         payload.update(extra)
 
@@ -1128,6 +1146,70 @@ def new_task_and_wait(
         "lastMessage": last_message,
         "ack": post_result.get("ack"),
     }
+
+
+def ask_task(
+    task_id: str,
+    text: str,
+    ask_response: str = "messageResponse",
+    file_paths: Sequence[str | os.PathLike] | None = None,
+    reference_paths: Sequence[str | os.PathLike] | None = None,
+    files: Sequence[dict[str, Any]] | None = None,
+    images: Sequence[str] | None = None,
+    command_id: str | None = None,
+    client_message_id: str | None = None,
+    extra: dict[str, Any] | None = None,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = 300.0,
+) -> dict[str, Any]:
+    """Continue an InfiniSynapse task via ``POST /api/ai/message`` (``askResponse``).
+
+    Equivalent to the front-end / CLI ``task ask`` flow: reply to the Agent's
+    pending Ask (or resume a completed task) with user text.
+
+    Args:
+        task_id: existing task id from :func:`new_task`.
+        text: user follow-up message.
+        ask_response: one of ``messageResponse``, ``yesButtonClicked``,
+            ``noButtonClicked`` (defaults to ``messageResponse``).
+        file_paths / reference_paths / files / images: optional attachments,
+            uploaded the same way as :func:`new_task`.
+    """
+    cmd_id = command_id or str(uuid.uuid4())
+    cli_msg_id = client_message_id or str(uuid.uuid4())
+
+    file_items: list[dict[str, Any]] = []
+    if file_paths or reference_paths:
+        file_items.extend(
+            _build_file_items(
+                task_id=task_id,
+                file_paths=file_paths,
+                reference_paths=reference_paths,
+                credential_path=credential_path,
+                timeout=timeout,
+            )
+        )
+    if files:
+        file_items.extend(files)
+
+    payload: dict[str, Any] = {
+        "type": "askResponse",
+        "taskId": task_id,
+        "askResponse": ask_response,
+        "text": text,
+        "commandId": cmd_id,
+        "clientMessageId": cli_msg_id,
+    }
+    if images:
+        payload["images"] = list(images)
+    if file_items:
+        payload["files"] = file_items
+    if extra:
+        payload.update(extra)
+
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    resp = client.post("/api/ai/message", json_body=payload)
+    return unwrap(resp.json())
 
 
 def get_task_data(
