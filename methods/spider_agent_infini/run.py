@@ -3,17 +3,21 @@
 This is the Snowflake sibling of :mod:`run_lite` (which targets the
 spider2-lite SQLite ``local*`` split). The two scripts share the same
 overall flow — resolve the matching InfiniSynapse data source for a task,
-submit a ``newTask``, wait for completion, and harvest deliverables into
-the appropriate evaluation_suite folder — but differ in:
+submit a ``newTask`` scoped via ``databaseIds``, wait for completion, and
+harvest deliverables into the appropriate evaluation_suite folder — but differ in:
 
 - JSONL: ``spider2-snow/spider2-snow.jsonl`` (``db_id`` / ``instruction``).
-- Data source toggle: :func:`select_databases_by_snowflake_database` instead
-  of :func:`select_databases_by_sqlite_db_id`.
+- Data source lookup: :func:`select_databases_by_snowflake_database` matches
+  the nest-admin remote source ``remote_<db_id>`` instead of
+  :func:`select_databases_by_sqlite_db_id`.
 - Evaluation suite: ``spider2-snow/evaluation_suite/{example_submission_folder,
   example_submission_folder_csv}``.
 
 Both runners accept ``--mode {sql,csv,both}`` to control which deliverable(s)
 the agent must produce and which file(s) count as a successful run.
+
+Filter by Snowflake database with ``--db_id`` (comma-separated). Use
+``--rerun`` / ``--force`` to delete existing submissions and re-run.
 """
 
 from __future__ import annotations
@@ -25,15 +29,15 @@ import logging
 import os
 import shutil
 import sys
-import threading
 import time
+import uuid
 import zipfile
 from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
 from pathlib import Path
 
 from spider_agent_infini.api.database import (
     download_task_zip,
-    new_task_and_wait,
+    new_task,
     select_databases_by_snowflake_database,
     wait_for_task,
 )
@@ -95,18 +99,8 @@ TASK_MAX_WAIT = 1800.0
 # Stagger interval (seconds) between successive task submissions when running
 # with `--workers > 1`. Tasks are still submitted in jsonl order, but we sleep
 # this many seconds between consecutive `executor.submit(...)` calls so that
-# the InfiniSynapse server doesn't see a burst of simultaneous newTask
-# requests / data-source toggles.
+# the InfiniSynapse server doesn't see a burst of simultaneous newTask requests.
 SUBMIT_STAGGER_SECONDS = 2.0
-
-# Serializes the InfiniSynapse "enable matching / disable others" HTTP
-# calls so concurrent workers don't issue overlapping toggles. Note this
-# only protects the HTTP traffic itself; it does NOT prevent cross-task
-# interference when workers target different `db_id`s — the server-side
-# enabled-set is global, so a later worker's toggle will overwrite an
-# earlier worker's. For best results, batch tasks that share a `db_id`
-# when running with `--workers > 1`.
-_TOGGLE_LOCK = threading.Lock()
 
 
 def config() -> argparse.Namespace:
@@ -141,6 +135,14 @@ def config() -> argparse.Namespace:
              "'3,10' runs lines 3-10).",
     )
     parser.add_argument(
+        "--db_id",
+        type=str,
+        default=None,
+        help="only run tasks for the given db_id(s), comma-separated "
+             "(e.g. 'AIRLINES,PATENTS'). Can be combined with --instance_id "
+             "or --range.",
+    )
+    parser.add_argument(
         "--rerun",
         "--force",
         dest="rerun",
@@ -155,9 +157,8 @@ def config() -> argparse.Namespace:
         type=int,
         default=1,
         help="number of tasks to run concurrently (default: 1 = sequential). "
-             "Tasks are I/O-bound (HTTP + SSE), so threads parallelize well; "
-             "the data-source toggle + newTask submit step is serialized "
-             "internally to avoid clobbering server-side state.",
+             "Tasks are I/O-bound (HTTP), so threads parallelize well; each "
+             "task is scoped to its own data source via `databaseIds`.",
     )
     args = parser.parse_args()
     if args.workers < 1:
@@ -435,32 +436,42 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
 
     logger.info("=== Running %s (db_id=%s) ===", instance_id, db_id)
 
-    # 1) Toggle data sources: enable everything tied to this db_id, disable
-    # others. Locked so concurrent workers don't interleave their toggles.
-    with _TOGGLE_LOCK:
-        try:
-            matching = select_databases_by_snowflake_database(
-                snowflake_database=db_id,
-                enable_matching=True,
-                disable_others=True,
-            )
-        except Exception as e:
-            logger.error("[fail ] %s: failed to enable data sources for db_id=%s: %s",
-                         instance_id, db_id, e)
-            return False
+    prompt = _build_prompt(instance_id, instruction, mode)
+    task_id = str(uuid.uuid4())
+
+    # 1) Resolve this db_id's Snowflake source id (no global enable/disable
+    # toggle) and submit the newTask scoped to it via `databaseIds`.
+    try:
+        matching = select_databases_by_snowflake_database(
+            snowflake_database=db_id,
+            enable_matching=False,
+            disable_others=False,
+        )
+    except Exception as e:
+        logger.error("[fail ] %s: failed to resolve snowflake source for db_id=%s: %s",
+                     instance_id, db_id, e)
+        return False
 
     if not matching:
         logger.error(
-            "[fail ] %s: no InfiniSynapse data sources match db_id=%s; "
-            "skipping execution. Re-run `add_database_to_infini` (or check "
+            "[fail ] %s: no InfiniSynapse remote Snowflake source matches db_id=%s; "
+            "skipping execution. Re-run `add_remote_database_to_infini` (or check "
             "whether the upstream Snowflake share is still available).",
             instance_id, db_id,
         )
         return False
 
-    enabled_names = [m.get("name") for m in matching if isinstance(m, dict)]
-    logger.info("[src  ] %s: enabled %d source(s): %s",
-                instance_id, len(enabled_names), enabled_names)
+    database_ids = [m["id"] for m in matching if isinstance(m, dict) and m.get("id")]
+    if not database_ids:
+        logger.error(
+            "[fail ] %s: snowflake source for db_id=%s has no id",
+            instance_id, db_id,
+        )
+        return False
+
+    source_names = [m.get("name") for m in matching if isinstance(m, dict)]
+    logger.info("[src  ] %s: using remote snowflake source %s (ids=%s)",
+                instance_id, source_names, database_ids)
 
     # 2) Locate the external-knowledge document (uploaded as reference)
     reference_paths: list[str] = []
@@ -472,21 +483,19 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
             logger.warning("[warn ] %s: external_knowledge not found at %s",
                            instance_id, doc_path)
 
-    # 3) Submit the new task and stream events until completion
-    prompt = _build_prompt(instance_id, instruction, mode)
+    # 3) Submit the new task scoped to the resolved data source
     try:
-        result = new_task_and_wait(
+        new_task(
             text=prompt,
+            task_id=task_id,
             reference_paths=reference_paths or None,
-            stop_on_ask=False,
-            sse_read_timeout=15.0,
+            database_ids=database_ids,
         )
     except Exception as e:
         logger.error("[fail ] %s: newTask failed: %s", instance_id, e)
         return False
 
-    task_id = result.get("taskId")
-    logger.info("[task ] %s -> taskId=%s", instance_id, task_id)
+    logger.info("[task ] %s -> taskId=%s (submitted)", instance_id, task_id)
 
     # 4) Best-effort: make sure the runtime actually finished before downloading
     try:
@@ -604,6 +613,30 @@ def run():
         task_configs = task_configs[start - 1:end]
         logger.info("Running jsonl lines %d-%d (%d task(s))",
                     start, end, len(task_configs))
+
+    if args.db_id:
+        requested_dbs = [
+            tok.strip() for tok in args.db_id.split(",") if tok.strip()
+        ]
+        if not requested_dbs:
+            logger.error("--db_id is empty after parsing %r", args.db_id)
+            return
+        db_set = set(requested_dbs)
+        before = len(task_configs)
+        task_configs = [t for t in task_configs if str(t.get("db_id")) in db_set]
+        missing_dbs = sorted(db_set - {str(t.get("db_id")) for t in task_configs})
+        if missing_dbs:
+            logger.warning("[arg  ] db_id(s) with no matching tasks: %s", missing_dbs)
+        if not task_configs:
+            logger.error(
+                "no tasks left after --db_id filter %s (%d skipped)",
+                requested_dbs, before,
+            )
+            return
+        logger.info(
+            "Filtered to %d instance(s) for db_id(s) %s (%d skipped)",
+            len(task_configs), requested_dbs, before - len(task_configs),
+        )
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     SUBMISSION_DIR_CSV.mkdir(parents=True, exist_ok=True)
