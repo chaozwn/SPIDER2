@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/zhaown/workspace/ai_project/ai_project/Spider2/spider2-snow/evaluation_suite/evaluate.py", line 499, in <module>
+    evaluate_spider2sql(args, temp_path)
+  File "/Users/zhaown/workspace/ai_project/ai_project/Spider2/spider2-snow/evaluation_suite/evaluate.py", line 395, in evaluate_spider2sql
+    spider2sql_metadata = load_jsonl_to_dict("../spider2-snow.jsonl")
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhaown/workspace/ai_project/ai_project/Spider2/spider2-snow/evaluation_suite/evaluate.py", line 59, in load_jsonl_to_dict
+    with open(jsonl_file, 'r') as file:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../spider2-snow.jsonl'
