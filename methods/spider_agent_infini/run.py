@@ -16,8 +16,10 @@ harvest deliverables into the appropriate evaluation_suite folder — but differ
 Both runners accept ``--mode {sql,csv,both}`` to control which deliverable(s)
 the agent must produce and which file(s) count as a successful run.
 
-Filter by Snowflake database with ``--db_id`` (comma-separated). Use
-``--rerun`` / ``--force`` to delete existing submissions and re-run.
+Filter by Snowflake database with ``--db_id`` (comma-separated). Omit it to run
+the full jsonl across all databases. Use ``--rerun`` / ``--force`` to delete
+existing submissions and re-run. Concurrency equals the number of available
+InfiniSQL engines; each task is scoped via ``databaseIds`` and ``engineId``.
 """
 
 from __future__ import annotations
@@ -27,16 +29,18 @@ import datetime
 import json
 import logging
 import os
+import queue
 import shutil
 import sys
-import time
+import threading
 import uuid
 import zipfile
-from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
+from concurrent.futures import Future, ThreadPoolExecutor
 from pathlib import Path
 
 from spider_agent_infini.api.database import (
     download_task_zip,
+    list_available_engines,
     new_task,
     select_databases_by_snowflake_database,
     wait_for_task,
@@ -96,12 +100,6 @@ OUTPUT_DIR = _PROJECT_ROOT / "output"
 # Hard timeout for a single InfiniSynapse task run (seconds).
 TASK_MAX_WAIT = 1800.0
 
-# Stagger interval (seconds) between successive task submissions when running
-# with `--workers > 1`. Tasks are still submitted in jsonl order, but we sleep
-# this many seconds between consecutive `executor.submit(...)` calls so that
-# the InfiniSynapse server doesn't see a burst of simultaneous newTask requests.
-SUBMIT_STAGGER_SECONDS = 2.0
-
 
 def config() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -151,18 +149,7 @@ def config() -> argparse.Namespace:
              "existing .sql/.csv submissions for the targeted instance(s) "
              "will be deleted before the run.",
     )
-    parser.add_argument(
-        "--workers",
-        "-j",
-        type=int,
-        default=1,
-        help="number of tasks to run concurrently (default: 1 = sequential). "
-             "Tasks are I/O-bound (HTTP), so threads parallelize well; each "
-             "task is scoped to its own data source via `databaseIds`.",
-    )
     args = parser.parse_args()
-    if args.workers < 1:
-        parser.error(f"--workers must be >= 1 (got {args.workers})")
     return args
 
 
@@ -414,7 +401,13 @@ def _build_prompt(instance_id: str, instruction: str, mode: str) -> str:
 """
 
 
-def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
+def run_one(
+    task: dict,
+    mode: str,
+    rerun: bool = False,
+    *,
+    engine_id: str | None = None,
+) -> bool:
     """Run a single benchmark example end-to-end. Returns True on success."""
     instance_id = task["instance_id"]
     instruction = task["instruction"]
@@ -434,7 +427,10 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
             logger.info("[skip ] %s already has %s submission(s)", instance_id, kinds)
             return True
 
-    logger.info("=== Running %s (db_id=%s) ===", instance_id, db_id)
+    logger.info(
+        "=== Running %s (db_id=%s, engine=%s) ===",
+        instance_id, db_id, engine_id or "(default)",
+    )
 
     prompt = _build_prompt(instance_id, instruction, mode)
     task_id = str(uuid.uuid4())
@@ -490,6 +486,7 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
             task_id=task_id,
             reference_paths=reference_paths or None,
             database_ids=database_ids,
+            engine_id=engine_id,
         )
     except Exception as e:
         logger.error("[fail ] %s: newTask failed: %s", instance_id, e)
@@ -559,6 +556,107 @@ def run_one(task: dict, mode: str, rerun: bool = False) -> bool:
         )
         return False
     return True
+
+
+def _run_task_batch(
+    tasks: list[dict],
+    *,
+    mode: str,
+    rerun: bool,
+    engine_ids: list[str],
+) -> tuple[int, int]:
+    """Run tasks on a global queue with one fixed engine per worker."""
+    total = len(tasks)
+    if total == 0:
+        return 0, 0
+
+    if not engine_ids:
+        logger.error("no engine ids available; skipping %d task(s)", total)
+        return 0, total
+
+    workers = len(engine_ids)
+
+    def _run_one(idx: int, task: dict, engine_id: str) -> tuple[int, str, bool]:
+        instance_id = task.get("instance_id", f"<index-{idx}>")
+        db_id = str(task.get("db_id") or "unknown")
+        logger.info(
+            "---- [%s %d/%d] %s start (engine=%s) ----",
+            db_id, idx, total, instance_id, engine_id,
+        )
+        try:
+            ok = run_one(task, mode, rerun=rerun, engine_id=engine_id)
+        except KeyboardInterrupt:
+            raise
+        except Exception as e:
+            logger.exception("[fail ] %s: unhandled exception: %s", instance_id, e)
+            ok = False
+        logger.info(
+            "---- [%s %d/%d] %s done (ok=%s, engine=%s) ----",
+            db_id, idx, total, instance_id, ok, engine_id,
+        )
+        return idx, instance_id, ok
+
+    if workers <= 1:
+        engine_id = engine_ids[0]
+        n_ok = 0
+        for idx, task in enumerate(tasks, 1):
+            try:
+                _, _, ok = _run_one(idx, task, engine_id)
+            except KeyboardInterrupt:
+                logger.warning("Interrupted by user")
+                raise
+            n_ok += int(ok)
+        return n_ok, total
+
+    logger.info(
+        "Running %d task(s) with %d engine worker(s): %s",
+        total, workers, engine_ids,
+    )
+
+    work_q: queue.Queue[tuple[int, dict] | None] = queue.Queue()
+    for idx, task in enumerate(tasks, 1):
+        work_q.put((idx, task))
+    for _ in engine_ids:
+        work_q.put(None)
+
+    results: list[tuple[int, str, bool]] = []
+    results_lock = threading.Lock()
+
+    def _engine_worker(engine_id: str) -> None:
+        while True:
+            item = work_q.get()
+            try:
+                if item is None:
+                    return
+                idx, task = item
+                instance_id = task.get("instance_id", f"<index-{idx}>")
+                db_id = str(task.get("db_id") or "unknown")
+                logger.info(
+                    "[submit] %d/%d %s (db=%s) -> engine=%s",
+                    idx, total, instance_id, db_id, engine_id,
+                )
+                result = _run_one(idx, task, engine_id)
+                with results_lock:
+                    results.append(result)
+            finally:
+                work_q.task_done()
+
+    executor = ThreadPoolExecutor(max_workers=workers, thread_name_prefix="task")
+    futures: list[Future] = []
+    try:
+        for engine_id in engine_ids:
+            futures.append(executor.submit(_engine_worker, engine_id))
+        for fut in futures:
+            fut.result()
+    except KeyboardInterrupt:
+        logger.warning("Interrupted by user; shutting down engine workers...")
+        executor.shutdown(wait=False, cancel_futures=True)
+        raise
+    else:
+        executor.shutdown(wait=True)
+
+    n_ok = sum(int(ok) for _, _, ok in results)
+    return n_ok, total
 
 
 def run():
@@ -642,78 +740,41 @@ def run():
     SUBMISSION_DIR_CSV.mkdir(parents=True, exist_ok=True)
     SUBMISSION_DIR_SQL.mkdir(parents=True, exist_ok=True)
 
-    total = len(task_configs)
-    workers = min(args.workers, total) if total > 0 else 1
+    try:
+        engines = list_available_engines()
+    except Exception as e:
+        logger.error("Failed to list available engines: %s", e)
+        return
 
-    def _run_safely(idx: int, task: dict) -> tuple[int, str, bool]:
-        instance_id = task.get("instance_id", f"<index-{idx}>")
-        logger.info("---- [%d/%d] %s start ----", idx, total, instance_id)
-        try:
-            ok = run_one(task, args.mode, rerun=args.rerun)
-        except KeyboardInterrupt:
-            raise
-        except Exception as e:
-            logger.exception("[fail ] %s: unhandled exception: %s", instance_id, e)
-            ok = False
-        logger.info("---- [%d/%d] %s done (ok=%s) ----", idx, total, instance_id, ok)
-        return idx, instance_id, ok
-
-    n_ok = 0
-    if workers <= 1:
-        for idx, task in enumerate(task_configs, 1):
-            try:
-                _, _, ok = _run_safely(idx, task)
-            except KeyboardInterrupt:
-                logger.warning("Interrupted by user")
-                raise
-            n_ok += int(ok)
-    else:
-        logger.info("Running %d task(s) with %d worker(s)", total, workers)
-        executor = ThreadPoolExecutor(
-            max_workers=workers, thread_name_prefix="task"
+    engine_ids = [
+        str(item["id"])
+        for item in engines
+        if isinstance(item, dict) and item.get("id")
+    ]
+    if not engine_ids:
+        logger.error(
+            "No available InfiniSQL engines found via GET /api/ai_byzer/available; "
+            "add at least one enabled engine before running."
         )
-        futures: dict[Future, tuple[int, str]] = {}
-        try:
-            for idx, task in enumerate(task_configs, 1):
-                if idx > 1 and SUBMIT_STAGGER_SECONDS > 0:
-                    logger.info(
-                        "[stagger] sleeping %.1fs before submitting task %d/%d",
-                        SUBMIT_STAGGER_SECONDS, idx, total,
-                    )
-                    time.sleep(SUBMIT_STAGGER_SECONDS)
-                instance_id = task.get("instance_id", f"<index-{idx}>")
-                logger.info(
-                    "[submit] %d/%d %s -> queued", idx, total, instance_id,
-                )
-                fut = executor.submit(_run_safely, idx, task)
-                futures[fut] = (idx, instance_id)
+        return
 
-            pending = set(futures.keys())
-            while pending:
-                done, pending = wait(pending, return_when=FIRST_COMPLETED)
-                for fut in done:
-                    idx, instance_id = futures[fut]
-                    try:
-                        _, _, ok = fut.result()
-                    except Exception as e:
-                        logger.exception(
-                            "[fail ] %s: worker raised: %s", instance_id, e,
-                        )
-                        ok = False
-                    n_ok += int(ok)
-        except KeyboardInterrupt:
-            logger.warning(
-                "Interrupted by user; cancelling pending tasks "
-                "(in-flight tasks will keep running until they finish or "
-                "their next blocking I/O is interrupted)..."
-            )
-            for fut in futures:
-                if not fut.done():
-                    fut.cancel()
-            executor.shutdown(wait=False, cancel_futures=True)
-            raise
-        else:
-            executor.shutdown(wait=True)
+    engine_names = [
+        str(item.get("name") or item.get("id"))
+        for item in engines
+        if isinstance(item, dict) and item.get("id")
+    ]
+    logger.info(
+        "Using %d engine worker(s): %s",
+        len(engine_ids),
+        list(zip(engine_names, engine_ids)),
+    )
+
+    n_ok, total = _run_task_batch(
+        task_configs,
+        mode=args.mode,
+        rerun=args.rerun,
+        engine_ids=engine_ids,
+    )
 
     logger.info("All tasks finished: %d/%d succeeded", n_ok, total)
 
