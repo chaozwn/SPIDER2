@@ -33,14 +33,30 @@ def _load_credential(
     is the optional nest-admin / proxy console API (e.g. ``http://localhost:3000``)
     that hosts the ``/api/admin/database/*`` data-source management endpoints with
     role/permission support. ``console_url`` is ``None`` when not configured.
+
+    Environment variables override every field so the submission target can be
+    switched (e.g. from ``localhost`` to a remote host) without editing the JSON:
+
+    - ``INFINI_CREDENTIAL_PATH``: path to the credential JSON to read (used only
+      when no explicit ``credential_path`` argument is passed).
+    - ``INFINI_API_URL``: overrides the runtime ``api_url``.
+    - ``INFINI_CONSOLE_URL``: overrides the console ``console_url``.
+    - ``INFINI_API_KEY``: overrides the ``api_key``.
     """
-    path = Path(credential_path) if credential_path else INFINI_CREDENTIAL_PATH
+    if credential_path is not None:
+        path = Path(credential_path)
+    else:
+        env_path = os.environ.get("INFINI_CREDENTIAL_PATH")
+        path = Path(env_path) if env_path else Path(INFINI_CREDENTIAL_PATH)
     with open(path, "r", encoding="utf-8") as f:
         cred = json.load(f)
-    console_url = cred.get("console_url")
+
+    api_url = os.environ.get("INFINI_API_URL") or cred["api_url"]
+    api_key = os.environ.get("INFINI_API_KEY") or cred["api_key"]
+    console_url = os.environ.get("INFINI_CONSOLE_URL") or cred.get("console_url")
     return (
-        cred["api_url"].rstrip("/"),
-        cred["api_key"],
+        api_url.rstrip("/"),
+        api_key,
         console_url.rstrip("/") if isinstance(console_url, str) and console_url else None,
     )
 
