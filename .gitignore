@@ -149,6 +149,7 @@ methods/spider-agent-tc/results/
 
 *.log
 methods/spider_agent_infini/output/*
+methods/spider_agent_infini/infini_credential.json
 methods/spider_agent_infini/output_lite/*
 methods/spider_agent_infini/spider_agent_infini/example_submission_folder/*
 methods/spider_agent_infini/spider_agent_infini/example_submission_folder_csv/*
