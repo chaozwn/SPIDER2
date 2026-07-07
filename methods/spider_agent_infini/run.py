@@ -554,18 +554,21 @@ def run_one(
 
     logger.info("[task ] %s -> taskId=%s (submitted)", instance_id, task_id)
 
-    # 4) Best-effort: make sure the runtime actually finished before downloading
+    # 4) Wait until the runtime actually finished before downloading
     try:
         wait_for_task(
             task_id,
             poll_interval=3.0,
             max_wait=TASK_MAX_WAIT,
             terminal_on_any_ask=False,
+            timeout=30.0,
         )
     except TimeoutError as e:
-        logger.warning("[warn ] %s: %s", instance_id, e)
+        logger.error("[fail ] %s: task wait timed out: %s", instance_id, e)
+        return False
     except Exception as e:
-        logger.warning("[warn ] %s: wait_for_task error: %s", instance_id, e)
+        logger.error("[fail ] %s: wait_for_task error: %s", instance_id, e)
+        return False
 
     # 5) Download workspace zip and extract
     task_output_dir = OUTPUT_DIR / instance_id

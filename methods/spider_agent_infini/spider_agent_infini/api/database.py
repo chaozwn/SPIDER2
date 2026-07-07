@@ -1309,13 +1309,39 @@ def wait_for_task(
     """
     import time
 
+    import requests
+
     terminal_status = {"completed", "failed", "cancelled", "canceled", "error"}
     start = time.time()
     seen_alive = False
+    poll_failures = 0
     while True:
-        data = get_task_data(
-            task_id, credential_path=credential_path, timeout=timeout
-        )
+        elapsed = time.time() - start
+        if elapsed > max_wait:
+            raise TimeoutError(
+                f"wait_for_task({task_id}) exceeded {max_wait}s; "
+                f"last poll failures={poll_failures}, seen_alive={seen_alive}"
+            )
+
+        try:
+            data = get_task_data(
+                task_id, credential_path=credential_path, timeout=timeout
+            )
+            poll_failures = 0
+        except requests.RequestException as e:
+            poll_failures += 1
+            logger.warning(
+                "wait_for_task(%s): poll failed (#%d, elapsed=%.0fs): %s; "
+                "retrying in %.1fs",
+                task_id,
+                poll_failures,
+                elapsed,
+                e,
+                poll_interval,
+            )
+            time.sleep(poll_interval)
+            continue
+
         if callable(on_progress):
             try:
                 on_progress(data)
@@ -1341,11 +1367,6 @@ def wait_for_task(
         ):
             return data
 
-        if time.time() - start > max_wait:
-            raise TimeoutError(
-                f"wait_for_task({task_id}) exceeded {max_wait}s; "
-                f"last status={status!r}, isRunning={is_running}"
-            )
         time.sleep(poll_interval)
 
 
