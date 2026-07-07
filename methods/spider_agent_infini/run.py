@@ -18,8 +18,9 @@ the agent must produce and which file(s) count as a successful run.
 
 Filter by Snowflake database with ``--db_id`` (comma-separated). Omit it to run
 the full jsonl across all databases. Use ``--rerun`` / ``--force`` to delete
-existing submissions and re-run. Concurrency equals the number of available
-InfiniSQL engines; each task is scoped via ``databaseIds`` and ``engineId``.
+existing submissions and re-run. Concurrency equals the number of selected
+InfiniSQL engines (all available by default, or a subset via ``--engine`` by
+name); each task is scoped via ``databaseIds`` and ``engineId``.
 """
 
 from __future__ import annotations
@@ -149,6 +150,13 @@ def config() -> argparse.Namespace:
              "existing .sql/.csv submissions for the targeted instance(s) "
              "will be deleted before the run.",
     )
+    parser.add_argument(
+        "--engine",
+        type=str,
+        default=None,
+        help="only use the given InfiniSQL engine(s) by name, comma-separated "
+             "(e.g. 'my-engine,other-engine'). Omit to use all available engines.",
+    )
     args = parser.parse_args()
     return args
 
@@ -178,6 +186,58 @@ def _parse_range(spec: str, total: int) -> tuple[int, int]:
         )
     end = min(end, total)
     return start, end
+
+
+def _resolve_engine_ids(
+    engines: list[dict],
+    engine_spec: str | None,
+) -> list[str]:
+    """Return engine ids to use as workers.
+
+    If *engine_spec* is None, use all available engines. Otherwise
+    *engine_spec* is a comma-separated list of engine **names** to select.
+    """
+    available = [
+        item for item in engines
+        if isinstance(item, dict) and item.get("id")
+    ]
+    if not available:
+        return []
+
+    if not engine_spec:
+        return [str(item["id"]) for item in available]
+
+    requested = [tok.strip() for tok in engine_spec.split(",") if tok.strip()]
+    if not requested:
+        raise ValueError(f"--engine is empty after parsing {engine_spec!r}")
+
+    by_name: dict[str, str] = {}
+    for item in available:
+        name = str(item.get("name") or "")
+        if name:
+            by_name[name] = str(item["id"])
+
+    engine_ids: list[str] = []
+    missing: list[str] = []
+    seen: set[str] = set()
+    for name in requested:
+        eid = by_name.get(name)
+        if eid is None:
+            missing.append(name)
+            continue
+        if eid not in seen:
+            seen.add(eid)
+            engine_ids.append(eid)
+
+    if missing:
+        known = [
+            (str(item.get("name") or ""), str(item["id"]))
+            for item in available
+        ]
+        raise ValueError(
+            f"engine name(s) not found: {missing}. Available engines: {known}"
+        )
+    return engine_ids
 
 
 def _required_kinds(mode: str) -> tuple[str, ...]:
@@ -746,11 +806,12 @@ def run():
         logger.error("Failed to list available engines: %s", e)
         return
 
-    engine_ids = [
-        str(item["id"])
-        for item in engines
-        if isinstance(item, dict) and item.get("id")
-    ]
+    try:
+        engine_ids = _resolve_engine_ids(engines, args.engine)
+    except ValueError as e:
+        logger.error("%s", e)
+        return
+
     if not engine_ids:
         logger.error(
             "No available InfiniSQL engines found via GET /api/ai_byzer/available; "
@@ -758,15 +819,15 @@ def run():
         )
         return
 
-    engine_names = [
-        str(item.get("name") or item.get("id"))
+    id_to_name = {
+        str(item["id"]): str(item.get("name") or item["id"])
         for item in engines
         if isinstance(item, dict) and item.get("id")
-    ]
+    }
     logger.info(
         "Using %d engine worker(s): %s",
         len(engine_ids),
-        list(zip(engine_names, engine_ids)),
+        [(id_to_name.get(eid, eid), eid) for eid in engine_ids],
     )
 
     n_ok, total = _run_task_batch(
