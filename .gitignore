@@ -155,3 +155,6 @@ methods/spider_agent_infini/spider_agent_infini/example_submission_folder_csv/*
 methods/spider-agent-lite/examples
 rag_benchmark
 methods/spider_agent_infini/learn_output/*
+methods/spider_agent_infini/logs/*
+spider2-snow/evaluation_suite/example_submission_folder_csv.csv
+spider2-snow/evaluation_suite/log.txt
