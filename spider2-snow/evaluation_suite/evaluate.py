@@ -56,7 +56,7 @@ def load_gold_csv(file_path: str) -> pd.DataFrame:
 
 def load_jsonl_to_dict(jsonl_file):
     data_dict = {}
-    with open(jsonl_file, 'r') as file:
+    with open(jsonl_file, 'r', encoding='utf-8') as file:
         for line in file:
             item = json.loads(line.strip())
             instance_id = item['instance_id']
