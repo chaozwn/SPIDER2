@@ -1,469 +1,469 @@
-player_id,player_name,most_frequent_role,batting_hand,bowling_skill,total_runs,total_matches,total_dismissals,batting_average,highest_score,matches_ge_30,matches_ge_50,matches_ge_100,total_balls_faced,strike_rate,total_wickets,economy_rate,best_bowling_performance
-1,SC Ganguly,Captain,Left-hand bat,Right-arm medium,1303,57,52,25.06,91,20,7,0,1291,100.93,12,7.78,3-20
-2,BB McCullum,Player,Right-hand bat,Right-arm medium,2431,91,86,28.27,158,35,13,2,1944,125.05,0,,0-0
-3,RT Ponting,Captain,Right-hand bat,Right-arm medium,91,10,9,10.11,28,0,0,0,129,70.54,0,,0-0
-4,DJ Hussey,Player,Right-hand bat,Right-arm offbreak,1322,64,49,26.98,71,19,5,0,1101,120.07,10,8.81,2-2
-5,Mohammad Hafeez,Player,Right-hand bat,Right-arm offbreak,64,8,7,9.14,16,0,0,0,84,76.19,2,6.00,1-7
-6,R Dravid,Captain,Right-hand bat,Right-arm offbreak,2170,89,77,28.18,75,32,11,0,1918,113.14,0,,0-0
-7,W Jaffer,Player,Right-hand bat,Right-arm offbreak,130,8,8,16.25,50,2,1,0,129,100.78,0,,0-0
-8,V Kohli,Captain,Right-hand bat,Right-arm medium,3987,134,105,37.97,113,57,29,4,3133,127.26,5,8.26,2-23
-9,JH Kallis,Player,Right-hand bat,Right-arm fast-medium,2414,97,84,28.74,89,34,17,0,2274,106.16,74,7.57,3-12
-10,CL White,Player,Right-hand bat,Legbreak googly,949,46,35,27.11,78,15,6,0,758,125.20,1,11.05,1-14
-11,MV Boucher,Keeper,Right-hand bat,Right-arm medium,394,31,14,28.14,50,6,1,0,318,123.90,0,,0-0
-12,B Akhil,Player,Right-hand bat,Right-arm medium-fast,76,15,6,12.67,27,0,0,0,57,133.33,7,7.46,2-17
-13,AA Noffke,Player,Right-hand bat,Right-arm fast-medium,9,1,1,9.00,9,0,0,0,12,75.00,1,8.75,1-35
-14,P Kumar,Player,Right-hand bat,Right-arm medium,332,113,37,8.97,34,1,0,0,314,105.73,96,7.26,3-15
-15,Z Khan,Player,Right-hand bat,Left-arm fast-medium,113,87,13,8.69,23,0,0,0,128,88.28,107,7.26,4-17
-16,SB Joshi,Player,Left-hand bat,Slow left-arm orthodox,6,4,2,3.00,3,0,0,0,16,37.50,1,8.95,1-27
-17,PA Patel,Keeper,Left-hand bat,Right-arm medium,1868,101,88,21.23,81,21,7,0,1688,110.66,0,,0-0
-18,ML Hayden,Player,Left-hand bat,Right-arm medium,1074,31,29,37.03,93,16,8,0,813,132.10,0,,0-0
-19,MEK Hussey,Player,Left-hand bat,Right-arm medium,1977,59,51,38.76,116,28,16,1,1648,119.96,0,,0-0
-20,MS Dhoni,CaptainKeeper,Right-hand bat,Right-arm medium,3270,142,83,39.40,70,45,16,0,2419,135.18,0,,0-0
-21,SK Raina,Player,Left-hand bat,Right-arm offbreak,4083,145,121,33.74,100,56,29,1,3043,134.18,29,7.13,2-0
-22,JDP Oram,Player,Left-hand bat,Right-arm fast-medium,106,18,8,13.25,41,1,0,0,110,96.36,13,8.55,3-32
-23,S Badrinath,Player,Right-hand bat,Right-arm offbreak,1439,93,46,31.28,71,23,11,0,1243,115.77,0,,0-0
-24,K Goel,Player,Left-hand bat,Right-arm offbreak,218,22,15,14.53,38,1,0,0,239,91.21,0,8.36,0-7
-25,JR Hopes,Player,Right-hand bat,Right-arm medium,417,20,16,26.06,71,4,4,0,314,132.80,14,8.98,2-2
-26,KC Sangakkara,CaptainKeeper,Left-hand bat,Right-arm offbreak,1656,69,63,26.29,94,23,10,0,1391,119.05,0,,0-0
-27,Yuvraj Singh,Player,Left-hand bat,Slow left-arm orthodox,2281,105,90,25.34,83,31,10,0,1825,124.99,36,7.22,4-29
-28,SM Katich,Player,Left-hand bat,Slow left-arm chinaman,237,11,10,23.70,75,3,2,0,191,124.08,0,,0-0
-29,IK Pathan,Player,Left-hand bat,Left-arm medium-fast,1079,99,51,21.16,60,8,1,0,938,115.03,96,7.44,3-12
-30,T Kohli,Player,Right-hand bat,Right-arm medium,11,4,3,3.67,7,0,0,0,20,55.00,0,,0-0
-31,YK Pathan,Player,Right-hand bat,Right-arm offbreak,2719,133,89,30.55,100,34,13,1,1927,141.10,44,7.10,3-20
-32,SR Watson,Player,Right-hand bat,Right-arm fast-medium,2469,91,76,32.49,104,33,16,2,1803,136.94,94,7.27,4-22
-33,M Kaif,Player,Right-hand bat,Right-arm offbreak,245,28,17,14.41,34,2,0,0,241,101.66,0,,0-0
-34,DS Lehmann,Player,Left-hand bat,Slow left-arm orthodox,18,2,2,9.00,17,0,0,0,19,94.74,0,,0-0
-36,M Rawat,Keeper,Right-hand bat,Right-arm medium,55,17,5,11.00,23,0,0,0,70,78.57,0,,0-0
-37,D Salunkhe,Player,Right-hand bat,Legbreak,33,6,2,16.50,26,0,0,0,24,137.50,1,8.75,1-19
-38,SK Warne,Captain,Right-hand bat,Legbreak googly,196,54,20,9.80,34,1,0,0,217,90.32,58,7.10,4-21
-39,SK Trivedi,Player,Right-hand bat,Right-arm medium,42,76,7,6.00,9,0,0,0,61,68.85,73,7.23,4-15
-40,G Gambhir,Captain,Left-hand bat,Legbreak,3589,130,118,30.42,93,50,31,0,2983,120.32,0,,0-0
-41,V Sehwag,Captain,Right-hand bat,Right-arm offbreak,2702,102,97,27.86,122,35,18,2,1806,149.61,6,10.20,2-18
-42,S Dhawan,Player,Left-hand bat,Right-arm offbreak,3082,113,96,32.10,95,42,25,0,2622,117.54,4,7.96,1-7
-43,L Ronchi,Keeper,Right-hand bat,Right-arm medium,34,5,5,6.80,13,0,0,0,37,91.89,0,,0-0
-44,ST Jayasuriya,Player,Left-hand bat,Slow left-arm orthodox,768,30,28,27.43,114,10,5,1,573,134.03,16,7.65,4-13
-45,DJ Thornely,Player,Right-hand bat,Right-arm medium,39,6,3,13.00,30,1,0,0,54,72.22,3,5.43,2-6
-46,RV Uthappa,Keeper,Right-hand bat,Right-arm medium,3390,133,114,29.74,83,49,17,0,2720,124.63,0,,0-0
-47,PR Shah,Keeper,Right-hand bat,Right-arm medium,92,16,8,11.50,29,0,0,0,96,95.83,0,,0-0
-48,AM Nayar,Player,Left-hand bat,Right-arm medium,672,60,38,17.68,45,6,0,0,588,114.29,9,8.15,3-13
-49,SM Pollock,Player,Right-hand bat,Right-arm fast-medium,147,13,8,18.38,33,2,0,0,116,126.72,13,6.46,4-11
-50,Harbhajan Singh,Player,Right-hand bat,Right-arm offbreak,783,125,49,15.98,64,6,1,0,574,136.41,128,6.77,5-17
-51,S Chanderpaul,Player,Left-hand bat,Legbreak,25,3,3,8.33,16,0,0,0,33,75.76,0,,0-0
-52,LRPL Taylor,Player,Right-hand bat,Right-arm offbreak,1017,55,40,25.43,81,11,3,0,847,120.07,0,11.50,0-11
-53,AC Gilchrist,CaptainKeeper,Left-hand bat,Right-arm offbreak,2069,80,76,27.22,109,26,13,2,1554,133.14,1,0.00,1-0
-54,Y Venugopal Rao,Player,Right-hand bat,Right-arm offbreak,985,64,44,22.39,71,11,3,0,864,114.00,7,9.14,2-23
-55,VVS Laxman,Player,Right-hand bat,Right-arm offbreak,282,20,19,14.84,52,4,1,0,271,104.06,0,,0-0
-56,A Symonds,Player,Right-hand bat,Right-arm offbreak,974,39,27,36.07,117,14,6,1,781,124.71,23,7.45,3-20
-57,RG Sharma,Player,Right-hand bat,Right-arm offbreak,3874,142,115,33.69,109,55,30,1,2996,129.31,16,7.68,4-6
-58,SB Styris,Player,Right-hand bat,Right-arm medium,131,12,7,18.71,36,1,0,0,134,97.76,9,7.50,3-31
-59,SB Bangar,Player,Right-hand bat,Right-arm medium-fast,47,11,6,7.83,17,0,0,0,49,95.92,6,8.48,2-30
-60,WPUJC Vaas,Player,Left-hand bat,Left-arm fast-medium,81,13,8,10.13,20,0,0,0,73,110.96,22,7.29,3-21
-61,RP Singh,Player,Right-hand bat,Left-arm fast-medium,52,81,15,3.47,10,0,0,0,78,66.67,100,7.37,5-22
-62,WP Saha,Keeper,Right-hand bat,Right-arm medium,1304,88,50,26.08,115,14,6,1,1017,128.22,0,,0-0
-63,LR Shukla,Player,Right-hand bat,Right-arm medium,386,46,26,14.85,48,3,0,0,345,111.88,17,8.15,3-1
-64,DPMD Jayawardene,Player,Right-hand bat,Right-arm medium,1771,78,61,29.03,110,23,11,1,1484,119.34,0,,0-0
-65,S Sohal,Player,Right-hand bat,Legbreak,368,22,20,18.40,62,6,2,0,311,118.33,0,,0-0
-66,B Lee,Player,Right-hand bat,Right-arm fast,124,38,10,12.40,25,0,0,0,102,121.57,30,6.99,3-13
-67,PP Chawla,Player,Left-hand bat,Legbreak,505,121,40,12.63,24,0,0,0,456,110.75,126,7.40,4-17
-68,WA Mota,Player,Right-hand bat,Right-arm medium,56,12,6,9.33,25,0,0,0,76,73.68,4,7.73,1-6
-69,Kamran Akmal,Keeper,Right-hand bat,Right-arm medium,128,6,5,25.60,53,1,1,0,78,164.10,0,,0-0
-70,Shahid Afridi,Player,Right-hand bat,Legbreak googly,81,10,8,10.13,33,1,0,0,46,176.09,9,7.29,3-27
-71,DJ Bravo,Player,Right-hand bat,Right-arm medium-fast,1262,105,55,22.95,70,14,4,0,1032,122.29,137,7.79,4-21
-72,MA Khote,Player,Right-hand bat,Right-arm medium,24,4,2,12.00,9,0,0,0,22,109.09,2,10.20,2-29
-73,A Nehra,Player,Right-hand bat,Left-arm medium-fast,41,81,7,5.86,22,0,0,0,63,65.08,110,7.47,5-29
-74,GC Smith,Player,Left-hand bat,Right-arm offbreak,724,28,25,28.96,91,9,4,0,669,108.22,0,,0-0
-75,Pankaj Singh,Player,Right-hand bat,Right-arm medium-fast,7,17,2,3.50,4,0,0,0,12,58.33,11,9.00,2-18
-76,RR Sarwan,Player,Right-hand bat,Legbreak,73,4,4,18.25,31,1,0,0,78,93.59,0,,0-0
-77,S Sreesanth,Player,Right-hand bat,Right-arm fast-medium,34,44,4,8.50,15,0,0,0,57,59.65,43,7.37,3-17
-78,VRV Singh,Player,Right-hand bat,Right-arm medium-fast,4,19,2,2.00,4,0,0,0,3,133.33,16,8.75,3-29
-79,SS Tiwary,Player,Left-hand bat,Right-arm medium,1205,78,44,27.39,61,15,6,0,1055,114.22,0,,0-0
-80,DS Kulkarni,Player,Right-hand bat,Right-arm medium,89,65,7,12.71,28,0,0,0,99,89.90,77,7.38,4-14
-81,R Vinay Kumar,Player,Right-hand bat,Right-arm medium,296,98,26,11.38,26,0,0,0,279,106.09,117,8.09,5-39
-82,AB Agarkar,Player,Right-hand bat,Right-arm fast,178,41,10,17.80,39,1,0,0,159,111.95,33,8.40,3-15
-83,M Kartik,Player,Left-hand bat,Slow left-arm orthodox,111,55,7,15.86,21,0,0,0,107,103.74,38,6.94,4-17
-84,I Sharma,Player,Right-hand bat,Right-arm fast-medium,36,68,3,12.00,9,0,0,0,45,80.00,54,7.55,5-11
-85,AM Rahane,Player,Right-hand bat,Right-arm medium,2529,92,74,34.18,103,34,22,1,2160,117.08,1,5.00,1-5
-86,Shoaib Malik,Player,Right-hand bat,Right-arm offbreak,52,7,4,13.00,24,0,0,0,49,106.12,2,8.88,1-6
-87,MK Tiwary,Player,Right-hand bat,Legbreak googly,1324,78,46,28.78,75,19,5,0,1202,110.15,1,11.83,1-10
-88,KD Karthik,Keeper,Right-hand bat,Right-arm medium,2515,136,106,23.73,86,34,12,0,2073,121.32,0,,0-0
-89,R Bhatia,Player,Right-hand bat,Right-arm medium-fast,326,91,29,11.24,26,0,0,0,273,119.41,79,7.24,4-14
-90,MF Maharoof,Player,Right-hand bat,Right-arm fast-medium,177,20,10,17.70,39,1,0,0,124,142.74,33,6.97,4-13
-91,VY Mahesh,Player,Right-hand bat,Right-arm medium-fast,15,17,2,7.50,6,0,0,0,28,53.57,22,8.17,5-36
-92,TM Srivastava,Player,Left-hand bat,Right-arm medium,8,7,1,8.00,7,0,0,0,11,72.73,0,,0-0
-93,B Chipli,Player,Right-hand bat,Right-arm medium,280,23,15,18.67,61,2,1,0,256,109.38,0,20.00,0-20
-94,DW Steyn,Player,Right-hand bat,Right-arm fast,163,89,22,7.41,19,0,0,0,158,103.16,99,6.33,3-8
-95,DB Das,Player,Right-hand bat,Legbreak googly,304,31,14,21.71,35,2,0,0,267,113.86,0,,0-0
-96,MK Pandey,Player,Right-hand bat,Right-arm medium,1800,87,69,26.09,114,23,8,1,1571,114.58,0,,0-0
-97,HH Gibbs,Player,Right-hand bat,Right-arm bowler,886,36,32,27.69,69,11,6,0,837,105.85,0,,0-0
-98,DNT Zoysa,Player,Left-hand bat,Left-arm fast-medium,11,3,1,11.00,10,0,0,0,9,122.22,2,8.47,1-28
-99,D Kalyankrishna,Player,Right-hand bat,Right-arm medium-fast,3,3,1,3.00,3,0,0,0,8,37.50,2,10.63,1-30
-100,SE Marsh,Player,Left-hand bat,Slow left-arm orthodox,2148,61,53,40.53,115,33,18,1,1670,128.62,0,,0-0
-101,SA Asnodkar,Player,Right-hand bat,Right-arm offbreak,423,20,20,21.15,60,7,2,0,352,120.17,0,,0-0
-102,Sohail Tanvir,Player,Left-hand bat,Left-arm medium-fast,36,11,3,12.00,13,0,0,0,31,116.13,24,5.95,6-14
-103,Salman Butt,Player,Left-hand bat,Right-arm offbreak,193,7,7,27.57,73,2,1,0,172,112.21,0,,0-0
-104,BJ Hodge,Player,Right-hand bat,Right-arm offbreak,1395,65,41,34.02,73,21,6,0,1146,121.73,18,7.54,5-13
-105,Umar Gul,Player,Right-hand bat,Right-arm fast-medium,39,6,3,13.00,24,0,0,0,19,205.26,14,7.06,4-21
-106,AB Dinda,Player,Right-hand bat,Right-arm medium-fast,19,73,9,2.11,6,0,0,0,42,45.24,80,7.52,4-16
-107,SP Fleming,Player,Left-hand bat,Right-arm medium,196,10,9,21.78,45,3,0,0,171,114.62,0,,0-0
-108,S Vidyut,Player,Left-hand bat,Slow left-arm orthodox,145,9,8,18.13,54,2,1,0,115,126.09,1,10.50,1-21
-109,JA Morkel,Player,Left-hand bat,Right-arm medium-fast,962,89,40,24.05,73,7,3,0,699,137.63,93,7.75,4-20
-110,AB de Villiers,Player,Right-hand bat,Right-arm medium,3161,116,81,39.02,133,40,23,3,2148,147.16,0,,0-0
-111,LPC Silva,Player,Right-hand bat,Legbreak,40,3,2,20.00,23,0,0,0,27,148.15,0,21.00,0-21
-112,DB Ravi Teja,Player,Right-hand bat,Legbreak googly,375,32,19,19.74,60,5,1,0,325,115.38,1,9.33,1-19
-113,Misbah-ul-Haq,Player,Right-hand bat,Legbreak,117,8,7,16.71,47,2,0,0,82,142.68,0,,0-0
-114,YV Takawale,Keeper,Right-hand bat,Right-arm medium,192,16,8,24.00,45,2,0,0,183,104.92,0,,0-0
-115,RR Raje,Player,Right-hand bat,Right-arm fast-medium,20,10,1,20.00,11,0,0,0,18,111.11,7,8.57,2-16
-116,PJ Sangwan,Player,Right-hand bat,Left-arm medium,22,33,4,5.50,6,0,0,0,32,68.75,35,7.98,3-15
-117,Mohammad Asif,Player,Left-hand bat,Right-arm fast-medium,3,8,2,1.50,3,0,0,0,6,50.00,9,8.98,2-19
-118,GD McGrath,Player,Right-hand bat,Right-arm fast-medium,4,14,1,4.00,4,0,0,0,5,80.00,14,6.50,4-29
-119,Joginder Sharma,Player,Right-hand bat,Right-arm fast-medium,36,16,4,9.00,16,0,0,0,30,120.00,13,9.17,2-26
-120,MS Gony,Player,Right-hand bat,Right-arm medium,97,42,9,10.78,42,1,0,0,69,140.58,39,8.22,3-13
-121,M Muralitharan,Player,Right-hand bat,Right-arm offbreak,20,64,6,3.33,6,0,0,0,30,66.67,62,6.47,4-11
-122,M Ntini,Player,Right-hand bat,Right-arm fast,11,9,1,11.00,11,0,0,0,19,57.89,8,6.74,4-20
-123,DT Patil,Keeper,Right-hand bat,Right-arm medium,13,2,2,6.50,9,0,0,0,13,100.00,0,,0-0
-124,A Kumble,Captain,Right-hand bat,Legbreak googly,35,42,3,11.67,8,0,0,0,49,71.43,49,6.35,5-5
-125,S Anirudha,Player,Right-hand bat,Right-arm medium,136,20,8,17.00,64,1,1,0,121,112.40,0,,0-0
-126,MM Patel,Player,Right-hand bat,Right-arm medium-fast,39,60,5,7.80,23,0,0,0,40,97.50,80,7.23,5-21
-127,CK Kapugedera,Player,Right-hand bat,Right-arm medium,16,5,3,5.33,8,0,0,0,24,66.67,0,17.29,0-8
-128,A Chopra,Player,Right-hand bat,Right-arm offbreak,53,7,6,8.83,24,0,0,0,75,70.67,0,,0-0
-129,T Taibu,Player,Right-hand bat,Right-arm medium,31,3,3,10.33,15,0,0,0,26,119.23,0,,0-0
-130,J Arunkumar,Player,Right-hand bat,Right-arm offbreak,23,3,3,7.67,22,0,0,0,24,95.83,0,,0-0
-131,PP Ojha,Player,Left-hand bat,Slow left-arm orthodox,16,92,12,1.33,3,0,0,0,45,35.56,99,7.11,4-25
-132,SP Goswami,Keeper,Left-hand bat,Right-arm medium,241,23,15,16.07,52,2,1,0,260,92.69,0,,0-0
-133,SR Tendulkar,Captain,Right-hand bat,Right-arm offbreak,2329,78,69,33.75,100,36,14,1,2043,114.00,0,9.50,0-6
-134,U Kaul,Keeper,Left-hand bat,Right-arm medium,0,5,0,,0,0,0,0,1,0.00,0,,0-0
-135,TM Dilshan,Player,Right-hand bat,Right-arm offbreak,1154,50,42,27.48,76,17,10,0,1037,111.28,5,7.89,1-3
-136,A Mishra,Player,Right-hand bat,Legbreak,291,111,27,10.78,31,2,0,0,326,89.26,131,7.06,5-17
-137,AD Mascarenhas,Player,Right-hand bat,Right-arm fast-medium,52,12,8,6.50,9,0,0,0,51,101.96,18,6.82,5-24
-138,NK Patel,Player,Left-hand bat,Right-arm medium,121,9,4,30.25,57,2,1,0,124,97.58,0,,0-0
-139,LA Pomersbach,Player,Left-hand bat,Right-arm offbreak,302,17,11,27.45,79,3,1,0,251,120.32,0,,0-0
-140,Iqbal Abdulla,Player,Left-hand bat,Slow left-arm orthodox,83,46,2,41.50,33,1,0,0,79,105.06,43,6.92,3-19
-141,Younis Khan,Player,Right-hand bat,Right-arm medium,3,1,1,3.00,3,0,0,0,7,42.86,0,,0-0
-142,PM Sarvesh Kumar,Player,Right-hand bat,Right-arm medium,1,2,0,,1,0,0,0,2,50.00,1,8.20,1-18
-143,DP Vijaykumar,Player,Right-hand bat,Right-arm medium,1,9,0,,1,0,0,0,1,100.00,4,7.48,1-17
-144,Shoaib Akhtar,Player,Right-hand bat,Right-arm fast,2,3,1,2.00,2,0,0,0,8,25.00,5,7.14,4-10
-145,Abdur Razzak,Player,Left-hand bat,Slow left-arm orthodox,0,1,0,,0,0,0,0,2,0.00,0,10.62,0-23
-146,H Das,Player,Right-hand bat,Right-arm medium,2,1,1,2.00,2,0,0,0,5,40.00,0,,0-0
-147,DR Smith,Player,Right-hand bat,Right-arm medium,2146,79,73,29.40,87,31,15,0,1645,130.46,25,8.30,4-7
-148,SD Chitnis,Player,Right-hand bat,Right-arm offbreak,99,11,7,14.14,38,1,0,0,92,107.61,2,9.00,2-35
-149,CRD Fernando,Player,Right-hand bat,Right-arm fast-medium,4,10,0,,2,0,0,0,3,133.33,19,7.03,5-17
-150,VS Yeligati,Player,Right-hand bat,Right-arm offbreak,2,2,1,2.00,2,0,0,0,2,100.00,0,10.60,0-11
-151,L Balaji,Player,Right-hand bat,Right-arm medium-fast,36,72,8,4.50,15,0,0,0,50,72.00,83,7.67,5-23
-152,A Mukund,Player,Left-hand bat,Legbreak googly,19,3,2,9.50,19,0,0,0,23,82.61,0,,0-0
-153,RR Powar,Player,Right-hand bat,Right-arm offbreak,65,26,3,21.67,28,0,0,0,63,103.17,14,7.16,2-10
-154,JP Duminy,Player,Left-hand bat,Right-arm offbreak,1926,76,50,38.52,78,26,13,0,1590,121.13,23,6.90,4-16
-155,A Flintoff,Player,Right-hand bat,Right-arm fast-medium,62,3,2,31.00,24,0,0,0,57,108.77,2,9.55,1-11
-156,T Thushara,Player,Left-hand bat,Left-arm fast-medium,12,6,2,6.00,8,0,0,0,19,63.16,10,6.66,4-27
-157,JD Ryder,Player,Left-hand bat,Right-arm medium,604,29,28,21.57,86,8,4,0,466,129.61,11,7.52,3-13
-158,KP Pietersen,Player,Right-hand bat,Right-arm offbreak,1001,36,28,35.75,103,15,5,1,758,132.06,9,6.91,2-14
-159,T Henderson,Player,Right-hand bat,Right-arm fast-medium,11,2,2,5.50,11,0,0,0,16,68.75,1,6.67,1-30
-160,Kamran Khan,Player,Left-hand bat,Left-arm medium-fast,3,8,1,3.00,3,0,0,0,5,60.00,9,8.72,4-12
-161,RS Bopara,Player,Right-hand bat,Right-arm medium,530,23,17,31.18,84,6,3,0,460,115.22,13,8.04,3-31
-162,CH Gayle,Player,Left-hand bat,Right-arm offbreak,3356,86,75,44.75,175,41,25,5,2288,146.68,19,7.46,3-21
-163,MC Henriques,Player,Right-hand bat,Right-arm fast-medium,648,44,27,24.00,74,7,2,0,524,123.66,38,7.89,3-14
-164,R Bishnoi,Player,Right-hand bat,Right-arm medium-fast,19,3,3,6.33,18,0,0,0,17,111.76,0,,0-0
-165,FH Edwards,Player,Right-hand bat,Right-arm fast,4,6,1,4.00,3,0,0,0,5,80.00,6,6.13,2-16
-166,KV Sharma,Player,Left-hand bat,Legbreak googly,268,47,15,17.87,39,2,0,0,243,110.29,41,7.78,5-38
-167,PC Valthaty,Player,Right-hand bat,Right-arm medium,496,22,21,23.62,120,5,3,1,425,116.71,7,7.91,4-28
-168,RJ Quiney,Player,Left-hand bat,Right-arm medium,97,6,6,16.17,51,1,1,0,103,94.17,0,,0-0
-169,AS Raut,Player,Right-hand bat,Legbreak googly,173,21,9,19.22,36,2,0,0,155,111.61,0,8.80,0-6
-170,Yashpal Singh,Player,Right-hand bat,Right-arm medium,27,7,3,9.00,13,0,0,0,49,55.10,0,,0-0
-171,M Manhas,Player,Right-hand bat,Right-arm offbreak,514,55,23,22.35,42,5,0,0,486,105.76,0,6.00,0-9
-172,AA Bilakhia,Player,Right-hand bat,Right-arm medium,69,7,5,13.80,22,0,0,0,88,78.41,0,,0-0
-173,AN Ghosh,Player,Right-hand bat,Right-arm medium,7,2,2,3.50,7,0,0,0,8,87.50,0,,0-0
-174,BAW Mendis,Player,Right-hand bat,Right-arm offbreak,3,9,2,1.50,2,0,0,0,6,50.00,7,7.16,2-21
-175,DL Vettori,Captain,Left-hand bat,Slow left-arm orthodox,121,34,8,15.13,29,0,0,0,118,102.54,34,6.70,5-15
-176,MN van Wyk,Keeper,Right-hand bat,Slow left-arm orthodox,167,5,3,55.67,74,3,1,0,135,123.70,0,,0-0
-177,RE van der Merwe,Player,Right-hand bat,Slow left-arm orthodox,159,21,11,14.45,35,2,0,0,144,110.42,25,6.58,3-20
-178,TL Suman,Player,Right-hand bat,Right-arm offbreak,676,43,32,21.13,78,6,2,0,587,115.16,7,7.70,2-14
-179,Shoaib Ahmed,Player,Right-hand bat,Right-arm fast-medium,1,8,2,0.50,1,0,0,0,6,16.67,5,8.88,2-20
-180,GR Napier,Player,Right-hand bat,Right-arm medium,15,1,1,15.00,15,0,0,0,16,93.75,1,6.75,1-27
-181,KP Appanna,Player,Right-hand bat,Slow left-arm orthodox,2,13,1,2.00,1,0,0,0,4,50.00,11,7.55,4-17
-182,LA Carseldine,Player,Left-hand bat,Left-arm medium,81,5,4,20.25,39,1,0,0,71,114.08,1,5.00,1-5
-183,NV Ojha,Keeper,Right-hand bat,Right-arm medium,1466,97,69,21.25,94,10,6,0,1266,115.80,0,,0-0
-184,SM Harwood,Player,Right-hand bat,Right-arm fast-medium,9,3,0,,6,0,0,0,14,64.29,3,6.10,2-25
-185,M Vijay,Player,Right-hand bat,Right-arm offbreak,2490,98,93,26.77,127,35,15,2,2070,120.29,0,8.00,0-7
-186,SB Jakati,Player,Left-hand bat,Slow left-arm orthodox,28,57,1,28.00,13,0,0,0,30,93.33,50,7.80,4-22
-187,DA Warner,Player,Left-hand bat,Legbreak,3339,98,86,38.83,109,47,34,2,2415,138.26,0,,0-0
-188,RJ Harris,Player,Right-hand bat,Right-arm fast,117,37,12,9.75,17,0,0,0,112,104.46,47,7.16,4-34
-189,D du Preez,Player,Right-hand bat,Right-arm fast-medium,10,2,1,10.00,10,0,0,0,13,76.92,4,7.67,3-31
-190,M Morkel,Player,Left-hand bat,Right-arm fast,126,68,11,11.45,23,0,0,0,93,135.48,85,7.25,4-15
-191,AD Mathews,Player,Right-hand bat,Right-arm fast-medium,691,45,28,24.68,65,7,1,0,568,121.65,28,7.85,4-19
-192,J Botha,Player,Right-hand bat,Right-arm offbreak,409,34,20,20.45,67,4,1,0,364,112.36,27,6.67,3-6
-193,C Nanda,Player,Right-hand bat,Legbreak,0,3,1,0.00,0,0,0,0,1,0.00,2,6.88,1-4
-194,SL Malinga,Player,Right-hand bat,Right-arm fast,81,98,16,5.06,17,0,0,0,100,81.00,159,6.23,5-12
-195,Mashrafe Mortaza,Player,Right-hand bat,Right-arm fast-medium,2,1,0,,2,0,0,0,2,100.00,1,12.46,1-54
-196,A Singh,Player,Right-hand bat,Right-arm medium-fast,2,23,4,0.50,1,0,0,0,10,20.00,31,7.52,4-17
-197,GJ Bailey,Captain,Right-hand bat,Right-arm medium,663,40,27,24.56,61,8,2,0,552,120.11,0,,0-0
-198,AB McDonald,Player,Right-hand bat,Right-arm fast-medium,123,9,4,30.75,33,2,0,0,101,121.78,13,8.30,4-42
-199,Y Nagar,Player,Right-hand bat,Right-arm offbreak,285,25,14,20.36,44,1,0,0,271,105.17,4,9.89,2-19
-200,SS Shaikh,Keeper,Right-hand bat,Right-arm medium,6,2,1,6.00,6,0,0,0,7,85.71,0,,0-0
-201,R Ashwin,Player,Right-hand bat,Right-arm offbreak,229,109,21,10.90,29,0,0,0,241,95.02,110,6.27,5-22
-202,Mohammad Ashraful,Player,Right-hand bat,Right-arm offbreak,2,1,1,2.00,2,0,0,0,12,16.67,0,,0-0
-203,CA Pujara,Player,Right-hand bat,Legbreak,390,30,19,20.53,51,4,1,0,403,96.77,0,,0-0
-204,OA Shah,Player,Right-hand bat,Right-arm offbreak,506,23,15,33.73,76,6,4,0,405,124.94,0,,0-0
-205,Anirudh Singh,Player,Left-hand bat,Right-arm medium,63,5,4,15.75,40,1,0,0,69,91.30,0,,0-0
-206,Jaskaran Singh,Player,Right-hand bat,Right-arm medium,8,8,1,8.00,4,0,0,0,11,72.73,6,9.17,2-18
-207,AP Tare,Player,Right-hand bat,Right-arm medium,321,32,21,15.29,59,2,1,0,260,123.46,0,,0-0
-208,AT Rayudu,Player,Right-hand bat,Right-arm offbreak,2325,109,84,27.68,81,34,13,0,1884,123.41,0,,0-0
-209,R Sathish,Player,Right-hand bat,Right-arm medium,270,34,17,15.88,27,0,0,0,236,114.41,6,9.80,2-20
-210,R McLaren,Player,Left-hand bat,Right-arm medium-fast,159,18,8,19.88,51,2,1,0,178,89.33,14,8.69,3-54
-211,AA Jhunjhunwala,Player,Right-hand bat,Right-arm offbreak,217,21,13,16.69,53,2,1,0,218,99.54,1,8.89,1-13
-212,P Dogra,Player,Right-hand bat,Legbreak,127,13,11,11.55,41,1,0,0,141,90.07,0,,0-0
-213,A Uniyal,Player,Left-hand bat,Left-arm medium,4,2,1,4.00,4,0,0,0,7,57.14,3,10.67,3-39
-214,MS Bisla,Keeper,Right-hand bat,Right-arm medium,788,37,36,21.89,92,6,4,0,719,109.60,0,,0-0
-215,YA Abdulla,Player,Left-hand bat,Left-arm fast-medium,0,11,0,,0,0,0,0,1,0.00,15,8.40,4-28
-216,EJG Morgan,Player,Left-hand bat,Right-arm medium,789,48,36,21.92,66,10,4,0,663,119.00,0,,0-0
-217,JM Kemp,Player,Right-hand bat,Right-arm fast-medium,26,4,2,13.00,22,0,0,0,25,104.00,3,7.12,3-11
-218,S Tyagi,Player,Right-hand bat,Right-arm medium,3,14,1,3.00,3,0,0,0,4,75.00,6,8.04,2-17
-219,RS Gavaskar,Player,Left-hand bat,Slow left-arm orthodox,2,2,1,2.00,2,0,0,0,8,25.00,0,8.00,0-8
-220,SE Bond,Player,Right-hand bat,Right-arm fast,1,8,1,1.00,1,0,0,0,2,50.00,9,7.03,2-23
-221,KA Pollard,Player,Right-hand bat,Right-arm medium-fast,1959,106,68,28.81,78,22,9,0,1380,141.96,67,8.14,4-15
-222,S Ladda,Player,Right-hand bat,Legbreak,0,9,1,0.00,0,0,0,0,10,0.00,5,9.54,2-44
-223,DP Nannes,Player,Right-hand bat,Left-arm fast,4,29,1,4.00,3,0,0,0,13,30.77,38,6.75,4-25
-224,MJ Lumb,Player,Left-hand bat,Right-arm medium,278,12,12,23.17,83,5,1,0,198,140.40,0,,0-0
-225,DR Martyn,Player,Right-hand bat,Right-arm medium,19,1,1,19.00,19,0,0,0,26,73.08,0,,0-0
-226,S Narwal,Player,Left-hand bat,Right-arm medium,37,7,3,12.33,23,0,0,0,29,127.59,6,11.04,4-35
-227,AB Barath,Player,Right-hand bat,Right-arm offbreak,42,3,2,21.00,33,1,0,0,43,97.67,0,,0-0
-228,Bipul Sharma,Player,Left-hand bat,Slow left-arm orthodox,156,26,7,22.29,35,1,0,0,99,157.58,19,7.82,2-13
-229,FY Fazal,Player,Left-hand bat,Right-arm medium,183,12,10,18.30,45,3,0,0,179,102.23,1,10.00,1-6
-230,AC Voges,Player,Right-hand bat,Slow left-arm orthodox,181,9,4,45.25,45,2,0,0,143,126.57,1,8.22,1-9
-231,MD Mishra,Player,Right-hand bat,Right-arm offbreak,237,18,16,14.81,41,2,0,0,213,111.27,0,,0-0
-232,UT Yadav,Player,Right-hand bat,Right-arm fast-medium,133,86,12,11.08,24,0,0,0,122,109.02,86,7.92,4-20
-233,J Theron,Player,Right-hand bat,Right-arm medium-fast,10,9,1,10.00,7,0,0,0,11,90.91,8,8.11,2-34
-234,SJ Srivastava,Player,Right-hand bat,Left-arm fast-medium,5,13,1,5.00,3,0,0,0,5,100.00,15,8.74,2-18
-235,R Sharma,Player,Right-hand bat,Right-arm offbreak,66,43,14,4.71,14,0,0,0,77,85.71,42,6.98,3-13
-236,Mandeep Singh,Player,Right-hand bat,Right-arm medium,897,57,44,20.39,77,10,4,0,739,121.38,0,,0-0
-237,KM Jadhav,Player,Right-hand bat,Right-arm offbreak,597,49,25,23.88,63,6,2,0,473,126.22,0,,0-0
-238,SW Tait,Player,Right-hand bat,Right-arm fast,23,21,3,7.67,11,0,0,0,26,88.46,26,6.60,4-19
-239,KB Arun Karthik,Keeper,Right-hand bat,Legbreak googly,46,15,3,15.33,19,0,0,0,46,100.00,0,,0-0
-240,KAJ Roach,Player,Right-hand bat,Right-arm fast,10,2,1,10.00,10,0,0,0,9,111.11,0,9.31,0-30
-241,PD Collingwood,Player,Right-hand bat,Right-arm medium,203,8,5,40.60,75,3,3,0,159,127.67,5,6.74,2-19
-242,CK Langeveldt,Player,Right-hand bat,Right-arm fast-medium,8,7,2,4.00,8,0,0,0,9,88.89,13,6.80,3-14
-243,VS Malik,Player,Right-hand bat,Right-arm medium,7,13,1,7.00,6,0,0,0,7,100.00,6,7.36,2-14
-244,A Mithun,Player,Right-hand bat,Right-arm medium,34,16,5,6.80,11,0,0,0,26,130.77,8,9.02,2-19
-245,AP Dole,Player,Right-hand bat,Right-arm medium-fast,34,3,2,17.00,30,1,0,0,23,147.83,5,9.40,2-34
-246,AN Ahmed,Player,Right-hand bat,Right-arm medium-fast,36,17,1,36.00,18,0,0,0,27,133.33,15,8.03,3-32
-247,RS Sodhi,Player,Right-hand bat,Right-arm medium,4,3,0,,4,0,0,0,2,200.00,0,,0-0
-248,DE Bollinger,Player,Left-hand bat,Left-arm fast-medium,21,27,1,21.00,16,0,0,0,23,91.30,43,6.84,4-13
-249,S Sriram,Player,Left-hand bat,Slow left-arm orthodox,31,2,2,15.50,27,0,0,0,38,81.58,0,16.33,0-24
-250,B Sumanth,Player,Right-hand bat,Right-arm medium-fast,35,5,1,35.00,16,0,0,0,38,92.11,0,,0-0
-251,C Madan,Keeper,Right-hand bat,Right-arm medium,15,1,1,15.00,15,0,0,0,21,71.43,0,,0-0
-252,AG Paunikar,Keeper,Right-hand bat,Right-arm medium,49,5,5,9.80,20,0,0,0,61,80.33,0,,0-0
-253,MR Marsh,Player,Right-hand bat,Right-arm medium,225,19,12,18.75,38,3,0,0,201,111.94,19,7.62,4-25
-254,AJ Finch,Player,Right-hand bat,Slow left-arm orthodox,1304,52,47,27.74,88,17,11,0,1080,120.74,1,9.21,1-11
-255,STR Binny,Player,Right-hand bat,Right-arm medium,676,69,32,21.13,48,9,0,0,537,125.88,20,7.35,3-14
-256,Harmeet Singh,Player,Left-hand bat,Slow left-arm orthodox,18,28,4,4.50,14,0,0,0,12,150.00,31,7.49,3-22
-257,IR Jaggi,Player,Right-hand bat,Legbreak googly,43,5,4,10.75,25,0,0,0,60,71.67,0,,0-0
-258,DT Christian,Player,Right-hand bat,Right-arm fast-medium,341,23,18,18.94,39,2,0,0,299,114.05,20,7.61,2-13
-259,RV Gomez,Player,Right-hand bat,Right-arm medium,50,13,5,10.00,26,0,0,0,53,94.34,6,8.00,2-14
-260,MA Agarwal,Player,Right-hand bat,Right-arm medium,781,48,42,18.60,68,10,3,0,655,119.24,0,,0-0
-261,AUK Pathan,Player,Right-hand bat,Right-arm medium,39,8,5,7.80,14,0,0,0,26,150.00,0,8.77,0-13
-262,UBT Chand,Player,Right-hand bat,Right-arm offbreak,300,21,20,15.00,58,3,1,0,314,95.54,0,,0-0
-263,DJ Jacobs,Keeper,Right-hand bat,Right-arm medium,92,7,7,13.14,32,1,0,0,101,91.09,0,,0-0
-264,Sunny Singh,Player,Right-hand bat,Right-arm medium-fast,43,6,4,10.75,20,0,0,0,31,138.71,0,,0-0
-265,NJ Rimmington,Player,Right-hand bat,Right-arm fast-medium,1,1,0,,1,0,0,0,1,100.00,0,6.33,0-19
-266,AL Menaria,Player,Left-hand bat,Slow left-arm orthodox,401,29,21,19.10,40,5,0,0,367,109.26,3,7.64,2-20
-267,WD Parnell,Player,Left-hand bat,Left-arm medium-fast,63,26,9,7.00,16,0,0,0,80,78.75,31,6.76,4-30
-268,JJ van der Wath,Player,Right-hand bat,Right-arm medium-fast,18,3,2,9.00,14,0,0,0,17,105.88,3,10.14,2-48
-269,R Ninan,Player,Right-hand bat,Right-arm offbreak,3,2,1,3.00,3,0,0,0,6,50.00,3,10.83,2-31
-270,S Aravind,Player,Left-hand bat,Left-arm medium-fast,27,28,0,,14,0,0,0,19,142.11,43,7.68,4-14
-271,MS Wade,Player,Left-hand bat,Right-arm medium,11,2,2,5.50,8,0,0,0,13,84.62,0,,0-0
-272,TD Paine,Keeper,Right-hand bat,Right-arm medium,10,2,2,5.00,8,0,0,0,29,34.48,0,,0-0
-273,SB Wagh,Player,Left-hand bat,Left-arm medium-fast,2,8,2,1.00,2,0,0,0,3,66.67,5,7.71,3-13
-274,AC Thomas,Player,Right-hand bat,Right-arm fast-medium,20,14,2,10.00,12,0,0,0,19,105.26,16,7.55,3-22
-275,JEC Franklin,Player,Left-hand bat,Left-arm medium,321,20,11,29.18,79,2,1,0,309,103.88,9,8.36,2-18
-276,Shakib Al Hasan,Player,Left-hand bat,Slow left-arm orthodox,468,41,23,20.35,66,5,2,0,379,123.48,47,6.91,3-17
-277,DH Yagnik,Keeper,Left-hand bat,Right-arm medium,170,25,10,17.00,34,2,0,0,142,119.72,0,,0-0
-278,S Randiv,Player,Right-hand bat,Right-arm offbreak,2,8,1,2.00,2,0,0,0,4,50.00,8,7.48,2-24
-279,BJ Haddin,Keeper,Right-hand bat,Right-arm medium,18,1,1,18.00,18,0,0,0,11,163.64,0,,0-0
-280,NLTC Perera,Player,Left-hand bat,Right-arm medium-fast,414,36,21,19.71,40,5,0,0,314,131.85,36,8.63,3-20
-281,NL McCullum,Player,Right-hand bat,Right-arm offbreak,26,2,1,26.00,15,0,0,0,23,113.04,0,6.80,0-12
-282,JE Taylor,Player,Right-hand bat,Right-arm fast,3,5,1,3.00,2,0,0,0,4,75.00,6,7.73,3-28
-283,J Syed Mohammad,Player,Left-hand bat,Slow left-arm orthodox,28,10,1,28.00,13,0,0,0,25,112.00,10,8.77,2-14
-284,RN ten Doeschate,Player,Right-hand bat,Right-arm medium-fast,326,29,14,23.29,70,4,1,0,238,136.97,3,6.52,1-3
-285,TR Birt,Player,Left-hand bat,Right-arm medium,75,5,5,15.00,27,0,0,0,59,127.12,0,,0-0
-286,AG Murtaza,Player,Left-hand bat,Slow left-arm orthodox,10,12,1,10.00,5,0,0,0,14,71.43,12,6.91,3-14
-287,Harpreet Singh,Player,Left-hand bat,Right-arm medium,20,4,2,10.00,13,0,0,0,26,76.92,0,,0-0
-288,M Klinger,Player,Right-hand bat,Right-arm medium,73,4,4,18.25,29,0,0,0,78,93.59,0,,0-0
-289,AC Blizzard,Player,Left-hand bat,Left-arm medium,120,7,7,17.14,51,2,1,0,91,131.87,0,,0-0
-290,I Malhotra,Player,Right-hand bat,Right-arm medium-fast,7,1,0,,7,0,0,0,4,175.00,0,23.00,0-23
-291,L Ablish,Player,Right-hand bat,Right-arm medium-fast,0,3,0,,0,0,0,0,2,0.00,5,10.29,3-16
-292,CA Ingram,Player,Left-hand bat,Legbreak,8,2,2,4.00,7,0,0,0,14,57.14,0,,0-0
-293,S Nadeem,Player,Right-hand bat,Slow left-arm orthodox,24,46,9,2.67,6,0,0,0,62,38.71,32,6.98,3-16
-294,P Parameswaran,Player,Right-hand bat,Left-arm medium,1,8,0,,1,0,0,0,3,33.33,9,8.37,3-29
-295,CJ Ferguson,Player,Right-hand bat,Right-arm medium,98,8,6,16.33,23,0,0,0,119,82.35,0,,0-0
-296,VR Aaron,Player,Right-hand bat,Right-arm fast,42,34,3,14.00,17,0,0,0,45,93.33,33,8.14,3-15
-297,AA Chavan,Player,Left-hand bat,Slow left-arm orthodox,12,13,2,6.00,7,0,0,0,11,109.09,8,7.51,2-22
-298,ND Doshi,Player,Right-hand bat,Slow left-arm orthodox,0,4,1,0.00,0,0,0,0,13,0.00,2,8.36,1-15
-299,B Kumar,Player,Right-hand bat,Right-arm medium,154,76,18,8.56,24,0,0,0,156,98.72,89,6.71,4-12
-300,Y Gnaneswara Rao,Player,Right-hand bat,Right-arm medium,19,2,1,19.00,19,0,0,0,18,105.56,0,7.00,0-7
-301,S Rana,Player,Right-hand bat,Right-arm medium-fast,91,10,4,22.75,19,0,0,0,82,110.98,0,6.75,0-2
-302,BA Bhatt,Player,Left-hand bat,Slow left-arm orthodox,6,17,1,6.00,6,0,0,0,7,85.71,13,7.86,4-21
-303,F du Plessis,Player,Right-hand bat,Legbreak,1287,50,42,30.64,73,20,8,0,1036,124.23,0,16.00,0-16
-304,RE Levi,Player,Right-hand bat,Right-arm medium,83,6,6,13.83,50,1,1,0,74,112.16,0,,0-0
-305,GJ Maxwell,Player,Right-hand bat,Right-arm offbreak,917,42,38,24.13,95,11,6,0,587,156.22,5,9.62,2-10
-306,SPD Smith,Player,Right-hand bat,Legbreak googly,1212,51,33,36.73,101,18,3,1,916,132.31,0,15.00,0-5
-307,MN Samuels,Player,Right-hand bat,Right-arm offbreak,132,10,9,14.67,46,2,0,0,142,92.96,10,7.28,3-39
-308,SA Yadav,Player,Right-hand bat,Right-arm offbreak,472,44,21,22.48,60,3,1,0,369,127.91,0,8.00,0-8
-309,KK Cooper,Player,Right-hand bat,Right-arm medium,116,25,9,12.89,32,1,0,0,70,165.71,36,7.41,4-26
-310,JP Faulkner,Player,Right-hand bat,Left-arm fast-medium,470,48,20,23.50,46,6,0,0,340,138.24,59,8.15,5-14
-311,HV Patel,Player,Right-hand bat,Right-arm medium,41,32,8,5.13,10,0,0,0,36,113.89,32,8.21,2-12
-312,DAJ Bracewell,Player,Right-hand bat,Right-arm fast-medium,12,1,0,,12,0,0,0,9,133.33,3,7.44,3-31
-313,DJ Harris,Player,Right-hand bat,Right-arm medium,111,4,4,27.75,47,2,0,0,103,107.77,0,8.67,0-11
-314,Ankit Sharma,Player,Left-hand bat,Slow left-arm orthodox,62,19,6,10.33,30,1,0,0,53,116.98,12,6.82,2-20
-315,SP Narine,Player,Left-hand bat,Right-arm offbreak,46,65,7,6.57,13,0,0,0,56,82.14,97,6.05,5-13
-316,GB Hogg,Player,Left-hand bat,Slow left-arm chinaman,22,21,3,7.33,13,0,0,0,22,100.00,25,7.17,4-29
-317,RR Bhatkal,Player,Right-hand bat,Right-arm medium,0,1,1,0.00,0,0,0,0,2,0.00,0,17.50,0-35
-318,CJ McKay,Player,Right-hand bat,Right-arm fast-medium,8,2,1,8.00,8,0,0,0,15,53.33,1,8.57,1-36
-319,N Saini,Keeper,Right-hand bat,Right-arm medium,140,10,10,14.00,50,2,1,0,143,97.90,0,,0-0
-320,DA Miller,Player,Left-hand bat,Right-arm offbreak,1426,60,40,35.65,101,18,8,1,1022,139.53,0,,0-0
-321,Azhar Mahmood,Player,Right-hand bat,Right-arm fast-medium,388,23,19,20.42,80,5,2,0,311,124.76,31,7.40,3-19
-322,P Negi,Player,Left-hand bat,Slow left-arm orthodox,209,29,12,17.42,36,1,0,0,170,122.94,17,8.09,4-17
-323,RJ Peterson,Player,Left-hand bat,Slow left-arm orthodox,32,5,3,10.67,16,0,0,0,32,100.00,3,8.75,3-37
-324,KMDN Kulasekara,Player,Right-hand bat,Right-arm fast-medium,5,5,0,,5,0,0,0,3,166.67,6,6.51,2-10
-325,A Ashish Reddy,Player,Right-hand bat,Right-arm medium,266,30,14,19.00,36,2,0,0,184,144.57,18,8.68,3-24
-326,V Pratap Singh,Player,Right-hand bat,Right-arm medium,0,9,1,0.00,0,0,0,0,1,0.00,12,8.22,3-30
-327,BB Samantray,Player,Right-hand bat,Right-arm medium,125,9,5,25.00,55,2,1,0,116,107.76,0,,0-0
-328,MJ Clarke,Player,Right-hand bat,Slow left-arm orthodox,98,6,6,16.33,41,1,0,0,96,102.08,3,6.09,1-9
-329,Gurkeerat Singh,Player,Right-hand bat,Right-arm offbreak,342,28,21,16.29,51,2,1,0,280,122.14,5,7.15,2-14
-330,AP Majumdar,Player,Right-hand bat,Legbreak googly,87,4,4,21.75,31,2,0,0,77,112.99,0,,0-0
-331,PA Reddy,Player,Right-hand bat,Legbreak,141,11,9,15.67,42,1,0,0,145,97.24,0,,0-0
-332,K Upadhyay,Player,Right-hand bat,Right-arm medium,12,3,0,,11,0,0,0,9,133.33,0,8.78,0-18
-333,P Awana,Player,Right-hand bat,Right-arm medium,5,33,2,2.50,4,0,0,0,14,35.71,43,7.85,4-32
-334,AD Russell,Player,Right-hand bat,Right-arm fast,574,34,22,26.09,66,10,3,0,350,164.00,36,8.19,6-19
-335,A Chandila,Player,Right-hand bat,Right-arm offbreak,4,12,0,,4,0,0,0,7,57.14,11,6.21,4-13
-336,CA Lynn,Player,Right-hand bat,Slow left-arm orthodox,89,5,4,22.25,45,1,0,0,85,104.71,0,,0-0
-337,Sunny Gupta,Player,Right-hand bat,Right-arm offbreak,0,1,1,0.00,0,0,0,0,1,0.00,0,14.21,0-45
-338,MC Juneja,Player,Right-hand bat,Right-arm offbreak,108,6,6,18.00,49,1,0,0,116,93.10,0,,0-0
-339,KK Nair,Player,Right-hand bat,Right-arm offbreak,842,37,30,28.07,83,11,7,0,671,125.48,0,,0-0
-340,GH Vihari,Player,Right-hand bat,Right-arm offbreak,236,21,18,13.11,46,2,0,0,276,85.51,0,6.40,0-2
-341,MDKJ Perera,Keeper,Left-hand bat,Right-arm medium,14,2,2,7.00,14,0,0,0,13,107.69,0,,0-0
-342,R Shukla,Player,Right-hand bat,Right-arm medium,19,7,1,19.00,14,0,0,0,23,82.61,7,9.21,2-24
-343,B Laughlin,Player,Right-hand bat,Right-arm fast-medium,4,2,1,4.00,4,0,0,0,9,44.44,1,9.07,1-22
-344,AS Rajpoot,Player,Right-hand bat,Right-arm medium,2,6,0,,2,0,0,0,6,33.33,4,7.96,1-13
-345,M Vohra,Player,Right-hand bat,Right-arm medium,728,34,30,24.27,67,12,2,0,580,125.52,0,,0-0
-346,JD Unadkat,Player,Right-hand bat,Left-arm medium,2,33,1,2.00,1,0,0,0,7,28.57,29,8.49,5-24
-347,Mohammed Shami,Player,Right-hand bat,Right-arm fast-medium,10,23,3,3.33,5,0,0,0,22,45.45,19,8.33,3-33
-348,BMAJ Mendis,Player,Left-hand bat,Legbreak,23,3,3,7.67,12,0,0,0,27,85.19,1,7.20,1-16
-349,R Rampaul,Player,Left-hand bat,Right-arm fast-medium,39,11,5,7.80,23,0,0,0,45,86.67,15,6.50,3-29
-350,CH Morris,Player,Right-hand bat,Right-arm fast-medium,285,38,7,40.71,82,3,1,0,178,160.11,45,7.15,4-20
-351,SV Samson,Keeper,Right-hand bat,Right-arm medium,1015,49,41,24.76,76,14,5,0,868,116.94,0,,0-0
-352,SMSM Senanayake,Player,Right-hand bat,Right-arm offbreak,10,8,1,10.00,7,0,0,0,17,58.82,9,6.40,2-24
-353,BJ Rohrer,Player,Left-hand bat,Right-arm medium,179,7,5,35.80,64,3,1,0,131,136.64,0,11.00,0-11
-354,KL Rahul,Player,Right-hand bat,Right-arm medium,713,38,23,31.00,68,9,4,0,580,122.93,0,,0-0
-355,Q de Kock,Keeper,Left-hand bat,Right-arm medium,657,25,24,27.38,108,10,5,1,526,124.90,0,,0-0
-356,R Dhawan,Player,Right-hand bat,Right-arm medium-fast,153,26,7,21.86,25,0,0,0,135,113.33,20,7.39,2-14
-357,MG Johnson,Player,Left-hand bat,Left-arm fast,118,42,13,9.08,16,0,0,0,132,89.39,52,7.69,3-21
-358,LJ Wright,Player,Right-hand bat,Right-arm medium-fast,106,7,5,21.20,44,2,0,0,63,168.25,2,10.14,1-12
-359,IC Pandey,Player,Right-hand bat,Right-arm medium,0,25,1,0.00,0,0,0,0,2,0.00,19,7.55,2-22
-360,CM Gautam,Keeper,Right-hand bat,Right-arm medium,169,13,10,16.90,33,3,0,0,158,106.96,0,,0-0
-361,X Thalaivan Sargunam,Player,Right-hand bat,Right-arm offbreak,10,1,1,10.00,10,0,0,0,17,58.82,0,,0-0
-362,DJG Sammy,Player,Right-hand bat,Right-arm medium-fast,295,22,15,19.67,60,1,1,0,251,117.53,14,8.60,6-22
-363,KW Richardson,Player,Right-hand bat,Right-arm fast-medium,36,13,3,12.00,26,0,0,0,39,92.31,18,8.27,4-13
-364,MM Sharma,Player,Right-hand bat,Right-arm medium,61,61,8,7.63,21,0,0,0,53,115.09,78,7.77,5-14
-365,UA Birla,Player,Right-hand bat,Right-arm medium,7,2,1,7.00,7,0,0,0,15,46.67,0,,0-0
-366,Parvez Rasool,Player,Right-hand bat,Right-arm offbreak,17,11,2,8.50,10,0,0,0,20,85.00,4,8.12,1-20
-367,Sandeep Sharma,Player,Right-hand bat,Right-arm medium,19,42,1,19.00,7,0,0,0,29,65.52,57,7.38,4-25
-368,S Kaul,Player,Right-hand bat,Right-arm medium,9,11,0,,7,0,0,0,11,81.82,7,8.21,2-27
-369,Sachin Baby,Player,Left-hand bat,Right-arm offbreak,122,15,5,24.40,33,1,0,0,89,137.08,3,4.80,2-4
-370,PV Tambe,Player,Right-hand bat,Legbreak,18,30,2,9.00,7,0,0,0,39,46.15,25,7.45,4-20
-371,NM Coulter-Nile,Player,Right-hand bat,Right-arm fast,38,18,5,7.60,9,0,0,0,40,95.00,23,7.19,4-19
-372,CJ Anderson,Player,Left-hand bat,Left-arm medium-fast,379,16,12,31.58,95,5,3,0,284,133.45,5,9.55,2-16
-373,NJ Maddinson,Player,Left-hand bat,Slow left-arm orthodox,20,3,3,6.67,12,0,0,0,21,95.24,0,,0-0
-374,AR Patel,Player,Left-hand bat,Slow left-arm orthodox,367,44,22,16.68,42,4,0,0,316,116.14,44,7.21,4-20
-375,JJ Bumrah,Player,Right-hand bat,Right-arm medium,9,31,1,9.00,6,0,0,0,15,60.00,30,8.08,4-31
-376,JDS Neesham,Player,Left-hand bat,Right-arm medium,42,4,3,14.00,22,0,0,0,46,91.30,1,9.78,1-28
-377,TG Southee,Player,Right-hand bat,Right-arm medium-fast,47,25,5,9.40,25,0,0,0,33,142.42,19,7.94,3-23
-378,MA Starc,Player,Left-hand bat,Left-arm fast,96,25,7,13.71,29,0,0,0,98,97.96,39,6.68,4-11
-379,BR Dunk,Player,Left-hand bat,Right-arm medium,40,3,3,13.33,20,0,0,0,36,111.11,0,,0-0
-380,RR Rossouw,Player,Left-hand bat,Right-arm offbreak,53,5,5,10.60,24,0,0,0,51,103.92,0,,0-0
-381,Shivam Sharma,Player,Right-hand bat,Right-arm offbreak,5,4,1,5.00,4,0,0,0,3,166.67,3,7.56,2-26
-382,YS Chahal,Player,Right-hand bat,Legbreak googly,2,41,0,,1,0,0,0,3,66.67,55,7.79,4-25
-383,LMP Simmons,Player,Right-hand bat,Right-arm medium-fast,942,22,20,47.10,100,15,10,1,762,123.62,1,11.33,1-34
-384,VH Zol,Player,Left-hand bat,Right-arm offbreak,29,3,2,14.50,16,0,0,0,26,111.54,0,,0-0
-385,BCJ Cutting,Player,Right-hand bat,Right-arm fast-medium,73,5,3,24.33,39,1,0,0,43,169.77,7,7.25,2-20
-386,Imran Tahir,Player,Right-hand bat,Legbreak googly,18,20,4,4.50,5,0,0,0,23,78.26,31,8.27,4-27
-387,BE Hendricks,Player,Left-hand bat,Left-arm fast-medium,1,7,1,1.00,1,0,0,0,3,33.33,11,8.90,3-36
-388,S Gopal,Player,Right-hand bat,Legbreak,14,6,2,7.00,11,0,0,0,27,51.85,7,7.98,2-24
-389,M de Lange,Player,Right-hand bat,Right-arm fast,1,5,1,1.00,1,0,0,0,2,50.00,6,8.41,3-31
-390,R Tewatia,Player,Left-hand bat,Legbreak,16,3,1,16.00,16,0,0,0,13,123.08,3,6.44,2-23
-391,JO Holder,Player,Right-hand bat,Right-arm medium-fast,38,11,5,7.60,16,0,0,0,32,118.75,8,8.05,3-31
-392,Karanveer Singh,Player,Right-hand bat,Legbreak googly,12,9,1,12.00,5,0,0,0,17,70.59,14,9.18,4-51
-393,SS Iyer,Player,Right-hand bat,Legbreak googly,449,19,18,24.94,83,7,4,0,387,116.02,0,,0-0
-394,DJ Hooda,Player,Right-hand bat,Right-arm offbreak,276,29,22,12.55,54,3,1,0,215,128.37,3,7.19,2-16
-395,Anureet Singh,Player,Right-hand bat,Right-arm medium,18,17,3,6.00,10,0,0,0,31,58.06,16,8.25,3-23
-396,KS Williamson,Player,Right-hand bat,Right-arm offbreak,155,8,7,22.14,50,2,1,0,155,100.00,0,7.00,0-7
-397,SA Abbott,Player,Right-hand bat,Right-arm fast-medium,15,2,2,7.50,14,0,0,0,13,115.38,0,11.00,0-19
-398,J Suchith,Player,Left-hand bat,Slow left-arm orthodox,48,14,1,48.00,34,1,0,0,33,145.45,10,8.76,2-14
-399,RG More,Player,Right-hand bat,Right-arm medium,2,2,0,,2,0,0,0,2,100.00,1,9.77,1-30
-400,HH Pandya,Player,Right-hand bat,Right-arm medium-fast,156,20,12,13.00,61,1,1,0,134,116.42,4,9.40,1-7
-401,D Wiese,Player,Right-hand bat,Right-arm medium-fast,116,13,3,38.67,47,1,0,0,85,136.47,17,8.26,4-32
-402,SN Khan,Player,Right-hand bat,Legbreak,132,16,6,22.00,35,2,0,0,81,162.96,0,,0-0
-403,MJ McClenaghan,Player,Left-hand bat,Left-arm fast-medium,47,26,4,11.75,20,0,0,0,29,162.07,36,7.80,4-21
-404,DJ Muthuswami,Player,Right-hand bat,Right-arm medium,1,6,1,1.00,1,0,0,0,3,33.33,4,7.21,2-18
-405,PJ Cummins,Player,Right-hand bat,Right-arm fast,0,4,1,0.00,0,0,0,0,2,0.00,3,8.29,2-29
-406,SN Thakur,Player,Right-hand bat,Right-arm medium,7,1,0,,7,0,0,0,6,116.67,1,12.00,1-36
-407,JC Buttler,Player,Right-hand bat,Right-arm medium,255,14,11,23.18,41,2,0,0,189,134.92,0,,0-0
-408,CR Brathwaite,Player,Right-hand bat,Right-arm fast-medium,83,8,6,13.83,34,1,0,0,40,207.50,9,7.65,3-26
-409,MP Stoinis,Player,Right-hand bat,Right-arm medium,146,7,4,36.50,52,3,1,0,111,131.53,9,8.30,4-15
-410,Ishan Kishan,Player,Left-hand bat,Right-arm medium,42,5,5,8.40,27,0,0,0,41,102.44,0,,0-0
-411,C Munro,Player,Left-hand bat,Right-arm medium-fast,30,4,3,10.00,16,0,0,0,31,96.77,0,7.50,0-7
-412,P Sahu,Player,Right-hand bat,Legbreak googly,19,5,1,19.00,18,0,0,0,13,146.15,3,8.23,2-18
-413,KH Pandya,Player,Left-hand bat,Slow left-arm orthodox,237,12,6,39.50,86,3,1,0,127,186.61,7,7.22,3-14
-414,AD Nath,Player,Right-hand bat,Right-arm medium-fast,20,4,3,6.67,12,0,0,0,27,74.07,0,,0-0
-415,MJ Guptill,Player,Right-hand bat,Right-arm offbreak,57,3,3,19.00,48,1,0,0,55,103.64,0,,0-0
-416,KJ Abbott,Player,Right-hand bat,Right-arm fast-medium,13,5,1,13.00,12,0,0,0,8,162.50,2,10.52,1-37
-417,TM Head,Player,Left-hand bat,Right-arm offbreak,54,3,2,27.00,37,1,0,0,42,128.57,0,,0-0
-418,M Ashwin,Player,Right-hand bat,Legbreak googly,0,10,1,0.00,0,0,0,0,1,0.00,7,8.21,3-36
-419,NS Naik,Keeper,Right-hand bat,Right-arm medium,23,2,2,11.50,22,0,0,0,33,69.70,0,,0-0
-420,RR Pant,Player,Left-hand bat,Right-arm medium,198,10,8,24.75,69,3,1,0,155,127.74,0,,0-0
-421,SW Billings,Player,Right-hand bat,Right-arm medium,88,5,4,22.00,54,1,1,0,66,133.33,0,,0-0
-422,KC Cariappa,Player,Right-hand bat,Legbreak,13,6,1,13.00,12,0,0,0,11,118.18,4,9.60,2-16
-423,PSP Handscomb,Player,Right-hand bat,Right-arm medium,6,2,1,6.00,6,0,0,0,12,50.00,0,,0-0
-424,Swapnil Singh,Player,Right-hand bat,Slow left-arm orthodox,0,1,1,0.00,0,0,0,0,1,0.00,0,9.67,0-29
-425,J Yadav,Player,Right-hand bat,Right-arm offbreak,6,7,2,3.00,5,0,0,0,12,50.00,4,6.52,1-8
-426,UT Khawaja,Player,Left-hand bat,Right-arm medium,127,6,6,21.17,30,2,0,0,105,120.95,0,,0-0
-427,HM Amla,Player,Right-hand bat,Right-arm offbreak,157,6,6,26.17,96,2,1,0,122,128.69,0,,0-0
-428,F Behardien,Player,Right-hand bat,Right-arm fast-medium,14,3,2,7.00,9,0,0,0,13,107.69,0,,0-0
-429,BB Sran,Player,Left-hand bat,Left-arm medium,4,15,0,,2,0,0,0,4,100.00,14,8.11,3-24
-430,A Zampa,Player,Right-hand bat,Legbreak googly,0,5,1,0.00,0,0,0,0,1,0.00,12,6.47,6-19
-431,N Rana,Player,Left-hand bat,Right-arm offbreak,104,4,3,34.67,70,1,1,0,78,133.33,0,3.00,0-3
-432,S Kaushik,Player,Right-hand bat,Slow left-arm chinaman,0,7,1,0.00,0,0,0,0,1,0.00,6,8.12,3-19
-433,ER Dwivedi,Player,Right-hand bat,Right-arm medium,24,4,2,12.00,19,0,0,0,15,160.00,0,,0-0
-434,CJ Jordan,Player,Right-hand bat,Right-arm fast-medium,3,9,1,3.00,3,0,0,0,4,75.00,13,8.51,4-9
-435,P Amarnath,Player,Right-hand bat,Right-arm medium,0,6,0,,0,0,0,0,0,,7,10.73,2-29
-436,B Geeves,Player,Right-hand bat,Right-arm fast-medium,0,2,0,,0,0,0,0,0,,2,10.75,1-37
-437,Gagandeep Singh,Player,Right-hand bat,Right-arm medium-fast,0,4,0,,0,0,0,0,0,,3,10.07,1-33
-438,A Nel,Player,Right-hand bat,Right-arm fast-medium,0,1,1,0.00,0,0,0,0,0,,1,10.33,1-31
-439,AM Salvi,Player,Right-hand bat,Right-arm medium,0,7,0,,0,0,0,0,0,,7,7.60,2-18
-440,RR Bose,Player,Right-hand bat,Right-arm fast-medium,0,1,0,,0,0,0,0,0,,0,12.00,0-24
-441,SS Sarkar,Player,Right-hand bat,Right-arm medium,0,2,0,,0,0,0,0,0,,1,8.16,1-15
-442,RA Shaikh,Player,Left-hand bat,Left-arm medium,0,1,0,,0,0,0,0,0,,0,11.00,0-11
-443,C Ganapathy,Player,Right-hand bat,Right-arm medium,0,1,0,,0,0,0,0,0,,0,13.00,0-13
-444,MB Parmar,Player,Right-hand bat,Right-arm offbreak,0,1,0,,0,0,0,0,0,,0,10.67,0-32
-445,AA Kazi,Player,Left-hand bat,Slow left-arm orthodox,0,1,0,,0,0,0,0,0,,1,10.00,1-20
-446,Anand Rajan,Player,Right-hand bat,Right-arm medium,0,8,0,,0,0,0,0,0,,10,7.28,4-23
-447,P Prasanth,Player,Left-hand bat,Slow left-arm orthodox,0,1,0,,0,0,0,0,0,,0,18.00,0-18
-448,SS Mundhe,Player,Right-hand bat,Right-arm medium,0,0,0,,0,0,0,0,0,,0,,0-0
-449,RW Price,Player,Right-hand bat,Slow left-arm orthodox,0,1,0,,0,0,0,0,0,,0,11.00,0-33
-450,TP Sudhindra,Player,Left-hand bat,Right-arm fast,0,3,0,,0,0,0,0,0,,1,10.70,1-44
-451,BW Hilfenhaus,Player,Right-hand bat,Right-arm fast-medium,0,17,0,,0,0,0,0,0,,23,7.20,3-25
-452,S Badree,Player,Right-hand bat,Legbreak,0,5,0,,0,0,0,0,0,,2,6.77,1-14
-453,P Suyal,Player,Right-hand bat,Left-arm medium,0,5,0,,0,0,0,0,0,,2,8.40,1-20
-454,MG Neser,Player,Right-hand bat,Right-arm medium,0,1,0,,0,0,0,0,0,,0,14.64,0-61
-455,V Shankar,Player,Right-hand bat,Right-arm medium,0,1,0,,0,0,0,0,0,,0,19.00,0-19
-456,K Santokie,Player,Left-hand bat,Left-arm medium,0,2,0,,0,0,0,0,0,,3,10.88,2-47
-457,JW Hastings,Player,Right-hand bat,Right-arm fast-medium,0,3,0,,0,0,0,0,0,,3,6.41,2-6
-458,TA Boult,Player,Right-hand bat,Left-arm fast-medium,0,8,0,,0,0,0,0,0,,11,8.09,3-17
-459,GS Sandhu,Player,Left-hand bat,Right-arm fast-medium,0,2,0,,0,0,0,0,0,,1,10.25,1-33
-460,Mustafizur Rahman,Player,Left-hand bat,Left-arm fast-medium,0,16,0,,0,0,0,0,0,,19,6.74,3-9
-461,AF Milne,Player,Right-hand bat,Right-arm fast,0,1,0,,0,0,0,0,0,,1,9.50,1-38
-462,Kuldeep Yadav,Player,Left-hand bat,Slow left-arm chinaman,0,3,0,,0,0,0,0,0,,7,7.83,3-27
-463,T Shamsi,Player,Right-hand bat,Slow left-arm chinaman,0,4,0,,0,0,0,0,0,,3,9.19,1-21
-464,SM Boland,Player,Right-hand bat,Right-arm fast-medium,0,2,0,,0,0,0,0,0,,3,7.57,3-31
-465,DL Chahar,Player,Right-hand bat,Right-arm medium,0,2,0,,0,0,0,0,0,,0,7.60,0-13
-466,P Dharmani,Player,Right-hand bat,Right-arm medium,0,1,0,,0,0,0,0,0,,0,,0-0
-467,RV Pawar,Player,Left-hand bat,Slow left-arm orthodox,0,1,0,,0,0,0,0,0,,0,,0-0
-468,KH Devdhar,Keeper,Right-hand bat,Right-arm medium,0,1,0,,0,0,0,0,0,,0,,0-0
-469,T Mishra,Player,Right-hand bat,Right-arm fast-medium,0,1,0,,0,0,0,0,0,,0,,0-0
+player_id,player_name,most_frequent_role,batting_hand,bowling_skill,total_runs,total_matches_played,total_dismissals,batting_average,highest_score,matches_ge_30,matches_ge_50,matches_ge_100,total_balls_faced,strike_rate,total_wickets_taken,economy_rate,best_bowling_performance
+1,SC Ganguly,Captain,Left-hand bat,Right-arm medium,1303,57,52,25.057692,91,20,7,0,1249,104.323500,10,7.783782,2-20
+2,BB McCullum,Player,Right-hand bat,Right-arm medium,2431,91,86,28.267442,158,35,13,2,1875,129.653300,0,,
+3,RT Ponting,Captain,Right-hand bat,Right-arm medium,91,10,9,10.111111,28,0,0,0,129,70.542600,0,,
+4,DJ Hussey,Player,Right-hand bat,Right-arm offbreak,1322,64,49,26.979592,71,19,5,0,1084,121.955700,8,8.811318,2-2
+5,Mohammad Hafeez,Player,Right-hand bat,Right-arm offbreak,64,8,7,9.142857,16,0,0,0,83,77.108400,2,6.000000,1-7
+6,R Dravid,Captain,Right-hand bat,Right-arm offbreak,2170,89,77,28.181818,75,32,11,0,1895,114.511900,0,,
+7,W Jaffer,Player,Right-hand bat,Right-arm offbreak,130,8,8,16.250000,50,2,1,0,121,107.438000,0,,
+8,V Kohli,Player,Right-hand bat,Right-arm medium,3987,134,105,37.971429,113,57,29,4,3061,130.251600,4,8.264592,2-23
+9,JH Kallis,Player,Right-hand bat,Right-arm fast-medium,2414,97,84,28.738095,89,34,17,0,2216,108.935000,65,7.565664,3-12
+10,CL White,Player,Right-hand bat,Legbreak googly,949,46,35,27.114286,78,15,6,0,753,126.029200,1,11.045454,1-14
+11,MV Boucher,Keeper,Right-hand bat,Right-arm medium,394,31,14,28.142857,50,6,1,0,309,127.508100,0,,
+12,B Akhil,Player,Right-hand bat,Right-arm medium-fast,76,15,6,12.666667,27,0,0,0,55,138.181800,6,7.460316,2-17
+13,AA Noffke,Player,Right-hand bat,Right-arm fast-medium,9,1,1,9.000000,9,0,0,0,10,90.000000,1,8.749998,1-35
+14,P Kumar,Player,Right-hand bat,Right-arm medium,332,113,37,8.972973,34,1,0,0,308,107.792200,84,7.263672,3-16
+15,Z Khan,Player,Right-hand bat,Left-arm fast-medium,113,87,13,8.692308,23,0,0,0,128,88.281300,92,7.257870,4-17
+16,SB Joshi,Player,Left-hand bat,Slow left-arm orthodox,6,4,2,3.000000,3,0,0,0,14,42.857100,1,8.945454,1-27
+17,PA Patel,Keeper,Left-hand bat,Right-arm medium,1868,101,88,21.227273,81,21,7,0,1629,114.671600,0,,
+18,ML Hayden,Player,Left-hand bat,Right-arm medium,1074,31,29,37.034483,93,16,8,0,781,137.516000,0,,
+19,MEK Hussey,Player,Left-hand bat,Right-arm medium,1977,59,51,38.764706,116,28,16,1,1622,121.886600,0,,
+20,MS Dhoni,CaptainKeeper,Right-hand bat,Right-arm medium,3270,142,83,39.397590,70,45,16,0,2366,138.207900,0,,
+21,SK Raina,Player,Left-hand bat,Right-arm offbreak,4083,145,121,33.743802,100,56,29,1,2953,138.266200,24,7.134144,2-0
+22,JDP Oram,Player,Left-hand bat,Right-arm fast-medium,106,18,8,13.250000,41,1,0,0,108,98.148100,9,8.550000,3-32
+23,S Badrinath,Player,Right-hand bat,Right-arm offbreak,1439,93,46,31.282609,71,23,11,0,1217,118.241600,0,,
+24,K Goel,Player,Left-hand bat,Right-arm offbreak,218,22,15,14.533333,38,1,0,0,231,94.372300,0,8.363634,0-7
+25,JR Hopes,Player,Right-hand bat,Right-arm medium,417,20,16,26.062500,71,4,4,0,306,136.274500,14,8.983332,2-2
+26,KC Sangakkara,CaptainKeeper,Left-hand bat,Right-arm offbreak,1656,69,63,26.285714,94,23,10,0,1365,121.318700,0,,
+27,Yuvraj Singh,Player,Left-hand bat,Slow left-arm orthodox,2281,105,90,25.344444,83,31,10,0,1761,129.528700,34,7.217394,4-29
+28,SM Katich,Player,Left-hand bat,Slow left-arm chinaman,237,11,10,23.700000,75,3,2,0,186,127.419400,0,,
+29,IK Pathan,Player,Left-hand bat,Left-arm medium-fast,1079,99,51,21.156863,60,8,1,0,913,118.181800,79,7.436154,3-21
+30,T Kohli,Player,Right-hand bat,Right-arm medium,11,4,3,3.666667,7,0,0,0,19,57.894700,0,,
+31,YK Pathan,Player,Right-hand bat,Right-arm offbreak,2719,133,89,30.550562,100,34,13,1,1873,145.168200,40,7.104972,3-20
+32,SR Watson,Player,Right-hand bat,Right-arm fast-medium,2469,91,76,32.486842,104,33,16,2,1760,140.284100,81,7.269576,4-27
+33,M Kaif,Player,Right-hand bat,Right-arm offbreak,245,28,17,14.411765,34,2,0,0,234,104.700900,0,,
+34,DS Lehmann,Player,Left-hand bat,Slow left-arm orthodox,18,2,2,9.000000,17,0,0,0,18,100.000000,0,,
+36,M Rawat,Keeper,Right-hand bat,Right-arm medium,55,17,5,11.000000,23,0,0,0,69,79.710100,0,,
+37,D Salunkhe,Player,Right-hand bat,Legbreak,33,6,2,16.500000,26,0,0,0,24,137.500000,1,8.749998,1-19
+38,SK Warne,Captain,Right-hand bat,Legbreak googly,196,54,20,9.800000,34,1,0,0,212,92.452800,55,7.102566,4-21
+39,SK Trivedi,Player,Right-hand bat,Right-arm medium,42,76,7,6.000000,9,0,0,0,59,71.186400,65,7.229862,4-23
+40,G Gambhir,Captain,Left-hand bat,Legbreak,3589,130,118,30.415254,93,50,31,0,2904,123.588200,0,,
+41,V Sehwag,Captain,Right-hand bat,Right-arm offbreak,2702,102,97,27.855670,122,35,18,2,1741,155.198200,6,10.204380,2-18
+42,S Dhawan,Player,Left-hand bat,Right-arm offbreak,3082,113,96,32.104167,95,42,25,0,2555,120.626200,4,7.959186,1-7
+43,L Ronchi,Keeper,Right-hand bat,Right-arm medium,34,5,5,6.800000,13,0,0,0,34,100.000000,0,,
+44,ST Jayasuriya,Player,Left-hand bat,Slow left-arm orthodox,768,30,28,27.428571,114,10,5,1,532,144.360900,13,7.653060,3-13
+45,DJ Thornely,Player,Right-hand bat,Right-arm medium,39,6,3,13.000000,30,1,0,0,53,73.584900,3,5.428572,2-6
+46,RV Uthappa,Keeper,Right-hand bat,Right-arm medium,3390,133,114,29.736842,83,49,17,0,2652,127.828100,0,,
+47,PR Shah,Keeper,Right-hand bat,Right-arm medium,92,16,8,11.500000,29,0,0,0,91,101.098900,0,,
+48,AM Nayar,Player,Left-hand bat,Right-arm medium,672,60,38,17.684211,45,6,0,0,578,116.263000,9,8.148474,3-13
+49,SM Pollock,Player,Right-hand bat,Right-arm fast-medium,147,13,8,18.375000,33,2,0,0,111,132.432400,11,6.456522,3-11
+50,Harbhajan Singh,Player,Right-hand bat,Right-arm offbreak,783,125,49,15.979592,64,6,1,0,549,142.623000,119,6.765912,5-17
+51,S Chanderpaul,Player,Left-hand bat,Legbreak,25,3,3,8.333333,16,0,0,0,31,80.645200,0,,
+52,LRPL Taylor,Player,Right-hand bat,Right-arm offbreak,1017,55,40,25.425000,81,11,3,0,829,122.677900,0,11.500002,0-11
+53,AC Gilchrist,CaptainKeeper,Left-hand bat,Right-arm offbreak,2069,80,76,27.223684,109,26,13,2,1500,137.933300,1,0.000000,1-0
+54,Y Venugopal Rao,Player,Right-hand bat,Right-arm offbreak,985,64,44,22.386364,71,11,3,0,838,117.541800,6,9.138888,2-23
+55,VVS Laxman,Player,Right-hand bat,Right-arm offbreak,282,20,19,14.842105,52,4,1,0,267,105.618000,0,,
+56,A Symonds,Player,Right-hand bat,Right-arm offbreak,974,39,27,36.074074,117,14,6,1,750,129.866700,20,7.454544,3-20
+57,RG Sharma,Player,Right-hand bat,Right-arm offbreak,3874,142,115,33.686957,109,55,30,1,2952,131.233100,15,7.680720,4-6
+58,SB Styris,Player,Right-hand bat,Right-arm medium,131,12,7,18.714286,36,1,0,0,133,98.496200,8,7.500000,3-31
+59,SB Bangar,Player,Right-hand bat,Right-arm medium-fast,47,11,6,7.833333,17,0,0,0,49,95.918400,4,8.479998,2-34
+60,WPUJC Vaas,Player,Left-hand bat,Left-arm fast-medium,81,13,8,10.125000,20,0,0,0,73,110.958900,18,7.288734,3-21
+61,RP Singh,Player,Right-hand bat,Left-arm fast-medium,52,81,15,3.466667,10,0,0,0,76,68.421100,90,7.370850,4-22
+62,WP Saha,Keeper,Right-hand bat,Right-arm medium,1304,88,50,26.080000,115,14,6,1,996,130.923700,0,,
+63,LR Shukla,Player,Right-hand bat,Right-arm medium,386,46,26,14.846154,48,3,0,0,338,114.201200,15,8.145570,3-1
+64,DPMD Jayawardene,Player,Right-hand bat,Right-arm medium,1771,78,61,29.032787,110,23,11,1,1439,123.071600,0,,
+65,S Sohal,Player,Right-hand bat,Legbreak,368,22,20,18.400000,62,6,2,0,292,126.027400,0,,
+66,B Lee,Player,Right-hand bat,Right-arm fast,124,38,10,12.400000,25,0,0,0,98,126.530600,25,6.993288,3-13
+67,PP Chawla,Player,Left-hand bat,Legbreak,505,121,40,12.625000,24,0,0,0,444,113.738700,119,7.399002,4-17
+68,WA Mota,Player,Right-hand bat,Right-arm medium,56,12,6,9.333333,25,0,0,0,75,74.666700,4,7.726026,1-6
+69,Kamran Akmal,Keeper,Right-hand bat,Right-arm medium,128,6,5,25.600000,53,1,1,0,78,164.102600,0,,
+70,Shahid Afridi,Player,Right-hand bat,Legbreak googly,81,10,8,10.125000,33,1,0,0,46,176.087000,9,7.292820,3-27
+71,DJ Bravo,Player,Right-hand bat,Right-arm medium-fast,1262,105,55,22.945455,70,14,4,0,1009,125.074300,122,7.790916,4-21
+72,MA Khote,Player,Right-hand bat,Right-arm medium,24,4,2,12.000000,9,0,0,0,22,109.090900,2,10.200000,2-29
+73,A Nehra,Player,Right-hand bat,Left-arm medium-fast,41,81,7,5.857143,22,0,0,0,63,65.079400,97,7.466064,4-10
+74,GC Smith,Player,Left-hand bat,Right-arm offbreak,724,28,25,28.960000,91,9,4,0,646,112.074300,0,,
+75,Pankaj Singh,Player,Right-hand bat,Right-arm medium-fast,7,17,2,3.500000,4,0,0,0,12,58.333300,11,9.000000,2-18
+76,RR Sarwan,Player,Right-hand bat,Legbreak,73,4,4,18.250000,31,1,0,0,75,97.333300,0,,
+77,S Sreesanth,Player,Right-hand bat,Right-arm fast-medium,34,44,4,8.500000,15,0,0,0,55,61.818200,40,7.372374,3-28
+78,VRV Singh,Player,Right-hand bat,Right-arm medium-fast,4,19,2,2.000000,4,0,0,0,3,133.333300,12,8.752746,3-29
+79,SS Tiwary,Player,Left-hand bat,Right-arm medium,1205,78,44,27.386364,61,15,6,0,1018,118.369400,0,,
+80,DS Kulkarni,Player,Right-hand bat,Right-arm medium,89,65,7,12.714286,28,0,0,0,94,94.680900,72,7.377810,4-14
+81,R Vinay Kumar,Player,Right-hand bat,Right-arm medium,296,98,26,11.384615,26,0,0,0,268,110.447800,97,8.089788,4-39
+82,AB Agarkar,Player,Right-hand bat,Right-arm fast,178,41,10,17.800000,39,1,0,0,153,116.339900,29,8.400000,3-21
+83,M Kartik,Player,Left-hand bat,Slow left-arm orthodox,111,55,7,15.857143,21,0,0,0,106,104.717000,31,6.937662,3-17
+84,I Sharma,Player,Right-hand bat,Right-arm fast-medium,36,68,3,12.000000,9,0,0,0,45,80.000000,53,7.550964,5-11
+85,AM Rahane,Player,Right-hand bat,Right-arm medium,2529,92,74,34.175676,103,34,22,1,2119,119.348700,1,4.999998,1-5
+86,Shoaib Malik,Player,Right-hand bat,Right-arm offbreak,52,7,4,13.000000,24,0,0,0,47,110.638300,2,8.884614,1-6
+87,MK Tiwary,Player,Right-hand bat,Legbreak googly,1324,78,46,28.782609,75,19,5,0,1175,112.680900,1,11.833332,1-10
+88,KD Karthik,Keeper,Right-hand bat,Right-arm medium,2515,136,106,23.726415,86,34,12,0,2036,123.526500,0,,
+89,R Bhatia,Player,Right-hand bat,Right-arm medium-fast,326,91,29,11.241379,26,0,0,0,270,120.740700,68,7.243344,4-15
+90,MF Maharoof,Player,Right-hand bat,Right-arm fast-medium,177,20,10,17.700000,39,1,0,0,123,143.902400,27,6.974118,3-34
+91,VY Mahesh,Player,Right-hand bat,Right-arm medium-fast,15,17,2,7.500000,6,0,0,0,27,55.555600,21,8.170938,4-36
+92,TM Srivastava,Player,Left-hand bat,Right-arm medium,8,7,1,8.000000,7,0,0,0,11,72.727300,0,,
+93,B Chipli,Player,Right-hand bat,Right-arm medium,280,23,15,18.666667,61,2,1,0,251,111.553800,0,19.999998,0-20
+94,DW Steyn,Player,Right-hand bat,Right-arm fast,163,89,22,7.409091,19,0,0,0,155,105.161300,91,6.327648,3-8
+95,DB Das,Player,Right-hand bat,Legbreak googly,304,31,14,21.714286,35,2,0,0,263,115.589400,0,,
+96,MK Pandey,Player,Right-hand bat,Right-arm medium,1800,87,69,26.086957,114,23,8,1,1529,117.724000,0,,
+97,HH Gibbs,Player,Right-hand bat,Right-arm bowler,886,36,32,27.687500,69,11,6,0,810,109.382700,0,,
+98,DNT Zoysa,Player,Left-hand bat,Left-arm fast-medium,11,3,1,11.000000,10,0,0,0,9,122.222200,2,8.470590,1-28
+99,D Kalyankrishna,Player,Right-hand bat,Right-arm medium-fast,3,3,1,3.000000,3,0,0,0,8,37.500000,2,10.624998,1-30
+100,SE Marsh,Player,Left-hand bat,Slow left-arm orthodox,2148,61,53,40.528302,115,33,18,1,1640,130.975600,0,,
+101,SA Asnodkar,Player,Right-hand bat,Right-arm offbreak,423,20,20,21.150000,60,7,2,0,339,124.778800,0,,
+102,Sohail Tanvir,Player,Left-hand bat,Left-arm medium-fast,36,11,3,12.000000,13,0,0,0,29,124.137900,22,5.951610,6-14
+103,Salman Butt,Player,Left-hand bat,Right-arm offbreak,193,7,7,27.571429,73,2,1,0,161,119.875800,0,,
+104,BJ Hodge,Player,Right-hand bat,Right-arm offbreak,1395,65,41,34.024390,73,21,6,0,1118,124.776400,17,7.538460,4-13
+105,Umar Gul,Player,Right-hand bat,Right-arm fast-medium,39,6,3,13.000000,24,0,0,0,19,205.263200,12,7.063830,4-21
+106,AB Dinda,Player,Right-hand bat,Right-arm medium-fast,19,73,9,2.111111,6,0,0,0,41,46.341500,68,7.520490,4-16
+107,SP Fleming,Player,Left-hand bat,Right-arm medium,196,10,9,21.777778,45,3,0,0,165,118.787900,0,,
+108,S Vidyut,Player,Left-hand bat,Slow left-arm orthodox,145,9,8,18.125000,54,2,1,0,109,133.027500,1,10.500000,1-21
+109,JA Morkel,Player,Left-hand bat,Right-arm medium-fast,962,89,40,24.050000,73,7,3,0,676,142.307700,83,7.748988,4-32
+110,AB de Villiers,Player,Right-hand bat,Right-arm medium,3161,116,81,39.024691,133,40,23,3,2110,149.810400,0,,
+111,LPC Silva,Player,Right-hand bat,Legbreak,40,3,2,20.000000,23,0,0,0,26,153.846200,0,21.000000,0-21
+112,DB Ravi Teja,Player,Right-hand bat,Legbreak googly,375,32,19,19.736842,60,5,1,0,318,117.924500,1,9.333336,1-19
+113,Misbah-ul-Haq,Player,Right-hand bat,Legbreak,117,8,7,16.714286,47,2,0,0,81,144.444400,0,,
+114,YV Takawale,Keeper,Right-hand bat,Right-arm medium,192,16,8,24.000000,45,2,0,0,178,107.865200,0,,
+115,RR Raje,Player,Right-hand bat,Right-arm fast-medium,20,10,1,20.000000,11,0,0,0,18,111.111100,6,8.571426,2-16
+116,PJ Sangwan,Player,Right-hand bat,Left-arm medium,22,33,4,5.500000,6,0,0,0,31,70.967700,30,7.976778,3-15
+117,Mohammad Asif,Player,Left-hand bat,Right-arm fast-medium,3,8,2,1.500000,3,0,0,0,6,50.000000,8,8.984454,2-19
+118,GD McGrath,Player,Right-hand bat,Right-arm fast-medium,4,14,1,4.000000,4,0,0,0,5,80.000000,12,6.498462,4-29
+119,Joginder Sharma,Player,Right-hand bat,Right-arm fast-medium,36,16,4,9.000000,16,0,0,0,30,120.000000,12,9.171102,2-26
+120,MS Gony,Player,Right-hand bat,Right-arm medium,97,42,9,10.777778,42,1,0,0,66,146.969700,37,8.216646,3-31
+121,M Muralitharan,Player,Right-hand bat,Right-arm offbreak,20,64,6,3.333333,6,0,0,0,30,66.666700,59,6.469320,3-11
+122,M Ntini,Player,Right-hand bat,Right-arm fast,11,9,1,11.000000,11,0,0,0,18,61.111100,7,6.735852,4-20
+123,DT Patil,Keeper,Right-hand bat,Right-arm medium,13,2,2,6.500000,9,0,0,0,13,100.000000,0,,
+124,A Kumble,Captain,Right-hand bat,Legbreak googly,35,42,3,11.666667,8,0,0,0,47,74.468100,45,6.352578,5-5
+125,S Anirudha,Player,Right-hand bat,Right-arm medium,136,20,8,17.000000,64,1,1,0,115,118.260900,0,,
+126,MM Patel,Player,Right-hand bat,Right-arm medium-fast,39,60,5,7.800000,23,0,0,0,40,97.500000,72,7.233000,5-21
+127,CK Kapugedera,Player,Right-hand bat,Right-arm medium,16,5,3,5.333333,8,0,0,0,23,69.565200,0,17.294118,0-8
+128,A Chopra,Player,Right-hand bat,Right-arm offbreak,53,7,6,8.833333,24,0,0,0,71,74.647900,0,,
+129,T Taibu,Player,Right-hand bat,Right-arm medium,31,3,3,10.333333,15,0,0,0,26,119.230800,0,,
+130,J Arunkumar,Player,Right-hand bat,Right-arm offbreak,23,3,3,7.666667,22,0,0,0,23,100.000000,0,,
+131,PP Ojha,Player,Left-hand bat,Slow left-arm orthodox,16,92,12,1.333333,3,0,0,0,45,35.555600,89,7.106340,3-10
+132,SP Goswami,Keeper,Left-hand bat,Right-arm medium,241,23,15,16.066667,52,2,1,0,253,95.256900,0,,
+133,SR Tendulkar,Captain,Right-hand bat,Right-arm offbreak,2329,78,69,33.753623,100,36,14,1,1962,118.705400,0,9.499998,0-6
+134,U Kaul,Keeper,Left-hand bat,Right-arm medium,0,5,0,,0,0,0,0,1,0.000000,0,,
+135,TM Dilshan,Player,Right-hand bat,Right-arm offbreak,1154,50,42,27.476190,76,17,10,0,1011,114.144400,5,7.887642,1-3
+136,A Mishra,Player,Right-hand bat,Legbreak,291,111,27,10.777778,31,2,0,0,314,92.675200,123,7.056918,5-17
+137,AD Mascarenhas,Player,Right-hand bat,Right-arm fast-medium,52,12,8,6.500000,9,0,0,0,50,104.000000,18,6.821052,5-24
+138,NK Patel,Player,Left-hand bat,Right-arm medium,121,9,4,30.250000,57,2,1,0,119,101.680700,0,,
+139,LA Pomersbach,Player,Left-hand bat,Right-arm offbreak,302,17,11,27.454545,79,3,1,0,246,122.764200,0,,
+140,Iqbal Abdulla,Player,Left-hand bat,Slow left-arm orthodox,83,46,2,41.500000,33,1,0,0,77,107.792200,38,6.920454,3-24
+141,Younis Khan,Player,Right-hand bat,Right-arm medium,3,1,1,3.000000,3,0,0,0,7,42.857100,0,,
+142,PM Sarvesh Kumar,Player,Right-hand bat,Right-arm medium,1,2,0,,1,0,0,0,2,50.000000,1,8.200002,1-18
+143,DP Vijaykumar,Player,Right-hand bat,Right-arm medium,1,9,0,,1,0,0,0,1,100.000000,4,7.480518,1-17
+144,Shoaib Akhtar,Player,Right-hand bat,Right-arm fast,2,3,1,2.000000,2,0,0,0,7,28.571400,5,7.142856,4-10
+145,Abdur Razzak,Player,Left-hand bat,Slow left-arm orthodox,0,1,0,,0,0,0,0,2,0.000000,0,10.615386,0-23
+146,H Das,Player,Right-hand bat,Right-arm medium,2,1,1,2.000000,2,0,0,0,5,40.000000,0,,
+147,DR Smith,Player,Right-hand bat,Right-arm medium,2146,79,73,29.397260,87,31,15,0,1612,133.126600,24,8.296776,4-7
+148,SD Chitnis,Player,Right-hand bat,Right-arm offbreak,99,11,7,14.142857,38,1,0,0,91,108.791200,2,9.000000,2-35
+149,CRD Fernando,Player,Right-hand bat,Right-arm fast-medium,4,10,0,,2,0,0,0,3,133.333300,17,7.033614,4-17
+150,VS Yeligati,Player,Right-hand bat,Right-arm offbreak,2,2,1,2.000000,2,0,0,0,2,100.000000,0,10.600002,0-11
+151,L Balaji,Player,Right-hand bat,Right-arm medium-fast,36,72,8,4.500000,15,0,0,0,49,73.469400,75,7.665336,5-23
+152,A Mukund,Player,Left-hand bat,Legbreak googly,19,3,2,9.500000,19,0,0,0,22,86.363600,0,,
+153,RR Powar,Player,Right-hand bat,Right-arm offbreak,65,26,3,21.666667,28,0,0,0,63,103.174600,12,7.164180,2-10
+154,JP Duminy,Player,Left-hand bat,Right-arm offbreak,1926,76,50,38.520000,78,26,13,0,1558,123.620000,23,6.900900,4-16
+155,A Flintoff,Player,Right-hand bat,Right-arm fast-medium,62,3,2,31.000000,24,0,0,0,53,116.981100,2,9.545454,1-11
+156,T Thushara,Player,Left-hand bat,Left-arm fast-medium,12,6,2,6.000000,8,0,0,0,18,66.666700,8,6.656934,2-13
+157,JD Ryder,Player,Left-hand bat,Right-arm medium,604,29,28,21.571429,86,8,4,0,462,130.735900,8,7.518990,2-13
+158,KP Pietersen,Player,Right-hand bat,Right-arm offbreak,1001,36,28,35.750000,103,15,5,1,746,134.182300,7,6.910110,2-31
+159,T Henderson,Player,Right-hand bat,Right-arm fast-medium,11,2,2,5.500000,11,0,0,0,16,68.750000,1,6.666666,1-30
+160,Kamran Khan,Player,Left-hand bat,Left-arm medium-fast,3,8,1,3.000000,3,0,0,0,5,60.000000,6,8.715330,2-11
+161,RS Bopara,Player,Right-hand bat,Right-arm medium,530,23,17,31.176471,84,6,3,0,445,119.101100,11,8.038836,3-31
+162,CH Gayle,Player,Left-hand bat,Right-arm offbreak,3356,86,75,44.746667,175,41,25,5,2212,151.717900,18,7.459458,3-21
+163,MC Henriques,Player,Right-hand bat,Right-arm fast-medium,648,44,27,24.000000,74,7,2,0,513,126.315800,35,7.893006,3-14
+164,R Bishnoi,Player,Right-hand bat,Right-arm medium-fast,19,3,3,6.333333,18,0,0,0,17,111.764700,0,,
+165,FH Edwards,Player,Right-hand bat,Right-arm fast,4,6,1,4.000000,3,0,0,0,5,80.000000,5,6.127662,2-23
+166,KV Sharma,Player,Left-hand bat,Legbreak googly,268,47,15,17.866667,39,2,0,0,235,114.042600,36,7.778826,4-38
+167,PC Valthaty,Player,Right-hand bat,Right-arm medium,496,22,21,23.619048,120,5,3,1,412,120.388300,7,7.907286,4-28
+168,RJ Quiney,Player,Left-hand bat,Right-arm medium,97,6,6,16.166667,51,1,1,0,100,97.000000,0,,
+169,AS Raut,Player,Right-hand bat,Legbreak googly,173,21,9,19.222222,36,2,0,0,154,112.337700,0,8.800002,0-6
+170,Yashpal Singh,Player,Right-hand bat,Right-arm medium,27,7,3,9.000000,13,0,0,0,48,56.250000,0,,
+171,M Manhas,Player,Right-hand bat,Right-arm offbreak,514,55,23,22.347826,42,5,0,0,473,108.668100,0,6.000000,0-9
+172,AA Bilakhia,Player,Right-hand bat,Right-arm medium,69,7,5,13.800000,22,0,0,0,85,81.176500,0,,
+173,AN Ghosh,Player,Right-hand bat,Right-arm medium,7,2,2,3.500000,7,0,0,0,8,87.500000,0,,
+174,BAW Mendis,Player,Right-hand bat,Right-arm offbreak,3,9,2,1.500000,2,0,0,0,6,50.000000,6,7.161288,2-21
+175,DL Vettori,Captain,Left-hand bat,Slow left-arm orthodox,121,34,8,15.125000,29,0,0,0,115,105.217400,28,6.700896,3-15
+176,MN van Wyk,Keeper,Right-hand bat,Slow left-arm orthodox,167,5,3,55.666667,74,3,1,0,132,126.515200,0,,
+177,RE van der Merwe,Player,Right-hand bat,Slow left-arm orthodox,159,21,11,14.454545,35,2,0,0,141,112.766000,21,6.582390,3-20
+178,TL Suman,Player,Right-hand bat,Right-arm offbreak,676,43,32,21.125000,78,6,2,0,575,117.565200,6,7.697370,2-14
+179,Shoaib Ahmed,Player,Right-hand bat,Right-arm fast-medium,1,8,2,0.500000,1,0,0,0,6,16.666700,5,8.882352,2-20
+180,GR Napier,Player,Right-hand bat,Right-arm medium,15,1,1,15.000000,15,0,0,0,16,93.750000,1,6.750000,1-27
+181,KP Appanna,Player,Right-hand bat,Slow left-arm orthodox,2,13,1,2.000000,1,0,0,0,4,50.000000,9,7.547514,4-17
+182,LA Carseldine,Player,Left-hand bat,Left-arm medium,81,5,4,20.250000,39,1,0,0,68,119.117600,1,4.999998,1-5
+183,NV Ojha,Keeper,Right-hand bat,Right-arm medium,1466,97,69,21.246377,94,10,6,0,1231,119.090200,0,,
+184,SM Harwood,Player,Right-hand bat,Right-arm fast-medium,9,3,0,,6,0,0,0,14,64.285700,3,6.100002,2-25
+185,M Vijay,Player,Right-hand bat,Right-arm offbreak,2490,98,93,26.774194,127,35,15,2,2023,123.084500,0,7.999998,0-7
+186,SB Jakati,Player,Left-hand bat,Slow left-arm orthodox,28,57,1,28.000000,13,0,0,0,29,96.551700,47,7.796034,4-22
+187,DA Warner,Player,Left-hand bat,Legbreak,3339,98,86,38.825581,109,47,34,2,2359,141.543000,0,,
+188,RJ Harris,Player,Right-hand bat,Right-arm fast,117,37,12,9.750000,17,0,0,0,112,104.464300,45,7.162680,4-34
+189,D du Preez,Player,Right-hand bat,Right-arm fast-medium,10,2,1,10.000000,10,0,0,0,13,76.923100,4,7.674420,3-31
+190,M Morkel,Player,Left-hand bat,Right-arm fast,126,68,11,11.454545,23,0,0,0,90,140.000000,75,7.248600,4-15
+191,AD Mathews,Player,Right-hand bat,Right-arm fast-medium,691,45,28,24.678571,65,7,1,0,548,126.094900,27,7.845552,4-19
+192,J Botha,Player,Right-hand bat,Right-arm offbreak,409,34,20,20.450000,67,4,1,0,360,113.611100,25,6.669528,3-6
+193,C Nanda,Player,Right-hand bat,Legbreak,0,3,1,0.000000,0,0,0,0,1,0.000000,2,6.874998,1-4
+194,SL Malinga,Player,Right-hand bat,Right-arm fast,81,98,16,5.062500,17,0,0,0,99,81.818200,143,6.230370,5-12
+195,Mashrafe Mortaza,Player,Right-hand bat,Right-arm fast-medium,2,1,0,,2,0,0,0,2,100.000000,0,12.461538,0-54
+196,A Singh,Player,Right-hand bat,Right-arm medium-fast,2,23,4,0.500000,1,0,0,0,10,20.000000,28,7.521828,4-17
+197,GJ Bailey,Captain,Right-hand bat,Right-arm medium,663,40,27,24.555556,61,8,2,0,544,121.875000,0,,
+198,AB McDonald,Player,Right-hand bat,Right-arm fast-medium,123,9,4,30.750000,33,2,0,0,99,124.242400,10,8.297142,2-24
+199,Y Nagar,Player,Right-hand bat,Right-arm offbreak,285,25,14,20.357143,44,1,0,0,260,109.615400,4,9.887322,2-19
+200,SS Shaikh,Keeper,Right-hand bat,Right-arm medium,6,2,1,6.000000,6,0,0,0,7,85.714300,0,,
+201,R Ashwin,Player,Right-hand bat,Right-arm offbreak,229,109,21,10.904762,29,0,0,0,235,97.446800,100,6.269010,4-34
+202,Mohammad Ashraful,Player,Right-hand bat,Right-arm offbreak,2,1,1,2.000000,2,0,0,0,10,20.000000,0,,
+203,CA Pujara,Player,Right-hand bat,Legbreak,390,30,19,20.526316,51,4,1,0,392,99.489800,0,,
+204,OA Shah,Player,Right-hand bat,Right-arm offbreak,506,23,15,33.733333,76,6,4,0,402,125.870600,0,,
+205,Anirudh Singh,Player,Left-hand bat,Right-arm medium,63,5,4,15.750000,40,1,0,0,66,95.454500,0,,
+206,Jaskaran Singh,Player,Right-hand bat,Right-arm medium,8,8,1,8.000000,4,0,0,0,11,72.727300,6,9.169812,2-18
+207,AP Tare,Player,Right-hand bat,Right-arm medium,321,32,21,15.285714,59,2,1,0,250,128.400000,0,,
+208,AT Rayudu,Player,Right-hand bat,Right-arm offbreak,2325,109,84,27.678571,81,34,13,0,1846,125.948000,0,,
+209,R Sathish,Player,Right-hand bat,Right-arm medium,270,34,17,15.882353,27,0,0,0,231,116.883100,3,9.798564,1-10
+210,R McLaren,Player,Left-hand bat,Right-arm medium-fast,159,18,8,19.875000,51,2,1,0,171,92.982500,12,8.690808,2-28
+211,AA Jhunjhunwala,Player,Right-hand bat,Right-arm offbreak,217,21,13,16.692308,53,2,1,0,211,102.843600,1,8.894118,1-13
+212,P Dogra,Player,Right-hand bat,Legbreak,127,13,11,11.545455,41,1,0,0,139,91.366900,0,,
+213,A Uniyal,Player,Left-hand bat,Left-arm medium,4,2,1,4.000000,4,0,0,0,7,57.142900,2,10.666668,2-39
+214,MS Bisla,Keeper,Right-hand bat,Right-arm medium,788,37,36,21.888889,92,6,4,0,698,112.894000,0,,
+215,YA Abdulla,Player,Left-hand bat,Left-arm fast-medium,0,11,0,,0,0,0,0,1,0.000000,15,8.400000,4-28
+216,EJG Morgan,Player,Left-hand bat,Right-arm medium,789,48,36,21.916667,66,10,4,0,649,121.571600,0,,
+217,JM Kemp,Player,Right-hand bat,Right-arm fast-medium,26,4,2,13.000000,22,0,0,0,24,108.333300,3,7.116282,3-11
+218,S Tyagi,Player,Right-hand bat,Right-arm medium,3,14,1,3.000000,3,0,0,0,4,75.000000,6,8.037738,2-17
+219,RS Gavaskar,Player,Left-hand bat,Slow left-arm orthodox,2,2,1,2.000000,2,0,0,0,8,25.000000,0,7.999998,0-8
+220,SE Bond,Player,Right-hand bat,Right-arm fast,1,8,1,1.000000,1,0,0,0,2,50.000000,9,7.032258,2-23
+221,KA Pollard,Player,Right-hand bat,Right-arm medium-fast,1959,106,68,28.808824,78,22,9,0,1331,147.182600,56,8.139000,4-42
+222,S Ladda,Player,Right-hand bat,Legbreak,0,9,1,0.000000,0,0,0,0,9,0.000000,5,9.539568,2-44
+223,DP Nannes,Player,Right-hand bat,Left-arm fast,4,29,1,4.000000,3,0,0,0,13,30.769200,28,6.754602,3-23
+224,MJ Lumb,Player,Left-hand bat,Right-arm medium,278,12,12,23.166667,83,5,1,0,194,143.299000,0,,
+225,DR Martyn,Player,Right-hand bat,Right-arm medium,19,1,1,19.000000,19,0,0,0,24,79.166700,0,,
+226,S Narwal,Player,Left-hand bat,Right-arm medium,37,7,3,12.333333,23,0,0,0,27,137.037000,5,11.037738,3-35
+227,AB Barath,Player,Right-hand bat,Right-arm offbreak,42,3,2,21.000000,33,1,0,0,42,100.000000,0,,
+228,Bipul Sharma,Player,Left-hand bat,Slow left-arm orthodox,156,26,7,22.285714,35,1,0,0,99,157.575800,14,7.818180,2-13
+229,FY Fazal,Player,Left-hand bat,Right-arm medium,183,12,10,18.300000,45,3,0,0,173,105.780300,0,10.000002,0-6
+230,AC Voges,Player,Right-hand bat,Slow left-arm orthodox,181,9,4,45.250000,45,2,0,0,143,126.573400,0,8.222220,0-5
+231,MD Mishra,Player,Right-hand bat,Right-arm offbreak,237,18,16,14.812500,41,2,0,0,208,113.942300,0,,
+232,UT Yadav,Player,Right-hand bat,Right-arm fast-medium,133,86,12,11.083333,24,0,0,0,117,113.675200,72,7.921452,4-24
+233,J Theron,Player,Right-hand bat,Right-arm medium-fast,10,9,1,10.000000,7,0,0,0,11,90.909100,7,8.112246,2-34
+234,SJ Srivastava,Player,Right-hand bat,Left-arm fast-medium,5,13,1,5.000000,3,0,0,0,5,100.000000,14,8.739624,2-18
+235,R Sharma,Player,Right-hand bat,Right-arm offbreak,66,43,14,4.714286,14,0,0,0,75,88.000000,40,6.980520,3-13
+236,Mandeep Singh,Player,Right-hand bat,Right-arm medium,897,57,44,20.386364,77,10,4,0,733,122.373800,0,,
+237,KM Jadhav,Player,Right-hand bat,Right-arm offbreak,597,49,25,23.880000,63,6,2,0,459,130.065400,0,,
+238,SW Tait,Player,Right-hand bat,Right-arm fast,23,21,3,7.666667,11,0,0,0,26,88.461500,23,6.604746,3-13
+239,KB Arun Karthik,Keeper,Right-hand bat,Legbreak googly,46,15,3,15.333333,19,0,0,0,46,100.000000,0,,
+240,KAJ Roach,Player,Right-hand bat,Right-arm fast,10,2,1,10.000000,10,0,0,0,9,111.111100,0,9.306120,0-30
+241,PD Collingwood,Player,Right-hand bat,Right-arm medium,203,8,5,40.600000,75,3,3,0,156,130.128200,5,6.741576,2-19
+242,CK Langeveldt,Player,Right-hand bat,Right-arm fast-medium,8,7,2,4.000000,8,0,0,0,9,88.888900,13,6.802548,3-14
+243,VS Malik,Player,Right-hand bat,Right-arm medium,7,13,1,7.000000,6,0,0,0,7,100.000000,6,7.362318,2-14
+244,A Mithun,Player,Right-hand bat,Right-arm medium,34,16,5,6.800000,11,0,0,0,26,130.769200,7,9.020136,2-32
+245,AP Dole,Player,Right-hand bat,Right-arm medium-fast,34,3,2,17.000000,30,1,0,0,22,154.545500,5,9.402984,2-34
+246,AN Ahmed,Player,Right-hand bat,Right-arm medium-fast,36,17,1,36.000000,18,0,0,0,26,138.461500,12,8.028654,2-13
+247,RS Sodhi,Player,Right-hand bat,Right-arm medium,4,3,0,,4,0,0,0,2,200.000000,0,,
+248,DE Bollinger,Player,Left-hand bat,Left-arm fast-medium,21,27,1,21.000000,16,0,0,0,23,91.304300,37,6.835050,4-13
+249,S Sriram,Player,Left-hand bat,Slow left-arm orthodox,31,2,2,15.500000,27,0,0,0,36,86.111100,0,16.333332,0-24
+250,B Sumanth,Player,Right-hand bat,Right-arm medium-fast,35,5,1,35.000000,16,0,0,0,37,94.594600,0,,
+251,C Madan,Keeper,Right-hand bat,Right-arm medium,15,1,1,15.000000,15,0,0,0,19,78.947400,0,,
+252,AG Paunikar,Keeper,Right-hand bat,Right-arm medium,49,5,5,9.800000,20,0,0,0,58,84.482800,0,,
+253,MR Marsh,Player,Right-hand bat,Right-arm medium,225,19,12,18.750000,38,3,0,0,197,114.213200,19,7.616886,4-25
+254,AJ Finch,Player,Right-hand bat,Slow left-arm orthodox,1304,52,47,27.744681,88,17,11,0,1054,123.719200,1,9.209304,1-11
+255,STR Binny,Player,Right-hand bat,Right-arm medium,676,69,32,21.125000,48,9,0,0,527,128.273200,16,7.350648,2-14
+256,Harmeet Singh,Player,Left-hand bat,Slow left-arm orthodox,18,28,4,4.500000,14,0,0,0,12,150.000000,27,7.491948,3-22
+257,IR Jaggi,Player,Right-hand bat,Legbreak googly,43,5,4,10.750000,25,0,0,0,59,72.881400,0,,
+258,DT Christian,Player,Right-hand bat,Right-arm fast-medium,341,23,18,18.944444,39,2,0,0,297,114.814800,19,7.605810,2-13
+259,RV Gomez,Player,Right-hand bat,Right-arm medium,50,13,5,10.000000,26,0,0,0,51,98.039200,5,7.999998,2-14
+260,MA Agarwal,Player,Right-hand bat,Right-arm medium,781,48,42,18.595238,68,10,3,0,633,123.380700,0,,
+261,AUK Pathan,Player,Right-hand bat,Right-arm medium,39,8,5,7.800000,14,0,0,0,24,162.500000,0,8.769228,0-13
+262,UBT Chand,Player,Right-hand bat,Right-arm offbreak,300,21,20,15.000000,58,3,1,0,302,99.337700,0,,
+263,DJ Jacobs,Keeper,Right-hand bat,Right-arm medium,92,7,7,13.142857,32,1,0,0,98,93.877600,0,,
+264,Sunny Singh,Player,Right-hand bat,Right-arm medium-fast,43,6,4,10.750000,20,0,0,0,31,138.709700,0,,
+265,NJ Rimmington,Player,Right-hand bat,Right-arm fast-medium,1,1,0,,1,0,0,0,1,100.000000,0,6.333336,0-19
+266,AL Menaria,Player,Left-hand bat,Slow left-arm orthodox,401,29,21,19.095238,40,5,0,0,361,111.080300,3,7.636362,2-20
+267,WD Parnell,Player,Left-hand bat,Left-arm medium-fast,63,26,9,7.000000,16,0,0,0,77,81.818200,26,6.757788,3-27
+268,JJ van der Wath,Player,Right-hand bat,Right-arm medium-fast,18,3,2,9.000000,14,0,0,0,16,112.500000,3,10.135134,2-48
+269,R Ninan,Player,Right-hand bat,Right-arm offbreak,3,2,1,3.000000,3,0,0,0,6,50.000000,3,10.833336,2-31
+270,S Aravind,Player,Left-hand bat,Left-arm medium-fast,27,28,0,,14,0,0,0,17,158.823500,40,7.684578,4-14
+271,MS Wade,Player,Left-hand bat,Right-arm medium,11,2,2,5.500000,8,0,0,0,13,84.615400,0,,
+272,TD Paine,Player,Right-hand bat,Right-arm medium,10,2,2,5.000000,8,0,0,0,26,38.461500,0,,
+273,SB Wagh,Player,Left-hand bat,Left-arm medium-fast,2,8,2,1.000000,2,0,0,0,3,66.666700,5,7.705884,3-13
+274,AC Thomas,Player,Right-hand bat,Right-arm fast-medium,20,14,2,10.000000,12,0,0,0,19,105.263200,14,7.554816,3-22
+275,JEC Franklin,Player,Left-hand bat,Left-arm medium,321,20,11,29.181818,79,2,1,0,306,104.902000,9,8.361288,2-18
+276,Shakib Al Hasan,Player,Left-hand bat,Slow left-arm orthodox,468,41,23,20.347826,66,5,2,0,366,127.868900,42,6.909504,3-17
+277,DH Yagnik,Keeper,Left-hand bat,Right-arm medium,170,25,10,17.000000,34,2,0,0,140,121.428600,0,,
+278,S Randiv,Player,Right-hand bat,Right-arm offbreak,2,8,1,2.000000,2,0,0,0,4,50.000000,6,7.482756,2-24
+279,BJ Haddin,Keeper,Right-hand bat,Right-arm medium,18,1,1,18.000000,18,0,0,0,11,163.636400,0,,
+280,NLTC Perera,Player,Left-hand bat,Right-arm medium-fast,414,36,21,19.714286,40,5,0,0,302,137.086100,30,8.629410,3-20
+281,NL McCullum,Player,Right-hand bat,Right-arm offbreak,26,2,1,26.000000,15,0,0,0,22,118.181800,0,6.799998,0-12
+282,JE Taylor,Player,Right-hand bat,Right-arm fast,3,5,1,3.000000,2,0,0,0,3,100.000000,6,7.728816,3-28
+283,J Syed Mohammad,Player,Left-hand bat,Slow left-arm orthodox,28,10,1,28.000000,13,0,0,0,24,116.666700,8,8.769228,2-14
+284,RN ten Doeschate,Player,Right-hand bat,Right-arm medium-fast,326,29,14,23.285714,70,4,1,0,235,138.723400,2,6.518520,1-7
+285,TR Birt,Player,Left-hand bat,Right-arm medium,75,5,5,15.000000,27,0,0,0,58,129.310300,0,,
+286,AG Murtaza,Player,Left-hand bat,Slow left-arm orthodox,10,12,1,10.000000,5,0,0,0,14,71.428600,9,6.909090,3-14
+287,Harpreet Singh,Player,Left-hand bat,Right-arm medium,20,4,2,10.000000,13,0,0,0,26,76.923100,0,,
+288,M Klinger,Player,Right-hand bat,Right-arm medium,73,4,4,18.250000,29,0,0,0,77,94.805200,0,,
+289,AC Blizzard,Player,Left-hand bat,Left-arm medium,120,7,7,17.142857,51,2,1,0,90,133.333300,0,,
+290,I Malhotra,Player,Right-hand bat,Right-arm medium-fast,7,1,0,,7,0,0,0,4,175.000000,0,22.999998,0-23
+291,L Ablish,Player,Right-hand bat,Right-arm medium-fast,0,3,0,,0,0,0,0,2,0.000000,3,10.285716,2-16
+292,CA Ingram,Player,Left-hand bat,Legbreak,8,2,2,4.000000,7,0,0,0,14,57.142900,0,,
+293,S Nadeem,Player,Right-hand bat,Slow left-arm orthodox,24,46,9,2.666667,6,0,0,0,61,39.344300,30,6.980826,3-16
+294,P Parameswaran,Player,Right-hand bat,Left-arm medium,1,8,0,,1,0,0,0,3,33.333300,9,8.369424,3-29
+295,CJ Ferguson,Player,Right-hand bat,Right-arm medium,98,8,6,16.333333,23,0,0,0,117,83.760700,0,,
+296,VR Aaron,Player,Right-hand bat,Right-arm fast,42,34,3,14.000000,17,0,0,0,45,93.333300,31,8.138778,3-15
+297,AA Chavan,Player,Left-hand bat,Slow left-arm orthodox,12,13,2,6.000000,7,0,0,0,11,109.090900,8,7.511814,2-22
+298,ND Doshi,Player,Right-hand bat,Slow left-arm orthodox,0,4,1,0.000000,0,0,0,0,13,0.000000,2,8.357142,1-15
+299,B Kumar,Player,Right-hand bat,Right-arm medium,154,76,18,8.555556,24,0,0,0,154,100.000000,85,6.714288,4-12
+300,Y Gnaneswara Rao,Player,Right-hand bat,Right-arm medium,19,2,1,19.000000,19,0,0,0,17,111.764700,0,7.000002,0-7
+301,S Rana,Player,Right-hand bat,Right-arm medium-fast,91,10,4,22.750000,19,0,0,0,81,112.345700,0,6.750000,0-2
+302,BA Bhatt,Player,Left-hand bat,Slow left-arm orthodox,6,17,1,6.000000,6,0,0,0,7,85.714300,12,7.858584,4-21
+303,F du Plessis,Player,Right-hand bat,Legbreak,1287,50,42,30.642857,73,20,8,0,1010,127.425700,0,16.000002,0-16
+304,RE Levi,Player,Right-hand bat,Right-arm medium,83,6,6,13.833333,50,1,1,0,73,113.698600,0,,
+305,GJ Maxwell,Player,Right-hand bat,Right-arm offbreak,917,42,38,24.131579,95,11,6,0,562,163.167300,4,9.617646,1-5
+306,SPD Smith,Player,Right-hand bat,Legbreak googly,1212,51,33,36.727273,101,18,3,1,899,134.816500,0,15.000000,0-5
+307,MN Samuels,Player,Right-hand bat,Right-arm offbreak,132,10,9,14.666667,46,2,0,0,142,92.957700,9,7.283580,3-39
+308,SA Yadav,Player,Right-hand bat,Right-arm offbreak,472,44,21,22.476190,60,3,1,0,358,131.843600,0,7.999998,0-8
+309,KK Cooper,Player,Right-hand bat,Right-arm medium,116,25,9,12.888889,32,1,0,0,68,170.588200,33,7.410564,4-26
+310,JP Faulkner,Player,Right-hand bat,Left-arm fast-medium,470,48,20,23.500000,46,6,0,0,329,142.857100,49,8.151276,5-14
+311,HV Patel,Player,Right-hand bat,Right-arm medium,41,32,8,5.125000,10,0,0,0,34,120.588200,29,8.206572,2-12
+312,DAJ Bracewell,Player,Right-hand bat,Right-arm fast-medium,12,1,0,,12,0,0,0,9,133.333300,3,7.440000,3-31
+313,DJ Harris,Player,Right-hand bat,Right-arm medium,111,4,4,27.750000,47,2,0,0,103,107.767000,0,8.666664,0-11
+314,Ankit Sharma,Player,Left-hand bat,Slow left-arm orthodox,62,19,6,10.333333,30,1,0,0,52,119.230800,12,6.817392,2-20
+315,SP Narine,Player,Left-hand bat,Right-arm offbreak,46,65,7,6.571429,13,0,0,0,55,83.636400,85,6.054126,5-18
+316,GB Hogg,Player,Left-hand bat,Slow left-arm chinaman,22,21,3,7.333333,13,0,0,0,22,100.000000,23,7.168830,4-29
+317,RR Bhatkal,Player,Right-hand bat,Right-arm medium,0,1,1,0.000000,0,0,0,0,2,0.000000,0,17.500002,0-35
+318,CJ McKay,Player,Right-hand bat,Right-arm fast-medium,8,2,1,8.000000,8,0,0,0,15,53.333300,1,8.571426,1-36
+319,N Saini,Keeper,Right-hand bat,Right-arm medium,140,10,10,14.000000,50,2,1,0,143,97.902100,0,,
+320,DA Miller,Player,Left-hand bat,Right-arm offbreak,1426,60,40,35.650000,101,18,8,1,997,143.029100,0,,
+321,Azhar Mahmood,Player,Right-hand bat,Right-arm fast-medium,388,23,19,20.421053,80,5,2,0,306,126.797400,29,7.402176,3-19
+322,P Negi,Player,Left-hand bat,Slow left-arm orthodox,209,29,12,17.416667,36,1,0,0,162,129.012300,14,8.092380,4-17
+323,RJ Peterson,Player,Left-hand bat,Slow left-arm orthodox,32,5,3,10.666667,16,0,0,0,32,100.000000,3,8.749998,3-37
+324,KMDN Kulasekara,Player,Right-hand bat,Right-arm fast-medium,5,5,0,,5,0,0,0,3,166.666700,5,6.509436,2-10
+325,A Ashish Reddy,Player,Right-hand bat,Right-arm medium,266,30,14,19.000000,36,2,0,0,182,146.153800,17,8.679390,3-24
+326,V Pratap Singh,Player,Right-hand bat,Right-arm medium,0,9,1,0.000000,0,0,0,0,1,0.000000,10,8.218008,2-30
+327,BB Samantray,Player,Right-hand bat,Right-arm medium,125,9,5,25.000000,55,2,1,0,113,110.619500,0,,
+328,MJ Clarke,Player,Right-hand bat,Slow left-arm orthodox,98,6,6,16.333333,41,1,0,0,96,102.083300,2,6.090912,1-12
+329,Gurkeerat Singh,Player,Right-hand bat,Right-arm offbreak,342,28,21,16.285714,51,2,1,0,276,123.913000,5,7.153848,2-14
+330,AP Majumdar,Player,Right-hand bat,Legbreak googly,87,4,4,21.750000,31,2,0,0,77,112.987000,0,,
+331,PA Reddy,Player,Right-hand bat,Legbreak,141,11,9,15.666667,42,1,0,0,145,97.241400,0,,
+332,K Upadhyay,Player,Right-hand bat,Right-arm medium,12,3,0,,11,0,0,0,9,133.333300,0,8.777778,0-18
+333,P Awana,Player,Right-hand bat,Right-arm medium,5,33,2,2.500000,4,0,0,0,14,35.714300,39,7.845552,4-32
+334,AD Russell,Player,Right-hand bat,Right-arm fast,574,34,22,26.090909,66,10,3,0,333,172.372400,31,8.194662,4-19
+335,A Chandila,Player,Right-hand bat,Right-arm offbreak,4,12,0,,4,0,0,0,7,57.142900,11,6.205128,4-13
+336,CA Lynn,Player,Right-hand bat,Slow left-arm orthodox,89,5,4,22.250000,45,1,0,0,81,109.876500,0,,
+337,Sunny Gupta,Player,Right-hand bat,Right-arm offbreak,0,1,1,0.000000,0,0,0,0,1,0.000000,0,14.210526,0-45
+338,MC Juneja,Player,Right-hand bat,Right-arm offbreak,108,6,6,18.000000,49,1,0,0,116,93.103400,0,,
+339,KK Nair,Player,Right-hand bat,Right-arm offbreak,842,37,30,28.066667,83,11,7,0,659,127.769300,0,,
+340,GH Vihari,Player,Right-hand bat,Right-arm offbreak,236,21,18,13.111111,46,2,0,0,268,88.059700,0,6.400002,0-2
+341,MDKJ Perera,Keeper,Left-hand bat,Right-arm medium,14,2,2,7.000000,14,0,0,0,13,107.692300,0,,
+342,R Shukla,Player,Right-hand bat,Right-arm medium,19,7,1,19.000000,14,0,0,0,23,82.608700,5,9.209304,2-26
+343,B Laughlin,Player,Right-hand bat,Right-arm fast-medium,4,2,1,4.000000,4,0,0,0,9,44.444400,1,9.066666,1-22
+344,AS Rajpoot,Player,Right-hand bat,Right-arm medium,2,6,0,,2,0,0,0,6,33.333300,4,7.956522,1-13
+345,M Vohra,Player,Right-hand bat,Right-arm medium,728,34,30,24.266667,67,12,2,0,562,129.537400,0,,
+346,JD Unadkat,Player,Right-hand bat,Left-arm medium,2,33,1,2.000000,1,0,0,0,7,28.571400,28,8.493150,5-24
+347,Mohammed Shami,Player,Right-hand bat,Right-arm fast-medium,10,23,3,3.333333,5,0,0,0,21,47.619000,13,8.331210,2-33
+348,BMAJ Mendis,Player,Left-hand bat,Legbreak,23,3,3,7.666667,12,0,0,0,27,85.185200,1,7.200000,1-16
+349,R Rampaul,Player,Left-hand bat,Right-arm fast-medium,39,11,5,7.800000,23,0,0,0,45,86.666700,14,6.497928,3-29
+350,CH Morris,Player,Right-hand bat,Right-arm fast-medium,285,38,7,40.714286,82,3,1,0,171,166.666700,40,7.147170,4-20
+351,SV Samson,Keeper,Right-hand bat,Right-arm medium,1015,49,41,24.756098,76,14,5,0,852,119.131500,0,,
+352,SMSM Senanayake,Player,Right-hand bat,Right-arm offbreak,10,8,1,10.000000,7,0,0,0,17,58.823500,9,6.404148,2-24
+353,BJ Rohrer,Player,Left-hand bat,Right-arm medium,179,7,5,35.800000,64,3,1,0,126,142.063500,0,10.999998,0-11
+354,KL Rahul,Player,Right-hand bat,Right-arm medium,713,38,23,31.000000,68,9,4,0,565,126.194700,0,,
+355,Q de Kock,Keeper,Left-hand bat,Right-arm medium,657,25,24,27.375000,108,10,5,1,511,128.571400,0,,
+356,R Dhawan,Player,Right-hand bat,Right-arm medium-fast,153,26,7,21.857143,25,0,0,0,135,113.333300,18,7.390242,2-14
+357,MG Johnson,Player,Left-hand bat,Left-arm fast,118,42,13,9.076923,16,0,0,0,129,91.472900,51,7.694982,3-21
+358,LJ Wright,Player,Right-hand bat,Right-arm medium-fast,106,7,5,21.200000,44,2,0,0,61,173.770500,2,10.140846,1-12
+359,IC Pandey,Player,Right-hand bat,Right-arm medium,0,25,1,0.000000,0,0,0,0,2,0.000000,18,7.551726,2-23
+360,CM Gautam,Keeper,Right-hand bat,Right-arm medium,169,13,10,16.900000,33,3,0,0,150,112.666700,0,,
+361,X Thalaivan Sargunam,Player,Right-hand bat,Right-arm offbreak,10,1,1,10.000000,10,0,0,0,17,58.823500,0,,
+362,DJG Sammy,Player,Right-hand bat,Right-arm medium-fast,295,22,15,19.666667,60,1,1,0,241,122.406600,11,8.596638,4-22
+363,KW Richardson,Player,Right-hand bat,Right-arm fast-medium,36,13,3,12.000000,26,0,0,0,39,92.307700,17,8.273040,3-13
+364,MM Sharma,Player,Right-hand bat,Right-arm medium,61,61,8,7.625000,21,0,0,0,52,117.307700,70,7.770570,4-14
+365,UA Birla,Player,Right-hand bat,Right-arm medium,7,2,1,7.000000,7,0,0,0,14,50.000000,0,,
+366,Parvez Rasool,Player,Right-hand bat,Right-arm offbreak,17,11,2,8.500000,10,0,0,0,20,85.000000,4,8.121210,1-20
+367,Sandeep Sharma,Player,Right-hand bat,Right-arm medium,19,42,1,19.000000,7,0,0,0,29,65.517200,52,7.384116,4-25
+368,S Kaul,Player,Right-hand bat,Right-arm medium,9,11,0,,7,0,0,0,11,81.818200,6,8.210526,2-27
+369,Sachin Baby,Player,Left-hand bat,Right-arm offbreak,122,15,5,24.400000,33,1,0,0,86,141.860500,2,4.800000,2-4
+370,PV Tambe,Player,Right-hand bat,Legbreak,18,30,2,9.000000,7,0,0,0,39,46.153800,25,7.450002,4-20
+371,NM Coulter-Nile,Player,Right-hand bat,Right-arm fast,38,18,5,7.600000,9,0,0,0,38,100.000000,21,7.193952,4-19
+372,CJ Anderson,Player,Left-hand bat,Left-arm medium-fast,379,16,12,31.583333,95,5,3,0,278,136.330900,5,9.545454,2-16
+373,NJ Maddinson,Player,Left-hand bat,Slow left-arm orthodox,20,3,3,6.666667,12,0,0,0,21,95.238100,0,,
+374,AR Patel,Player,Left-hand bat,Slow left-arm orthodox,367,44,22,16.681818,42,4,0,0,304,120.723700,41,7.214058,4-20
+375,JJ Bumrah,Player,Right-hand bat,Right-arm medium,9,31,1,9.000000,6,0,0,0,14,64.285700,26,8.083938,3-13
+376,JDS Neesham,Player,Left-hand bat,Right-arm medium,42,4,3,14.000000,22,0,0,0,46,91.304300,1,9.777780,1-28
+377,TG Southee,Player,Right-hand bat,Right-arm medium-fast,47,25,5,9.400000,25,0,0,0,32,146.875000,17,7.937502,3-23
+378,MA Starc,Player,Left-hand bat,Left-arm fast,96,25,7,13.714286,29,0,0,0,98,97.959200,34,6.676206,4-11
+379,BR Dunk,Player,Left-hand bat,Right-arm medium,40,3,3,13.333333,20,0,0,0,35,114.285700,0,,
+380,RR Rossouw,Player,Left-hand bat,Right-arm offbreak,53,5,5,10.600000,24,0,0,0,51,103.921600,0,,
+381,Shivam Sharma,Player,Right-hand bat,Right-arm offbreak,5,4,1,5.000000,4,0,0,0,3,166.666700,3,7.562502,2-26
+382,YS Chahal,Player,Right-hand bat,Legbreak googly,2,41,0,,1,0,0,0,2,100.000000,54,7.787514,4-25
+383,LMP Simmons,Player,Right-hand bat,Right-arm medium-fast,942,22,20,47.100000,100,15,10,1,740,127.297300,1,11.333334,1-34
+384,VH Zol,Player,Left-hand bat,Right-arm offbreak,29,3,2,14.500000,16,0,0,0,26,111.538500,0,,
+385,BCJ Cutting,Player,Right-hand bat,Right-arm fast-medium,73,5,3,24.333333,39,1,0,0,40,182.500000,6,7.252746,2-20
+386,Imran Tahir,Player,Right-hand bat,Legbreak googly,18,20,4,4.500000,5,0,0,0,23,78.260900,29,8.267280,4-27
+387,BE Hendricks,Player,Left-hand bat,Left-arm fast-medium,1,7,1,1.000000,1,0,0,0,3,33.333300,9,8.900664,3-36
+388,S Gopal,Player,Right-hand bat,Legbreak,14,6,2,7.000000,11,0,0,0,27,51.851900,7,7.982610,2-24
+389,M de Lange,Player,Right-hand bat,Right-arm fast,1,5,1,1.000000,1,0,0,0,2,50.000000,5,8.410716,3-31
+390,R Tewatia,Player,Left-hand bat,Legbreak,16,3,1,16.000000,16,0,0,0,13,123.076900,2,6.444444,1-17
+391,JO Holder,Player,Right-hand bat,Right-arm medium-fast,38,11,5,7.600000,16,0,0,0,31,122.580600,5,8.054796,2-20
+392,Karanveer Singh,Player,Right-hand bat,Legbreak googly,12,9,1,12.000000,5,0,0,0,17,70.588200,12,9.176472,4-51
+393,SS Iyer,Player,Right-hand bat,Legbreak googly,449,19,18,24.944444,83,7,4,0,367,122.343300,0,,
+394,DJ Hooda,Player,Right-hand bat,Right-arm offbreak,276,29,22,12.545455,54,3,1,0,207,133.333300,3,7.192050,2-16
+395,Anureet Singh,Player,Right-hand bat,Right-arm medium,18,17,3,6.000000,10,0,0,0,31,58.064500,14,8.245506,3-23
+396,KS Williamson,Player,Right-hand bat,Right-arm offbreak,155,8,7,22.142857,50,2,1,0,149,104.026800,0,7.000002,0-7
+397,SA Abbott,Player,Right-hand bat,Right-arm fast-medium,15,2,2,7.500000,14,0,0,0,13,115.384600,0,10.999998,0-19
+398,J Suchith,Player,Left-hand bat,Slow left-arm orthodox,48,14,1,48.000000,34,1,0,0,32,150.000000,10,8.756100,2-14
+399,RG More,Player,Right-hand bat,Right-arm medium,2,2,0,,2,0,0,0,2,100.000000,1,9.771426,1-30
+400,HH Pandya,Player,Right-hand bat,Right-arm medium-fast,156,20,12,13.000000,61,1,1,0,125,124.800000,4,9.399012,1-7
+401,D Wiese,Player,Right-hand bat,Right-arm medium-fast,116,13,3,38.666667,47,1,0,0,82,141.463400,16,8.258826,4-32
+402,SN Khan,Player,Right-hand bat,Legbreak,132,16,6,22.000000,35,2,0,0,81,162.963000,0,,
+403,MJ McClenaghan,Player,Left-hand bat,Left-arm fast-medium,47,26,4,11.750000,20,0,0,0,29,162.069000,35,7.804956,4-21
+404,DJ Muthuswami,Player,Right-hand bat,Right-arm medium,1,6,1,1.000000,1,0,0,0,3,33.333300,4,7.214286,2-18
+405,PJ Cummins,Player,Right-hand bat,Right-arm fast,0,4,1,0.000000,0,0,0,0,2,0.000000,2,8.285712,1-29
+406,SN Thakur,Player,Right-hand bat,Right-arm medium,7,1,0,,7,0,0,0,6,116.666700,1,12.000000,1-36
+407,JC Buttler,Player,Right-hand bat,Right-arm medium,255,14,11,23.181818,41,2,0,0,184,138.587000,0,,
+408,CR Brathwaite,Player,Right-hand bat,Right-arm fast-medium,83,8,6,13.833333,34,1,0,0,38,218.421100,7,7.647888,3-41
+409,MP Stoinis,Player,Right-hand bat,Right-arm medium,146,7,4,36.500000,52,3,1,0,108,135.185200,8,8.304348,4-15
+410,Ishan Kishan,Player,Left-hand bat,Right-arm medium,42,5,5,8.400000,27,0,0,0,41,102.439000,0,,
+411,C Munro,Player,Left-hand bat,Right-arm medium-fast,30,4,3,10.000000,16,0,0,0,30,100.000000,0,7.500000,0-7
+412,P Sahu,Player,Right-hand bat,Legbreak googly,19,5,1,19.000000,18,0,0,0,13,146.153800,3,8.228574,2-18
+413,KH Pandya,Player,Left-hand bat,Slow left-arm orthodox,237,12,6,39.500000,86,3,1,0,124,191.129000,6,7.219254,2-14
+414,AD Nath,Player,Right-hand bat,Right-arm medium-fast,20,4,3,6.666667,12,0,0,0,27,74.074100,0,,
+415,MJ Guptill,Player,Right-hand bat,Right-arm offbreak,57,3,3,19.000000,48,1,0,0,55,103.636400,0,,
+416,KJ Abbott,Player,Right-hand bat,Right-arm fast-medium,13,5,1,13.000000,12,0,0,0,8,162.500000,2,10.515462,1-37
+417,TM Head,Player,Left-hand bat,Right-arm offbreak,54,3,2,27.000000,37,1,0,0,40,135.000000,0,,
+418,M Ashwin,Player,Right-hand bat,Legbreak googly,0,10,1,0.000000,0,0,0,0,1,0.000000,7,8.210526,3-36
+419,NS Naik,Keeper,Right-hand bat,Right-arm medium,23,2,2,11.500000,22,0,0,0,31,74.193500,0,,
+420,RR Pant,Player,Left-hand bat,Right-arm medium,198,10,8,24.750000,69,3,1,0,152,130.263200,0,,
+421,SW Billings,Player,Right-hand bat,Right-arm medium,88,5,4,22.000000,54,1,1,0,64,137.500000,0,,
+422,KC Cariappa,Player,Right-hand bat,Legbreak,13,6,1,13.000000,12,0,0,0,11,118.181800,4,9.600000,2-16
+423,PSP Handscomb,Player,Right-hand bat,Right-arm medium,6,2,1,6.000000,6,0,0,0,12,50.000000,0,,
+424,Swapnil Singh,Player,Right-hand bat,Slow left-arm orthodox,0,1,1,0.000000,0,0,0,0,1,0.000000,0,9.666666,0-29
+425,J Yadav,Player,Right-hand bat,Right-arm offbreak,6,7,2,3.000000,5,0,0,0,10,60.000000,4,6.521742,1-8
+426,UT Khawaja,Player,Left-hand bat,Right-arm medium,127,6,6,21.166667,30,2,0,0,100,127.000000,0,,
+427,HM Amla,Player,Right-hand bat,Right-arm offbreak,157,6,6,26.166667,96,2,1,0,119,131.932800,0,,
+428,F Behardien,Player,Right-hand bat,Right-arm fast-medium,14,3,2,7.000000,9,0,0,0,13,107.692300,0,,
+429,BB Sran,Player,Left-hand bat,Left-arm medium,4,15,0,,2,0,0,0,4,100.000000,14,8.107596,3-24
+430,A Zampa,Player,Right-hand bat,Legbreak googly,0,5,1,0.000000,0,0,0,0,1,0.000000,12,6.470586,6-19
+431,N Rana,Player,Left-hand bat,Right-arm offbreak,104,4,3,34.666667,70,1,1,0,75,138.666700,0,3.000000,0-3
+432,S Kaushik,Player,Right-hand bat,Slow left-arm chinaman,0,7,1,0.000000,0,0,0,0,1,0.000000,6,8.115108,3-19
+433,ER Dwivedi,Player,Right-hand bat,Right-arm medium,24,4,2,12.000000,19,0,0,0,14,171.428600,0,,
+434,CJ Jordan,Player,Right-hand bat,Right-arm fast-medium,3,9,1,3.000000,3,0,0,0,4,75.000000,11,8.505882,4-9
+435,P Amarnath,Player,Right-hand bat,Right-arm medium,0,6,0,,0,0,0,0,0,,7,10.727274,2-29
+436,B Geeves,Player,Right-hand bat,Right-arm fast-medium,0,2,0,,0,0,0,0,0,,1,10.750002,1-49
+437,Gagandeep Singh,Player,Right-hand bat,Right-arm medium-fast,0,4,0,,0,0,0,0,0,,3,10.071426,1-33
+438,A Nel,Player,Right-hand bat,Right-arm fast-medium,0,1,0,,0,0,0,0,0,,1,10.333332,1-31
+439,AM Salvi,Player,Right-hand bat,Right-arm medium,0,7,0,,0,0,0,0,0,,7,7.600002,2-18
+440,RR Bose,Player,Right-hand bat,Right-arm fast-medium,0,1,0,,0,0,0,0,0,,0,12.000000,0-24
+441,SS Sarkar,Player,Right-hand bat,Right-arm medium,0,2,0,,0,0,0,0,0,,1,8.160000,1-15
+442,RA Shaikh,Player,Left-hand bat,Left-arm medium,0,1,0,,0,0,0,0,0,,0,10.999998,0-11
+443,C Ganapathy,Player,Right-hand bat,Right-arm medium,0,1,0,,0,0,0,0,0,,0,13.000002,0-13
+444,MB Parmar,Player,Right-hand bat,Right-arm offbreak,0,1,0,,0,0,0,0,0,,0,10.666668,0-32
+445,AA Kazi,Player,Left-hand bat,Slow left-arm orthodox,0,1,0,,0,0,0,0,0,,0,10.000002,0-20
+446,Anand Rajan,Player,Right-hand bat,Right-arm medium,0,8,0,,0,0,0,0,0,,8,7.277418,3-23
+447,P Prasanth,Player,Left-hand bat,Slow left-arm orthodox,0,1,0,,0,0,0,0,0,,0,18.000000,0-18
+448,SS Mundhe,Player,Right-hand bat,Right-arm medium,0,0,0,,0,0,0,0,0,,0,,
+449,RW Price,Player,Right-hand bat,Slow left-arm orthodox,0,1,0,,0,0,0,0,0,,0,10.999998,0-33
+450,TP Sudhindra,Player,Left-hand bat,Right-arm fast,0,3,0,,0,0,0,0,0,,1,10.702704,1-44
+451,BW Hilfenhaus,Player,Right-hand bat,Right-arm fast-medium,0,17,0,,0,0,0,0,0,,22,7.203126,3-25
+452,S Badree,Player,Right-hand bat,Legbreak,0,5,0,,0,0,0,0,0,,2,6.770640,1-14
+453,P Suyal,Player,Right-hand bat,Left-arm medium,0,5,0,,0,0,0,0,0,,2,8.400000,1-20
+454,MG Neser,Player,Right-hand bat,Right-arm medium,0,1,0,,0,0,0,0,0,,0,14.640000,0-61
+455,V Shankar,Player,Right-hand bat,Right-arm medium,0,1,0,,0,0,0,0,0,,0,19.000002,0-19
+456,K Santokie,Player,Left-hand bat,Left-arm medium,0,2,0,,0,0,0,0,0,,3,10.875000,2-47
+457,JW Hastings,Player,Right-hand bat,Right-arm fast-medium,0,3,0,,0,0,0,0,0,,3,6.406782,2-6
+458,TA Boult,Player,Right-hand bat,Left-arm fast-medium,0,8,0,,0,0,0,0,0,,10,8.093748,3-17
+459,GS Sandhu,Player,Left-hand bat,Right-arm fast-medium,0,2,0,,0,0,0,0,0,,1,10.249998,1-33
+460,Mustafizur Rahman,Player,Left-hand bat,Left-arm fast-medium,0,16,0,,0,0,0,0,0,,17,6.737706,3-14
+461,AF Milne,Player,Right-hand bat,Right-arm fast,0,1,0,,0,0,0,0,0,,1,9.499998,1-38
+462,Kuldeep Yadav,Player,Left-hand bat,Slow left-arm chinaman,0,3,0,,0,0,0,0,0,,6,7.833336,3-35
+463,T Shamsi,Player,Right-hand bat,Slow left-arm chinaman,0,4,0,,0,0,0,0,0,,3,9.187500,1-21
+464,SM Boland,Player,Right-hand bat,Right-arm fast-medium,0,2,0,,0,0,0,0,0,,2,7.571430,2-31
+465,DL Chahar,Player,Right-hand bat,Right-arm medium,0,2,0,,0,0,0,0,0,,0,7.600002,0-13
+466,P Dharmani,Player,Right-hand bat,Right-arm medium,0,1,0,,0,0,0,0,0,,0,,
+467,RV Pawar,Player,Left-hand bat,Slow left-arm orthodox,0,1,0,,0,0,0,0,0,,0,,
+468,KH Devdhar,Keeper,Right-hand bat,Right-arm medium,0,1,0,,0,0,0,0,0,,0,,
+469,T Mishra,Player,Right-hand bat,Right-arm fast-medium,0,1,0,,0,0,0,0,0,,0,,
