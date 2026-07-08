@@ -401,6 +401,49 @@ def save_correct_ids_to_csv(output_results, result_dir):
     return csv_file_path
 
 
+def print_evaluation_results_table(output_results: list[dict]) -> None:
+    """Print evaluation results grouped by score in a readable table."""
+    sorted_results = sorted(output_results, key=lambda item: item["instance_id"])
+
+    def _print_group(title: str, items: list[dict], show_error: bool) -> None:
+        print(f"\n{title} ({len(items)})")
+        print("=" * 88)
+        if not items:
+            print("(none)")
+            return
+
+        if show_error:
+            header = f"{'#':<5} {'instance_id':<18} {'error_info'}"
+            print(header)
+            print("-" * 88)
+            for idx, item in enumerate(items, start=1):
+                error_info = item.get("error_info") or "-"
+                print(f"{idx:<5} {item['instance_id']:<18} {error_info}")
+        else:
+            cols = 4
+            col_width = 20
+            header = "  ".join(f"{f'#{i}':<{col_width}}" for i in range(1, cols + 1))
+            subheader = "  ".join(f"{f'id{i}':<{col_width}}" for i in range(1, cols + 1))
+            print(header)
+            print(subheader)
+            print("-" * 88)
+            for row_start in range(0, len(items), cols):
+                row_items = items[row_start: row_start + cols]
+                cells = []
+                for col_idx, item in enumerate(row_items):
+                    num = row_start + col_idx + 1
+                    cells.append(f"{num:<4}{item['instance_id']:<{col_width - 4}}")
+                while len(cells) < cols:
+                    cells.append(" " * col_width)
+                print("  ".join(cells))
+
+    correct = [item for item in sorted_results if item["score"] == 1]
+    incorrect = [item for item in sorted_results if item["score"] == 0]
+
+    _print_group("Correct (score=1)", correct, show_error=False)
+    _print_group("Incorrect (score=0)", incorrect, show_error=True)
+    print()
+
 def evaluate_spider2sql(args, temp_dir: Path):
     mode = args.mode
     gold_sql_dir = os.path.join(args.gold_dir, "sql")
@@ -479,8 +522,8 @@ def evaluate_spider2sql(args, temp_dir: Path):
                 result = future.result()
                 output_results.append(result)
 
-    print({item['instance_id']: item['score'] for item in output_results})  
-    correct_examples = sum([item['score'] for item in output_results]) 
+    print_evaluation_results_table(output_results)
+    correct_examples = sum([item['score'] for item in output_results])
 
     total_evaluated = len(output_results)
     total_benchmark = len(set(gold_ids) - gold_incorrect_ids)
