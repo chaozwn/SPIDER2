@@ -70,6 +70,22 @@ def load_json_list_to_dict(json_file_path):
     return data_dict
 
 
+def load_gold_incorrect_ids(csv_path=None):
+    """Load instance_ids whose gold results are known to be incorrect."""
+    if csv_path is None:
+        csv_path = Path(__file__).resolve().parents[2] / "gold_incorrect.csv"
+    else:
+        csv_path = Path(csv_path)
+
+    if not csv_path.exists():
+        return set()
+
+    df = pd.read_csv(csv_path)
+    if "instance_id" not in df.columns:
+        return set()
+    return set(df["instance_id"].dropna().astype(str))
+
+
 def compare_multi_pandas_table(pred, multi_gold, multi_condition_cols=[], multi_ignore_order=False):
     # print('multi_condition_cols', multi_condition_cols)
 
@@ -393,6 +409,9 @@ def evaluate_spider2sql(args, temp_dir: Path):
     
     eval_standard_dict = load_jsonl_to_dict(os.path.join(args.gold_dir, "spider2snow_eval.jsonl"))
     spider2sql_metadata = load_jsonl_to_dict("../spider2-snow.jsonl")
+    gold_incorrect_ids = load_gold_incorrect_ids(
+        getattr(args, "gold_incorrect_csv", None)
+    )
     
     result_csv_dir = None
     if mode == "sql":
@@ -413,8 +432,12 @@ def evaluate_spider2sql(args, temp_dir: Path):
                 pred_ids.append(file.split(".")[0])
                        
     gold_ids = list(eval_standard_dict.keys())
-    eval_ids = list(set(gold_ids).intersection(pred_ids))
+    eval_ids = list(set(gold_ids).intersection(pred_ids) - gold_incorrect_ids)
     eval_ids = sorted(eval_ids)  # sorted, for reproduce result
+
+    skipped_ids = sorted(gold_incorrect_ids.intersection(gold_ids))
+    if skipped_ids:
+        print(f"Ignoring gold-incorrect instances: {skipped_ids}")
     
     output_results = []
     max_workers = min(args.max_workers if hasattr(args, 'max_workers') else 8, len(eval_ids))
@@ -459,8 +482,10 @@ def evaluate_spider2sql(args, temp_dir: Path):
     print({item['instance_id']: item['score'] for item in output_results})  
     correct_examples = sum([item['score'] for item in output_results]) 
 
-    print(f"Final score: {correct_examples / len(output_results)}, Correct examples: {correct_examples}, Total examples: {len(output_results)}")
-    print(f"Real score: {correct_examples / 547}, Correct examples: {correct_examples}, Total examples: 547")
+    total_evaluated = len(output_results)
+    total_benchmark = len(set(gold_ids) - gold_incorrect_ids)
+    print(f"Final score: {correct_examples / total_evaluated}, Correct examples: {correct_examples}, Total examples: {total_evaluated}")
+    print(f"Real score: {correct_examples / total_benchmark}, Correct examples: {correct_examples}, Total examples: {total_benchmark}")
     
     if mode == "sql" and result_csv_dir:
         print(f"Execution results saved to: {result_csv_dir}")
@@ -482,6 +507,12 @@ if __name__ == "__main__":
         type=str,
         default=None,
         help="Optional working directory for temporary files. Defaults to a unique directory per run.",
+    )
+    parser.add_argument(
+        "--gold_incorrect_csv",
+        type=str,
+        default=None,
+        help="CSV listing instance_ids with incorrect gold results. Defaults to gold_incorrect.csv at repo root.",
     )
     args = parser.parse_args()
     
