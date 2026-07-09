@@ -1,49 +1,54 @@
-month,other_product_name,total_quantity
+MONTH,OTHER_PRODUCT_NAME,QUANTITY
 2020-11,Google Decal,16
-2020-11,Google Navy Speckled Tee,12
+2020-11,Google Navy Speckled Tee,14
 2020-11,Google Youth FC Tee Charcoal,12
 2020-11,Android Small Trace Journal Black,10
 2020-11,Google Pen White,10
 2020-11,Google Toddler FC Tee Charcoal,10
+2020-11,Google F/C Longsleeve Ash,8
 2020-11,YouTube Leather Strap Hat Black,8
+2020-11,Google F/C Longsleeve Charcoal,7
+2020-11,Super G Unisex Joggers,7
 2020-11,#IamRemarkable Unisex T-Shirt,6
-2020-11,Google F/C Longsleeve Ash,6
-2020-11,Google F/C Longsleeve Charcoal,6
+2020-11,Google Badge Heavyweight Pullover Black,6
+2020-11,Google Crewneck Sweatshirt Navy,5
 2020-11,Google Keychain,5
 2020-11,Google 24 oz Ring Bottle Red,4
 2020-11,Google Clear Pen 4-Pack,4
 2020-11,Google Crewneck Sweatshirt Green,4
 2020-11,Google Large White Gift Bag 5/PK,4
 2020-11,Google Leather Strap Hat Blue,4
+2020-11,Google Mesh Bag Red,4
+2020-11,Google Metallic Notebook Set,4
+2020-11,Google Mini Kick Ball,4
 2020-11,Google Small Standard Journal Navy,4
 2020-11,Google Women's Pride Eco-Tee Black,4
 2020-11,Stan and Friends Youth Tee Green,4
 2020-11,#IamRemarkable Ladies T-Shirt,3
 2020-11,Google Cork Pencil Pouch,3
+2020-11,Google Crew Combed Cotton Sock,3
+2020-11,Google Crew Socks,3
 2020-11,Google Men's Puff Jacket Black,3
+2020-11,Google Mesh Bag Blue,3
 2020-11,Google Packable Bag Black,3
 2020-11,Google Utility Bag Grey,3
 2020-11,Android Large Trace Journal Black,2
 2020-11,Android Pocket Tee Navy,2
 2020-11,Android SM S/F18 Sticker Sheet,2
-2020-11,Google Badge Heavyweight Pullover Black,2
 2020-11,Google Bot,2
 2020-11,Google Boulder Campus Mug,2
 2020-11,Google Camp Mug Ivory,2
 2020-11,Google Campus Bike Carry Pouch,2
 2020-11,Google Chicago Campus Mug,2
-2020-11,Google Crew Combed Cotton Sock,2
-2020-11,Google Crew Socks,2
-2020-11,Google Crewneck Sweatshirt Navy,2
+2020-11,Google Crew Striped Athletic Sock,2
 2020-11,Google Heathered Pom Beanie,2
 2020-11,Google Infant Hero Tee Olive,2
 2020-11,Google LA Campus Mug,2
 2020-11,Google Lapel Pin,2
 2020-11,Google Light Pen Blue,2
-2020-11,Google Mesh Bag Red,2
-2020-11,Google Metallic Notebook Set,2
-2020-11,Google Mini Kick Ball,2
+2020-11,Google Magnet,2
 2020-11,Google Mountain View Campus Ladies Tee,2
+2020-11,Google Mural Socks,2
 2020-11,Google Raincoat Navy,2
 2020-11,Google Recycled Writing Set,2
 2020-11,Google Split Seam Tee Olive,2
@@ -52,8 +57,10 @@ month,other_product_name,total_quantity
 2020-11,Google Unisex Eco Tee Black,2
 2020-11,Google Utensil Set,2
 2020-11,Keyboard DOT Sticker,2
+2020-11,YouTube Crew Socks,2
 2020-11,YouTube Icon Tee Grey,2
 2020-11,#IamRemarkable Unisex Hoodie,1
+2020-11,Android Iconic Socks,1
 2020-11,Google Boulder Campus Bottle,1
 2020-11,Google Cambridge Campus Tote,1
 2020-11,Google Canteen Bottle Black,1
@@ -61,13 +68,14 @@ month,other_product_name,total_quantity
 2020-11,Google Incognito Zip Pack,1
 2020-11,Google Kirkland Campus Ladies Tee,1
 2020-11,Google Large Tote White,1
-2020-11,Google Mesh Bag Blue,1
 2020-11,Google Mountain View Campus Unisex Tee,1
+2020-11,Google NYC Campus Ladies Tee,1
 2020-11,Google PNW Campus Mug,1
 2020-11,Google Pen Grey,1
 2020-11,Google SF Campus Tote,1
 2020-11,Google Sherpa Zip Hoodie Charcoal,1
 2020-11,Google Speckled Beanie Grey,1
+2020-11,Google Summer19 Crew Grey,1
 2020-11,Google Sunnyvale Campus Ladies Tee,1
 2020-11,Google Thermal Tumbler Navy,1
 2020-11,Google Women's Puff Jacket Black,1
@@ -76,57 +84,65 @@ month,other_product_name,total_quantity
 2020-11,Stan and Friends Toddler Tee Green,1
 2020-11,Womens Google Striped LS,1
 2020-11,YouTube Icon Tee Charcoal,1
-2020-12,Google Navy Speckled Tee,9
+2020-12,Google Navy Speckled Tee,10
+2020-12,Android Pocket Tee Navy,8
+2020-12,Google 24 oz Ring Bottle Red,8
 2020-12,Google Zip Hoodie F/C,8
-2020-12,Android Pocket Tee Navy,7
-2020-12,Google Crewneck Sweatshirt Navy,6
-2020-12,Super G Unisex Joggers,6
+2020-12,Google Camp Mug Gray,7
+2020-12,Google Crew Socks,7
+2020-12,Google Crewneck Sweatshirt Navy,7
+2020-12,Google Heathered Pom Beanie,7
+2020-12,Super G Unisex Joggers,7
+2020-12,Google 24oz Ring Bottle Blue,6
+2020-12,Google F/C Longsleeve Ash,6
+2020-12,Google Metallic Notebook Set,6
+2020-12,Google Youth Hero Tee Grey,6
 2020-12,#IamRemarkable Ladies T-Shirt,5
 2020-12,Google Camp Mug Ivory,5
 2020-12,Google Dino Game Tee,5
-2020-12,Google F/C Longsleeve Ash,5
-2020-12,Google Heathered Pom Beanie,5
+2020-12,Google Mountain View Campus Ladies Tee,5
 2020-12,Google Recycled Pen Green,5
+2020-12,Google Speckled Beanie Grey,5
+2020-12,Google Speckled Beanie Navy,5
 2020-12,Google Women's Microfleece Jacket Black,5
-2020-12,Google Youth Hero Tee Grey,5
 2020-12,Maze Pen,5
 2020-12,Android Pocket Onesie Navy,4
 2020-12,Android Pocket Tee Green,4
-2020-12,Google 24 oz Ring Bottle Red,4
-2020-12,Google 24oz Ring Bottle Blue,4
+2020-12,Google Campus Bike Bottle,4
+2020-12,Google Chicago Campus Unisex Tee,4
 2020-12,Google Heather Green Speckled Tee,4
 2020-12,Google Infant Hero Tee Olive,4
 2020-12,Google Laptop and Cell Phone Stickers,4
-2020-12,Google Mountain View Campus Ladies Tee,4
 2020-12,Google NYC Campus Ladies Tee,4
 2020-12,Google Perk Thermal Tumbler,4
-2020-12,Google Speckled Beanie Navy,4
 2020-12,Womens Google Striped LS,4
 2020-12,YouTube Icon Tee Grey,4
 2020-12,#IamRemarkable Unisex T-Shirt,3
 2020-12,Android Iconic Crewneck Sweatshirt,3
 2020-12,Google Beekeepers Tee Mint,3
-2020-12,Google Camp Mug Gray,3
 2020-12,Google Crew Combed Cotton Sock,3
 2020-12,Google Cup Cap Tumbler Grey,3
 2020-12,Google Flat Front Bag Grey,3
+2020-12,Google Glass Bottle,3
 2020-12,Google Keychain,3
 2020-12,Google Land & Sea Cotton Cap,3
+2020-12,Google Leather Strap Hat Blue,3
 2020-12,Google Thermal Tumbler Navy,3
 2020-12,Google Toddler Hero Tee Black,3
+2020-12,Google Women's Grid Zip-Up,3
 2020-12,Unisex Google Pocket Tee Grey,3
 2020-12,YouTube Icon Tee Charcoal,3
+2020-12,Android Iconic Mug Gray,2
 2020-12,Google Austin Campus Ladies Tee,2
 2020-12,Google Austin Campus Mug,2
 2020-12,Google Beekeepers Onesie Pink,2
 2020-12,Google Blue Kids Sunglasses,2
 2020-12,Google Campus Bike Tote Navy,2
-2020-12,Google Chicago Campus Unisex Tee,2
+2020-12,Google Canteen Bottle Black,2
+2020-12,Google Chicago Campus Mug,2
 2020-12,Google Clear Pen 4-Pack,2
-2020-12,Google Crew Socks,2
 2020-12,Google Crewneck Sweatshirt Grey,2
 2020-12,Google Emoji Sticker Pack,2
-2020-12,Google Glass Bottle,2
 2020-12,Google Hemp Tote,2
 2020-12,Google KeepCup,2
 2020-12,Google Large Tote White,2
@@ -134,7 +150,6 @@ month,other_product_name,total_quantity
 2020-12,Google Men's Puff Jacket Black,2
 2020-12,Google Men's Tech Fleece Vest Charcoal,2
 2020-12,Google Mesh Bag Blue,2
-2020-12,Google Metallic Notebook Set,2
 2020-12,Google Mural Socks,2
 2020-12,Google NYC Campus Sticker,2
 2020-12,Google NYC Campus Zip Hoodie,2
@@ -142,30 +157,37 @@ month,other_product_name,total_quantity
 2020-12,Google Recycled Writing Set,2
 2020-12,Google Seaport Tote,2
 2020-12,Google Soft Modal Scarf,2
-2020-12,Google Speckled Beanie Grey,2
+2020-12,Google Sunnyvale Campus Bottle,2
+2020-12,Google Sunnyvale Campus Ladies Tee,2
+2020-12,Google Toddler FC Tee Charcoal,2
+2020-12,Google Toddler Hero Tee Olive,2
 2020-12,Google Tonal Tee Coral,2
 2020-12,Google Tudes Recycled Tee,2
-2020-12,Google Women's Grid Zip-Up,2
 2020-12,Google Women's Puff Jacket Black,2
+2020-12,Noogler Android Figure,2
 2020-12,#IamRemarkable Unisex Hoodie,1
 2020-12,#IamRemarkable Water Bottle,1
 2020-12,Android Buoy Bottle,1
 2020-12,Android Garden Tee Orange,1
-2020-12,Android Iconic Mug Gray,1
+2020-12,Android Iconic Beanie,1
 2020-12,Android Lumberjack Pin,1
 2020-12,Android Pocket Toddler Tee Navy,1
 2020-12,Android SM S/F18 Sticker Sheet,1
 2020-12,Google ApPeel Journal Red,1
+2020-12,Google Badge Heavyweight Pullover Black,1
 2020-12,Google Beekeepers Toddler Tee Pink,1
 2020-12,Google Beekeepers Youth Tee Pink,1
 2020-12,Google Black Cork Journal,1
+2020-12,Google Bottle Cleaner,1
 2020-12,Google Boulder Campus Unisex Tee,1
 2020-12,Google Cambridge Campus Sticker,1
 2020-12,Google Cambridge Campus Unisex Tee,1
 2020-12,Google Campus Bike Carry Pouch,1
 2020-12,Google Campus Bike Grid Task Pad,1
-2020-12,Google Canteen Bottle Black,1
 2020-12,Google Chicago Campus Bottle,1
+2020-12,Google Chicago Campus Ladies Tee,1
+2020-12,Google Chicago Campus Tote,1
+2020-12,Google Chicago Campus Zip Hoodie,1
 2020-12,Google Clear Framed Blue Shades,1
 2020-12,Google Cork Key Ring,1
 2020-12,Google Crew Striped Athletic Sock,1
@@ -176,7 +198,6 @@ month,other_product_name,total_quantity
 2020-12,Google Land & Sea Nalgene Water Bottle,1
 2020-12,Google Land & Sea Tech Taco,1
 2020-12,Google Lapel Pin,1
-2020-12,Google Leather Strap Hat Blue,1
 2020-12,Google Light Pen Blue,1
 2020-12,Google Men's Tech Fleece Grey,1
 2020-12,Google Mural Mug,1
@@ -189,56 +210,57 @@ month,other_product_name,total_quantity
 2020-12,Google SF Campus Ladies Tee,1
 2020-12,Google SF Campus Lapel Pin,1
 2020-12,Google SF Campus Tote,1
+2020-12,Google SF Campus Unisex Tee,1
 2020-12,Google Seattle Campus Lapel Pin,1
 2020-12,Google Seattle Campus Sticker,1
 2020-12,Google Split Seam Tee Olive,1
-2020-12,Google Sunnyvale Campus Ladies Tee,1
 2020-12,Google Sustainable Pencil Pouch,1
 2020-12,Google Tee Red,1
 2020-12,Google Tee Yellow,1
-2020-12,Google Toddler FC Tee Charcoal,1
 2020-12,Google Women's Black Tee,1
 2020-12,Google Woodtop Bottle Black,1
 2020-12,Google Youth Badge Tee Navy,1
 2020-12,Google Youth Badge Tee Olive,1
 2020-12,Google Youth F/C Pullover Hoodie,1
 2020-12,Google Youth Hero Tee Maroon,1
-2020-12,Noogler Android Figure,1
 2020-12,Stan and Friends Onesie Green,1
 2020-12,Supernatural Paper Lunch Sack,1
 2020-12,White Google Shoreline Bottle,1
+2020-12,YouTube Crew Socks,1
 2021-01,Google PNW Campus Sticker,12
 2021-01,Android Jotter Task Pad,7
+2021-01,Google Canteen Bottle Black,6
 2021-01,Google Small Cable Organizer Blue,5
 2021-01,Android Buoy Bottle,4
-2021-01,Google Canteen Bottle Black,4
+2021-01,Android SM S/F18 Sticker Sheet,4
+2021-01,Google Light Pen Blue,4
 2021-01,White Google Shoreline Bottle,4
-2021-01,Android SM S/F18 Sticker Sheet,3
 2021-01,Google Crew Socks,3
+2021-01,Google Large Tote White,3
 2021-01,Google Metallic Notebook Set,3
 2021-01,Google Pen Grey,3
 2021-01,Google Split Seam Tee Olive,3
+2021-01,Google Zip Hoodie F/C,3
 2021-01,Noogler Android Figure,3
+2021-01,Android Large Removable Sticker Sheet,2
 2021-01,Google Beekeepers Tee Mint,2
+2021-01,Google Black Cloud Zip Hoodie,2
 2021-01,Google Blue Kids Sunglasses,2
 2021-01,Google Heather Green Speckled Tee,2
 2021-01,Google Jotter Task Pad,2
 2021-01,Google Keychain,2
-2021-01,Google Large Tote White,2
 2021-01,Google Magnet,2
 2021-01,Google Sherpa Zip Hoodie Charcoal,2
 2021-01,Google Youth FC Tee Charcoal,2
-2021-01,Google Zip Hoodie F/C,2
 2021-01,Stan and Friends Tee Green,2
 2021-01,YouTube Icon Tee Charcoal,2
 2021-01,#IamRemarkable Unisex T-Shirt,1
 2021-01,Android Iconic Glass Bottle Green,1
-2021-01,Android Large Removable Sticker Sheet,1
 2021-01,Android Pocket Onesie Navy,1
 2021-01,Android Pocket Tee Green,1
 2021-01,Android Pocket Tee Navy,1
+2021-01,Flamingo and Friends Tee Blue,1
 2021-01,Google Aluminum Bottle Red,1
-2021-01,Google Black Cloud Zip Hoodie,1
 2021-01,Google Crewneck Sweatshirt Green,1
 2021-01,Google Crewneck Sweatshirt Navy,1
 2021-01,Google Emoji Magnet Set,1
@@ -246,13 +268,14 @@ month,other_product_name,total_quantity
 2021-01,Google LA Campus Ladies Tee,1
 2021-01,Google Land & Sea Women's Eco Tee,1
 2021-01,Google Large Standard Journal Grey,1
-2021-01,Google Light Pen Blue,1
 2021-01,Google Light Pen Green,1
 2021-01,Google Medium Pet Leash (Blue/Green),1
 2021-01,Google Men's Tech Fleece Vest Charcoal,1
+2021-01,Google Mountain View Campus Sticker,1
 2021-01,Google Mountain View Campus Unisex Tee,1
 2021-01,Google Mural Sticker Sheet,1
 2021-01,Google PNW Campus Mug,1
+2021-01,Google PNW Campus Unisex Tee,1
 2021-01,Google Seattle Campus Mug,1
 2021-01,Google Sherpa Zip Hoodie Navy,1
 2021-01,Google Tee Blue,1
@@ -260,7 +283,9 @@ month,other_product_name,total_quantity
 2021-01,Google Tee Red,1
 2021-01,Google Toddler FC Tee Charcoal,1
 2021-01,Google Toddler Tee White,1
+2021-01,Google Twill Cap Charcoal,1
 2021-01,Google Unisex Eco Tee Black,1
+2021-01,Google Utility BackPack,1
 2021-01,Google Women's Microfleece Jacket Black,1
 2021-01,Google Youth Hero Tee Grey,1
 2021-01,Google Youth Hero Tee Maroon,1

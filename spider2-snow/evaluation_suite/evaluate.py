@@ -83,7 +83,7 @@ def load_gold_incorrect_ids(csv_path=None):
     df = pd.read_csv(csv_path)
     if "instance_id" not in df.columns:
         return set()
-    return set(df["instance_id"].dropna().astype(str))
+    return set(df["instance_id"].dropna().astype(str).str.strip())
 
 
 def compare_multi_pandas_table(pred, multi_gold, multi_condition_cols=[], multi_ignore_order=False):
