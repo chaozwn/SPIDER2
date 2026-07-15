@@ -1,29 +1,29 @@
 PICKUP_BOROUGH,TIP_CATEGORY,PROPORTION
-Bronx,no tip,0.8017570664629489
-Bronx,0 to 5%,0.006111535523300229
-Bronx,5 to 10%,0.016042780748663103
-Bronx,10 to 15%,0.02291825821237586
-Bronx,15 to 20%,0.09778456837280367
-Bronx,20 to 25%,0.02482811306340718
-Bronx,More than 25%,0.030557677616501147
-Brooklyn,no tip,0.4637643684915728
-Brooklyn,0 to 5%,0.007310594485320044
-Brooklyn,5 to 10%,0.028748736513010978
-Brooklyn,10 to 15%,0.04452175548294587
-Brooklyn,15 to 20%,0.30718600879151875
-Brooklyn,20 to 25%,0.07545661832114901
-Brooklyn,More than 25%,0.0730119179144825
-Manhattan,no tip,0.40883959641051554
-Manhattan,0 to 5%,0.00406559167339236
-Manhattan,5 to 10%,0.03583497184788518
-Manhattan,10 to 15%,0.07365532040243992
-Manhattan,15 to 20%,0.3466961080389795
-Manhattan,20 to 25%,0.07564213405244365
-Manhattan,More than 25%,0.05526627757434385
-Queens,no tip,0.3928297496995884
-Queens,0 to 5%,0.007670084115255798
-Queens,5 to 10%,0.03883619257024519
-Queens,10 to 15%,0.07344105540357426
-Queens,15 to 20%,0.2680694398281901
-Queens,20 to 25%,0.17737708690205303
-Queens,More than 25%,0.041776391481093245
+Bronx,0%,0.801757
+Bronx,up to 5%,0.007257
+Bronx,5% to 10%,0.020244
+Bronx,10% to 15%,0.024064
+Bronx,15% to 20%,0.116119
+Bronx,20% to 25%,0.018717
+Bronx,more than 25%,0.011841
+Brooklyn,0%,0.463764
+Brooklyn,up to 5%,0.008439
+Brooklyn,5% to 10%,0.036765
+Brooklyn,10% to 15%,0.057027
+Brooklyn,15% to 20%,0.360993
+Brooklyn,20% to 25%,0.060318
+Brooklyn,more than 25%,0.012694
+Manhattan,0%,0.40884
+Manhattan,up to 5%,0.004718
+Manhattan,5% to 10%,0.05091
+Manhattan,10% to 15%,0.090393
+Manhattan,15% to 20%,0.389873
+Manhattan,20% to 25%,0.048124
+Manhattan,more than 25%,0.007142
+Queens,0%,0.39283
+Queens,up to 5%,0.00914
+Queens,5% to 10%,0.05137
+Queens,10% to 15%,0.104422
+Queens,15% to 20%,0.400461
+Queens,20% to 25%,0.037034
+Queens,more than 25%,0.004743
