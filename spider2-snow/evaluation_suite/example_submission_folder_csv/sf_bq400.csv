@@ -1,0 +1,429 @@
+route_id,TRIP_HEADSIGN,EARLIEST_DEPARTURE_CLAY,LATEST_ARRIVAL_SACRAMENTO
+1,Geary + 33rd Avenue,00:00:00,00:01:06
+1,Geary + 33rd Avenue,00:00:00,00:00:44
+1,Geary + 33rd Avenue,00:00:00,00:00:44
+1,Geary + 33rd Avenue,00:20:00,00:21:06
+1,Geary + 33rd Avenue,00:20:00,00:20:44
+1,Geary + 33rd Avenue,00:20:00,00:20:44
+1,Geary + 33rd Avenue,00:40:00,00:40:44
+1,Geary + 33rd Avenue,00:40:00,00:40:44
+1,Geary + 33rd Avenue,00:40:00,00:40:44
+1,Geary + 33rd Avenue,01:00:00,01:00:44
+1,Geary + 33rd Avenue,01:00:00,01:00:44
+1,Geary + 33rd Avenue,01:00:00,01:00:44
+1,Geary + 33rd Avenue,01:20:00,01:20:44
+1,Geary + 33rd Avenue,01:20:00,01:20:44
+1,Geary + 33rd Avenue,01:40:00,01:40:44
+1,Geary + 33rd Avenue,01:40:00,01:40:44
+1,Geary + 33rd Avenue,02:00:00,02:00:44
+1,Geary + 33rd Avenue,02:00:00,02:00:44
+1,Geary + 33rd Avenue,05:23:00,05:23:44
+1,Geary + 33rd Avenue,05:23:00,05:23:44
+1,Geary + 33rd Avenue,05:25:00,05:26:06
+1,Geary + 33rd Avenue,05:53:00,05:53:44
+1,Geary + 33rd Avenue,05:53:00,05:53:44
+1,Geary + 33rd Avenue,05:55:00,05:56:06
+1,Geary + 33rd Avenue,06:13:00,06:13:44
+1,Geary + 33rd Avenue,06:13:00,06:13:44
+1,Geary + 33rd Avenue,06:15:00,06:16:06
+1,Geary + 33rd Avenue,06:29:00,06:30:06
+1,Geary + 33rd Avenue,06:33:00,06:33:44
+1,Geary + 33rd Avenue,06:33:00,06:33:44
+1,Geary + 33rd Avenue,06:41:00,06:42:06
+1,Geary + 33rd Avenue,06:50:00,06:50:44
+1,Geary + 33rd Avenue,06:50:00,06:50:44
+1,Geary + 33rd Avenue,06:51:00,06:52:06
+1,Geary + 33rd Avenue,07:01:00,07:02:06
+1,Geary + 33rd Avenue,07:07:00,07:07:44
+1,Geary + 33rd Avenue,07:07:00,07:07:44
+1,Geary + 33rd Avenue,07:09:00,07:10:06
+1,Geary + 33rd Avenue,07:17:00,07:18:06
+1,Geary + 33rd Avenue,07:24:00,07:24:44
+1,Geary + 33rd Avenue,07:24:00,07:25:06
+1,Geary + 33rd Avenue,07:24:00,07:24:44
+1,Geary + 33rd Avenue,07:30:00,07:31:06
+1,Geary + 33rd Avenue,07:39:00,07:39:44
+1,Geary + 33rd Avenue,07:39:00,07:39:44
+1,Geary + 33rd Avenue,07:39:00,07:40:06
+1,Geary + 33rd Avenue,07:46:00,07:47:06
+1,Geary + 33rd Avenue,07:53:00,07:54:06
+1,Geary + 33rd Avenue,07:54:00,07:54:44
+1,Geary + 33rd Avenue,07:54:00,07:54:44
+1,Geary + 33rd Avenue,08:01:00,08:02:06
+1,Geary + 33rd Avenue,08:08:00,08:08:44
+1,Geary + 33rd Avenue,08:08:00,08:08:44
+1,Geary + 33rd Avenue,08:09:00,08:10:06
+1,Geary + 33rd Avenue,08:16:00,08:17:06
+1,Geary + 33rd Avenue,08:20:00,08:20:44
+1,Geary + 33rd Avenue,08:20:00,08:20:44
+1,Geary + 33rd Avenue,08:24:00,08:25:06
+1,Geary + 33rd Avenue,08:32:00,08:33:06
+1,Geary + 33rd Avenue,08:32:00,08:32:44
+1,Geary + 33rd Avenue,08:32:00,08:32:44
+1,Geary + 33rd Avenue,08:39:00,08:40:06
+1,Geary + 33rd Avenue,08:44:00,08:44:44
+1,Geary + 33rd Avenue,08:44:00,08:44:44
+1,Geary + 33rd Avenue,08:47:00,08:48:06
+1,Geary + 33rd Avenue,08:54:00,08:55:06
+1,Geary + 33rd Avenue,08:55:00,08:55:44
+1,Geary + 33rd Avenue,08:55:00,08:55:44
+1,Geary + 33rd Avenue,09:01:00,09:02:06
+1,Geary + 33rd Avenue,09:05:00,09:05:44
+1,Geary + 33rd Avenue,09:05:00,09:05:44
+1,Geary + 33rd Avenue,09:09:00,09:10:06
+1,Geary + 33rd Avenue,09:12:00,09:13:06
+1,Geary + 33rd Avenue,09:15:00,09:15:44
+1,Geary + 33rd Avenue,09:15:00,09:15:44
+1,Geary + 33rd Avenue,09:20:00,09:21:06
+1,Geary + 33rd Avenue,09:23:00,09:24:06
+1,Geary + 33rd Avenue,09:25:00,09:25:44
+1,Geary + 33rd Avenue,09:25:00,09:25:44
+1,Geary + 33rd Avenue,09:27:00,09:28:06
+1,Geary + 33rd Avenue,09:31:00,09:32:06
+1,Geary + 33rd Avenue,09:34:00,09:34:44
+1,Geary + 33rd Avenue,09:34:00,09:34:44
+1,Geary + 33rd Avenue,09:35:00,09:36:06
+1,Geary + 33rd Avenue,09:39:00,09:40:06
+1,Geary + 33rd Avenue,09:43:00,09:44:06
+1,Geary + 33rd Avenue,09:43:00,09:43:44
+1,Geary + 33rd Avenue,09:43:00,09:43:44
+1,Geary + 33rd Avenue,09:47:00,09:48:06
+1,Geary + 33rd Avenue,09:51:00,09:52:06
+1,Geary + 33rd Avenue,09:52:00,09:52:44
+1,Geary + 33rd Avenue,09:52:00,09:52:44
+1,Geary + 33rd Avenue,09:55:00,09:56:06
+1,Geary + 33rd Avenue,10:00:00,10:01:06
+1,Geary + 33rd Avenue,10:01:00,10:01:44
+1,Geary + 33rd Avenue,10:01:00,10:01:44
+1,Geary + 33rd Avenue,10:05:00,10:06:06
+1,Geary + 33rd Avenue,10:10:00,10:10:44
+1,Geary + 33rd Avenue,10:10:00,10:11:06
+1,Geary + 33rd Avenue,10:10:00,10:10:44
+1,Geary + 33rd Avenue,10:15:00,10:16:06
+1,Geary + 33rd Avenue,10:18:00,10:18:44
+1,Geary + 33rd Avenue,10:18:00,10:18:44
+1,Geary + 33rd Avenue,10:20:00,10:21:06
+1,Geary + 33rd Avenue,10:25:00,10:26:06
+1,Geary + 33rd Avenue,10:26:00,10:26:44
+1,Geary + 33rd Avenue,10:26:00,10:26:44
+1,Geary + 33rd Avenue,10:30:00,10:31:06
+1,Geary + 33rd Avenue,10:34:00,10:34:44
+1,Geary + 33rd Avenue,10:34:00,10:34:44
+1,Geary + 33rd Avenue,10:35:00,10:36:06
+1,Geary + 33rd Avenue,10:40:00,10:41:06
+1,Geary + 33rd Avenue,10:42:00,10:42:44
+1,Geary + 33rd Avenue,10:42:00,10:42:44
+1,Geary + 33rd Avenue,10:45:00,10:46:06
+1,Geary + 33rd Avenue,10:50:00,10:51:06
+1,Geary + 33rd Avenue,10:51:00,10:51:44
+1,Geary + 33rd Avenue,10:51:00,10:51:44
+1,Geary + 33rd Avenue,10:55:00,10:56:06
+1,Geary + 33rd Avenue,10:58:00,10:58:44
+1,Geary + 33rd Avenue,10:58:00,10:58:44
+1,Geary + 33rd Avenue,11:00:00,11:01:06
+1,Geary + 33rd Avenue,11:05:00,11:06:06
+1,Geary + 33rd Avenue,11:06:00,11:06:44
+1,Geary + 33rd Avenue,11:06:00,11:06:44
+1,Geary + 33rd Avenue,11:10:00,11:11:06
+1,Geary + 33rd Avenue,11:13:00,11:13:44
+1,Geary + 33rd Avenue,11:13:00,11:13:44
+1,Geary + 33rd Avenue,11:15:00,11:16:06
+1,Geary + 33rd Avenue,11:20:00,11:21:06
+1,Geary + 33rd Avenue,11:21:00,11:21:44
+1,Geary + 33rd Avenue,11:21:00,11:21:44
+1,Geary + 33rd Avenue,11:25:00,11:26:06
+1,Geary + 33rd Avenue,11:28:00,11:28:44
+1,Geary + 33rd Avenue,11:28:00,11:28:44
+1,Geary + 33rd Avenue,11:30:00,11:31:06
+1,Geary + 33rd Avenue,11:35:00,11:36:06
+1,Geary + 33rd Avenue,11:36:00,11:36:44
+1,Geary + 33rd Avenue,11:36:00,11:36:44
+1,Geary + 33rd Avenue,11:40:00,11:41:06
+1,Geary + 33rd Avenue,11:43:00,11:43:44
+1,Geary + 33rd Avenue,11:43:00,11:43:44
+1,Geary + 33rd Avenue,11:45:00,11:46:06
+1,Geary + 33rd Avenue,11:50:00,11:51:06
+1,Geary + 33rd Avenue,11:51:00,11:51:44
+1,Geary + 33rd Avenue,11:51:00,11:51:44
+1,Geary + 33rd Avenue,11:55:00,11:56:06
+1,Geary + 33rd Avenue,11:58:00,11:58:44
+1,Geary + 33rd Avenue,11:58:00,11:58:44
+1,Geary + 33rd Avenue,12:00:00,12:01:06
+1,Geary + 33rd Avenue,12:05:00,12:06:06
+1,Geary + 33rd Avenue,12:06:00,12:06:44
+1,Geary + 33rd Avenue,12:06:00,12:06:44
+1,Geary + 33rd Avenue,12:10:00,12:11:06
+1,Geary + 33rd Avenue,12:13:00,12:13:44
+1,Geary + 33rd Avenue,12:13:00,12:13:44
+1,Geary + 33rd Avenue,12:15:00,12:16:06
+1,Geary + 33rd Avenue,12:20:00,12:21:06
+1,Geary + 33rd Avenue,12:21:00,12:21:44
+1,Geary + 33rd Avenue,12:21:00,12:21:44
+1,Geary + 33rd Avenue,12:25:00,12:26:06
+1,Geary + 33rd Avenue,12:28:00,12:28:44
+1,Geary + 33rd Avenue,12:28:00,12:28:44
+1,Geary + 33rd Avenue,12:30:00,12:31:06
+1,Geary + 33rd Avenue,12:35:00,12:36:06
+1,Geary + 33rd Avenue,12:36:00,12:36:44
+1,Geary + 33rd Avenue,12:36:00,12:36:44
+1,Geary + 33rd Avenue,12:40:00,12:41:06
+1,Geary + 33rd Avenue,12:43:00,12:43:44
+1,Geary + 33rd Avenue,12:43:00,12:43:44
+1,Geary + 33rd Avenue,12:45:00,12:46:06
+1,Geary + 33rd Avenue,12:50:00,12:51:06
+1,Geary + 33rd Avenue,12:51:00,12:51:44
+1,Geary + 33rd Avenue,12:51:00,12:51:44
+1,Geary + 33rd Avenue,12:55:00,12:56:06
+1,Geary + 33rd Avenue,12:58:00,12:58:44
+1,Geary + 33rd Avenue,12:58:00,12:58:44
+1,Geary + 33rd Avenue,13:00:00,13:01:06
+1,Geary + 33rd Avenue,13:05:00,13:06:06
+1,Geary + 33rd Avenue,13:06:00,13:06:44
+1,Geary + 33rd Avenue,13:06:00,13:06:44
+1,Geary + 33rd Avenue,13:10:00,13:11:06
+1,Geary + 33rd Avenue,13:13:00,13:13:44
+1,Geary + 33rd Avenue,13:13:00,13:13:44
+1,Geary + 33rd Avenue,13:15:00,13:16:06
+1,Geary + 33rd Avenue,13:20:00,13:21:06
+1,Geary + 33rd Avenue,13:21:00,13:21:44
+1,Geary + 33rd Avenue,13:21:00,13:21:44
+1,Geary + 33rd Avenue,13:25:00,13:26:06
+1,Geary + 33rd Avenue,13:28:00,13:28:44
+1,Geary + 33rd Avenue,13:28:00,13:28:44
+1,Geary + 33rd Avenue,13:30:00,13:31:06
+1,Geary + 33rd Avenue,13:35:00,13:36:06
+1,Geary + 33rd Avenue,13:36:00,13:36:44
+1,Geary + 33rd Avenue,13:36:00,13:36:44
+1,Geary + 33rd Avenue,13:40:00,13:41:06
+1,Geary + 33rd Avenue,13:43:00,13:43:44
+1,Geary + 33rd Avenue,13:43:00,13:43:44
+1,Geary + 33rd Avenue,13:45:00,13:46:06
+1,Geary + 33rd Avenue,13:50:00,13:51:06
+1,Geary + 33rd Avenue,13:51:00,13:51:44
+1,Geary + 33rd Avenue,13:51:00,13:51:44
+1,Geary + 33rd Avenue,13:55:00,13:56:06
+1,Geary + 33rd Avenue,13:58:00,13:58:44
+1,Geary + 33rd Avenue,13:58:00,13:58:44
+1,Geary + 33rd Avenue,14:00:00,14:01:06
+1,Geary + 33rd Avenue,14:05:00,14:06:06
+1,Geary + 33rd Avenue,14:06:00,14:06:44
+1,Geary + 33rd Avenue,14:06:00,14:06:44
+1,Geary + 33rd Avenue,14:10:00,14:11:06
+1,Geary + 33rd Avenue,14:13:00,14:13:44
+1,Geary + 33rd Avenue,14:13:00,14:13:44
+1,Geary + 33rd Avenue,14:15:00,14:16:06
+1,Geary + 33rd Avenue,14:20:00,14:21:06
+1,Geary + 33rd Avenue,14:21:00,14:21:44
+1,Geary + 33rd Avenue,14:21:00,14:21:44
+1,Geary + 33rd Avenue,14:25:00,14:26:06
+1,Geary + 33rd Avenue,14:28:00,14:28:44
+1,Geary + 33rd Avenue,14:28:00,14:28:44
+1,Geary + 33rd Avenue,14:30:00,14:31:06
+1,Geary + 33rd Avenue,14:35:00,14:36:06
+1,Geary + 33rd Avenue,14:36:00,14:36:44
+1,Geary + 33rd Avenue,14:36:00,14:36:44
+1,Geary + 33rd Avenue,14:40:00,14:41:06
+1,Geary + 33rd Avenue,14:43:00,14:43:44
+1,Geary + 33rd Avenue,14:43:00,14:43:44
+1,Geary + 33rd Avenue,14:45:00,14:46:06
+1,Geary + 33rd Avenue,14:50:00,14:51:06
+1,Geary + 33rd Avenue,14:51:00,14:51:44
+1,Geary + 33rd Avenue,14:51:00,14:51:44
+1,Geary + 33rd Avenue,14:55:00,14:56:06
+1,Geary + 33rd Avenue,14:58:00,14:58:44
+1,Geary + 33rd Avenue,14:58:00,14:58:44
+1,Geary + 33rd Avenue,15:00:00,15:01:06
+1,Geary + 33rd Avenue,15:05:00,15:06:06
+1,Geary + 33rd Avenue,15:06:00,15:07:06
+1,Geary + 33rd Avenue,15:06:00,15:07:06
+1,Geary + 33rd Avenue,15:10:00,15:11:06
+1,Geary + 33rd Avenue,15:13:00,15:14:06
+1,Geary + 33rd Avenue,15:13:00,15:14:06
+1,Geary + 33rd Avenue,15:15:00,15:16:06
+1,Geary + 33rd Avenue,15:20:00,15:21:06
+1,Geary + 33rd Avenue,15:21:00,15:22:06
+1,Geary + 33rd Avenue,15:21:00,15:22:06
+1,Geary + 33rd Avenue,15:25:00,15:26:06
+1,Geary + 33rd Avenue,15:28:00,15:29:06
+1,Geary + 33rd Avenue,15:28:00,15:29:06
+1,Geary + 33rd Avenue,15:30:00,15:31:06
+1,Geary + 33rd Avenue,15:35:00,15:36:06
+1,Geary + 33rd Avenue,15:36:00,15:37:06
+1,Geary + 33rd Avenue,15:36:00,15:37:06
+1,Geary + 33rd Avenue,15:43:00,15:44:06
+1,Geary + 33rd Avenue,15:43:00,15:44:06
+1,Geary + 33rd Avenue,15:45:00,15:46:06
+1,Geary + 33rd Avenue,15:51:00,15:52:06
+1,Geary + 33rd Avenue,15:51:00,15:52:06
+1,Geary + 33rd Avenue,15:55:00,15:56:06
+1,Geary + 33rd Avenue,15:58:00,15:59:06
+1,Geary + 33rd Avenue,15:58:00,15:59:06
+1,Geary + 33rd Avenue,16:04:00,16:05:06
+1,Geary + 33rd Avenue,16:06:00,16:07:06
+1,Geary + 33rd Avenue,16:06:00,16:07:06
+1,Geary + 33rd Avenue,16:13:00,16:14:06
+1,Geary + 33rd Avenue,16:13:00,16:14:06
+1,Geary + 33rd Avenue,16:13:00,16:14:06
+1,Geary + 33rd Avenue,16:21:00,16:22:06
+1,Geary + 33rd Avenue,16:21:00,16:22:06
+1,Geary + 33rd Avenue,16:22:00,16:23:06
+1,Geary + 33rd Avenue,16:28:00,16:29:06
+1,Geary + 33rd Avenue,16:28:00,16:29:06
+1,Geary + 33rd Avenue,16:29:00,16:30:06
+1,Geary + 33rd Avenue,16:36:00,16:37:06
+1,Geary + 33rd Avenue,16:36:00,16:37:06
+1,Geary + 33rd Avenue,16:36:00,16:37:06
+1,Geary + 33rd Avenue,16:43:00,16:44:06
+1,Geary + 33rd Avenue,16:43:00,16:44:06
+1,Geary + 33rd Avenue,16:43:00,16:44:06
+1,Geary + 33rd Avenue,16:51:00,16:52:06
+1,Geary + 33rd Avenue,16:51:00,16:52:06
+1,Geary + 33rd Avenue,16:51:00,16:52:06
+1,Geary + 33rd Avenue,16:58:00,16:59:06
+1,Geary + 33rd Avenue,16:58:00,16:59:06
+1,Geary + 33rd Avenue,16:58:00,16:59:06
+1,Geary + 33rd Avenue,17:05:00,17:06:06
+1,Geary + 33rd Avenue,17:06:00,17:07:06
+1,Geary + 33rd Avenue,17:06:00,17:07:06
+1,Geary + 33rd Avenue,17:13:00,17:14:06
+1,Geary + 33rd Avenue,17:13:00,17:14:06
+1,Geary + 33rd Avenue,17:13:00,17:14:06
+1,Geary + 33rd Avenue,17:20:00,17:21:06
+1,Geary + 33rd Avenue,17:21:00,17:22:06
+1,Geary + 33rd Avenue,17:21:00,17:22:06
+1,Geary + 33rd Avenue,17:27:00,17:28:06
+1,Geary + 33rd Avenue,17:28:00,17:29:06
+1,Geary + 33rd Avenue,17:28:00,17:29:06
+1,Geary + 33rd Avenue,17:35:00,17:36:06
+1,Geary + 33rd Avenue,17:36:00,17:37:06
+1,Geary + 33rd Avenue,17:36:00,17:37:06
+1,Geary + 33rd Avenue,17:42:00,17:43:06
+1,Geary + 33rd Avenue,17:43:00,17:44:06
+1,Geary + 33rd Avenue,17:43:00,17:44:06
+1,Geary + 33rd Avenue,17:49:00,17:50:06
+1,Geary + 33rd Avenue,17:51:00,17:52:06
+1,Geary + 33rd Avenue,17:51:00,17:52:06
+1,Geary + 33rd Avenue,17:53:00,17:54:06
+1,Geary + 33rd Avenue,17:57:00,17:58:06
+1,Geary + 33rd Avenue,17:58:00,17:59:06
+1,Geary + 33rd Avenue,17:58:00,17:59:06
+1,Geary + 33rd Avenue,18:00:00,18:01:06
+1,Geary + 33rd Avenue,18:06:00,18:07:06
+1,Geary + 33rd Avenue,18:06:00,18:07:06
+1,Geary + 33rd Avenue,18:08:00,18:09:06
+1,Geary + 33rd Avenue,18:13:00,18:14:06
+1,Geary + 33rd Avenue,18:13:00,18:14:06
+1,Geary + 33rd Avenue,18:15:00,18:16:06
+1,Geary + 33rd Avenue,18:21:00,18:22:06
+1,Geary + 33rd Avenue,18:21:00,18:22:06
+1,Geary + 33rd Avenue,18:22:00,18:23:06
+1,Geary + 33rd Avenue,18:26:00,18:27:06
+1,Geary + 33rd Avenue,18:30:00,18:31:06
+1,Geary + 33rd Avenue,18:30:00,18:31:06
+1,Geary + 33rd Avenue,18:33:00,18:34:06
+1,Geary + 33rd Avenue,18:40:00,18:41:06
+1,Geary + 33rd Avenue,18:40:00,18:41:06
+1,Geary + 33rd Avenue,18:41:00,18:42:06
+1,Geary + 33rd Avenue,18:49:00,18:50:06
+1,Geary + 33rd Avenue,18:52:00,18:53:06
+1,Geary + 33rd Avenue,18:52:00,18:53:06
+1,Geary + 33rd Avenue,18:57:00,18:58:06
+1,Geary + 33rd Avenue,19:01:00,19:02:06
+1,Geary + 33rd Avenue,19:04:00,19:05:06
+1,Geary + 33rd Avenue,19:04:00,19:05:06
+1,Geary + 33rd Avenue,19:06:00,19:07:06
+1,Geary + 33rd Avenue,19:11:00,19:12:06
+1,Geary + 33rd Avenue,19:16:00,19:17:06
+1,Geary + 33rd Avenue,19:17:00,19:18:06
+1,Geary + 33rd Avenue,19:17:00,19:18:06
+1,Geary + 33rd Avenue,19:22:00,19:23:06
+1,Geary + 33rd Avenue,19:28:00,19:29:06
+1,Geary + 33rd Avenue,19:30:00,19:31:06
+1,Geary + 33rd Avenue,19:30:00,19:31:06
+1,Geary + 33rd Avenue,19:35:00,19:36:06
+1,Geary + 33rd Avenue,19:43:00,19:44:06
+1,Geary + 33rd Avenue,19:45:00,19:46:06
+1,Geary + 33rd Avenue,19:45:00,19:46:06
+1,Geary + 33rd Avenue,19:51:00,19:52:06
+1,Geary + 33rd Avenue,20:00:00,20:01:06
+1,Geary + 33rd Avenue,20:00:00,20:01:06
+1,Geary + 33rd Avenue,20:00:00,20:01:06
+1,Geary + 33rd Avenue,20:09:00,20:10:06
+1,Geary + 33rd Avenue,20:20:00,20:21:06
+1,Geary + 33rd Avenue,20:20:00,20:21:06
+1,Geary + 33rd Avenue,20:21:00,20:22:06
+1,Geary + 33rd Avenue,20:33:00,20:34:06
+1,Geary + 33rd Avenue,20:40:00,20:41:06
+1,Geary + 33rd Avenue,20:40:00,20:41:06
+1,Geary + 33rd Avenue,20:45:00,20:46:06
+1,Geary + 33rd Avenue,20:58:00,20:59:06
+1,Geary + 33rd Avenue,21:00:00,21:01:06
+1,Geary + 33rd Avenue,21:00:00,21:01:06
+1,Geary + 33rd Avenue,21:11:00,21:12:06
+1,Geary + 33rd Avenue,21:20:00,21:21:06
+1,Geary + 33rd Avenue,21:20:00,21:21:06
+1,Geary + 33rd Avenue,21:24:00,21:25:06
+1,Geary + 33rd Avenue,21:37:00,21:38:06
+1,Geary + 33rd Avenue,21:40:00,21:41:06
+1,Geary + 33rd Avenue,21:40:00,21:41:06
+1,Geary + 33rd Avenue,21:52:00,21:53:06
+1,Geary + 33rd Avenue,22:00:00,22:01:06
+1,Geary + 33rd Avenue,22:00:00,22:01:06
+1,Geary + 33rd Avenue,22:07:00,22:08:06
+1,Geary + 33rd Avenue,22:20:00,22:21:06
+1,Geary + 33rd Avenue,22:20:00,22:21:06
+1,Geary + 33rd Avenue,22:22:00,22:23:06
+1,Geary + 33rd Avenue,22:40:00,22:41:06
+1,Geary + 33rd Avenue,22:40:00,22:41:06
+1,Geary + 33rd Avenue,22:40:00,22:41:06
+1,Geary + 33rd Avenue,23:00:00,23:00:44
+1,Geary + 33rd Avenue,23:00:00,23:01:06
+1,Geary + 33rd Avenue,23:00:00,23:00:44
+1,Geary + 33rd Avenue,23:20:00,23:20:44
+1,Geary + 33rd Avenue,23:20:00,23:21:06
+1,Geary + 33rd Avenue,23:20:00,23:20:44
+1,Geary + 33rd Avenue,23:40:00,23:40:44
+1,Geary + 33rd Avenue,23:40:00,23:40:44
+1,Geary + 33rd Avenue,23:40:00,23:41:06
+1,Presidio Avenue,07:35:00,07:36:06
+1,Presidio Avenue,07:43:00,07:44:06
+1,Presidio Avenue,07:50:00,07:51:06
+1,Presidio Avenue,07:57:00,07:58:06
+1,Presidio Avenue,08:05:00,08:06:06
+1,Presidio Avenue,08:13:00,08:14:06
+1,Presidio Avenue,08:20:00,08:21:06
+1,Presidio Avenue,08:28:00,08:29:06
+1,Presidio Avenue,08:36:00,08:37:06
+1,Presidio Avenue,08:43:00,08:44:06
+1,Presidio Avenue,08:50:00,08:51:06
+1,Presidio Avenue,08:58:00,08:59:06
+1,Presidio Avenue,09:05:00,09:06:06
+1,Presidio Avenue,09:16:00,09:17:06
+1,Presidio Avenue,15:40:00,15:41:06
+1,Presidio Avenue,15:50:00,15:51:06
+1,Presidio Avenue,16:00:00,16:01:06
+1,Presidio Avenue,16:09:00,16:10:06
+1,Presidio Avenue,16:18:00,16:19:06
+1,Presidio Avenue,16:25:00,16:26:06
+1,Presidio Avenue,16:32:00,16:33:06
+1,Presidio Avenue,16:40:00,16:41:06
+1,Presidio Avenue,16:47:00,16:48:06
+1,Presidio Avenue,16:54:00,16:55:06
+1,Presidio Avenue,17:02:00,17:03:06
+1,Presidio Avenue,17:09:00,17:10:06
+1,Presidio Avenue,17:16:00,17:17:06
+1,Presidio Avenue,17:24:00,17:25:06
+1,Presidio Avenue,17:31:00,17:32:06
+1,Presidio Avenue,17:38:00,17:39:06
+1,Presidio Avenue,17:46:00,17:47:06
+1,Presidio Avenue,18:04:00,18:05:06
+1,Presidio Avenue,18:11:00,18:12:06
+1,Presidio Avenue,18:19:00,18:20:06
+1,Presidio Avenue,18:30:00,18:31:06
+1,Presidio Avenue,18:37:00,18:38:06
+1,Presidio Avenue,18:45:00,18:46:06
+1,Presidio Avenue,18:53:00,18:54:06
+1,Presidio Avenue,19:52:00,19:53:06
+1,Presidio Avenue,19:52:00,19:53:06
+1,Presidio Avenue,20:30:00,20:31:06
+1,Presidio Avenue,20:30:00,20:31:06

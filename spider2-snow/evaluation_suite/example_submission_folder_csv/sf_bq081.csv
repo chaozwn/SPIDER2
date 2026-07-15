@@ -1,0 +1,6 @@
+REGION_NAME,trip_id,duration_sec,START_TIME,start_station_name,member_gender
+Berkeley,201712312349283539,4507,2017-12-31T23:49:28.000+08:00,Addison St at Fourth St,Female
+Emeryville,20171231174147958,289,2017-12-31T17:41:47.000+08:00,59th St at Horton St,Female
+Oakland,201712312337353598,475,2017-12-31T23:37:35.000+08:00,Frank H Ogawa Plaza,Male
+San Francisco,201712312355091667,1397,2017-12-31T23:55:09.000+08:00,Folsom St at 9th St,
+San Jose,201712312359011603,386,2017-12-31T23:59:01.000+08:00,San Salvador St at 9th St,Male

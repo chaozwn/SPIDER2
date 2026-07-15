@@ -1,0 +1,7 @@
+quantile_group,min_trip_duration_minutes,max_trip_duration_minutes,total_trips,avg_fare
+1,0,4,28300189,5.46
+2,5,6,27457851,6.31
+3,7,9,39414886,7.75
+4,10,13,35897536,10.19
+5,14,21,32110789,15.68
+6,22,60,33987363,33.45

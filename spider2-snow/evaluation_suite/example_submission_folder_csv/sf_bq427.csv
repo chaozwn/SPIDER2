@@ -1,0 +1,6 @@
+shot_type,avg_adjusted_x,avg_adjusted_y,avg_shot_attempts,avg_successful_shots
+dunk,90.52,301.22,4.45,3.94
+hook shot,124.91,304.55,1.16,0.55
+jump shot,211.34,297.78,72.21,25.28
+layup,96.38,302.93,35.86,19.69
+tip shot,93.32,301.84,0.64,0.39
