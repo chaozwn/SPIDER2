@@ -1,7 +1,7 @@
 QUICKPLAY_EVENT_TYPE,TOTAL_USERS,RETAINED_USERS,RETENTION_RATE
-level_complete_quickplay,25,25,1.0000
-level_end_quickplay,69,69,1.0000
-level_fail_quickplay,45,45,1.0000
-level_reset_quickplay,58,58,1.0000
-level_retry_quickplay,5,5,1.0000
-level_start_quickplay,1803,1796,0.9961
+level_complete_quickplay,30,16,53.33
+level_end_quickplay,49,28,57.14
+level_fail_quickplay,28,11,39.29
+level_reset_quickplay,45,10,22.22
+level_retry_quickplay,7,4,57.14
+level_start_quickplay,1594,640,40.15

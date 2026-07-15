@@ -1,2 +1,2 @@
-country_name,longest_consecutive_start,longest_consecutive_end,capital_proportion
-iran,2022-01-20,2022-01-22,20.00
+country_name,longest_streak_start,longest_streak_end,capital_proportion
+iran,2022-01-20,2022-01-22,0.200000
