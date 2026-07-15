@@ -1,6 +1,6 @@
-histological_type,total_cases,mutated_cases,cdh1_mutation_percentage
-Infiltrating Lobular Carcinoma,142,83,58.450704
-Mixed Histology (please specify),22,4,18.181818
-Medullary Carcinoma,6,1,16.666667
-Other  specify,37,3,8.108108
-Infiltrating Ductal Carcinoma,557,9,1.615799
+histological_type,MUTATED_CASES,TOTAL_CASES,MUTATION_PERCENTAGE
+Infiltrating Lobular Carcinoma,101,164,61.59
+Mixed Histology (please specify),5,27,18.52
+Medullary Carcinoma,1,6,16.67
+Other  specify,3,45,6.67
+Infiltrating Ductal Carcinoma,17,746,2.28
