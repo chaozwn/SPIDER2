@@ -1,0 +1,4 @@
+IMAGING_ASSAY_TYPE,HAS_LEVEL2,HAS_LEVEL3,HAS_LEVEL4
+CODEX,true,false,false
+H&E,true,false,false
+IMC,true,false,false
