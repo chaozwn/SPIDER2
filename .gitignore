@@ -159,3 +159,4 @@ methods/spider_agent_infini/learn_output/*
 methods/spider_agent_infini/logs/*
 spider2-snow/evaluation_suite/example_submission_folder_csv.csv
 spider2-snow/evaluation_suite/log.txt
+methods/spider_agent_infini/infini_credential_remote.json
