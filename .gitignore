@@ -149,7 +149,6 @@ methods/spider-agent-tc/results/
 
 *.log
 methods/spider_agent_infini/output/*
-methods/spider_agent_infini/infini_credential.json
 methods/spider_agent_infini/output_lite/*
 methods/spider_agent_infini/spider_agent_infini/example_submission_folder/*
 methods/spider_agent_infini/spider_agent_infini/example_submission_folder_csv/*
@@ -159,4 +158,10 @@ methods/spider_agent_infini/learn_output/*
 methods/spider_agent_infini/logs/*
 spider2-snow/evaluation_suite/example_submission_folder_csv.csv
 spider2-snow/evaluation_suite/log.txt
+
+# Local secrets — never commit
+methods/spider_agent_infini/infini_credential.json
+methods/spider_agent_infini/infini_credential_local.json
 methods/spider_agent_infini/infini_credential_remote.json
+methods/spider_agent_infini/snowflake_credential.json
+spider2-snow/evaluation_suite/snowflake_credential.json
