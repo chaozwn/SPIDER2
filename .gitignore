@@ -164,4 +164,5 @@ methods/spider_agent_infini/infini_credential.json
 methods/spider_agent_infini/infini_credential_local.json
 methods/spider_agent_infini/infini_credential_remote.json
 methods/spider_agent_infini/snowflake_credential.json
+methods/spider_agent_infini/autofix_output/*
 spider2-snow/evaluation_suite/snowflake_credential.json

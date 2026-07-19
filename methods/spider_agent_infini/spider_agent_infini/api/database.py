@@ -1228,6 +1228,73 @@ def get_task_data(
     return unwrap(resp.json())
 
 
+def list_tasks(
+    page: int = 1,
+    page_size: int = 20,
+    keyword: str | None = None,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any]:
+    """List tasks via ``GET /api/ai_task/list``.
+
+    Items are returned newest-first (by ``updatedAt``). ``keyword`` /
+    ``task_name`` filters by substring match on the task name.
+
+    Returns the unwrapped payload, typically
+    ``{"items": [...], "meta": {...}}``.
+    """
+    params: dict[str, Any] = {"page": page, "pageSize": page_size}
+    if keyword:
+        # Server accepts both; ``keyword`` matches the CLI ``--search`` path.
+        params["keyword"] = keyword
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    resp = client.get("/api/ai_task/list", params=params)
+    return unwrap(resp.json())
+
+
+def find_latest_task_id(
+    instance_id: str,
+    page_size: int = 20,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> str | None:
+    """Return the newest InfiniSynapse task id for a benchmark instance.
+
+    Searches ``GET /api/ai_task/list`` with ``keyword=<instance_id>.csv``
+    (already newest-first) and returns the first item whose ``task_name``
+    mentions that deliverable. Falls back to a bare ``instance_id`` keyword
+    search if needed.
+    """
+    marker = f"{instance_id}.csv"
+    for keyword in (marker, instance_id):
+        data = list_tasks(
+            page=1,
+            page_size=page_size,
+            keyword=keyword,
+            credential_path=credential_path,
+            timeout=timeout,
+        )
+        items = data.get("items") if isinstance(data, dict) else None
+        if not isinstance(items, list):
+            continue
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            name = str(item.get("task_name") or "")
+            tid = item.get("id")
+            if tid and marker in name:
+                return str(tid)
+        if keyword == instance_id:
+            for item in items:
+                if not isinstance(item, dict):
+                    continue
+                name = str(item.get("task_name") or "")
+                tid = item.get("id")
+                if tid and instance_id in name:
+                    return str(tid)
+    return None
+
+
 def _last_non_partial_message(messages: list[dict[str, Any]]) -> dict[str, Any] | None:
     """Return the last finalized (non-partial) message, if any."""
     for m in reversed(messages or []):
@@ -1272,12 +1339,51 @@ def _is_terminal_message(
     return False
 
 
+def _message_ts(msg: dict[str, Any] | None) -> int:
+    """Best-effort numeric timestamp from a UI message (0 if missing)."""
+    if not isinstance(msg, dict):
+        return 0
+    ts = msg.get("ts")
+    try:
+        return int(ts)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _last_non_partial_message_after(
+    messages: list[dict[str, Any]],
+    *,
+    after_ts: int = 0,
+    after_index: int = 0,
+) -> dict[str, Any] | None:
+    """Like :func:`_last_non_partial_message`, but only over new messages.
+
+    ``after_index`` is a lower bound on the message list length before the
+    follow-up was sent; ``after_ts`` further filters by message timestamp so
+    an askResponse turn is not confused with a prior ``completion_result``.
+    """
+    if after_index < 0:
+        after_index = 0
+    window = messages[after_index:] if after_index else messages
+    for m in reversed(window or []):
+        if not isinstance(m, dict):
+            continue
+        if m.get("partial"):
+            continue
+        if after_ts and _message_ts(m) <= after_ts:
+            continue
+        return m
+    return None
+
+
 def wait_for_task(
     task_id: str,
     poll_interval: float = 3.0,
     max_wait: float = 1800.0,
     on_progress: Any = None,
     terminal_on_any_ask: bool = True,
+    after_message_count: int | None = None,
+    after_ts: int | None = None,
     credential_path: str | os.PathLike | None = None,
     timeout: float = DEFAULT_TIMEOUT,
 ) -> dict[str, Any]:
@@ -1295,6 +1401,13 @@ def wait_for_task(
        and ``taskInfo.status`` will remain ``"running"`` even though the task
        is, from the agent's perspective, done.
 
+    When resuming an existing task with ``askResponse``, pass
+    ``after_message_count`` / ``after_ts`` captured **before** the ask so that
+    a stale prior ``completion_result`` (or terminal ``taskInfo.status``) does
+    not cause an immediate return. In that mode we wait until new messages
+    appear past the baseline, then require a *new* terminal message after it;
+    stale ``taskInfo.status`` alone is ignored until new activity is observed.
+
     Args:
         poll_interval: seconds between polls.
         max_wait: hard timeout in seconds; raises ``TimeoutError`` when exceeded.
@@ -1303,6 +1416,10 @@ def wait_for_task(
         terminal_on_any_ask: when True, any finalized non-resume ``ask`` is
             treated as terminal. Benchmark runners pass False so transient
             tool-error / retry prompts do not cause an early workspace download.
+        after_message_count: message-list length before a follow-up ask; when
+            set, completion is only detected from messages beyond this index.
+        after_ts: last message ``ts`` before a follow-up ask; when set, only
+            messages with a greater ``ts`` count toward terminal detection.
 
     Returns:
         The final ``get_task_data`` payload.
@@ -1314,13 +1431,20 @@ def wait_for_task(
     terminal_status = {"completed", "failed", "cancelled", "canceled", "error"}
     start = time.time()
     seen_alive = False
+    seen_new_activity = after_message_count is None and after_ts is None
     poll_failures = 0
+    baseline_count = 0 if after_message_count is None else max(0, int(after_message_count))
+    baseline_ts = 0 if after_ts is None else max(0, int(after_ts))
+    resume_mode = after_message_count is not None or after_ts is not None
+
     while True:
         elapsed = time.time() - start
         if elapsed > max_wait:
             raise TimeoutError(
                 f"wait_for_task({task_id}) exceeded {max_wait}s; "
-                f"last poll failures={poll_failures}, seen_alive={seen_alive}"
+                f"last poll failures={poll_failures}, seen_alive={seen_alive}, "
+                f"seen_new_activity={seen_new_activity}, "
+                f"baseline_count={baseline_count}, baseline_ts={baseline_ts}"
             )
 
         try:
@@ -1354,15 +1478,55 @@ def wait_for_task(
         if isinstance(info, dict):
             status = str(info.get("status") or "").lower()
         messages = data.get("messages") or []
+        n_messages = len(messages)
+        last_ts = _message_ts(_last_non_partial_message(messages))
 
         if is_running or status or messages or info:
             seen_alive = True
 
-        if seen_alive and status in terminal_status:
-            return data
+        if resume_mode and not seen_new_activity:
+            if is_running or n_messages > baseline_count or (
+                baseline_ts and last_ts > baseline_ts
+            ):
+                seen_new_activity = True
+                logger.info(
+                    "wait_for_task(%s): new activity after ask "
+                    "(isRunning=%s, messages=%d->%d, last_ts=%s)",
+                    task_id,
+                    is_running,
+                    baseline_count,
+                    n_messages,
+                    last_ts,
+                )
 
-        if seen_alive and _is_terminal_message(
-            _last_non_partial_message(messages),
+        if not seen_alive:
+            time.sleep(poll_interval)
+            continue
+
+        # In resume mode, ignore stale terminal taskInfo.status until the
+        # follow-up turn has actually produced new activity.
+        if (not resume_mode or seen_new_activity) and status in terminal_status:
+            # Still require a post-baseline terminal message when resuming,
+            # so a pre-ask "cancelled"/"completed" status alone cannot finish
+            # the wait before the agent runs.
+            if not resume_mode:
+                return data
+            if _is_terminal_message(
+                _last_non_partial_message_after(
+                    messages,
+                    after_ts=baseline_ts,
+                    after_index=baseline_count,
+                ),
+                terminal_on_any_ask=terminal_on_any_ask,
+            ):
+                return data
+
+        if seen_new_activity and _is_terminal_message(
+            _last_non_partial_message_after(
+                messages,
+                after_ts=baseline_ts,
+                after_index=baseline_count,
+            ),
             terminal_on_any_ask=terminal_on_any_ask,
         ):
             return data
