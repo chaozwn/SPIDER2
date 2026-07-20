@@ -1,2 +1,11 @@
-specialization,npi_count
-Family,29
+SPECIALIZATION,NPI_COUNT,AVG_COUNT,DIFF,IS_CLOSEST_TO_AVG
+General Practice,65,29.400,35.600,False
+Clinical,44,29.400,14.600,False
+Psychiatry,31,29.400,1.600,False
+Family,29,29.400,0.400,True
+Cardiovascular Disease,28,29.400,1.400,False
+Gastroenterology,23,29.400,6.400,False
+Diagnostic Radiology,22,29.400,7.400,False
+Community/Retail Pharmacy,21,29.400,8.400,False
+"Endocrinology, Diabetes & Metabolism",17,29.400,12.400,False
+Mental Health,14,29.400,15.400,False
