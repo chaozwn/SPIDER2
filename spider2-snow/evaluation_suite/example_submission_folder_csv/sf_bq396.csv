@@ -1,4 +1,4 @@
-state_name,rainy_count,clear_count,difference
-California,55,979,-924
-Texas,68,895,-827
-Florida,49,799,-750
+state_name,difference
+California,-907
+Texas,-827
+Florida,-750

@@ -1,7 +1,7 @@
-channel_grouping,country,transaction_count
-Direct,United States,13416
-Display,United States,682
-Organic Search,United States,10492
-Paid Search,United States,1716
-Referral,United States,26704
-Social,United States,280
+channelGrouping,COUNTRY,TOTAL_TRANSACTIONS
+Referral,United States,12280
+Direct,United States,6651
+Organic Search,United States,3773
+Paid Search,United States,580
+Display,United States,203
+Social,United States,164
