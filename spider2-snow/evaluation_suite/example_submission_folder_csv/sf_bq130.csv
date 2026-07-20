@@ -1,27 +1,11 @@
-ENTITY_NAME,TOP5_APPEARANCES,RANK,SECTION
-Cook,91,1,illinois_top5_counties
-Lake,79,2,illinois_top5_counties
-DuPage,76,3,illinois_top5_counties
-Kane,70,4,illinois_top5_counties
-Will,62,5,illinois_top5_counties
-New York,89,1,state_ranking
-California,69,2,state_ranking
-New Jersey,63,3,state_ranking
-Illinois,54,4,state_ranking
-Massachusetts,50,5,state_ranking
-Pennsylvania,21,6,state_ranking
-Washington,21,7,state_ranking
-Michigan,20,8,state_ranking
-Texas,16,9,state_ranking
-Florida,13,10,state_ranking
-Louisiana,8,11,state_ranking
-Virginia,7,12,state_ranking
-Colorado,6,13,state_ranking
-Georgia,4,14,state_ranking
-Maryland,4,15,state_ranking
-Arizona,3,16,state_ranking
-Connecticut,3,17,state_ranking
-New Hampshire,1,18,state_ranking
-North Carolina,1,19,state_ranking
-Ohio,1,20,state_ranking
-Oregon,1,21,state_ranking
+level,state_name,county,top5_frequency,rank
+STATE,New York,,90,1
+STATE,California,,70,2
+STATE,New Jersey,,64,3
+STATE,Illinois,,54,4
+STATE,Massachusetts,,50,5
+COUNTY,Illinois,Cook,91,1
+COUNTY,Illinois,Lake,78,2
+COUNTY,Illinois,DuPage,76,3
+COUNTY,Illinois,Kane,69,4
+COUNTY,Illinois,Will,62,5
