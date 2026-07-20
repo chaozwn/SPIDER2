@@ -1,5 +1,5 @@
-REPOSITORY_NAME_WITH_OWNER,HOST_TYPE,SIZE,LANGUAGE,FORK_SOURCE_NAME_WITH_OWNER,UPDATED_TIMESTAMP,ARTIFACT_NAME,LIBRARY_NAME,LIBRARY_LANGUAGES
-Informatievlaanderen/datadog-tracing,GitHub,175,C#,bcuff/dd-trace-csharp,2018-12-18T16:18:42.000+08:00,FeatureToggle,FeatureToggle,"C#, Visual Basic"
-ccmdesign-archives/iodc18-osem-archive,GitHub,8460,Ruby,,2018-12-08T22:47:40.000+08:00,feature,Feature,Ruby
-incodehq/relatio,GitHub,959,Java,,2018-12-11T15:23:58.000+08:00,org.togglz:togglz-core,Togglz,"Kotlin, Java"
-wildsebastian/nixpkgs,GitHub,879100,Nix,NixOS/nixpkgs,2018-12-05T13:47:49.000+08:00,flipper,Flipper,Ruby
+REPOSITORY_NAME_WITH_OWNER,HOST_TYPE,SIZE_IN_BYTES,PRIMARY_LANGUAGE,FORK_SOURCE_NAME_WITH_OWNER,LAST_UPDATED_TIMESTAMP,ARTIFACT_NAME,LIBRARY_NAME,LIBRARY_LANGUAGES
+Informatievlaanderen/datadog-tracing,GitHub,179200,C#,bcuff/dd-trace-csharp,2018-12-18T16:18:42.000+08:00,FeatureToggle,FeatureToggle,"C#, Visual Basic"
+ccmdesign-archives/iodc18-osem-archive,GitHub,8663040,Ruby,,2018-12-08T22:47:40.000+08:00,feature,Feature,Ruby
+incodehq/relatio,GitHub,982016,Java,,2018-12-11T15:23:58.000+08:00,org.togglz:togglz-core,Togglz,"Kotlin, Java"
+wildsebastian/nixpkgs,GitHub,900198400,Nix,NixOS/nixpkgs,2018-12-05T13:47:49.000+08:00,flipper,Flipper,Ruby
