@@ -1,11 +1,3 @@
-PRODUCT_NAME,AVERAGE_PICK_PERCENTAGE
-Coalminers Sweat,0.000000
-Der Helle Kumpel,1.000000
-Ghost of Hops,0.000000
-Hazy Pink Cloud,0.000000
-Hercule Trippel,0.000000
-Hoppy Crude Oil,1.000000
-Monks and Nuns,0.000000
-Pale Rider Rides,0.000000
-Reindeer Fuel,0.000000
-Summer in India,0.000000
+product_id,AVG_PICK_PERCENTAGE
+4280,0.0
+6520,0.0
