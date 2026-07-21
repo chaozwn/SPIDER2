@@ -1,7 +1,7 @@
-country_name,region,AVG_CRUDE_BIRTH_RATE
-Brunei Darussalam,East Asia & Pacific,30.53
-Greenland,Europe & Central Asia,20.73
-Panama,Latin America & Caribbean,28.64
-Oman,Middle East & North Africa,45.97
-United States,North America,15.81
-Seychelles,Sub-Saharan Africa,26.09
+region,country_name,AVG_BIRTH_RATE
+East Asia & Pacific,Brunei Darussalam,30.53
+Europe & Central Asia,Greenland,20.66
+Latin America & Caribbean,Panama,28.64
+Middle East & North Africa,Oman,45.97
+North America,United States,15.83
+Sub-Saharan Africa,Seychelles,25.78
