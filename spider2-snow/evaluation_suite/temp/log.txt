@@ -1,0 +1,28 @@
+=== PRED ===
+ level    state_name county  top5_frequency  rank
+COUNTY      Illinois   Cook              91     1
+COUNTY      Illinois   Lake              78     2
+COUNTY      Illinois DuPage              76     3
+COUNTY      Illinois   Kane              69     4
+COUNTY      Illinois   Will              62     5
+ STATE      New York                     90     1
+ STATE    California                     70     2
+ STATE    New Jersey                     64     3
+ STATE      Illinois                     54     4
+ STATE Massachusetts                     50     5
+
+=== GOLD H ===
+ level    state_name county  top5_frequency  rank
+COUNTY      Illinois   Cook              91     1
+COUNTY      Illinois   Lake              78     2
+COUNTY      Illinois DuPage              76     3
+COUNTY      Illinois   Kane              69     4
+COUNTY      Illinois   Will              62     5
+ STATE      New York                     90     1
+ STATE    California                     70     2
+ STATE    New Jersey                     64     3
+ STATE      Illinois                     54     4
+ STATE Massachusetts                     50     5
+
+Exact row match (level/state/county/freq/rank): True
+Official eval score vs gold_h: 1

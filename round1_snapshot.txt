@@ -20,8 +20,8 @@
 
 # 全
 19    sf_bq090           Result Error
-20    sf_bq130           Result Error
-21    sf_bq136           Result Error
+20    sf_bq130   1        Result Error
+21    sf_bq136   1        Result Error
 22    sf_bq162           Result Error
 23    sf_bq164           Result Error
 24    sf_bq165           Result Error
@@ -33,10 +33,10 @@
 30    sf_bq233           Result Error
 31    sf_bq254           Result Error
 32    sf_bq266           Result Error
-33    sf_bq271           Result Error
+33    sf_bq271  1         Result Error
 34    sf_bq290           Result Error
-35    sf_bq300           Result Error
-36    sf_bq304           Result Error
+35    sf_bq300  1         Result Error
+36    sf_bq304  1         Result Error
 
 # 赵
 37    sf_bq331           Result Error
