@@ -1,0 +1,4 @@
+indicator_name,indicator_code,highest_value
+"Principal repayments on external debt, long-term (AMT, current US$)",DT.AMT.DLXF.CD,1.84988246694E10
+"Principal repayments on external debt, public and publicly guaranteed (PPG) (AMT, current US$)",DT.AMT.DPPG.CD,9.5714337096E9
+"PPG, private creditors (AMT, current US$)",DT.AMT.PRVT.CD,9.5503737121E9

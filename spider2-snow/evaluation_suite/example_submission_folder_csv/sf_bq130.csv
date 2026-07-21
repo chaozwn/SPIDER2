@@ -1,0 +1,11 @@
+RANK,state_name,TOP5_FREQUENCY,COUNTY
+1,New York,89,
+2,California,70,
+3,New Jersey,64,
+4,Illinois,55,
+5,Massachusetts,50,
+1,Illinois,91,Cook
+2,Illinois,78,Lake
+3,Illinois,76,DuPage
+4,Illinois,69,Kane
+5,Illinois,62,Will

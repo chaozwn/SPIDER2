@@ -1,0 +1,7 @@
+QUICKPLAY_EVENT_TYPE,COHORT_USERS,RETAINED_USERS,RETENTION_RATE
+level_reset_quickplay,77,22,0.285714
+level_start_quickplay,1780,648,0.364045
+level_end_quickplay,65,24,0.369231
+level_complete_quickplay,34,14,0.411765
+level_fail_quickplay,32,15,0.468750
+level_retry_quickplay,4,2,0.500000

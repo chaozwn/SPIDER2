@@ -1,0 +1,151 @@
+TAG,QUESTION_ID,title,view_count
+android-fragments,6815555,Android Pass String Data Between Fragments,5295
+android-fragments,9384792,"Replace ""Loading..."" message in ListFragment when list is empty",4018
+android-fragments,36266676,How to add a image slideshow in fragment using android studio,3440
+android-fragments,27757625,Fragment replace flashing old fragment,2786
+android-fragments,39164955,How to make center the hint of searchView in android?,2600
+android-fragments,12670608,Fragment Animation for addToBackStack,1501
+android-fragments,27351298,Android prevent webview reload in fragment,1495
+android-fragments,21746830,how I get the current visible fragment from view pager Adapter..?,1343
+android-fragments,11479865,How to implement Buttons inside Fragments,1272
+android-fragments,19699434,Customizing the fonts?,1159
+android-fragments,6757181,Android Fragment Navigation,974
+android-fragments,32045656,Android passing data from fragment button to textview of activity,912
+android-fragments,32924196,Android WebView Crash,729
+android-fragments,13739877,Call fragment method from own class,670
+android-fragments,32523296,How to prevent preloading of fragments in viewpager?,653
+android-fragments,31187143,dynamically added views inside fragment disappears on changing orientation,642
+android-fragments,19739035,Fragment Tabs using Images,621
+android-fragments,33663642,Call MainActivityFragment from AppCompatActivity,608
+android-fragments,37518508,Put and Get Selected Radio Button from Radio Group using SharedPreferences,599
+android-fragments,20557146,Android: Changing visibility of components in fragment at runtime,509
+android-fragments,14645847,Android Fragment state and setRetainInstance,505
+android-fragments,19487834,How (if possible) could I set a custom font in a ActionBar on tab text with a font in my assets folder?,369
+android-fragments,24851136,Fragments MediaPlayer and moving back,339
+android-fragments,31042801,Android Fragments and setRetainInstance(true),307
+android-fragments,29195808,How to go back two times in freagments,303
+android-fragments,13590088,Slide up animation for fragment,236
+android-fragments,20876542,How could i refresh Android Fragment/s content onBack Press?,203
+android-fragments,14445737,KeyBoard not shown (does not respond) when EditText is selected in android fragment,131
+android-fragments,34687426,Navigation between fragments java.lang.IllegalStateException,121
+android-fragments,25986990,How i focus on one fragment to another when i use two fragment display in same activity?,113
+android-fragments,24423294,Fragment Replace null pointer exception,108
+android-fragments,71005902,how do i add same fragment multiple times one by one after click of a button,106
+android-fragments,55831820,"android, is fragment's getArguments() always returns the arguments set for this fragment, even after the fragment is destroyed?",99
+android-fragments,14374642,How can I add a Fragment into my Tabhost layout,93
+android-fragments,29295392,How to use different size fragments on Android,89
+android-fragments,18544817,How can fragment pass data to calling fragment,79
+android-fragments,25302511,Refresh list and adapter when DB changed in custom Adapter,64
+android-fragments,16021853,Get data to FragmentDialog from Activity,54
+android-fragments,45891491,OnClickListener in ListView updates a different item on the list,47
+android-fragments,24175318,Update fragment from activity,44
+android-fragments,67167405,Selected tab text disappear in android,43
+android-fragments,31965258,How to maintain back stack flow in the fragment with enabled tabs?,35
+android-fragments,31308237,Android Fragments - replace and add,34
+android-fragments,47767067,How to make changes one fragment recyclerview from another fragment button using interface,33
+android-fragments,38525980,How to check whether the data is coming from different fragment.,32
+android-fragments,47988149,I have one button in fragment and textbox in main activity. now if i press button in fragment some message will print in textbox . How to do it?,30
+android-fragments,27154570,How to show a fragment from another fragment?,29
+android-fragments,51122521,how to update listview on backpressed in nested fragment?,24
+android-fragments,30725696,How to restrict fragment from adding to top of stack if it already exist in the top of stack in android,24
+android-fragments,20562714,how device back button is used in the fragments?,23
+android-layout,12068945,get layout height and width at run time android,59364
+android-layout,5307264,How to prevent Soft Keyboard from resizing background image,43345
+android-layout,13864260,Define list view with static elements on android in xml?,31423
+android-layout,5482129,programmatically remove background picture from image view in android,24535
+android-layout,29438933,In android how to set font size according to device screen size,15769
+android-layout,8600232,how to change theme of particular Layout in Android?,11879
+android-layout,9195762,Possible overdraw: Root element paints background,10164
+android-layout,5693148,How to create Liquid Layout in android,8264
+android-layout,6711092,Android text input - field name shown in field itself,6983
+android-layout,5842136,Adding a Clickable button on surfaceView,6055
+android-layout,7188193,create panoramic view android,5853
+android-layout,4689542,"how to set layout_span, layout_margin dynamically in code in android",5420
+android-layout,32175603,Fling not working for Nested ScrollView,5418
+android-layout,28796276,How add a listview inside a viewpager in android,4682
+android-layout,14180046,Android-Aligning a element + margin with relative to parent element,4477
+android-layout,3790358,Android: always show menu bar/static menu bar,4424
+android-layout,4849842,how to use relative layout inside the frame layout,4244
+android-layout,34720358,how to design responsive image button & layout by using android studio?,4197
+android-layout,13527703,Android XML: Percentage Height and width to create unique layout,4130
+android-layout,6854395,android:chat app popup view,4071
+android-layout,10104601,How to create back button in my android application,3658
+android-layout,12673812,How can I set layout_gravity dynamically in android?,3417
+android-layout,10133127,Android setTextSize TextView moves baseline and cuts off text height,3416
+android-layout,31268280,Android GridLayout images,3325
+android-layout,4955286,Constants in Android SDK,2973
+android-layout,17779411,How to split an Android XML into three equal layout rectangles?,2757
+android-layout,5455179,How to set Height of linerlayout through java code,2546
+android-layout,40887760,Android - how to set SlidingUpPanelLayout to half of the screen height?,2368
+android-layout,10121280,How to set Focus on top Item?,2285
+android-layout,4713622,How to achieve a hover effect for an image button?,2110
+android-layout,5701785,Android : Scrollable Menu Bar Like Fox News App,2067
+android-layout,17637592,Android Image Width Fill Layout,2066
+android-layout,19182256,Clickable LinearLayout not Highlight on click,1917
+android-layout,35569626,How to put textview on top of listview,1887
+android-layout,10869036,Can i Rotate a button in android,1739
+android-layout,11273137,Seekbar rectangular corners,1563
+android-layout,8538933,How to open a new screen from another in Android/Java,1252
+android-layout,24666610,Multiple resources with the same id,1220
+android-layout,13830691,Create a POPUP when a button is clicked android,1188
+android-layout,4371499,Android - Is there a better way to do this layout?,1185
+android-layout,24819873,TableLayout: Align RadioButtons with columns above,1143
+android-layout,20243601,scrollbar not showing in edittext,1125
+android-layout,6288684,Anyone know how to create a custom menu like this in android apps?,1109
+android-layout,19062498,How To create Responsive Layout,1092
+android-layout,12141219,scrolling listview programmatically in Android,1091
+android-layout,13306222,How to convert android color to int,1062
+android-layout,28582744,Create a 3D push button in android,959
+android-layout,13620991,Android Layout(User Interface),958
+android-layout,37133177,how to align text of text view to right side and also text should be in center of text view,922
+android-layout,45714023,Android How to position Items in a Toolbar,830
+google-maps,17290256,Get google map link with latitude/longitude,137465
+google-maps,53166578,How to get Google Maps API key without entering billing info,88567
+google-maps,9444790,How to get a map without labels?,85085
+google-maps,8776953,"Google Maps V3: How to disable ""street view""?",80940
+google-maps,8670859,Highlight whole countries in Google Maps,69251
+google-maps,3404499,plotting a route on Google Maps,65155
+google-maps,18951711,How to rotate a marker in Google Maps?,57415
+google-maps,1364858,What steps should I take to protect my Google Maps API Key?,56336
+google-maps,10634199,Find center of multiple locations in Google Maps,52433
+google-maps,22503945,set language for google maps iframe,51855
+google-maps,2934269,Google Maps API V3 custom controls position,47914
+google-maps,19012479,How to disable google maps dragging,44419
+google-maps,12327651,"How to remove the ""Powered by Google"" logo in the Google Map Autocomplete dropdown list?",40841
+google-maps,28928906,Google Maps Api - drawing routes from an array of points,40423
+google-maps,2108346,How can I have a smooth animated move between 2 Google Maps locations?,37976
+google-maps,9397877,Get marker id in google maps,37612
+google-maps,3854706,How to set map size in Google Maps API v3?,36362
+google-maps,6768263,Can I draw a straight line in Google Maps?,34985
+google-maps,9893680,Google Maps API V3: Show the whole world,31933
+google-maps,4801989,Change Google map marker,31872
+google-maps,9370589,google map api v3 background color,31537
+google-maps,14140473,Add marker to center of static google map,29834
+google-maps,4973151,Using Google Map to Select a location,28948
+google-maps,29916149,Google Maps Streetview - How to get Panorama ID,28638
+google-maps,14019110,Get coordinates from polyline google maps,27678
+google-maps,9540545,Multiple Markers on a Google Map,27516
+google-maps,19954893,Google Map InfoWindow displays scroll bars in Google Chrome,27318
+google-maps,11354211,Google maps query parameter clarification,27082
+google-maps,2934405,How can I Add Google My Maps API on my website?,24570
+google-maps,10760813,turn off roads overlay on google maps,24261
+google-maps,20740906,How to show Google map in background of a website,23216
+google-maps,2467720,How to change color of marker in Google Map?,22281
+google-maps,4066699,how to get user's position in Google maps API?,22116
+google-maps,9087166,How can I extract a satellite image from google maps given a Lat Long Rectangle?,21660
+google-maps,40490129,Set label size in Google Maps API,20872
+google-maps,5300375,to find locations in google map within 5 km radius of a given point,18778
+google-maps,4945974,Get zipcode from google api?,18452
+google-maps,8578039,How to hide the address balloon in the Google Maps embedded iframe?,17383
+google-maps,6676979,Is there a limit on how many markers I can put on a google maps route?,17065
+google-maps,10237589,Google Maps Polyline and Marker together,15491
+google-maps,14091279,Algorithm/Method Use By Google Maps For Finding the Path Between Two Cities,15300
+google-maps,5407693,"How to implement google maps to search by street name, city?",14886
+google-maps,924755,google maps : How to find if any markers inside map,14878
+google-maps,35610873,Google maps with responsive sidebar,14727
+google-maps,4858384,How to find location along a route with Google Maps?,13492
+google-maps,1305397,How do I turn off/hide landmarks on googlemaps,13354
+google-maps,2049000,How to add an overlay map above default Google map?,13296
+google-maps,7269380,How to use google map to display location in contact us page?,13077
+google-maps,4646378,how to test google places apis in localhost and getting the client id,12687
+google-maps,11898108,Google Maps v3 setting a circle with editable radius but not center,12462
