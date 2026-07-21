@@ -1,7 +1,0 @@
-QUICKPLAY_EVENT_TYPE,RETENTION_RATE
-level_reset_quickplay,0.269231
-level_start_quickplay,0.368712
-level_retry_quickplay,0.400000
-level_end_quickplay,0.400000
-level_complete_quickplay,0.411765
-level_fail_quickplay,0.454545

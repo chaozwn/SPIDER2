@@ -1,7 +1,0 @@
-reference_name,start,end,reference_bases,alternate_bases,variant_type,chi_squared,total_genotypes,obs_hom_ref,obs_het,obs_hom_alt,exp_hom_ref,exp_het,exp_hom_alt,af,eur_af,asn_af,amr_af,afr_af
-17,41217379,41217380,A,"[
-  ""G""
-]",SNP,2.3302,1092,1060,31,1,1059.25,32.50,0.25,0.02,,,0.01,0.06
-17,41243712,41243713,C,"[
-  ""T""
-]",SNP,2.0E-4,1092,1091,1,0,1091.0,1.00,0.0,5.0E-4,0.0013,,,
