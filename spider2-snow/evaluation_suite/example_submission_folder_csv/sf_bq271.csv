@@ -1,4 +1,4 @@
-month,country,department,category,order_count,unique_purchasers,profit
+ORDER_MONTH,country,product_department,product_category,NUMBER_OF_ORDERS,UNIQUE_PURCHASERS,PROFIT
 1,Belgium,Men,Swim,1,1,12.115959868540951
 1,Brasil,Women,Dresses,1,1,27.95045045825019
 1,China,Men,Accessories,1,1,31.21300009638071
