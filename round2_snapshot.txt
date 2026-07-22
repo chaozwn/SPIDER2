@@ -1,0 +1,52 @@
+# 放弃的
+sf_bq165
+
+# 全
+sf_bq009
+sf_bq023
+sf_bq024
+sf_bq038
+sf_bq063
+sf_bq067
+sf_bq102
+sf_bq111
+sf_bq137
+sf_bq256
+
+# 韶峰
+sf_bq287
+sf_bq294
+sf_bq307
+sf_bq292
+sf_bq262
+sf_bq258
+sf_bq275
+sf_bq374
+sf_bq376
+sf_bq416
+sf_bq425
+
+# 童
+sf_bq430
+sf_bq450
+sf_local335
+sf_local344
+sf_ga020
+sf_ga005
+sf008
+sf006
+sf012
+sf018
+sf037
+
+# 赵
+sf040
+sf_local331
+sf_local286
+sf_local003
+sf_bq169
+sf_bq186
+sf_bq277
+sf_bq276
+sf_bq370
+sf_bq152
