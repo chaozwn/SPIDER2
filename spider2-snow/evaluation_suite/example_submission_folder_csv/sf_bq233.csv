@@ -1,4 +1,4 @@
-LANGUAGE,MODULE_NAME,OCCURRENCE_COUNT
+language,module_name,occurrence_count
 Python,cybox,2
 Python,diesel,2
 Python,django,2

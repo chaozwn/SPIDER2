@@ -51,12 +51,12 @@
 46    sf_bq432           Result Error done
 47    sf_bq444           Result Error done
 48    sf_bq455           Result Error done
-49    sf_bq461           Result Error
-50    sf_ga010           Result Error
-51    sf_ga014           Result Error
-52    sf_ga019           Result Error
-53    sf_local007        Result Error
-54    sf_local023        Result Error
+49    sf_bq461           Result Error done
+50    sf_ga010           Result Error done
+51    sf_ga014           Result Error done
+52    sf_ga019           Result Error done
+53    sf_local007        Result Error done
+54    sf_local023        Result Error done
 
 # 闫
 55    sf_local025        Result Error
