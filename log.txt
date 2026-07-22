@@ -1,10 +1,83 @@
-Traceback (most recent call last):
-  File "/Users/zhaown/workspace/ai_project/ai_project/Spider2/spider2-snow/evaluation_suite/evaluate.py", line 499, in <module>
-    evaluate_spider2sql(args, temp_path)
-  File "/Users/zhaown/workspace/ai_project/ai_project/Spider2/spider2-snow/evaluation_suite/evaluate.py", line 395, in evaluate_spider2sql
-    spider2sql_metadata = load_jsonl_to_dict("../spider2-snow.jsonl")
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/zhaown/workspace/ai_project/ai_project/Spider2/spider2-snow/evaluation_suite/evaluate.py", line 59, in load_jsonl_to_dict
-    with open(jsonl_file, 'r') as file:
-         ^^^^^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: '../spider2-snow.jsonl'
+{
+    "OSS_BUCKET": "infinisynapse",
+    "CHAT_IMAGE_MAX_FILE_SIZE_MB": 10,
+    "DB_PORT": 3306,
+    "TZ": "Asia/Shanghai",
+    "APP_NAME": "InfiniSynapse",
+    "CHAT_DATA_MAX_COUNT": 5,
+    "OPEN_SANDBOX_IMAGE": "infinisynapse/python-sandbox:0.9.11",
+    "INFINI_SHELL_SHARED_VOLUME_CONTAINER_ROOT": "/root/.smart",
+    "DB_USERNAME": "infinisynapse",
+    "JWT_SECRET": "dev_jwt_secret_xg5erfdw6cr",
+    "DB_LOGGING": "all",
+    "OPEN_SANDBOX_ENV": {
+        "PIP_INDEX_URL": "https://pypi.tuna.tsinghua.edu.cn/simple",
+        "PYTHONUNBUFFERED": "1",
+        "TZ": "Asia/Shanghai"
+    },
+    "MEMORY_GC_COOLDOWN_MS": 10000,
+    "INFINI_SHELL_TASK_IDLE_TTL_MS": 1800000,
+    "SSE_REDIS_URL": "redis://192.168.3.2:6379/0",
+    "OPEN_SANDBOX_READY_TIMEOUT_MS": 120000,
+    "CONTEXT_HUB_RECALL_ENGINE": "native",
+    "TOKENIZER_PATH": "/app/dist/tokenizer",
+    "OPEN_SANDBOX_EXECD_PORT": 44772,
+    "APP_LOCALE": "zh-CN",
+    "DATABASE_RETURN_LIMIT_MAX": 200,
+    "CONTEXT_HUB_RAG_STREAM": false,
+    "REFRESH_TOKEN_SECRET": "dev_refresh_secret_wio3kdgcx4",
+    "CONTEXT_HUB_AI_STREAM": true,
+    "LOGGER_PATH": "/root/.smart/desktop/log",
+    "BRAND": "smart",
+    "IS_DEV": false,
+    "DB_SYNCHRONIZE": true,
+    "DATABASE_EVIDENCE_TIMEOUT_MS": 300000,
+    "CHAT_DATA_DESKTOP_DOWNLOAD_URL": "https://infinisynapse.cn/download",
+    "MEMORY_GC_RSS_THRESHOLD_MB": 1024,
+    "JWT_EXPIRE": 86400,
+    "CONTEXT_HUB_AI_CHUNK_CONCURRENCY": 16,
+    "INFINI_SHELL_WORKSPACE_SYNC": "shared-volume",
+    "OPEN_SANDBOX_REQUIRE_API_KEY": false,
+    "PROJECT_DIR": "/infinisynapse",
+    "OSS_DOMAIN": "https://cdn.buqiyuan.site",
+    "NODE_OPTIONS": "--expose-gc",
+    "ENABLE_DATA_CHART": false,
+    "OPEN_SANDBOX_ENTRYPOINT": [
+        "/usr/bin/tini",
+        "--",
+        "sleep",
+        "infinity"
+    ],
+    "OSS_SECRETKEY": "xxx",
+    "ENABLE_SWAGGER": true,
+    "CHAT_REFERENCE_MAX_FILE_SIZE_MB": 20,
+    "OSS_ZONE": "Zone_z2",
+    "APP_BASE_URL": "http://localhost:7001",
+    "REFRESH_TOKEN_EXPIRE": 2592000,
+    "CHAT_REFERENCE_MAX_COUNT": 5,
+    "MEMORY_FATAL_RSS_THRESHOLD_MB": 0,
+    "OPEN_SANDBOX_RESOURCE_LIMITS": {
+        "cpu": "2000m",
+        "memory": "8Gi"
+    },
+    "DB_PATH": "/root/.smart/db/infinisynapse.db",
+    "MULTI_DEVICE_LOGIN": false,
+    "AUTH_SERVICE_URL": "https://dev-api.infinisynapse.cn/api",
+    "DATABASE_EVIDENCE_CONCURRENCY": 1,
+    "OPEN_SANDBOX_COMMAND_TIMEOUT_MS": 300000,
+    "LOGGER_MAX_FILES": 31,
+    "DB_HOST": "rm-uf620seq2tgn076n2.mysql.rds.aliyuncs.com",
+    "LOGGER_LEVEL": "debug",
+    "DB_TYPE": "mysql",
+    "INFINI_SHELL_SHARED_VOLUME_BACKEND": "host",
+    "CHAT_IMAGE_MAX_COUNT": 10,
+    "OSS_ACCESS_TYPE": "public",
+    "CHAT_DATA_MAX_FILE_SIZE_MB": 50,
+    "INFINI_SHELL_SHARED_VOLUME_ROOT": "/Users/zhaown/.smart",
+    "OPEN_SANDBOX_BASE_URL": "http://127.0.0.1:18080",
+    "APP_PORT": 7001,
+    "INFINI_SHELL_SANDBOX_PROVIDER": "opensandbox",
+    "DB_DATABASE": "rank_infini",
+    "OSS_ACCESSKEY": "xxx",
+    "DB_PASSWORD": "pYAUirL3RN9bogVizg4u"
+}

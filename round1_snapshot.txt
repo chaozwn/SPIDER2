@@ -39,18 +39,18 @@
 36    sf_bq304  1         Result Error
 
 # 赵
-37    sf_bq331           Result Error
-38    sf_bq335           Result Error
-39    sf_bq356           Result Error
-40    sf_bq363           Result Error
-41    sf_bq399           Result Error
-42    sf_bq410           Result Error
-43    sf_bq418           Result Error
-44    sf_bq422           Result Error
-45    sf_bq424           Result Error
-46    sf_bq432           Result Error
-47    sf_bq444           Result Error
-48    sf_bq455           Result Error
+37    sf_bq331           Result Error done
+38    sf_bq335           Result Error done
+39    sf_bq356           Result Error done
+40    sf_bq363           Result Error done
+41    sf_bq399           Result Error done
+42    sf_bq410           Result Error done
+43    sf_bq418           Result Error done
+44    sf_bq422           Result Error done
+45    sf_bq424           Result Error done
+46    sf_bq432           Result Error done
+47    sf_bq444           Result Error done
+48    sf_bq455           Result Error done
 49    sf_bq461           Result Error
 50    sf_ga010           Result Error
 51    sf_ga014           Result Error
