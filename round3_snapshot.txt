@@ -1,0 +1,60 @@
+# 童
+1     sf040              Result Error
+2     sf_bq004           Result Error
+3     sf_bq022           Result Error
+4     sf_bq035           Result Error
+5     sf_bq036           Result Error
+6     sf_bq044           Result Error
+7     sf_bq054           Result Error
+8     sf_bq069           Result Error
+9     sf_bq114           Result Error
+10    sf_bq119           Result Error
+11    sf_bq131           Result Error
+12    sf_bq141           Result Error
+13    sf_bq144           Result Error
+14    sf_bq152           Result Error
+
+# 韶峰
+15    sf_bq158           Result Error
+16    sf_bq162           Result Error
+17    sf_bq164           Result Error
+18    sf_bq169           Result Error
+19    sf_bq208           Result Error
+20    sf_bq212           Result Error
+21    sf_bq220           Result Error
+22    sf_bq221           Result Error
+23    sf_bq233           Result Error
+24    sf_bq258           Result Error
+25    sf_bq265           Result Error
+26    sf_bq269           Result Error
+27    sf_bq276           Result Error
+28    sf_bq277           Result Error
+
+# 全
+29    sf_bq278           Result Error
+30    sf_bq279           Result Error
+31    sf_bq285           Result Error
+32    sf_bq309           Result Error
+33    sf_bq330           Result Error
+34    sf_bq370           Result Error
+35    sf_bq417           Result Error
+36    sf_ga010           Result Error
+37    sf_ga012           Result Error
+38    sf_ga019           Result Error
+39    sf_ga021           Result Error
+40    sf_ga025           Result Error
+41    sf_ga028           Result Error
+42    sf_local003        Result Error
+43    sf_local007        Result Error
+
+# 赵
+44    sf_local064        Result Error
+45    sf_local228        Result Error
+46    sf_local262        Result Error
+47    sf_local272        Result Error
+48    sf_local274        Result Error
+49    sf_local277        Result Error
+50    sf_local286        Result Error
+51    sf_local301        Result Error
+52    sf_local302        Result Error
+53    sf_local331        Result Error
