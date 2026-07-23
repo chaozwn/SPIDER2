@@ -77,10 +77,13 @@ def load_gold_incorrect_ids(csv_path=None):
     else:
         csv_path = Path(csv_path)
 
-    if not csv_path.exists():
+    if not csv_path.exists() or csv_path.stat().st_size == 0:
         return set()
 
-    df = pd.read_csv(csv_path)
+    try:
+        df = pd.read_csv(csv_path)
+    except pd.errors.EmptyDataError:
+        return set()
     if "instance_id" not in df.columns:
         return set()
     return set(df["instance_id"].dropna().astype(str).str.strip())
