@@ -1,5 +1,5 @@
-case_barcode,variant_classification,variant_type,gender,vital_status,days_to_death,MDM2_normalized_count,TP53_normalized_count,CDKN1A_normalized_count,CCNE1_normalized_count
-TCGA-DK-A3X1,Nonsense_Mutation,SNP,female,Alive,,1737.0563,,,
-TCGA-GD-A3OS,Nonsense_Mutation,SNP,female,Alive,,,,994.0519,
-TCGA-ZF-A9R4,Missense_Mutation,SNP,male,Alive,,,2203.6959,,
-TCGA-ZF-A9RD,Nonsense_Mutation,INS,female,Dead,408,,997.319,,
+case_barcode,cdkn2a_variant_classification,demo__gender,demo__vital_status,demo__days_to_death,mdm2_normalized_count,tp53_normalized_count,cdkn1a_normalized_count,ccne1_normalized_count
+TCGA-GD-A3OS,Nonsense_Mutation,female,Alive,0,0.0,0.0,994.0519,0.0
+TCGA-GU-A42Q,Nonsense_Mutation,male,Dead,344,0.0,0.0,0.0,0.0
+TCGA-GU-A766,Missense_Mutation,male,Alive,0,0.0,0.0,0.0,0.0
+TCGA-ZF-A9R4,Missense_Mutation,male,Alive,0,0.0,2203.6959,0.0,0.0
