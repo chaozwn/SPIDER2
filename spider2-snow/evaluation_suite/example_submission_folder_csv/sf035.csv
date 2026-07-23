@@ -1,4 +1,4 @@
-APP_GROUP_ID,SESSION_DATE,UNIQUE_USERS
+app_group_id,session_start_day,unique_user_count
 JyWFOSKn8bq,2023-06-01,27475
 JyWFOSKn8bq,2023-06-02,26215
 JyWFOSKn8bq,2023-06-03,30377

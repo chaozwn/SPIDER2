@@ -1,4 +1,4 @@
-style_id,style_name,weighted_score,absolute_difference
+STYLE_ID,STYLE_NAME,TOTAL_WEIGHTED_SCORE,ABS_DIFFERENCE_FROM_AVERAGE
 1,40's Ballroom Music,3,1.050
 3,60's Music,3,1.050
 4,70's Music,2,2.050

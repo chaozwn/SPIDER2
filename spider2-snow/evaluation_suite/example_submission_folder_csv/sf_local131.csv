@@ -1,4 +1,4 @@
-StyleID,StyleName,FirstPreferenceCount,SecondPreferenceCount,ThirdPreferenceCount
+STYLE_ID,STYLE_NAME,FIRST_PREFERENCE_COUNT,SECOND_PREFERENCE_COUNT,THIRD_PREFERENCE_COUNT
 1,40's Ballroom Music,0,1,1
 2,50's Music,0,0,0
 3,60's Music,1,0,0

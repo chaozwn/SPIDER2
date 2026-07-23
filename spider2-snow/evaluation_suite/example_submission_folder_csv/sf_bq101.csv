@@ -1,4 +1,4 @@
-PACKAGE_NAME,IMPORT_COUNT
+package_name,import_count
 java.util,1843
 java.io,763
 org.junit,505

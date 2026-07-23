@@ -560,7 +560,7 @@ def run_one(
             task_id,
             poll_interval=3.0,
             max_wait=TASK_MAX_WAIT,
-            terminal_on_any_ask=False,
+            terminal_on_any_ask=True,
             timeout=30.0,
         )
     except TimeoutError as e:

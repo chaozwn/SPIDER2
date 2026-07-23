@@ -1,7 +1,7 @@
-segment,UNIQUE_PRODUCT_COUNT_2020,PCT_INCREASE
-Desktop,7,214.29
-Networking,6,50.00
-Accessories,69,49.28
-Storage,12,41.67
-Peripherals,59,27.12
-Notebook,92,17.39
+SEGMENT,PRODUCT_COUNT_2020,PRODUCT_COUNT_2021,PCT_INCREASE
+Desktop,7,22,214.29
+Networking,6,9,50.00
+Accessories,69,103,49.28
+Storage,12,17,41.67
+Peripherals,59,75,27.12
+Notebook,92,108,17.39

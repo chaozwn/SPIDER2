@@ -30,13 +30,23 @@ class TeeOutput:
     
     def write(self, message):
         with self.lock:
-            self.console.write(message)
-            self.file.write(message)
+            # Keep carriage-return status refreshes on console only; avoid polluting log.txt.
+            if message.startswith("\r") or message == "\r":
+                self.console.write(message)
+            else:
+                self.console.write(message)
+                self.file.write(message)
     
     def flush(self):
         with self.lock:
             self.console.flush()
             self.file.flush()
+
+    def isatty(self):
+        return self.console.isatty()
+
+    def fileno(self):
+        return self.console.fileno()
     
     def close(self):
         self.file.close()
@@ -45,9 +55,74 @@ sys.stdout = TeeOutput('log.txt')
 sys.stderr = sys.stdout
 
 TOTAL_GB_PROCESSED = 0.0
-GB_LOCK = Lock()  
+GB_LOCK = Lock()
+EVAL_PROGRESS_LOCK = Lock()
+IN_PROGRESS = {}  # instance_id -> {"t0": float, "info": str}
+EVAL_TQDM = None
+_STATUS_REFRESH_STOP = threading.Event()
 
 byte_output_dict = {}
+
+
+def _refresh_eval_status_unlocked():
+    """Update tqdm postfix in-place with currently running instance_ids."""
+    now = time.time()
+    parts = []
+    for iid, meta in sorted(IN_PROGRESS.items()):
+        elapsed = now - meta["t0"]
+        info = meta.get("info") or ""
+        part = f"{iid}:{elapsed:.0f}s"
+        if info:
+            part = f"{part}({info})"
+        parts.append(part)
+    running = ", ".join(parts) if parts else "-"
+    # Keep postfix short so the bar stays readable.
+    if len(running) > 100:
+        running = running[:97] + "..."
+    pbar = EVAL_TQDM
+    if pbar is not None:
+        pbar.set_postfix_str(f"run=[{running}]", refresh=True)
+
+
+def _refresh_eval_status():
+    with EVAL_PROGRESS_LOCK:
+        _refresh_eval_status_unlocked()
+
+
+def _mark_eval_start(id: str, info: str = ""):
+    with EVAL_PROGRESS_LOCK:
+        IN_PROGRESS[id] = {"t0": time.time(), "info": info}
+        _refresh_eval_status_unlocked()
+
+
+def _mark_eval_info(id: str, info: str):
+    with EVAL_PROGRESS_LOCK:
+        if id in IN_PROGRESS:
+            IN_PROGRESS[id]["info"] = info
+            _refresh_eval_status_unlocked()
+
+
+def _mark_eval_done(id: str, score=None, elapsed: float = 0.0, extra: str = ""):
+    with EVAL_PROGRESS_LOCK:
+        IN_PROGRESS.pop(id, None)
+        _refresh_eval_status_unlocked()
+
+
+def _start_status_refresher():
+    """Refresh running elapsed times once per second without new log lines."""
+    _STATUS_REFRESH_STOP.clear()
+
+    def _loop():
+        while not _STATUS_REFRESH_STOP.wait(1.0):
+            _refresh_eval_status()
+
+    t = threading.Thread(target=_loop, name="eval-status-refresh", daemon=True)
+    t.start()
+    return t
+
+
+def _stop_status_refresher():
+    _STATUS_REFRESH_STOP.set()
 
 @lru_cache(maxsize=None)
 def load_gold_csv(file_path: str) -> pd.DataFrame:
@@ -87,6 +162,17 @@ def load_gold_incorrect_ids(csv_path=None):
     if "instance_id" not in df.columns:
         return set()
     return set(df["instance_id"].dropna().astype(str).str.strip())
+
+
+def parse_skip_ids(skip_args):
+    """Parse --skip values; supports space- and/or comma-separated instance_ids."""
+    ids = set()
+    for item in skip_args or []:
+        for part in str(item).split(","):
+            part = part.strip()
+            if part:
+                ids.add(part)
+    return ids
 
 
 def compare_multi_pandas_table(pred, multi_gold, multi_condition_cols=[], multi_ignore_order=False):
@@ -233,6 +319,9 @@ def evaluate_single_sql_instance(
     timeout=30,
 ):
     error_info = None
+    score = 0
+    pred_sql_query = None
+    _mark_eval_start(id)
     
     try:
         pred_sql_query = open(os.path.join(pred_result_dir, f"{id}.sql")).read()
@@ -314,6 +403,8 @@ def evaluate_single_sql_instance(
         score = 0
         error_info = f"Evaluation Error: {str(e)}"
         pred_sql_query = ""
+    finally:
+        _mark_eval_done(id)
     
     return {
         "instance_id": id, 
@@ -324,11 +415,17 @@ def evaluate_single_sql_instance(
 
 
 def evaluate_single_exec_result_instance(id, eval_standard_dict, pred_result_dir, gold_result_dir):
-    # print(f">>>Evaluating {id}...")
     error_info = None
+    score = 0
+    _mark_eval_start(id)
     
     try:
-        pred_pd = pd.read_csv(os.path.join(pred_result_dir, f"{id}.csv"))
+        pred_path = os.path.join(pred_result_dir, f"{id}.csv")
+        pred_pd = pd.read_csv(pred_path)
+        _mark_eval_info(
+            id,
+            f"{pred_pd.shape[0]}x{pred_pd.shape[1]},{os.path.getsize(pred_path) / 1024:.0f}KB",
+        )
         
         if '_' in id:
             pattern = re.compile(rf'^{re.escape(id)}(_[a-z])?\.csv$')
@@ -359,6 +456,10 @@ def evaluate_single_exec_result_instance(id, eval_standard_dict, pred_result_dir
         elif csv_files:
             try:
                 csv_file_paths = [os.path.join(gold_result_dir, file) for file in csv_files]
+                _mark_eval_info(
+                    id,
+                    f"{pred_pd.shape[0]}x{pred_pd.shape[1]},goldx{len(csv_file_paths)}",
+                )
                 gold_pds = [load_gold_csv(file_path) for file_path in csv_file_paths]
                 score = compare_multi_pandas_table(
                     pred_pd,
@@ -380,6 +481,8 @@ def evaluate_single_exec_result_instance(id, eval_standard_dict, pred_result_dir
         print(f"{id} ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! {e}")
         score = 0
         error_info = f"Evaluation Error: {str(e)}"
+    finally:
+        _mark_eval_done(id)
     
     return {
         "instance_id": id, 
@@ -458,6 +561,7 @@ def evaluate_spider2sql(args, temp_dir: Path):
     gold_incorrect_ids = load_gold_incorrect_ids(
         getattr(args, "gold_incorrect_csv", None)
     )
+    skip_ids = parse_skip_ids(getattr(args, "skip", None))
     
     result_csv_dir = None
     if mode == "sql":
@@ -478,24 +582,29 @@ def evaluate_spider2sql(args, temp_dir: Path):
                 pred_ids.append(file.split(".")[0])
                        
     gold_ids = list(eval_standard_dict.keys())
-    eval_ids = list(set(gold_ids).intersection(pred_ids) - gold_incorrect_ids)
+    excluded_ids = gold_incorrect_ids | skip_ids
+    eval_ids = list(set(gold_ids).intersection(pred_ids) - excluded_ids)
     eval_ids = sorted(eval_ids)  # sorted, for reproduce result
 
-    skipped_ids = sorted(gold_incorrect_ids.intersection(gold_ids))
-    if skipped_ids:
-        print(f"Ignoring gold-incorrect instances: {skipped_ids}")
+    skipped_gold_incorrect = sorted(gold_incorrect_ids.intersection(gold_ids))
+    if skipped_gold_incorrect:
+        print(f"Ignoring gold-incorrect instances: {skipped_gold_incorrect}")
+    skipped_by_user = sorted(skip_ids)
+    if skipped_by_user:
+        print(f"Skipping user-requested instances (--skip): {skipped_by_user}")
 
     if not eval_ids:
         print(
             f"No overlapping instances to evaluate. "
             f"pred_ids={len(pred_ids)}, gold_ids={len(gold_ids)}, "
-            f"gold_incorrect={len(gold_incorrect_ids)}. "
+            f"gold_incorrect={len(gold_incorrect_ids)}, skip={len(skip_ids)}. "
             f"Check that --result_dir ({pred_result_dir}) contains .{ 'sql' if mode == 'sql' else 'csv' } files."
         )
         return
 
     output_results = []
     max_workers = min(args.max_workers if hasattr(args, 'max_workers') else 8, len(eval_ids))
+    global EVAL_TQDM
 
     if mode == "sql":
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -513,10 +622,19 @@ def evaluate_spider2sql(args, temp_dir: Path):
                     timeout=args.timeout,
                 ): id for id in eval_ids
             }
-            
-            for future in tqdm(as_completed(future_to_id), total=len(eval_ids), desc="Evaluating SQL"):
-                result = future.result()
-                output_results.append(result)
+            pbar = tqdm(total=len(eval_ids), desc="Evaluating SQL", dynamic_ncols=True)
+            EVAL_TQDM = pbar
+            _start_status_refresher()
+            try:
+                for future in as_completed(future_to_id):
+                    result = future.result()
+                    output_results.append(result)
+                    pbar.update(1)
+                    _refresh_eval_status()
+            finally:
+                _stop_status_refresher()
+                EVAL_TQDM = None
+                pbar.close()
     
     elif mode == "exec_result":
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -529,16 +647,25 @@ def evaluate_spider2sql(args, temp_dir: Path):
                     gold_result_dir
                 ): id for id in eval_ids
             }
-            
-            for future in tqdm(as_completed(future_to_id), total=len(eval_ids), desc="Evaluating Exec Results"):
-                result = future.result()
-                output_results.append(result)
+            pbar = tqdm(total=len(eval_ids), desc="Evaluating Exec Results", dynamic_ncols=True)
+            EVAL_TQDM = pbar
+            _start_status_refresher()
+            try:
+                for future in as_completed(future_to_id):
+                    result = future.result()
+                    output_results.append(result)
+                    pbar.update(1)
+                    _refresh_eval_status()
+            finally:
+                _stop_status_refresher()
+                EVAL_TQDM = None
+                pbar.close()
 
     print_evaluation_results_table(output_results)
     correct_examples = sum([item['score'] for item in output_results])
 
     total_evaluated = len(output_results)
-    total_benchmark = len(set(gold_ids) - gold_incorrect_ids)
+    total_benchmark = len(set(gold_ids) - gold_incorrect_ids - skip_ids)
     print(f"Final score: {correct_examples / total_evaluated}, Correct examples: {correct_examples}, Total examples: {total_evaluated}")
     print(f"Real score: {correct_examples / total_benchmark}, Correct examples: {correct_examples}, Total examples: {total_benchmark}")
     
@@ -568,6 +695,12 @@ if __name__ == "__main__":
         type=str,
         default=None,
         help="CSV listing instance_ids with incorrect gold results. Defaults to gold_incorrect.csv at repo root.",
+    )
+    parser.add_argument(
+        "--skip",
+        nargs="+",
+        default=[],
+        help="Instance IDs to skip this run. Accepts space- and/or comma-separated values, e.g. --skip sf_bq441 sf_bq069",
     )
     args = parser.parse_args()
     

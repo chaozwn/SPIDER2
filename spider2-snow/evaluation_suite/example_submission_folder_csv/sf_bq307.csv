@@ -1,11 +1,11 @@
-BADGE_NAME,USER_COUNT,AVG_DAYS_TO_EARN
-Famous Question,418852,1635
-Fanatic,27620,864
-Great Answer,25007,1970
-Unsung Hero,21079,826
-Electorate,12122,1243
-Populist,10928,1716
-Publicist,2748,2409
-Steward,1567,1200
-Great Question,717,888
-Copy Editor,344,752
+badge_name,user_count,avg_days
+Famous Question,418855,1635.12
+Fanatic,27621,863.24
+Great Answer,25006,1969.89
+Unsung Hero,21079,825.65
+Electorate,12122,1242.31
+Populist,10929,1716.58
+Publicist,2749,2408.62
+Steward,1566,1200.83
+Great Question,712,884.42
+Copy Editor,344,751.48

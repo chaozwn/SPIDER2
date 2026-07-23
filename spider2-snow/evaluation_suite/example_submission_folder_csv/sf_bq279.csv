@@ -1,5 +1,5 @@
-YEAR,status,STATION_COUNT
-2013,active,10
-2013,closed,1
-2014,active,38
-2014,closed,9
+YEAR,STATUS,DISTINCT_STATION_COUNT
+2013,active,11
+2013,closed,90
+2014,active,47
+2014,closed,54

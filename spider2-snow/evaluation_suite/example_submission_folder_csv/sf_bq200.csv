@@ -1,11 +1,11 @@
-team_name,pitcher_name,max_pitch_speed
+TEAM_NAME,PITCHER_FULL_NAME,MAX_PITCH_SPEED
 Angels,Juan Ramirez,100
 Astros,Kenneth Giles,101
 Athletics,John Axford,99
 Blue Jays,Patrick Schultz,100
 Braves,Mauricio Cabrera,103
 Brewers,Jeremy Jeffress,99
-Cardinals,Alex Reyes,101
+Cardinals,Carlos Martinez,101
 Cubs,Albertin Chapman,104
 Diamondbacks,Enrique Burgos,99
 Dodgers,Pedro Baez,100
@@ -14,18 +14,18 @@ Indians,Andrew Miller,99
 Mariners,Arquimedes Caminero,102
 Marlins,Brian Ellington,101
 Mets,Noah Syndergaard,101
-Nationals,Blake Treinen,99
-Orioles,Kevin Gausman,99
+Nationals,Koda Glover,99
+Orioles,Zachary Britton,99
 Padres,Jose Dominguez,100
 Phillies,Luis Garcia,99
 Pirates,Arquimedes Caminero,102
 Rangers,Matthew Bush,101
 Rays,Enny Romero,99
 Red Sox,Joseph Kelly,101
-Reds,Blake Wood,99
+Reds,Jose Diaz,99
 Rockies,Carlos Estevez,100
 Royals,Yordano Ventura,101
 Tigers,Bruce Rondon,101
 Twins,Jon Chargois,99
-White Sox,Carlos Rodon,100
+White Sox,Thomas Kahnle,100
 Yankees,Albertin Chapman,105

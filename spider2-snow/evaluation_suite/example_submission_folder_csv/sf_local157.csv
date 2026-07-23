@@ -1,4 +1,4 @@
-ticker,market_date,volume_percentage_change
+ticker,market_date,daily_volume_pct_change
 BTC,2021-08-01,
 BTC,2021-08-02,-6.871654425494834
 BTC,2021-08-03,-99.65245288063093

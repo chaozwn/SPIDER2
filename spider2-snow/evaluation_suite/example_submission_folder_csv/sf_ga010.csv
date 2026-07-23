@@ -1,5 +1,6 @@
-CHANNEL,SESSIONS,SESSIONS_RANK,IS_FOURTH_HIGHEST
-Organic Search,51193,1,false
-Direct,30516,2,false
-Unassigned,27035,3,false
-Referral,23092,4,true
+CHANNEL,TOTAL_SESSIONS,SESSIONS_RANK
+Organic Search,45298,1
+Direct,30516,2
+Unassigned,27035,3
+Referral,23092,4
+Paid Search,5895,5

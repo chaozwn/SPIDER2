@@ -1,13 +1,13 @@
-INGREDIENT_NAME,TOTAL_QUANTITY
-BBQ Sauce,8
+topping_name,total_quantity
 Bacon,12
-Beef,9
-Cheese,10
-Chicken,9
 Mushrooms,11
-Onions,3
+Cheese,10
+Beef,9
+Chicken,9
 Pepperoni,9
-Peppers,3
 Salami,9
+BBQ Sauce,8
+Onions,3
+Peppers,3
 Tomato Sauce,3
 Tomatoes,3

@@ -1,6 +1,6 @@
-category,TOTAL_ARTICLES,EDUCATION_ARTICLES,EDUCATION_PERCENTAGE
-business,510,12,2.35
-entertainment,386,9,2.33
-politics,417,61,14.63
-sport,511,4,0.78
-tech,401,14,3.49
+category,total_articles,education_percentage
+business,510,2.35
+entertainment,386,2.33
+politics,417,14.63
+sport,511,0.78
+tech,401,3.49

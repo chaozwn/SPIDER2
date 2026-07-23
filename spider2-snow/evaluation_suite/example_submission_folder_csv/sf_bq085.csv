@@ -1,8 +1,8 @@
-country,confirmed_cases,cases_per_100k
+COUNTRY,TOTAL_CONFIRMED_CASES,CASES_PER_100K
 China,83817,5.94
 France,156480,232.2
 Germany,147065,176.67
-Iran,83505,99.42
+"Iran, Islamic Rep.",83505,99.42
 Italy,181228,304.31
 Spain,200210,422.82
 United States,784326,238.05

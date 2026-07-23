@@ -1,4 +1,4 @@
-language,module_name,occurrence_count
+LANGUAGE,MODULE_NAME,OCCURRENCE_COUNT
 Python,cybox,2
 Python,diesel,2
 Python,django,2
@@ -15,7 +15,6 @@ R,DEMOdz,1
 R,PLSR,1
 R,RUnit,1
 R,RWeka,1
-R,ShortRead,1
 R,SpaDES,1
 R,TCGAgbm,1
 R,arm,1
@@ -30,4 +29,3 @@ R,rpart,1
 R,rpart.plot,1
 R,shogun,1
 R,sptrans,1
-R,testthat,1

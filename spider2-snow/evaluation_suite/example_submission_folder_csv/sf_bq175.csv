@@ -1,2 +1,2 @@
-cytoband_name,amplification_pct,amplification_rank,gain_pct,gain_rank,heterozygous_del_pct,heterozygous_del_rank
-1p31,30.560928,1,13.152805,1,3.868472,11
+cytoband_name,n_amplification,n_gain,n_hetdel,amp_rank,gain_rank,hetdel_rank
+1p31,158,68,20,1,1,11

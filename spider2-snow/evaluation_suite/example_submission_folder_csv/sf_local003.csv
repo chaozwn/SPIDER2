@@ -1,12 +1,12 @@
-RFM_Segment,AverageSalesPerOrder
-Can't Lose Them,377.73
-Loyal Customers,303.85
-Potential Loyalists,235.2
-Champions,156.16
-Hibernating,149.74
-Needs Attention,134.02
-Recent Users,131.81
-Lost,59.72
-About to Sleep,54.0
-Price Sensitive,53.67
-Promising,39.58
+rfm_segment,average_sales_per_order
+Can't Lose Them,377.85645011032113
+Loyal Customers,303.68702613841856
+Potential Loyalists,235.09408045356372
+Champions,156.11821456538763
+Hibernating,149.70438332752005
+Needs Attention,134.08760265618648
+Recent Users,131.80777247956405
+Lost,59.72696220416814
+About to Sleep,54.006559945504094
+Price Sensitive,53.67502196836555
+Promising,39.57271900575932

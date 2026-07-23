@@ -1,4 +1,4 @@
-MONTH,PRODUCT_NAME,brand,category,TOTAL_SALES,TOTAL_REVENUE,ORDER_STATUS
+month,product_name,brand,category,total_sales,rounded_total_revenue,order_status
 2019-02,True Religion Men's TRBJ Flatlock Raw Edge Hoodie,True Religion,Fashion Hoodies & Sweatshirts,1,293.33,Complete
 2019-03,The North Face Apex Bionic Mens Soft Shell Ski Jacket 2013,The North Face,Outerwear & Coats,1,903.0,Complete
 2019-04,Intimo Men's Satin Striped Silk Robe,Intimo,Sleep & Lounge,1,179.95,Complete
@@ -30,7 +30,7 @@ MONTH,PRODUCT_NAME,brand,category,TOTAL_SALES,TOTAL_REVENUE,ORDER_STATUS
 2021-06,Hudson Women's Signature Boot,Hudson,Jeans,2,396.0,Complete
 2021-07,Jones New York Women's Printed Matte 3/4 Sleeve Cowl Neck Raglan Dress,Jones New York,Dresses,2,268.0,Complete
 2021-08,Levi's Women's Classic Trucker Jacket,Levi's,Outerwear & Coats,2,109.98,Complete
-2021-09,KUT from the Kloth Women's Diana Skinny Jean,KUT from the Kloth,Jeans,2,158.0,Complete
+2021-09,Women's Full Length Overcoat in Pure Cashmere,Cashmere Boutique,Outerwear & Coats,1,449.0,Complete
 2021-10,Ray-Ban RB4141 Round Wayfarer Sunglasses,Ray-Ban,Accessories,2,182.32,Complete
 2021-11,Nautica Sleepwear Women's Shoreway Pant,Nautica,Sleep & Lounge,2,50.0,Complete
 2021-12,Speedo Men's Easy Short Sleeve Rashguard Swim Tee,Speedo,Swim,2,63.98,Complete
@@ -57,10 +57,10 @@ MONTH,PRODUCT_NAME,brand,category,TOTAL_SALES,TOTAL_REVENUE,ORDER_STATUS
 2023-09,Regency New York Men's Smoking Jacket Lawrence Black,Regency New York,Sleep & Lounge,2,599.9,Complete
 2023-10,Mantoni 2 Button Men's Tuxedo Suit with Vest Solid Black 100% Virgin Wool,Mantoni,Suits & Sport Coats,2,499.9,Complete
 2023-11,Parker Women's Beaded Shift Dress,Parker,Dresses,2,792.0,Complete
-2023-12,True Religion Men's Samuel Cargo Short,True Religion,Shorts,2,269.99,Complete
+2023-12,Michael Kors Men's Stretch Cotton Short,Michael Kors,Shorts,2,142.5,Complete
 2024-01,Parker Women's Beaded Spaghetti Tank Dress,Parker,Dresses,2,691.98,Complete
 2024-02,Club Room Mens 2 Button Brown Vicuna 100% Cashmere Sport Coat Jacket,Club Room,Suits & Sport Coats,2,359.98,Complete
-2024-03,Wrangler Men's Wrancher Dress Jean,Wrangler,Jeans,3,121.2,Complete
+2024-03,True Religion Women's Casey Stretch Leather Pants,True Religion,Pants & Capris,2,1390.0,Complete
 2024-04,Champion Men's Double Dry Training Tee,Champion,Tops & Tees,3,133.2,Complete
 2024-05,adidas Women's adiFIT Slim Pant,adidas,Active,2,1806.0,Complete
-2024-06,State O Maine Jersey Knit Lounge Pant,KNOTHE CORP.,Sleep & Lounge,3,71.97,Complete
+2024-06,Arc'teryx Gamma MX Softshell Jacket - Women's,Arc'teryx,Outerwear & Coats,2,598.0,Complete

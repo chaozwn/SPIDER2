@@ -1,4 +1,4 @@
-city,zip_code,state,count_of_hurricanes,list_of_hurricanes
+city,zip_code,STATE,COUNT_OF_HURRICANES,LIST_OF_HURRICANES
 "Okeechobee city, Yeehaw Junction CDP, Cypress Quarters CDP",34972,FL,12,"DENNIS, EMILY, ERNESTO, FAY, FLORENCE, FRANCES, GERDA, GORDON, IAN, ISIDORE, JEANNE, JERRY"
 Everglades city,34141,FL,9,"ANA, BONNIE, BRENDA, DENNIS, DOTTIE, ERNESTO, FLORENCE, IVAN, WILMA"
 Georgetown city,29440,SC,8,"BARRY, BONNIE, COLIN, DORA, FAY, HERMINE, IAN, KYLE"
@@ -202,8 +202,8 @@ Cape Canaveral city,32920,FL,2,"FAY, IAN"
 "Cape Coral city, Punta Gorda city, Burnt Store Marina CDP",33955,FL,2,"DONNA, IAN"
 Caryville town,32427,FL,2,"ALICE, TAMMY"
 "Catawba CDP, Rock Hill city, Lesslie CDP",29730,SC,2,"CHRIS, MICHAEL"
-Charleston city,38921,MS,2,"AUDREY, CAMILLE"
 Charleston city,29407,SC,2,"BARRY, CLARA"
+Charleston city,38921,MS,2,"AUDREY, CAMILLE"
 "Charlotte Hall CDP, Golden Beach CDP, Mechanicsville CDP",20659,MD,2,"CINDY, IVAN"
 Charlotte city,78011,TX,2,"ABBY, FAY"
 "China city, Beaumont city, Bevil Oaks city",77713,TX,2,"BETA, IVAN"
@@ -599,8 +599,8 @@ Barney,31625,GA,1,JERRY
 Barnstable Town city,02630,MA,1,EDNA
 "Barnstable Town city, Yarmouth Port CDP",02675,MA,1,ESTHER
 Barranquitas zona urbana,00794,PR,1,GEORGES
-Barrigada,96910,GU,1,BRIAN
 Barrigada,96915,GU,1,SARAH
+Barrigada,96910,GU,1,BRIAN
 Barryville,12719,NY,1,BERYL
 "Bartlesville city, Dewey city",74006,OK,1,HERMINE
 "Bartow CDP, Frank CDP",24920,WV,1,FRAN
@@ -730,10 +730,10 @@ Buffalo city,65622,MO,1,GILBERT
 Bullock,27507,NC,1,DANNY
 "Burdette town, Luxora city",72358,AR,1,FELICE
 "Burgettstown borough, Cross Creek CDP, Joffre CDP, Paris CDP, Slovan CDP, Atlasburg CDP, Langeloth CDP",15021,PA,1,FRAN
-Burnside city,42544,KY,1,ISIDORE
 Burnside city,42518,KY,1,OPAL
-Burnsville town,38833,MS,1,KATRINA
+Burnside city,42544,KY,1,ISIDORE
 Burnsville town,26335,WV,1,BOB
+Burnsville town,38833,MS,1,KATRINA
 Burton city,77835,TX,1,GERDA
 Bushnell city,33513,FL,1,JERRY
 "Butler Beach CDP, St. Augustine city, Crescent Beach CDP, St. Augustine Beach city, Marineland town",32080,FL,1,DORA
@@ -755,8 +755,8 @@ Calvert city,77837,TX,1,FELICE
 Calvin,40813,KY,1,IDA
 "Calvin village, Joyce CDP, Jordan Hill CDP, Winnfield city",71483,LA,1,AUDREY
 Camargo town,73835,OK,1,ALICIA
-Camden,39045,MS,1,BETA
 Camden,71711,AR,1,LAURA
+Camden,39045,MS,1,BETA
 Camden city,29020,SC,1,ELSA
 Camden city,36726,AL,1,LEE
 Cameron city,26033,WV,1,BERTHA
@@ -792,8 +792,8 @@ Centreville town,39631,MS,1,CRISTOBAL
 Century town,32535,FL,1,JUAN
 "Chapel Hill town, Durham city",27707,NC,1,FRAN
 Charles City CDP,23030,VA,1,ERNESTO
-Charleston city,37310,TN,1,DANNY
 Charleston city,29450,SC,1,COLIN
+Charleston city,37310,TN,1,DANNY
 "Charleston city, Dunbar city, Sissonville CDP, South Charleston city",25312,WV,1,FRED
 "Charleston city, South Charleston city",25314,WV,1,CINDY
 "Charlottesville city, Free Union CDP, Ivy CDP, Crozet CDP",22901,VA,1,ABLE
@@ -825,8 +825,8 @@ Circle D-KC Estates CDP,78659,TX,1,BILL
 "Circleville city, Logan Elm Village CDP, Tarlton village",43113,OH,1,OPAL
 Citronelle city,36522,AL,1,ALLISON
 "Claiborne CDP, West Monroe city",71291,LA,1,BETSY
-Clanton city,36091,AL,1,ALBERTO
 Clanton city,35046,AL,1,KING
+Clanton city,36091,AL,1,ALBERTO
 "Clara CDP, Waynesboro city",39367,MS,1,CLAUDETTE
 Clay town,25043,WV,1,BERTHA
 Clayton town,71326,LA,1,CRISTOBAL
@@ -844,8 +844,8 @@ Clyde city,79510,TX,1,HERMINE
 Cobbtown city,30420,GA,1,ALLISON
 "Coffeyville city, Dearing city",67337,KS,1,HERMINE
 Cogan station,17728,PA,1,ERNESTO
-Coldwater city,67029,KS,1,ALICIA
 Coldwater city,49036,MI,1,ARLENE
+Coldwater city,67029,KS,1,ALICIA
 "Collierville town, Rossville town, Piperton city",38017,TN,1,EASY
 Collinsville CDP,39325,MS,1,FAY
 "Collinsville CDP, Oak Level CDP, Bassett CDP, Stanleytown CDP",24055,VA,1,DENNIS
@@ -907,8 +907,8 @@ Culebra zona urbana,00775,PR,1,KAREN
 "Culloden CDP, Milton town",25541,WV,1,FLORENCE
 "Culloden city, Salem CDP",31016,GA,1,BERYL
 Cumming city,30040,GA,1,DANNY
-Cushing city,75760,TX,1,ALLISON
 Cushing city,74023,OK,1,HERMINE
+Cushing city,75760,TX,1,ALLISON
 "Cushman city, Moorefield town, Batesville city, Magness town",72501,AR,1,LAURA
 Cut and Shoot city,77306,TX,1,CLAUDETTE
 Cuthbert city,39840,GA,1,BERYL
@@ -1178,11 +1178,11 @@ Gladwin city,48624,MI,1,CARLA
 Glasgow town,24555,VA,1,DENNIS
 "Glen Alpine town, Salem CDP, Morganton city, Drexel town, Valdese town",28655,NC,1,CINDY
 Glen Fork CDP,25845,WV,1,IDA
-"Glencoe city, Sparta city",41046,KY,1,BETSY
 "Glencoe city, Sparta city",41086,KY,1,ERIN
+"Glencoe city, Sparta city",41046,KY,1,BETSY
 "Glenwood CDP, Pleasanton CDP",88039,NM,1,LESTER
-Glenwood city,30428,GA,1,CHARLEY
 Glenwood city,71943,AR,1,BARRY
+Glenwood city,30428,GA,1,CHARLEY
 "Globe city, Claypool CDP, Top-of-the-World CDP, Copper Hill CDP, El Capitan CDP, Six Shooter Canyon CDP, Pinal CDP, Rock House CDP, Icehouse Canyon CDP, Wheatfields CDP, Central Heights-Midland City CDP",85501,AZ,1,KATRINA
 Gloster town,39638,MS,1,ARLENE
 Gloucester Point CDP,23072,VA,1,GINGER
@@ -1220,12 +1220,12 @@ Grant Park village,60940,IL,1,GUSTAV
 "Green Forest city, Oak Grove town",72638,AR,1,BARRY
 Green sea,29545,SC,1,ALLISON
 "Greeneville town, Mosheim town",37743,TN,1,BILL
-Greensboro city,27214,NC,1,DENNIS
 Greensboro city,36744,AL,1,ZETA
+Greensboro city,27214,NC,1,DENNIS
 Greensburg town,70441,LA,1,BERTHA
 Greenville CDP,04441,ME,1,IRENE
-Greenville city,75402,TX,1,GRACE
 Greenville city,30222,GA,1,ALBERTO
+Greenville city,75402,TX,1,GRACE
 "Greenville city, Metcalfe town",38703,MS,1,ESTHER
 "Greenwood city, Promised Land CDP",29646,SC,1,FLORENCE
 "Greer city, Wellford city, Duncan town, Lyman town",29365,SC,1,FLORENCE
@@ -1329,14 +1329,14 @@ Hornbeck town,71439,LA,1,BARRY
 Horseshoe Beach town,32648,FL,1,ANDREA
 Hosston village,71043,LA,1,FLORENCE
 Houston,35572,AL,1,ALBERTO
-Houston city,77433,TX,1,ALLISON
-Houston city,77048,TX,1,ALLISON
+Houston city,77074,TX,1,ALICIA
+Houston city,77086,TX,1,FELICE
 Houston city,77072,TX,1,IMELDA
+Houston city,77048,TX,1,ALLISON
 Houston city,77066,TX,1,ALLISON
 Houston city,77449,TX,1,CINDY
-Houston city,77074,TX,1,ALICIA
 Houston city,77017,TX,1,ALLISON
-Houston city,77086,TX,1,FELICE
+Houston city,77433,TX,1,ALLISON
 "Houston city, Baytown city",77520,TX,1,JERRY
 "Houston city, Cinco Ranch CDP",77450,TX,1,DEAN
 "Houston city, Cinco Ranch CDP, Katy city",77494,TX,1,ALLISON
@@ -1370,11 +1370,11 @@ Jackson city,45640,OH,1,BOB
 Jackson city,39204,MS,1,ARLENE
 "Jackson city, Pearl city, Flowood city, Brandon city, Richland city",39208,MS,1,GORDON
 "Jacksonport town, Amagon town, Diaz city, Newport city, Weldon town, Campbell Station city, Grubbs city",72112,AR,1,FELICE
+Jacksonville city,32223,FL,1,JULIA
 Jacksonville city,32212,FL,1,BERYL
-Jacksonville city,31544,GA,1,DORA
 Jacksonville city,32221,FL,1,EASY
 Jacksonville city,32208,FL,1,ISIDORE
-Jacksonville city,32223,FL,1,JULIA
+Jacksonville city,31544,GA,1,DORA
 "Jacksonville city, Baldwin town",32220,FL,1,ETA
 "Jacob City city, Cottondale town, Alford town",32431,FL,1,FLOSSY
 "Jamestown borough, Pymatuning Central CDP, Pymatuning South CDP",16134,PA,1,NATE
@@ -1383,8 +1383,8 @@ Jamestown town,29453,SC,1,COLIN
 Jamesville town,27846,NC,1,ALLISON
 "Jan Phyl Village CDP, Wahneta CDP, Winter Haven city, Inwood CDP, Auburndale city, Eagle Lake city, Cypress Gardens CDP, Bartow city",33880,FL,1,GABRIELLE
 Jarratt town,23867,VA,1,ELSA
-Jasper city,35504,AL,1,FAY
 Jasper city,47546,IN,1,ERIN
+Jasper city,35504,AL,1,FAY
 "Jefferson borough, Spring Grove borough",17362,PA,1,CONNIE
 Jefferson town,29718,SC,1,CLAUDETTE
 "Jeffersonville city, Charlestown city",47111,IN,1,BETSY
@@ -1463,8 +1463,8 @@ Laneview,22504,VA,1,HANNA
 "Lansdowne CDP, Ashburn CDP, Leesburg town, Belmont CDP",20176,VA,1,DIANE
 Laredo city,78040,TX,1,ELLA
 Lares zona urbana,00669,PR,1,OLGA
-Las Cruces city,88033,NM,1,CELIA
 Las Cruces city,88011,NM,1,DOLLY
+Las Cruces city,88033,NM,1,CELIA
 "Las Pilas CDP, Colorado Acres CDP, Ranchitos Las Lomas CDP, Las Haciendas CDP, Pueblo East CDP, Valle Verde CDP, Los Veteranos I CDP",78044,TX,1,BRET
 "Latimer CDP, Gautier city, Vancleave CDP",39565,MS,1,GEORGES
 Latta town,29565,SC,1,ANDREA
@@ -1547,8 +1547,8 @@ Lynn Haven city,32409,FL,1,TAMMY
 Mac mahan,04548,ME,1,FLOYD
 Macclenny city,32063,FL,1,BERYL
 "Machias CDP, Lime Lake CDP",14101,NY,1,NATE
-Macon city,31201,GA,1,ALLISON
 Macon city,31206,GA,1,FAY
+Macon city,31201,GA,1,ALLISON
 Macon city,39341,MS,1,FREDERIC
 Madisonville city,77864,TX,1,CLAUDETTE
 "Madisonville city, Vonore town",37354,TN,1,ELOISE
@@ -1619,8 +1619,8 @@ Melbourne Beach town,32951,FL,1,ERIN
 "Melbourne Village town, June Park CDP, Melbourne city, West Melbourne city",32904,FL,1,ERNESTO
 "Melbourne city, Guion town",72556,AR,1,BONNIE
 "Melfa town, Bobtown CDP, Onley town",23410,VA,1,GASTON
-Memphis city,38018,TN,1,BARRY
 Memphis city,38106,TN,1,ERIN
+Memphis city,38018,TN,1,BARRY
 "Memphis city, Bartlett city",38135,TN,1,EASY
 "Memphis city, Collierville town, Germantown city",38125,TN,1,EASY
 Mena city,71953,AR,1,ELENA
@@ -1672,8 +1672,8 @@ Monroe,24574,VA,1,CINDY
 Monson,04464,ME,1,ESTHER
 Monterey town,24465,VA,1,BERYL
 "Montevallo city, Alabaster city, Calera city, Wilton town",35115,AL,1,IVAN
-Monticello city,71655,AR,1,BETSY
 Monticello city,31064,GA,1,SALLY
+Monticello city,71655,AR,1,BETSY
 Mooringsport town,71060,LA,1,RITA
 "Moreauville village, Bordelonville CDP",71355,LA,1,BETA
 Morgan city,39866,GA,1,FAY
@@ -1745,8 +1745,8 @@ Newland town,28657,NC,1,ABBY
 "Newnan city, East Newnan CDP",30263,GA,1,CLAUDETTE
 Newport News city,23601,VA,1,BRENDA
 Newport city,37821,TN,1,FRANCES
-Newton city,39345,MS,1,ERIN
 Newton city,39870,GA,1,DORA
+Newton city,39345,MS,1,ERIN
 Newtown,23126,VA,1,BRET
 Newtown borough,06470,CT,1,HENRI
 "Newtown town, Williamsport town, Attica city",47918,IN,1,IKE
@@ -1826,8 +1826,8 @@ Pahala CDP,96777,HI,1,ISELLE
 Pahrump CDP,89060,NV,1,KATHLEEN
 "Paincourtville CDP, Napoleonville village, Supreme CDP",70390,LA,1,ISAAC
 "Painted Hills CDP, Paragon town, Martinsville city, Bethany town",46151,IN,1,DENNIS
-Palacios city,77465,TX,1,ABBY
 Palacios city,77428,TX,1,FAY
+Palacios city,77465,TX,1,ABBY
 Palatka city,32177,FL,1,EASY
 Palm Bay city,32907,FL,1,JULIA
 "Palm Valley CDP, Sawgrass CDP",32082,FL,1,BERYL
@@ -1930,8 +1930,8 @@ Port republic,24471,VA,1,BOB
 "Porterdale city, Oxford city, Covington city, Jersey city, Walnut Grove city",30014,GA,1,JERRY
 Portland borough,18343,PA,1,ISAIAS
 "Portland city, Corpus Christi city, Ingleside city, Gregory city, Doyle CDP",78374,TX,1,CHARLEY
-Portsmouth city,23703,VA,1,CINDY
 Portsmouth city,23704,VA,1,BOB
+Portsmouth city,23703,VA,1,CINDY
 Post city,79356,TX,1,ERIN
 Poteau city,74953,OK,1,FELICE
 Poteet city,78065,TX,1,DANIELLE
@@ -2028,8 +2028,8 @@ Rumney,03266,NH,1,DORIA
 "Russellville village, Higginsport village, Georgetown village",45121,OH,1,BETSY
 Ryegate,05042,VT,1,IRENE
 "Sagaponack village, Bridgehampton CDP",11932,NY,1,ELSA
-Salem,36874,AL,1,SALLY
 Salem,03079,NH,1,DONNA
+Salem,36874,AL,1,SALLY
 Salem city,47167,IN,1,ERIN
 "Saline village, Ashland village",71070,LA,1,LAURA
 Saltsburg borough,15681,PA,1,SANDY
@@ -2060,8 +2060,8 @@ Scranton,27875,NC,1,BONNIE
 "Sealy city, San Felipe town, Brazos Country city",77474,TX,1,DELIA
 Sebring city,33876,FL,1,IAN
 Sedley CDP,23878,VA,1,ERNESTO
-"Selmont-West Selmont CDP, Selma city, Valley Grande city",36703,AL,1,ALBERTO
 "Selmont-West Selmont CDP, Selma city, Valley Grande city",36701,AL,1,DANNY
+"Selmont-West Selmont CDP, Selma city, Valley Grande city",36703,AL,1,ALBERTO
 Seminole,36574,AL,1,DANNY
 "Seminole city, Largo city, Ridgecrest CDP",33778,FL,1,HENRI
 Seven Springs town,28578,NC,1,ERNESTO
@@ -2087,8 +2087,8 @@ Sherrill town,72152,AR,1,GORDON
 Shiner city,77984,TX,1,CARLA
 Shipman CDP,22971,VA,1,DIANE
 Shively city,40216,KY,1,BILL
-Shreveport city,71115,LA,1,BARRY
 Shreveport city,71106,LA,1,GUSTAV
+Shreveport city,71115,LA,1,BARRY
 Shubuta town,39360,MS,1,ERIN
 "Sierra Vista city, Sierra Vista Southeast CDP",85635,AZ,1,HYACINTH
 Sikes village,71473,LA,1,ISAAC
@@ -2248,8 +2248,8 @@ Trout,71371,LA,1,HUMBERTO
 Tryon town,28782,NC,1,ABBY
 "Tuckerton borough, Mystic Island CDP",08087,NJ,1,FAY
 "Turkey Creek village, Cheneyville town",71325,LA,1,BERYL
-Tuscaloosa city,35446,AL,1,BILL
 Tuscaloosa city,35405,AL,1,NATE
+Tuscaloosa city,35446,AL,1,BILL
 "Tuscaloosa city, Coaling town, Brookwood town",35453,AL,1,EDITH
 "Tuscaloosa city, Northport city",35475,AL,1,BABE
 Twentynine Palms city,92277,CA,1,HYACINTH
@@ -2276,8 +2276,8 @@ Vansant CDP,24631,VA,1,ELOISE
 Vanzant,65768,MO,1,CRISTOBAL
 "Varnville town, Hampton town",29944,SC,1,CHRIS
 Vass town,28394,NC,1,DANNY
-"Vero Beach South CDP, Florida Ridge CDP",32962,FL,1,DAVID
 "Vero Beach South CDP, Florida Ridge CDP",32968,FL,1,JULIA
+"Vero Beach South CDP, Florida Ridge CDP",32962,FL,1,DAVID
 "Vero Beach city, Wabasso CDP, Winter Beach CDP, Sebastian city, Gifford CDP, Fellsmere city",32967,FL,1,ERIN
 Versailles city,40383,KY,1,HARVEY
 Versailles town,47042,IN,1,CLAUDETTE
@@ -2331,8 +2331,8 @@ Water Valley city,42085,KY,1,CAMILLE
 Waterproof town,71375,LA,1,FLORENCE
 "Watertown CDP, Lake City city, Five Points CDP",32055,FL,1,ALMA
 Watha town,28478,NC,1,FLOSSY
-"Waveland city, Bay St. Louis city",39576,MS,1,CAMILLE
 "Waveland city, Bay St. Louis city",39520,MS,1,CINDY
+"Waveland city, Bay St. Louis city",39576,MS,1,CAMILLE
 Waveland town,47989,IN,1,ALBERTO
 Waverly,31565,GA,1,HILDA
 Waverly city,42462,KY,1,BILL
@@ -2355,8 +2355,8 @@ Wesley Chapel CDP,33544,FL,1,EASY
 "West Chatham CDP, Chatham CDP",02633,MA,1,HERMINE
 "West Glens Falls CDP, Glens Falls North CDP, Glens Falls city",12804,NY,1,DAVID
 "West Jefferson town, Jefferson town",28694,NC,1,ABBY
-"West Point city, LaGrange city",30240,GA,1,ALBERTO
 "West Point city, LaGrange city",31833,GA,1,ALBERTO
+"West Point city, LaGrange city",30240,GA,1,ALBERTO
 "West Union town, Walhalla city",29691,SC,1,BERYL
 West bridgewater,02379,MA,1,ELSA
 West orange,07052,NJ,1,FAY

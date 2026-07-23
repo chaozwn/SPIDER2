@@ -1,10 +1,14 @@
-report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_BRAND_NAME_CLEAN,PRODUCTS_INDUSTRY_CODE_CLEAN,PRODUCTS_ROLE_CLEAN,PRODUCTS_INDUSTRY_NAME_CLEAN,consumer_gender,consumer_age,consumer_age_unit,INDUSTRY_CODE_LENGTH,BRAND_NAME_LENGTH
+report_number,date_created,date_started,reactions_array,outcomes_array,products_brand_name_clean,products_brand_array,brand_name_length,products_industry_code_clean,products_industry_code_array,industry_code_length,products_role_clean,products_industry_name_clean,consumer_age,consumer_age_unit,consumer_gender
 181712,2015-01-02,2015-01-01,"[
   ""BLISTER"",
   ""PAIN""
 ]","[
   ""Other Outcome""
-]",EXEMPTION 4,53,SUSPECT,Cosmetics,Male,49.0,year(s),1,1
+]",EXEMPTION 4,"[
+  ""EXEMPTION 4""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,49.0,year(s),Male
 181736,2015-01-05,2015-01-02,"[
   ""BLOOD PRESSURE INCREASED"",
   ""DECREASED APPETITE"",
@@ -16,7 +20,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Life Threatening""
-]",QUNOL - LIQUID COQ10 ORANGE PINEAPPLE FLAVOR 100 MG,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,29.0,year(s),1,1
+]",QUNOL - LIQUID COQ10 ORANGE PINEAPPLE FLAVOR 100 MG,"[
+  ""QUNOL - LIQUID COQ10 ORANGE PINEAPPLE FLAVOR 100 MG""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),29.0,year(s),Female
 181736,2015-01-05,2015-01-02,"[
   ""BLOOD PRESSURE INCREASED"",
   ""DECREASED APPETITE"",
@@ -28,7 +36,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Life Threatening""
-]",ORGANIC FOLIC ACID,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,29.0,year(s),1,1
+]",ORGANIC FOLIC ACID,"[
+  ""ORGANIC FOLIC ACID""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),29.0,year(s),Female
 181736,2015-01-05,2015-01-02,"[
   ""BLOOD PRESSURE INCREASED"",
   ""DECREASED APPETITE"",
@@ -40,14 +52,22 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Life Threatening""
-]",SOLAR FENUGREEK,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,29.0,year(s),1,1
+]",SOLAR FENUGREEK,"[
+  ""SOLAR FENUGREEK""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),29.0,year(s),Female
 181764,2015-01-06,2015-01-05,"[
   ""DYSPNOEA"",
   ""THROAT IRRITATION"",
   ""THROAT TIGHTNESS""
 ]","[
   ""Disability""
-]",GALA APPLE,20,SUSPECT,Fruit/Fruit Prod,Male,44.0,year(s),1,1
+]",GALA APPLE,"[
+  ""GALA APPLE""
+]",1,20,"[
+  ""20""
+]",1,SUSPECT,Fruit/Fruit Prod,44.0,year(s),Male
 181771,2015-01-07,2015-01-03,"[
   ""BURNING SENSATION"",
   ""ERYTHEMA"",
@@ -61,7 +81,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VISUAL ACUITY REDUCED""
 ]","[
   ""Other Outcome""
-]",REVITA EYE CREAM,53,SUSPECT,Cosmetics,Female,68.0,year(s),1,1
+]",REVITA EYE CREAM,"[
+  ""REVITA EYE CREAM""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,68.0,year(s),Female
 181787,2015-01-06,2015-01-04,"[
   ""ABDOMINAL DISCOMFORT"",
   ""DYSPNOEA"",
@@ -71,7 +95,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Hospitalization""
-]",SPIRULINA NATURAL,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,56.0,year(s),1,1
+]",SPIRULINA NATURAL,"[
+  ""SPIRULINA NATURAL""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),56.0,year(s),Male
 181800,2015-01-07,2015-01-06,"[
   ""CHEST PAIN"",
   ""COUGH"",
@@ -82,7 +110,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""RENAL PAIN""
 ]","[
   ""Other Serious or Important Medical Event""
-]",PROSTACARE,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,56.0,year(s),1,1
+]",PROSTACARE,"[
+  ""PROSTACARE""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),56.0,year(s),Male
 181800,2015-01-07,2015-01-06,"[
   ""CHEST PAIN"",
   ""COUGH"",
@@ -93,7 +125,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""RENAL PAIN""
 ]","[
   ""Other Serious or Important Medical Event""
-]",JOINT FORMULA,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,56.0,year(s),1,1
+]",JOINT FORMULA,"[
+  ""JOINT FORMULA""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),56.0,year(s),Male
 181800,2015-01-07,2015-01-06,"[
   ""CHEST PAIN"",
   ""COUGH"",
@@ -104,7 +140,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""RENAL PAIN""
 ]","[
   ""Other Serious or Important Medical Event""
-]",CALCIUM CITRATE COMPLEX,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,56.0,year(s),1,1
+]",CALCIUM CITRATE COMPLEX,"[
+  ""CALCIUM CITRATE COMPLEX""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),56.0,year(s),Male
 181800,2015-01-07,2015-01-06,"[
   ""CHEST PAIN"",
   ""COUGH"",
@@ -115,7 +155,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""RENAL PAIN""
 ]","[
   ""Other Serious or Important Medical Event""
-]",SOURCE NATURALS WELLNESS FORMULA,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,56.0,year(s),1,1
+]",SOURCE NATURALS WELLNESS FORMULA,"[
+  ""SOURCE NATURALS WELLNESS FORMULA""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),56.0,year(s),Male
 181820,2015-01-07,2015-01-01,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
@@ -125,26 +169,42 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""Viral infection""
 ]","[
   ""Visited a Health Care Provider""
-]",LUCERNE HOLIDAY EGG NOG,9,SUSPECT,Milk/Butter/Dried Milk Prod,Male,10.0,year(s),1,1
+]",LUCERNE HOLIDAY EGG NOG,"[
+  ""LUCERNE HOLIDAY EGG NOG""
+]",1,9,"[
+  ""9""
+]",1,SUSPECT,Milk/Butter/Dried Milk Prod,10.0,year(s),Male
 181832,2015-01-08,2015-01-05,"[
   ""ABDOMINAL DISCOMFORT"",
   ""ABDOMINAL PAIN UPPER"",
   ""CRYING""
 ]","[
   ""Other Outcome""
-]",EXEMPTION 4,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,4.0,day(s),1,1
+]",EXEMPTION 4,"[
+  ""EXEMPTION 4""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),4.0,day(s),Male
 181834,2015-01-08,2015-01-04,"[
   ""DYSGEUSIA"",
   ""HYPERSENSITIVITY""
 ]","[
   ""Other Outcome""
-]",TRADER JOE'S RAW PIGNOLI'S,23,SUSPECT,Nuts/Edible Seed,Female,41.0,year(s),1,1
+]",TRADER JOE'S RAW PIGNOLI'S,"[
+  ""TRADER JOE'S RAW PIGNOLI'S""
+]",1,23,"[
+  ""23""
+]",1,SUSPECT,Nuts/Edible Seed,41.0,year(s),Female
 181880,2015-01-09,2015-01-07,"[
   ""COUGH"",
   ""DYSPNOEA""
 ]","[
   ""Disability""
-]",KERATIN TREATMENT REJUVENOL,53,SUSPECT,Cosmetics,Female,29.31,year(s),1,1
+]",KERATIN TREATMENT REJUVENOL,"[
+  ""KERATIN TREATMENT REJUVENOL""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,29.31,year(s),Female
 181881,2015-01-09,2015-01-05,"[
   ""BURNING SENSATION"",
   ""CHEST DISCOMFORT"",
@@ -156,7 +216,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Disability"",
   ""Visited a Health Care Provider""
-]",PRICE CHOPPER PASTA AND ALFREDO PACKET,4,SUSPECT,Macaroni/Noodle Prod,Male,38.0,year(s),1,1
+]",PRICE CHOPPER PASTA AND ALFREDO PACKET,"[
+  ""PRICE CHOPPER PASTA AND ALFREDO PACKET""
+]",1,4,"[
+  ""4""
+]",1,SUSPECT,Macaroni/Noodle Prod,38.0,year(s),Male
 181886,2015-01-12,2015-01-07,"[
   ""ABDOMINAL DISTENSION"",
   ""DIARRHOEA"",
@@ -165,7 +229,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",DE WAFELBAKKERS BUTTER MILK PANCAKES FROZEN 18 PACK,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Male,53.0,year(s),1,1
+]",DE WAFELBAKKERS BUTTER MILK PANCAKES FROZEN 18 PACK,"[
+  ""DE WAFELBAKKERS BUTTER MILK PANCAKES FROZEN 18 PACK""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,53.0,year(s),Male
 181888,2015-01-12,2015-01-07,"[
   ""ABDOMINAL DISTENSION"",
   ""DIARRHOEA"",
@@ -174,21 +242,33 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",DE WAFELBAKKERS BUTTER MILK PANCAKES FROZEN 18 PACK,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Female,10.0,year(s),1,1
+]",DE WAFELBAKKERS BUTTER MILK PANCAKES FROZEN 18 PACK,"[
+  ""DE WAFELBAKKERS BUTTER MILK PANCAKES FROZEN 18 PACK""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,10.0,year(s),Female
 181899,2015-01-12,2015-01-10,"[
   ""BURNING SENSATION"",
   ""ERYTHEMA"",
   ""HYPERSENSITIVITY""
 ]","[
   ""Other Outcome""
-]",CENTRUM MULTI VITAMINS,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,53.0,year(s),1,1
+]",CENTRUM MULTI VITAMINS,"[
+  ""CENTRUM MULTI VITAMINS""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),53.0,year(s),Male
 181899,2015-01-12,2015-01-10,"[
   ""BURNING SENSATION"",
   ""ERYTHEMA"",
   ""HYPERSENSITIVITY""
 ]","[
   ""Other Outcome""
-]",MAGIC RAZORLESS CREAM SHAVE,53,SUSPECT,Cosmetics,Male,53.0,year(s),1,1
+]",MAGIC RAZORLESS CREAM SHAVE,"[
+  ""MAGIC RAZORLESS CREAM SHAVE""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,53.0,year(s),Male
 181903,2015-01-12,2015-01-08,"[
   ""ABDOMINAL PAIN UPPER"",
   ""ASTHMA"",
@@ -196,7 +276,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""URTICARIA""
 ]","[
   ""Other Outcome""
-]",WHITE CHUNK MACADAMIA COOKIE DOUGH,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Female,56.0,year(s),1,1
+]",WHITE CHUNK MACADAMIA COOKIE DOUGH,"[
+  ""WHITE CHUNK MACADAMIA COOKIE DOUGH""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,56.0,year(s),Female
 181906,2015-01-12,2015-01-04,"[
   ""CHEILITIS"",
   ""DRY SKIN"",
@@ -204,79 +288,127 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""LIP HAEMORRHAGE""
 ]","[
   ""Other Outcome""
-]",EOS SMOOTH SPHERE LIP BALM,53,SUSPECT,Cosmetics,Female,25.0,year(s),1,1
+]",EOS SMOOTH SPHERE LIP BALM,"[
+  ""EOS SMOOTH SPHERE LIP BALM""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,25.0,year(s),Female
 181928,2015-01-13,2015-01-12,"[
   ""ABDOMINAL PAIN"",
   ""ARTHRITIS"",
   ""MYALGIA""
 ]","[
   ""Disability""
-]",FISH OIL,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,62.0,year(s),1,1
+]",FISH OIL,"[
+  ""FISH OIL""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),62.0,year(s),Female
 181928,2015-01-13,2015-01-12,"[
   ""ABDOMINAL PAIN"",
   ""ARTHRITIS"",
   ""MYALGIA""
 ]","[
   ""Disability""
-]",VITAMIN D,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,62.0,year(s),1,1
+]",VITAMIN D,"[
+  ""VITAMIN D""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),62.0,year(s),Female
 181928,2015-01-13,2015-01-12,"[
   ""ABDOMINAL PAIN"",
   ""ARTHRITIS"",
   ""MYALGIA""
 ]","[
   ""Disability""
-]",VITAMIN C,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,62.0,year(s),1,1
+]",VITAMIN C,"[
+  ""VITAMIN C""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),62.0,year(s),Female
 181928,2015-01-13,2015-01-12,"[
   ""ABDOMINAL PAIN"",
   ""ARTHRITIS"",
   ""MYALGIA""
 ]","[
   ""Disability""
-]",VITAMIN  B COMPLEX,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,62.0,year(s),1,1
+]",VITAMIN  B COMPLEX,"[
+  ""VITAMIN  B COMPLEX""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),62.0,year(s),Female
 181928,2015-01-13,2015-01-12,"[
   ""ABDOMINAL PAIN"",
   ""ARTHRITIS"",
   ""MYALGIA""
 ]","[
   ""Disability""
-]",TUMERIC,28,CONCOMITANT,Spices -- Flavors And Salts,Female,62.0,year(s),1,1
+]",TUMERIC,"[
+  ""TUMERIC""
+]",1,28,"[
+  ""28""
+]",1,CONCOMITANT,Spices -- Flavors And Salts,62.0,year(s),Female
 181928,2015-01-13,2015-01-12,"[
   ""ABDOMINAL PAIN"",
   ""ARTHRITIS"",
   ""MYALGIA""
 ]","[
   ""Disability""
-]",GLUCOSAMINE-CONDRITIN,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,62.0,year(s),1,1
+]",GLUCOSAMINE-CONDRITIN,"[
+  ""GLUCOSAMINE-CONDRITIN""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),62.0,year(s),Female
 181928,2015-01-13,2015-01-12,"[
   ""ABDOMINAL PAIN"",
   ""ARTHRITIS"",
   ""MYALGIA""
 ]","[
   ""Disability""
-]",CALCIUM-MAGNEISUM-ZINC,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,62.0,year(s),1,1
+]",CALCIUM-MAGNEISUM-ZINC,"[
+  ""CALCIUM-MAGNEISUM-ZINC""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),62.0,year(s),Female
 181928,2015-01-13,2015-01-12,"[
   ""ABDOMINAL PAIN"",
   ""ARTHRITIS"",
   ""MYALGIA""
 ]","[
   ""Disability""
-]",KIRKLAND WHOLE FANCY CASHEWS,23,SUSPECT,Nuts/Edible Seed,Female,62.0,year(s),1,1
+]",KIRKLAND WHOLE FANCY CASHEWS,"[
+  ""KIRKLAND WHOLE FANCY CASHEWS""
+]",1,23,"[
+  ""23""
+]",1,SUSPECT,Nuts/Edible Seed,62.0,year(s),Female
 181931,2015-01-13,2015-01-11,"[
   ""LIP SWELLING"",
   ""SWELLING FACE""
 ]","[
   ""Other Serious or Important Medical Event""
-]",EOS LIP BALM,53,SUSPECT,Cosmetics,Male,48.0,year(s),1,1
+]",EOS LIP BALM,"[
+  ""EOS LIP BALM""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,48.0,year(s),Male
 181951,2015-01-07,2015-01-04,"[
   ""ABDOMINAL PAIN UPPER""
 ]","[
   ""Other Outcome""
-]",NABISCO EASY CHEESE CHEDDAR,12,SUSPECT,Cheese/Cheese Prod,Female,,,1,1
+]",NABISCO EASY CHEESE CHEDDAR,"[
+  ""NABISCO EASY CHEESE CHEDDAR""
+]",1,12,"[
+  ""12""
+]",1,SUSPECT,Cheese/Cheese Prod,,,Female
 181967,2015-01-14,2015-01-12,"[
   ""DYSURIA""
 ]","[
   ""Other Outcome""
-]",THERALOGIX THERALITH XR,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,38.0,year(s),1,1
+]",THERALOGIX THERALITH XR,"[
+  ""THERALOGIX THERALITH XR""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),38.0,year(s),Female
 181970,2015-01-14,2015-01-10,"[
   ""CHAPPED LIPS"",
   ""CHEILITIS"",
@@ -285,12 +417,20 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""LIP SWELLING""
 ]","[
   ""Other Outcome""
-]",EOS LIP BALM,53,SUSPECT,Cosmetics,Female,26.0,year(s),1,1
+]",EOS LIP BALM,"[
+  ""EOS LIP BALM""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,26.0,year(s),Female
 181971,2015-01-14,2015-01-13,"[
   ""HEADACHE""
 ]","[
   ""Other Outcome""
-]",ENJOY LIFE CRUNCH FLAX WITH CHIA CEREAL,5,SUSPECT,Cereal Prep/Breakfast Food,Female,30.0,year(s),1,1
+]",ENJOY LIFE CRUNCH FLAX WITH CHIA CEREAL,"[
+  ""ENJOY LIFE CRUNCH FLAX WITH CHIA CEREAL""
+]",1,5,"[
+  ""5""
+]",1,SUSPECT,Cereal Prep/Breakfast Food,30.0,year(s),Female
 181972,2015-01-14,2015-01-04,"[
   ""BURNING SENSATION"",
   ""DYSPNOEA"",
@@ -304,17 +444,29 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""Life Threatening"",
   ""Hospitalization"",
   ""Visited Emergency Room""
-]",CLASSIC LAYS,7,SUSPECT,Snack Food Item,Male,66.0,year(s),1,1
+]",CLASSIC LAYS,"[
+  ""CLASSIC LAYS""
+]",1,7,"[
+  ""7""
+]",1,SUSPECT,Snack Food Item,66.0,year(s),Male
 181973,2015-01-14,2015-01-13,"[
   ""NAUSEA""
 ]","[
   ""Other Serious or Important Medical Event""
-]",QUORN CHICKEN PATTY,18,SUSPECT,Vegetable Protein Prod,Female,30.0,year(s),1,1
+]",QUORN CHICKEN PATTY,"[
+  ""QUORN CHICKEN PATTY""
+]",1,18,"[
+  ""18""
+]",1,SUSPECT,Vegetable Protein Prod,30.0,year(s),Female
 181993,2015-01-14,2015-01-07,"[
   ""BLOOD URINE PRESENT""
 ]","[
   ""Other Serious or Important Medical Event""
-]",SUPER BETA PROSTATE,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,60.0,year(s),1,1
+]",SUPER BETA PROSTATE,"[
+  ""SUPER BETA PROSTATE""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),60.0,year(s),Male
 181994,2015-01-14,2015-01-13,"[
   ""ABDOMINAL DISCOMFORT"",
   ""ABDOMINAL PAIN UPPER"",
@@ -324,7 +476,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",EXEMPTION 4,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,55.0,year(s),1,1
+]",EXEMPTION 4,"[
+  ""EXEMPTION 4""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),55.0,year(s),Female
 181996,2015-01-15,2015-01-13,"[
   ""ANXIETY"",
   ""CHILLS"",
@@ -338,20 +494,32 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",SYNEDREX POWERFUL STIMULANT WEIGHT LOSS SUPPLEMENT,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,24.0,year(s),1,1
+]",SYNEDREX POWERFUL STIMULANT WEIGHT LOSS SUPPLEMENT,"[
+  ""SYNEDREX POWERFUL STIMULANT WEIGHT LOSS SUPPLEMENT""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),24.0,year(s),Female
 181998,2015-01-15,2015-01-08,"[
   ""HEADACHE"",
   ""PRIAPISM""
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited a Health Care Provider""
-]",JACK RABBIT,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,33.0,year(s),1,1
+]",JACK RABBIT,"[
+  ""JACK RABBIT""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),33.0,year(s),Male
 182020,2015-01-07,2015-01-07,"[
   ""DYSGEUSIA"",
   ""HYPERSENSITIVITY""
 ]","[
   ""Other Outcome""
-]",PASTENE PIGNOLI PINE NUTS,23,SUSPECT,Nuts/Edible Seed,Male,,,1,1
+]",PASTENE PIGNOLI PINE NUTS,"[
+  ""PASTENE PIGNOLI PINE NUTS""
+]",1,23,"[
+  ""23""
+]",1,SUSPECT,Nuts/Edible Seed,,,Male
 182028,2015-01-15,2015-01-03,"[
   ""BURNING SENSATION"",
   ""ERYTHEMA"",
@@ -367,7 +535,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""URTICARIA""
 ]","[
   ""Other Serious or Important Medical Event""
-]",VITAMIN D,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,53.0,year(s),1,1
+]",VITAMIN D,"[
+  ""VITAMIN D""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),53.0,year(s),Female
 182028,2015-01-15,2015-01-03,"[
   ""BURNING SENSATION"",
   ""ERYTHEMA"",
@@ -383,7 +555,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""URTICARIA""
 ]","[
   ""Other Serious or Important Medical Event""
-]",CARMEX REPLENISHING CREAM,53,SUSPECT,Cosmetics,Female,53.0,year(s),1,1
+]",CARMEX REPLENISHING CREAM,"[
+  ""CARMEX REPLENISHING CREAM""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,53.0,year(s),Female
 182028,2015-01-15,2015-01-03,"[
   ""BURNING SENSATION"",
   ""ERYTHEMA"",
@@ -399,41 +575,65 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""URTICARIA""
 ]","[
   ""Other Serious or Important Medical Event""
-]",VITAMIN C,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,53.0,year(s),1,1
+]",VITAMIN C,"[
+  ""VITAMIN C""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),53.0,year(s),Female
 182029,2015-01-15,2015-01-13,"[
   ""ABDOMINAL PAIN"",
   ""ABDOMINAL PAIN UPPER""
 ]","[
   ""Other Outcome""
-]",XYLA SWEETENER,36,SUSPECT,Food Sweeteners (Nutritive),Female,53.0,year(s),1,1
+]",XYLA SWEETENER,"[
+  ""XYLA SWEETENER""
+]",1,36,"[
+  ""36""
+]",1,SUSPECT,Food Sweeteners (Nutritive),53.0,year(s),Female
 182030,2015-01-15,2015-01-08,"[
   ""BURNING SENSATION"",
   ""FEAR"",
   ""PAIN""
 ]","[
   ""Disability""
-]",MAGNESIUM GLYCINATE,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,44.0,year(s),1,1
+]",MAGNESIUM GLYCINATE,"[
+  ""MAGNESIUM GLYCINATE""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),44.0,year(s),Female
 182030,2015-01-15,2015-01-08,"[
   ""BURNING SENSATION"",
   ""FEAR"",
   ""PAIN""
 ]","[
   ""Disability""
-]",BRAZILIAN BLOWOUT,53,SUSPECT,Cosmetics,Female,44.0,year(s),1,1
+]",BRAZILIAN BLOWOUT,"[
+  ""BRAZILIAN BLOWOUT""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,44.0,year(s),Female
 182030,2015-01-15,2015-01-08,"[
   ""BURNING SENSATION"",
   ""FEAR"",
   ""PAIN""
 ]","[
   ""Disability""
-]",VITAMIN C,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,44.0,year(s),1,1
+]",VITAMIN C,"[
+  ""VITAMIN C""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),44.0,year(s),Female
 182030,2015-01-15,2015-01-08,"[
   ""BURNING SENSATION"",
   ""FEAR"",
   ""PAIN""
 ]","[
   ""Disability""
-]",ADVACLEAR,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,44.0,year(s),1,1
+]",ADVACLEAR,"[
+  ""ADVACLEAR""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),44.0,year(s),Female
 182031,2015-01-15,2015-01-10,"[
   ""ASTHENOPIA"",
   ""EYE INFECTION"",
@@ -444,7 +644,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""SECRETION DISCHARGE""
 ]","[
   ""Other Serious or Important Medical Event""
-]",LANCOME KOHL IN LOVE EYE PENCIL,53,SUSPECT,Cosmetics,Male,52.0,year(s),1,1
+]",LANCOME KOHL IN LOVE EYE PENCIL,"[
+  ""LANCOME KOHL IN LOVE EYE PENCIL""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,52.0,year(s),Male
 182032,2015-01-15,2015-01-06,"[
   ""EXPOSURE TO TOXIC AGENT"",
   ""EYE IRRITATION"",
@@ -452,7 +656,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""IMPAIRED HEALING""
 ]","[
   ""Other Serious or Important Medical Event""
-]",HONEY MAID LOW FAT GRAHAM CRACKERS,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Female,5.0,day(s),1,1
+]",HONEY MAID LOW FAT GRAHAM CRACKERS,"[
+  ""HONEY MAID LOW FAT GRAHAM CRACKERS""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,5.0,day(s),Female
 182032,2015-01-15,2015-01-06,"[
   ""EXPOSURE TO TOXIC AGENT"",
   ""EYE IRRITATION"",
@@ -460,12 +668,20 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""IMPAIRED HEALING""
 ]","[
   ""Other Serious or Important Medical Event""
-]",1 A DAY VITAMIN,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,5.0,day(s),1,1
+]",1 A DAY VITAMIN,"[
+  ""1 A DAY VITAMIN""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),5.0,day(s),Female
 182033,2015-01-15,2015-01-13,"[
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",GERBER GOOD START GENTAL BABY FORMULA,40,SUSPECT,Baby Food Products,Female,6.0,month(s),1,1
+]",GERBER GOOD START GENTAL BABY FORMULA,"[
+  ""GERBER GOOD START GENTAL BABY FORMULA""
+]",1,40,"[
+  ""40""
+]",1,SUSPECT,Baby Food Products,6.0,month(s),Female
 182043,2015-01-16,2015-01-14,"[
   ""ASTHMA"",
   ""COUGH"",
@@ -478,7 +694,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""Life Threatening"",
   ""Disability"",
   ""Visited Emergency Room""
-]",REVLON COLORSTAY OVERTIME SCARLET,53,SUSPECT,Cosmetics,Female,31.0,year(s),1,1
+]",REVLON COLORSTAY OVERTIME SCARLET,"[
+  ""REVLON COLORSTAY OVERTIME SCARLET""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,31.0,year(s),Female
 182044,2015-01-16,2015-01-12,"[
   ""ABDOMINAL PAIN LOWER"",
   ""CONDITION AGGRAVATED"",
@@ -488,7 +708,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Disability"",
   ""Other Serious or Important Medical Event""
-]",WOMEN'S MULTI-VITAMIN,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,33.0,year(s),1,1
+]",WOMEN'S MULTI-VITAMIN,"[
+  ""WOMEN'S MULTI-VITAMIN""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),33.0,year(s),Female
 182044,2015-01-16,2015-01-12,"[
   ""ABDOMINAL PAIN LOWER"",
   ""CONDITION AGGRAVATED"",
@@ -498,7 +722,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Disability"",
   ""Other Serious or Important Medical Event""
-]",MEGA RED KRILL OIL,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,33.0,year(s),1,1
+]",MEGA RED KRILL OIL,"[
+  ""MEGA RED KRILL OIL""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),33.0,year(s),Female
 182044,2015-01-16,2015-01-12,"[
   ""ABDOMINAL PAIN LOWER"",
   ""CONDITION AGGRAVATED"",
@@ -508,22 +736,38 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Disability"",
   ""Other Serious or Important Medical Event""
-]",LACTAID FAST ACT ULTRA,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,33.0,year(s),1,1
+]",LACTAID FAST ACT ULTRA,"[
+  ""LACTAID FAST ACT ULTRA""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),33.0,year(s),Female
 182045,2015-01-16,2015-01-11,"[
   ""BLOOD PRESSURE INCREASED""
 ]","[
   ""Other Serious or Important Medical Event""
-]",NATURE'S BOUNTY FISH OIL,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,67.0,year(s),1,1
+]",NATURE'S BOUNTY FISH OIL,"[
+  ""NATURE'S BOUNTY FISH OIL""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),67.0,year(s),Female
 182045,2015-01-16,2015-01-11,"[
   ""BLOOD PRESSURE INCREASED""
 ]","[
   ""Other Serious or Important Medical Event""
-]",CITRACAL +D3,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,67.0,year(s),1,1
+]",CITRACAL +D3,"[
+  ""CITRACAL +D3""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),67.0,year(s),Female
 182045,2015-01-16,2015-01-11,"[
   ""BLOOD PRESSURE INCREASED""
 ]","[
   ""Other Serious or Important Medical Event""
-]",BENEFIBER,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,67.0,year(s),1,1
+]",BENEFIBER,"[
+  ""BENEFIBER""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),67.0,year(s),Female
 182046,2015-01-16,2015-01-10,"[
   ""BLISTER"",
   ""DRUG HYPERSENSITIVITY"",
@@ -534,13 +778,21 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""Life Threatening"",
   ""Hospitalization"",
   ""Visited Emergency Room""
-]",ZARBEE'S NATURALS,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,9.0,month(s),1,1
+]",ZARBEE'S NATURALS,"[
+  ""ZARBEE'S NATURALS""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),9.0,month(s),Male
 182047,2015-01-07,2015-01-07,"[
   ""DYSGEUSIA"",
   ""HYPERSENSITIVITY""
 ]","[
   ""Other Outcome""
-]",PASTENE PIGNOLI PINE NUTS,23,SUSPECT,Nuts/Edible Seed,Female,,,1,1
+]",PASTENE PIGNOLI PINE NUTS,"[
+  ""PASTENE PIGNOLI PINE NUTS""
+]",1,23,"[
+  ""23""
+]",1,SUSPECT,Nuts/Edible Seed,,,Female
 182053,2015-01-16,2015-01-01,"[
   ""COUGH"",
   ""DYSPHAGIA"",
@@ -552,7 +804,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited Emergency Room""
-]",CENTRUM SILVER WOMEN'S 50+ MULTIMINERALS MULTIVITAMINS TABLET,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,72.0,year(s),1,1
+]",CENTRUM SILVER WOMEN'S 50+ MULTIMINERALS MULTIVITAMINS TABLET,"[
+  ""CENTRUM SILVER WOMEN'S 50+ MULTIMINERALS MULTIVITAMINS TABLET""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),72.0,year(s),Female
 182063,2015-01-19,2015-01-15,"[
   ""DEHYDRATION"",
   ""DIARRHOEA"",
@@ -560,12 +816,20 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",PURIUM POWER SHAKE-APPLE BERRY FLAVOR,41,SUSPECT,Dietary Conventional Foods/Meal Replacements,Female,,,1,1
+]",PURIUM POWER SHAKE-APPLE BERRY FLAVOR,"[
+  ""PURIUM POWER SHAKE-APPLE BERRY FLAVOR""
+]",1,41,"[
+  ""41""
+]",1,SUSPECT,Dietary Conventional Foods/Meal Replacements,,,Female
 182064,2015-01-20,2015-01-19,"[
   ""INTESTINAL OBSTRUCTION""
 ]","[
   ""Other Outcome""
-]",EXEMPTION 4,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,,,1,1
+]",EXEMPTION 4,"[
+  ""EXEMPTION 4""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),,,Female
 182072,2015-01-20,2015-01-04,"[
   ""BURNING SENSATION"",
   ""DYSPNOEA"",
@@ -578,7 +842,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited Emergency Room""
-]",LAYS CLASSIC POTATO CHIPS,7,SUSPECT,Snack Food Item,Female,,,1,1
+]",LAYS CLASSIC POTATO CHIPS,"[
+  ""LAYS CLASSIC POTATO CHIPS""
+]",1,7,"[
+  ""7""
+]",1,SUSPECT,Snack Food Item,,,Female
 182091,2015-01-07,2015-01-01,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
@@ -587,13 +855,21 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Visited a Health Care Provider""
-]",LUCERNE HOLIDAY EGG NOG,9,SUSPECT,Milk/Butter/Dried Milk Prod,Female,10.0,year(s),1,1
+]",LUCERNE HOLIDAY EGG NOG,"[
+  ""LUCERNE HOLIDAY EGG NOG""
+]",1,9,"[
+  ""9""
+]",1,SUSPECT,Milk/Butter/Dried Milk Prod,10.0,year(s),Female
 182108,2015-01-20,2015-01-14,"[
   ""CHOKING"",
   ""DIARRHOEA""
 ]","[
   ""Other Outcome""
-]",SHOP RITE 2% MILK,9,SUSPECT,Milk/Butter/Dried Milk Prod,Female,,,1,1
+]",SHOP RITE 2% MILK,"[
+  ""SHOP RITE 2% MILK""
+]",1,9,"[
+  ""9""
+]",1,SUSPECT,Milk/Butter/Dried Milk Prod,,,Female
 182123,2015-01-22,2015-01-07,"[
   ""ASTHENIA"",
   ""DIZZINESS"",
@@ -605,55 +881,92 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Visited Emergency Room""
-]",WILD OATS MARKET ORGANIC MINESTRONE SOUP,38,SUSPECT,Soup,Female,82.0,year(s),1,1
+]",WILD OATS MARKET ORGANIC MINESTRONE SOUP,"[
+  ""WILD OATS MARKET ORGANIC MINESTRONE SOUP""
+]",1,38,"[
+  ""38""
+]",1,SUSPECT,Soup,82.0,year(s),Female
 182128,2015-01-14,2015-01-09,"[
   ""DIARRHOEA"",
   ""NAUSEA"",
   ""PSYCHOSOMATIC DISEASE""
 ]","[
   ""Other Outcome""
-]",MCCORMICK MILD CHILI SEASONING MIX 30% LESS SODIUM,28,SUSPECT,Spices -- Flavors And Salts,Male,,,1,1
+]",MCCORMICK MILD CHILI SEASONING MIX 30% LESS SODIUM,"[
+  ""MCCORMICK MILD CHILI SEASONING MIX 30% LESS SODIUM""
+]",1,28,"[
+  ""28""
+]",1,SUSPECT,Spices -- Flavors And Salts,,,Male
 182139,2015-01-23,2015-01-12,"[
   ""ABDOMINAL DISCOMFORT"",
   ""CHOKING"",
   ""DYSPHAGIA""
 ]","[
   ""Other Serious or Important Medical Event""
-]",VITAMIN E,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,88.0,year(s),1,1
+]",VITAMIN E,"[
+  ""VITAMIN E""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),88.0,year(s),Female
 182139,2015-01-23,2015-01-12,"[
   ""ABDOMINAL DISCOMFORT"",
   ""CHOKING"",
   ""DYSPHAGIA""
 ]","[
   ""Other Serious or Important Medical Event""
-]",FISH OIL,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,88.0,year(s),1,1
+]",FISH OIL,"[
+  ""FISH OIL""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),88.0,year(s),Female
 182139,2015-01-23,2015-01-12,"[
   ""ABDOMINAL DISCOMFORT"",
   ""CHOKING"",
   ""DYSPHAGIA""
 ]","[
   ""Other Serious or Important Medical Event""
-]",CENTRUM SILVER ADULTS 50+ MULTIMINERALS -- MULTIVITAMINS TABLET,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,88.0,year(s),1,2
+]",CENTRUM SILVER ADULTS 50+ MULTIMINERALS -- MULTIVITAMINS TABLET,"[
+  ""CENTRUM SILVER ADULTS 50+ MULTIMINERALS"",
+  ""MULTIVITAMINS TABLET""
+]",2,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),88.0,year(s),Female
 182142,2015-01-20,2015-01-14,"[
   ""DIARRHOEA""
 ]","[
   ""Other Outcome""
-]",SHOP RITE 2% MILK,9,SUSPECT,Milk/Butter/Dried Milk Prod,Female,,,1,1
+]",SHOP RITE 2% MILK,"[
+  ""SHOP RITE 2% MILK""
+]",1,9,"[
+  ""9""
+]",1,SUSPECT,Milk/Butter/Dried Milk Prod,,,Female
 182144,2015-01-20,2015-01-14,"[
   ""DIARRHOEA""
 ]","[
   ""Other Outcome""
-]",SHOP RITE 2% MILK,9,SUSPECT,Milk/Butter/Dried Milk Prod,,,,1,1
+]",SHOP RITE 2% MILK,"[
+  ""SHOP RITE 2% MILK""
+]",1,9,"[
+  ""9""
+]",1,SUSPECT,Milk/Butter/Dried Milk Prod,,,
 182146,2015-01-20,2015-01-14,"[
   ""DIARRHOEA""
 ]","[
   ""Other Outcome""
-]",SHOP RITE 2% MILK,9,SUSPECT,Milk/Butter/Dried Milk Prod,,,,1,1
+]",SHOP RITE 2% MILK,"[
+  ""SHOP RITE 2% MILK""
+]",1,9,"[
+  ""9""
+]",1,SUSPECT,Milk/Butter/Dried Milk Prod,,,
 182150,2015-01-23,2015-01-13,"[
   ""URTICARIA""
 ]","[
   ""Other Serious or Important Medical Event""
-]",BENEFIBER STICK PACKS POWDER WHEAT DEXTRIN,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,47.0,year(s),1,1
+]",BENEFIBER STICK PACKS POWDER WHEAT DEXTRIN,"[
+  ""BENEFIBER STICK PACKS POWDER WHEAT DEXTRIN""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),47.0,year(s),Female
 182172,2015-01-22,2015-01-20,"[
   ""ABNORMAL BEHAVIOUR"",
   ""DECREASED APPETITE"",
@@ -661,12 +974,20 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Hospitalization""
-]",JADERA WEIGHT LOSS,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,5.0,year(s),1,1
+]",JADERA WEIGHT LOSS,"[
+  ""JADERA WEIGHT LOSS""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),5.0,year(s),Female
 182175,2015-01-23,2015-01-08,"[
   ""CEREBRAL HAEMORRHAGE""
 ]","[
   ""Hospitalization""
-]",PEAK LIFE SOMANPURE,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,,,1,1
+]",PEAK LIFE SOMANPURE,"[
+  ""PEAK LIFE SOMANPURE""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),,,Male
 182179,2015-01-25,2015-01-06,"[
   ""ABDOMINAL INJURY"",
   ""ABDOMINAL PAIN"",
@@ -687,14 +1008,22 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Hospitalization""
-]",NATURE MADE FLUSH-FREE NIACIN INOSITOL HEXANICOTINASE,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,57.0,year(s),1,1
+]",NATURE MADE FLUSH-FREE NIACIN INOSITOL HEXANICOTINASE,"[
+  ""NATURE MADE FLUSH-FREE NIACIN INOSITOL HEXANICOTINASE""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),57.0,year(s),Male
 182204,2015-01-12,2015-01-06,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
   ""FLATULENCE""
 ]","[
   ""Visited a Health Care Provider""
-]",ENFAMIL GENTLE EASE LIQUID FORMULA,40,SUSPECT,Baby Food Products,Male,7.0,week(s),1,1
+]",ENFAMIL GENTLE EASE LIQUID FORMULA,"[
+  ""ENFAMIL GENTLE EASE LIQUID FORMULA""
+]",1,40,"[
+  ""40""
+]",1,SUSPECT,Baby Food Products,7.0,week(s),Male
 182237,2015-01-27,2015-01-19,"[
   ""CONVULSION"",
   ""Convulsion""
@@ -702,7 +1031,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""Hospitalization"",
   ""Visited Emergency Room"",
   ""Visited a Health Care Provider""
-]",PREVAGEN APOAEQUORIN EXTRA STRENGTH,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,86.0,year(s),1,1
+]",PREVAGEN APOAEQUORIN EXTRA STRENGTH,"[
+  ""PREVAGEN APOAEQUORIN EXTRA STRENGTH""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),86.0,year(s),Male
 182238,2015-01-23,2015-01-16,"[
   ""ABDOMINAL PAIN"",
   ""CONSTIPATION"",
@@ -711,14 +1044,22 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",GARDEN OF LIFE RAW PROBIOTICS WOMEN 50 & WISER,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,,,1,1
+]",GARDEN OF LIFE RAW PROBIOTICS WOMEN 50 & WISER,"[
+  ""GARDEN OF LIFE RAW PROBIOTICS WOMEN 50 & WISER""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),,,Female
 182259,2015-01-20,2015-01-19,"[
   ""CONDITION AGGRAVATED"",
   ""HEADACHE"",
   ""TOOTHACHE""
 ]","[
   ""Disability""
-]",SKIN MILK BODY LOTION,53,SUSPECT,Cosmetics,Female,54.0,year(s),1,1
+]",SKIN MILK BODY LOTION,"[
+  ""SKIN MILK BODY LOTION""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,54.0,year(s),Female
 182260,2015-01-20,2015-01-18,"[
   ""CHOKING"",
   ""DIARRHOEA"",
@@ -726,7 +1067,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Other Serious or Important Medical Event""
-]",DAILY VITAMIN,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,50.0,year(s),1,1
+]",DAILY VITAMIN,"[
+  ""DAILY VITAMIN""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),50.0,year(s),Female
 182260,2015-01-20,2015-01-18,"[
   ""CHOKING"",
   ""DIARRHOEA"",
@@ -734,7 +1079,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Other Serious or Important Medical Event""
-]",VEGA ONE,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,50.0,year(s),1,1
+]",VEGA ONE,"[
+  ""VEGA ONE""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),50.0,year(s),Female
 182261,2015-01-20,2015-01-04,"[
   ""ACTIVITIES OF DAILY LIVING IMPAIRED"",
   ""CHILLS"",
@@ -745,19 +1094,31 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""PYREXIA""
 ]","[
   ""Other Serious or Important Medical Event""
-]",FRESH START SMOOTHIE BLEND,21,SUSPECT,Fruit/Fruit Prod,Female,54.0,year(s),1,1
+]",FRESH START SMOOTHIE BLEND,"[
+  ""FRESH START SMOOTHIE BLEND""
+]",1,21,"[
+  ""21""
+]",1,SUSPECT,Fruit/Fruit Prod,54.0,year(s),Female
 182264,2015-01-09,2015-01-05,"[
   ""ABDOMINAL DISCOMFORT"",
   ""OROPHARYNGEAL PAIN""
 ]","[
   ""Disability""
-]",PRICE CHOPPER PASTA AND ALFREDO PACKET,4,SUSPECT,Macaroni/Noodle Prod,Male,,,1,1
+]",PRICE CHOPPER PASTA AND ALFREDO PACKET,"[
+  ""PRICE CHOPPER PASTA AND ALFREDO PACKET""
+]",1,4,"[
+  ""4""
+]",1,SUSPECT,Macaroni/Noodle Prod,,,Male
 182273,2015-01-09,2015-01-05,"[
   ""ABDOMINAL DISCOMFORT"",
   ""OROPHARYNGEAL PAIN""
 ]","[
   ""Disability""
-]",PRICE CHOPPER PASTA AND ALFREDO PACKET,4,SUSPECT,Macaroni/Noodle Prod,Male,,,1,1
+]",PRICE CHOPPER PASTA AND ALFREDO PACKET,"[
+  ""PRICE CHOPPER PASTA AND ALFREDO PACKET""
+]",1,4,"[
+  ""4""
+]",1,SUSPECT,Macaroni/Noodle Prod,,,Male
 182310,2015-01-29,2015-01-15,"[
   ""CHEMICAL INJURY"",
   ""RASH MACULAR"",
@@ -765,34 +1126,54 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""SKIN EXFOLIATION""
 ]","[
   ""Other Serious or Important Medical Event""
-]",CENTRUM SILVER MEN'S 50+ MULTIMINERALS MULTIVITAMINS TABLET,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,70.0,year(s),1,1
+]",CENTRUM SILVER MEN'S 50+ MULTIMINERALS MULTIVITAMINS TABLET,"[
+  ""CENTRUM SILVER MEN'S 50+ MULTIMINERALS MULTIVITAMINS TABLET""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),70.0,year(s),Male
 182317,2015-01-21,2015-01-19,"[
   ""ERYTHEMA"",
   ""HYPERSENSITIVITY"",
   ""SWELLING FACE""
 ]","[
   ""Other Outcome""
-]",JUST FOR MEN MUSTACHE AND BEARD,53,SUSPECT,Cosmetics,Male,38.0,year(s),1,1
+]",JUST FOR MEN MUSTACHE AND BEARD,"[
+  ""JUST FOR MEN MUSTACHE AND BEARD""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,38.0,year(s),Male
 182348,2015-01-28,2015-01-15,"[
   ""HYPERSENSITIVITY"",
   ""TREMOR""
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited a Health Care Provider""
-]",THE SYNERGY COMPANY BONE RENEWAL,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,,,1,1
+]",THE SYNERGY COMPANY BONE RENEWAL,"[
+  ""THE SYNERGY COMPANY BONE RENEWAL""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),,,Female
 182367,2015-01-27,2015-01-25,"[
   ""ABDOMINAL PAIN"",
   ""Adverse reaction"",
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",VEGEMIL PLAIN SOYMILK,14,SUSPECT,Filled Milk/Imit Milk Prod,Female,37.0,year(s),1,1
+]",VEGEMIL PLAIN SOYMILK,"[
+  ""VEGEMIL PLAIN SOYMILK""
+]",1,14,"[
+  ""14""
+]",1,SUSPECT,Filled Milk/Imit Milk Prod,37.0,year(s),Female
 182386,2015-01-22,2015-01-11,"[
   ""GLOSSODYNIA"",
   ""SWOLLEN TONGUE""
 ]","[
   ""Other Outcome""
-]",GROVE SQUARE CAPPUCCINO,45,SUSPECT,Food Additives (Human Use),Female,63.0,year(s),1,1
+]",GROVE SQUARE CAPPUCCINO,"[
+  ""GROVE SQUARE CAPPUCCINO""
+]",1,45,"[
+  ""45""
+]",1,SUSPECT,Food Additives (Human Use),63.0,year(s),Female
 182387,2015-01-22,2015-01-10,"[
   ""ALANINE AMINOTRANSFERASE INCREASED"",
   ""ASPARTATE AMINOTRANSFERASE INCREASED"",
@@ -801,34 +1182,54 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""LIVER FUNCTION TEST ABNORMAL""
 ]","[
   ""Hospitalization""
-]",WARZONE,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,29.0,year(s),1,1
+]",WARZONE,"[
+  ""WARZONE""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),29.0,year(s),Male
 182388,2015-01-22,2015-01-19,"[
   ""BLOOD PRESSURE INCREASED"",
   ""HYPOTRICHOSIS"",
   ""METAL POISONING""
 ]","[
   ""Disability""
-]",MULTIVITAMINS,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,66.0,year(s),1,1
+]",MULTIVITAMINS,"[
+  ""MULTIVITAMINS""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),66.0,year(s),Male
 182388,2015-01-22,2015-01-19,"[
   ""BLOOD PRESSURE INCREASED"",
   ""HYPOTRICHOSIS"",
   ""METAL POISONING""
 ]","[
   ""Disability""
-]",GRECIAN FORMULA CREAM,53,SUSPECT,Cosmetics,Male,66.0,year(s),1,1
+]",GRECIAN FORMULA CREAM,"[
+  ""GRECIAN FORMULA CREAM""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,66.0,year(s),Male
 182388,2015-01-22,2015-01-19,"[
   ""BLOOD PRESSURE INCREASED"",
   ""HYPOTRICHOSIS"",
   ""METAL POISONING""
 ]","[
   ""Disability""
-]",LUTEIN,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,66.0,year(s),1,1
+]",LUTEIN,"[
+  ""LUTEIN""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),66.0,year(s),Male
 182390,2015-01-22,2015-01-20,"[
   ""BURNING SENSATION"",
   ""MIGRAINE""
 ]","[
   ""Disability""
-]",MAXWELL HOUSE COFFEE,31,SUSPECT,Coffee/Tea,,52.0,year(s),1,1
+]",MAXWELL HOUSE COFFEE,"[
+  ""MAXWELL HOUSE COFFEE""
+]",1,31,"[
+  ""31""
+]",1,SUSPECT,Coffee/Tea,52.0,year(s),
 182414,2015-01-23,2015-01-02,"[
   ""ANXIETY"",
   ""BALANCE DISORDER"",
@@ -841,7 +1242,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Disability"",
   ""Other Serious or Important Medical Event""
-]",OMNITRITION OMNI DROPS,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,55.0,year(s),1,1
+]",OMNITRITION OMNI DROPS,"[
+  ""OMNITRITION OMNI DROPS""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),55.0,year(s),Female
 182414,2015-01-23,2015-01-02,"[
   ""ANXIETY"",
   ""BALANCE DISORDER"",
@@ -854,17 +1259,29 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Disability"",
   ""Other Serious or Important Medical Event""
-]",FOLIC ACID,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,55.0,year(s),1,1
+]",FOLIC ACID,"[
+  ""FOLIC ACID""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),55.0,year(s),Female
 182423,2015-01-23,2015-01-21,"[
   ""Diarrhoea""
 ]","[
   ""Other Serious or Important Medical Event""
-]",KROGER RAW SHRIMP - FROZEN,16,SUSPECT,Fishery/Seafood Prod,Female,,,1,1
+]",KROGER RAW SHRIMP - FROZEN,"[
+  ""KROGER RAW SHRIMP - FROZEN""
+]",1,16,"[
+  ""16""
+]",1,SUSPECT,Fishery/Seafood Prod,,,Female
 182423,2015-01-23,2015-01-21,"[
   ""Diarrhoea""
 ]","[
   ""Other Serious or Important Medical Event""
-]",KROGER RAW SHRIMP - FROZEN,16,CONCOMITANT,Fishery/Seafood Prod,Female,,,1,1
+]",KROGER RAW SHRIMP - FROZEN,"[
+  ""KROGER RAW SHRIMP - FROZEN""
+]",1,16,"[
+  ""16""
+]",1,CONCOMITANT,Fishery/Seafood Prod,,,Female
 182429,2015-01-23,2015-01-04,"[
   ""CHEMICAL BURN OF SKIN"",
   ""DRY SKIN"",
@@ -873,7 +1290,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""RASH MACULAR""
 ]","[
   ""Other Outcome""
-]",ECHINACEA,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,35.0,year(s),1,1
+]",ECHINACEA,"[
+  ""ECHINACEA""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),35.0,year(s),Female
 182429,2015-01-23,2015-01-04,"[
   ""CHEMICAL BURN OF SKIN"",
   ""DRY SKIN"",
@@ -882,7 +1303,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""RASH MACULAR""
 ]","[
   ""Other Outcome""
-]",VITAFUSION WOMEN'S GUMMY VITAMINS,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,35.0,year(s),1,1
+]",VITAFUSION WOMEN'S GUMMY VITAMINS,"[
+  ""VITAFUSION WOMEN'S GUMMY VITAMINS""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),35.0,year(s),Female
 182429,2015-01-23,2015-01-04,"[
   ""CHEMICAL BURN OF SKIN"",
   ""DRY SKIN"",
@@ -891,7 +1316,13 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""RASH MACULAR""
 ]","[
   ""Other Outcome""
-]",NATURE'S BOUNTY HAIR -- SKIN -- AND NAILS GUMMIES,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,35.0,year(s),1,3
+]",NATURE'S BOUNTY HAIR -- SKIN -- AND NAILS GUMMIES,"[
+  ""NATURE'S BOUNTY HAIR"",
+  ""SKIN"",
+  ""AND NAILS GUMMIES""
+]",3,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),35.0,year(s),Female
 182429,2015-01-23,2015-01-04,"[
   ""CHEMICAL BURN OF SKIN"",
   ""DRY SKIN"",
@@ -900,7 +1331,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""RASH MACULAR""
 ]","[
   ""Other Outcome""
-]",VITALIE SKIN CARE,53,SUSPECT,Cosmetics,Female,35.0,year(s),1,1
+]",VITALIE SKIN CARE,"[
+  ""VITALIE SKIN CARE""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,35.0,year(s),Female
 182429,2015-01-23,2015-01-04,"[
   ""CHEMICAL BURN OF SKIN"",
   ""DRY SKIN"",
@@ -909,7 +1344,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""RASH MACULAR""
 ]","[
   ""Other Outcome""
-]",LUMALIFT ANTI-AGING EYE CREAM,53,SUSPECT,Cosmetics,Female,35.0,year(s),1,1
+]",LUMALIFT ANTI-AGING EYE CREAM,"[
+  ""LUMALIFT ANTI-AGING EYE CREAM""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,35.0,year(s),Female
 182432,2015-01-23,2015-01-07,"[
   ""ATRIAL FLUTTER"",
   ""DYSPNOEA"",
@@ -922,7 +1361,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""Required Intervention"",
   ""Visited Emergency Room"",
   ""Visited a Health Care Provider""
-]",THYRO-DRIVE,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,56.0,year(s),1,1
+]",THYRO-DRIVE,"[
+  ""THYRO-DRIVE""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),56.0,year(s),Male
 182432,2015-01-23,2015-01-07,"[
   ""ATRIAL FLUTTER"",
   ""DYSPNOEA"",
@@ -935,7 +1378,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""Required Intervention"",
   ""Visited Emergency Room"",
   ""Visited a Health Care Provider""
-]",1ST PHORM COMMANDER,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,56.0,year(s),1,1
+]",1ST PHORM COMMANDER,"[
+  ""1ST PHORM COMMANDER""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),56.0,year(s),Male
 182433,2015-01-23,2015-01-05,"[
   ""DISTURBANCE IN ATTENTION"",
   ""QUALITY OF LIFE DECREASED"",
@@ -943,19 +1390,31 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VISION BLURRED""
 ]","[
   ""Other Serious or Important Medical Event""
-]",NOOTROPICS PIRACETAM,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,24.0,year(s),1,1
+]",NOOTROPICS PIRACETAM,"[
+  ""NOOTROPICS PIRACETAM""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),24.0,year(s),Male
 182435,2015-01-26,2015-01-01,"[
   ""CHAPPED LIPS"",
   ""CHEILITIS"",
   ""LIP SWELLING""
 ]","[
   ""Other Outcome""
-]",EOS LIP BALM,53,SUSPECT,Cosmetics,Female,27.0,year(s),1,1
+]",EOS LIP BALM,"[
+  ""EOS LIP BALM""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,27.0,year(s),Female
 182447,2015-01-26,2015-01-24,"[
   ""EYE IRRITATION""
 ]","[
   ""Other Outcome""
-]",L'OREAL PARIS EYE MAKEUP REMOVER,53,SUSPECT,Cosmetics,Female,58.0,year(s),1,1
+]",L'OREAL PARIS EYE MAKEUP REMOVER,"[
+  ""L'OREAL PARIS EYE MAKEUP REMOVER""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,58.0,year(s),Female
 182479,2015-01-29,2015-01-27,"[
   ""Adverse reaction"",
   ""DIARRHOEA"",
@@ -963,12 +1422,21 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",TOWNSEND FARMS TRIPLE BERRY BLEND (FROZEN RASPBERRIES -- BLACKBERRIES & BLUEBERRIES),21,SUSPECT,Fruit/Fruit Prod,Male,65.0,year(s),1,2
+]",TOWNSEND FARMS TRIPLE BERRY BLEND (FROZEN RASPBERRIES -- BLACKBERRIES & BLUEBERRIES),"[
+  ""TOWNSEND FARMS TRIPLE BERRY BLEND (FROZEN RASPBERRIES"",
+  ""BLACKBERRIES & BLUEBERRIES)""
+]",2,21,"[
+  ""21""
+]",1,SUSPECT,Fruit/Fruit Prod,65.0,year(s),Male
 182480,2015-01-28,2015-01-26,"[
   ""HEADACHE""
 ]","[
   ""Other Outcome""
-]",EXEMPTION 4,23,SUSPECT,Nuts/Edible Seed,Male,,,1,1
+]",EXEMPTION 4,"[
+  ""EXEMPTION 4""
+]",1,23,"[
+  ""23""
+]",1,SUSPECT,Nuts/Edible Seed,,,Male
 182490,2015-01-23,2015-01-23,"[
   ""ABDOMINAL DISCOMFORT"",
   ""DIARRHOEA"",
@@ -976,7 +1444,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",GLUCERNA HUNGER SMART SHAKE RICH CHOCOLATE FLAVOR,41,SUSPECT,Dietary Conventional Foods/Meal Replacements,Male,,,1,1
+]",GLUCERNA HUNGER SMART SHAKE RICH CHOCOLATE FLAVOR,"[
+  ""GLUCERNA HUNGER SMART SHAKE RICH CHOCOLATE FLAVOR""
+]",1,41,"[
+  ""41""
+]",1,SUSPECT,Dietary Conventional Foods/Meal Replacements,,,Male
 182504,2015-01-26,2015-01-19,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
@@ -984,7 +1456,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",HONEY MAID GRAHAM CRACKERS,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Male,,,1,1
+]",HONEY MAID GRAHAM CRACKERS,"[
+  ""HONEY MAID GRAHAM CRACKERS""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,,,Male
 182528,2015-01-30,2015-01-08,"[
   ""ARRHYTHMIA"",
   ""ASTHENIA"",
@@ -998,7 +1474,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited Emergency Room""
-]",NUTRILITE ALL PLANT PROTEIN POWDER,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,54.0,year(s),1,1
+]",NUTRILITE ALL PLANT PROTEIN POWDER,"[
+  ""NUTRILITE ALL PLANT PROTEIN POWDER""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),54.0,year(s),Female
 182528,2015-01-30,2015-01-08,"[
   ""ARRHYTHMIA"",
   ""ASTHENIA"",
@@ -1012,7 +1492,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited Emergency Room""
-]",NUTRILITE INVISIFIBER POWDER,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,54.0,year(s),1,1
+]",NUTRILITE INVISIFIBER POWDER,"[
+  ""NUTRILITE INVISIFIBER POWDER""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),54.0,year(s),Female
 182528,2015-01-30,2015-01-08,"[
   ""ARRHYTHMIA"",
   ""ASTHENIA"",
@@ -1026,7 +1510,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited Emergency Room""
-]",UNSPECIFIED SUPPLEMENTS,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,54.0,year(s),1,1
+]",UNSPECIFIED SUPPLEMENTS,"[
+  ""UNSPECIFIED SUPPLEMENTS""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),54.0,year(s),Female
 182528,2015-01-30,2015-01-08,"[
   ""ARRHYTHMIA"",
   ""ASTHENIA"",
@@ -1040,7 +1528,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited Emergency Room""
-]",NUTRILITE VITAMIN D3 TABLETS,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,54.0,year(s),1,1
+]",NUTRILITE VITAMIN D3 TABLETS,"[
+  ""NUTRILITE VITAMIN D3 TABLETS""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),54.0,year(s),Female
 182528,2015-01-30,2015-01-08,"[
   ""ARRHYTHMIA"",
   ""ASTHENIA"",
@@ -1054,7 +1546,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited Emergency Room""
-]",NUTRILITE VITAMIN C PLUS TABLET,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,54.0,year(s),1,1
+]",NUTRILITE VITAMIN C PLUS TABLET,"[
+  ""NUTRILITE VITAMIN C PLUS TABLET""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),54.0,year(s),Female
 182528,2015-01-30,2015-01-08,"[
   ""ARRHYTHMIA"",
   ""ASTHENIA"",
@@ -1068,7 +1564,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited Emergency Room""
-]",NUTRILITE OSTEO KEEPER TABLET,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,54.0,year(s),1,1
+]",NUTRILITE OSTEO KEEPER TABLET,"[
+  ""NUTRILITE OSTEO KEEPER TABLET""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),54.0,year(s),Female
 182528,2015-01-30,2015-01-08,"[
   ""ARRHYTHMIA"",
   ""ASTHENIA"",
@@ -1082,7 +1582,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited Emergency Room""
-]",NUTRILITE NATURAL B COMPLEX TABLET,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,54.0,year(s),1,1
+]",NUTRILITE NATURAL B COMPLEX TABLET,"[
+  ""NUTRILITE NATURAL B COMPLEX TABLET""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),54.0,year(s),Female
 182528,2015-01-30,2015-01-08,"[
   ""ARRHYTHMIA"",
   ""ASTHENIA"",
@@ -1096,7 +1600,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited Emergency Room""
-]",NUTRILITE BLACK COHOSH AND SOY TABLET,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,54.0,year(s),1,1
+]",NUTRILITE BLACK COHOSH AND SOY TABLET,"[
+  ""NUTRILITE BLACK COHOSH AND SOY TABLET""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),54.0,year(s),Female
 182528,2015-01-30,2015-01-08,"[
   ""ARRHYTHMIA"",
   ""ASTHENIA"",
@@ -1110,7 +1618,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited Emergency Room""
-]",NUTRILITE CAL MAG D,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,54.0,year(s),1,1
+]",NUTRILITE CAL MAG D,"[
+  ""NUTRILITE CAL MAG D""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),54.0,year(s),Female
 182528,2015-01-30,2015-01-08,"[
   ""ARRHYTHMIA"",
   ""ASTHENIA"",
@@ -1124,14 +1636,22 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Other Serious or Important Medical Event"",
   ""Visited Emergency Room""
-]",NUTRILITE INTESTIFLORA 7 POWDER,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,54.0,year(s),1,1
+]",NUTRILITE INTESTIFLORA 7 POWDER,"[
+  ""NUTRILITE INTESTIFLORA 7 POWDER""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),54.0,year(s),Female
 182537,2015-01-28,2015-01-26,"[
   ""ERYTHEMA"",
   ""PRURITUS"",
   ""URTICARIA""
 ]","[
   ""Other Serious or Important Medical Event""
-]",VITAMIN D3,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Male,24.0,year(s),1,1
+]",VITAMIN D3,"[
+  ""VITAMIN D3""
+]",1,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),24.0,year(s),Male
 182539,2015-01-28,2015-01-23,"[
   ""BLISTER"",
   ""CHEMICAL INJURY"",
@@ -1143,7 +1663,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""THERMAL BURN""
 ]","[
   ""Visited Emergency Room""
-]",OLD SPICE DEODORANT,53,SUSPECT,Cosmetics,Male,43.0,year(s),1,1
+]",OLD SPICE DEODORANT,"[
+  ""OLD SPICE DEODORANT""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,43.0,year(s),Male
 182544,2015-01-29,2015-01-28,"[
   ""ABDOMINAL DISTENSION"",
   ""ABDOMINAL PAIN UPPER"",
@@ -1153,41 +1677,70 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""THROAT IRRITATION""
 ]","[
   ""Other Outcome""
-]",PEPPERIDGE FARMS GOLDFISH PUFFS,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Female,28.0,year(s),1,1
+]",PEPPERIDGE FARMS GOLDFISH PUFFS,"[
+  ""PEPPERIDGE FARMS GOLDFISH PUFFS""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,28.0,year(s),Female
 182546,2015-01-29,2015-01-23,"[
   ""TRICHORRHEXIS""
 ]","[
   ""Other Outcome""
-]",VITAMIN,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,55.0,year(s),1,1
+]",VITAMIN,"[
+  ""VITAMIN""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),55.0,year(s),Female
 182546,2015-01-29,2015-01-23,"[
   ""TRICHORRHEXIS""
 ]","[
   ""Other Outcome""
-]",METAMUCIL,54,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,55.0,year(s),1,1
+]",METAMUCIL,"[
+  ""METAMUCIL""
+]",1,54,"[
+  ""54""
+]",1,CONCOMITANT,Vit/Min/Prot/Unconv Diet(Human/Animal),55.0,year(s),Female
 182546,2015-01-29,2015-01-23,"[
   ""TRICHORRHEXIS""
 ]","[
   ""Other Outcome""
-]",MAYBELLINE MEGA PLUSH WATERPROOF MASCARA,53,SUSPECT,Cosmetics,Female,55.0,year(s),1,1
+]",MAYBELLINE MEGA PLUSH WATERPROOF MASCARA,"[
+  ""MAYBELLINE MEGA PLUSH WATERPROOF MASCARA""
+]",1,53,"[
+  ""53""
+]",1,SUSPECT,Cosmetics,55.0,year(s),Female
 182549,2015-01-30,2015-01-29,"[
   ""DIARRHOEA"",
   ""NAUSEA"",
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",ALOHA BRAND PREMIUM PROTEIN -- VANILLA,54,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),Female,41.0,year(s),1,2
+]",ALOHA BRAND PREMIUM PROTEIN -- VANILLA,"[
+  ""ALOHA BRAND PREMIUM PROTEIN"",
+  ""VANILLA""
+]",2,54,"[
+  ""54""
+]",1,SUSPECT,Vit/Min/Prot/Unconv Diet(Human/Animal),41.0,year(s),Female
 182587,2015-01-30,2015-01-13,"[
   ""HYPOAESTHESIA"",
   ""PARAESTHESIA""
 ]","[
   ""Other Outcome""
-]",HERSHEY REESE PEANUT BUTTER CUP MINI,34,SUSPECT,Choc/Cocoa Prod,Female,,,1,1
+]",HERSHEY REESE PEANUT BUTTER CUP MINI,"[
+  ""HERSHEY REESE PEANUT BUTTER CUP MINI""
+]",1,34,"[
+  ""34""
+]",1,SUSPECT,Choc/Cocoa Prod,,,Female
 182588,2015-01-28,2015-01-19,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA""
 ]","[
   ""Other Outcome""
-]",SEE'S CANDIES SUGAR FREE DARK ALMONDS BRITTLE,34,SUSPECT,Choc/Cocoa Prod,Male,,,1,1
+]",SEE'S CANDIES SUGAR FREE DARK ALMONDS BRITTLE,"[
+  ""SEE'S CANDIES SUGAR FREE DARK ALMONDS BRITTLE""
+]",1,34,"[
+  ""34""
+]",1,SUSPECT,Choc/Cocoa Prod,,,Male
 182592,2015-01-29,2015-01-28,"[
   ""ABDOMINAL PAIN"",
   ""Food poisoning"",
@@ -1195,27 +1748,47 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Visited Emergency Room""
-]",GOURMET TRADING COMPANY FRESH BLUEBERRIES,20,SUSPECT,Fruit/Fruit Prod,Male,57.0,year(s),1,1
+]",GOURMET TRADING COMPANY FRESH BLUEBERRIES,"[
+  ""GOURMET TRADING COMPANY FRESH BLUEBERRIES""
+]",1,20,"[
+  ""20""
+]",1,SUSPECT,Fruit/Fruit Prod,57.0,year(s),Male
 182597,2015-01-30,2015-01-19,"[
   ""BURNING SENSATION""
 ]","[
   ""Other Outcome""
-]",GOURMET SALSA SALSA ROJA MILD,27,SUSPECT,Dressing/Condiment,Female,22.0,year(s),1,1
+]",GOURMET SALSA SALSA ROJA MILD,"[
+  ""GOURMET SALSA SALSA ROJA MILD""
+]",1,27,"[
+  ""27""
+]",1,SUSPECT,Dressing/Condiment,22.0,year(s),Female
 182677,2015-01-28,2015-01-26,"[
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",BREYERS BLASTS SNICKERS CARAMEL SWIRL CHUNK ICE CREAM,13,SUSPECT,Ice Cream Prod,Female,,,1,1
+]",BREYERS BLASTS SNICKERS CARAMEL SWIRL CHUNK ICE CREAM,"[
+  ""BREYERS BLASTS SNICKERS CARAMEL SWIRL CHUNK ICE CREAM""
+]",1,13,"[
+  ""13""
+]",1,SUSPECT,Ice Cream Prod,,,Female
 182684,2015-01-29,2015-01-27,"[
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",VERMONT BREAD COMPANY SOFT 10 GRAIN BREAD,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Male,,,1,1
+]",VERMONT BREAD COMPANY SOFT 10 GRAIN BREAD,"[
+  ""VERMONT BREAD COMPANY SOFT 10 GRAIN BREAD""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,,,Male
 182710,2015-01-30,2015-01-19,"[
   ""BURNING SENSATION""
 ]","[
   ""Other Outcome""
-]",GOURMET SALSA SALSA ROJA MILD,27,SUSPECT,Dressing/Condiment,,,,1,1
+]",GOURMET SALSA SALSA ROJA MILD,"[
+  ""GOURMET SALSA SALSA ROJA MILD""
+]",1,27,"[
+  ""27""
+]",1,SUSPECT,Dressing/Condiment,,,
 182711,2015-01-26,2015-01-19,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
@@ -1223,13 +1796,21 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",HONEY MAID GRAHAM CRACKERS,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Female,,,1,1
+]",HONEY MAID GRAHAM CRACKERS,"[
+  ""HONEY MAID GRAHAM CRACKERS""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,,,Female
 182763,2015-01-29,2015-01-23,"[
   ""HYPERSENSITIVITY"",
   ""URTICARIA""
 ]","[
   ""Visited Emergency Room""
-]",NABISCO BELVITA BREAKFAST BISCUITS CINNAMON BROWN SUGAR,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Female,44.0,year(s),1,1
+]",NABISCO BELVITA BREAKFAST BISCUITS CINNAMON BROWN SUGAR,"[
+  ""NABISCO BELVITA BREAKFAST BISCUITS CINNAMON BROWN SUGAR""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,44.0,year(s),Female
 182765,2015-01-27,2015-01-20,"[
   ""ANAPHYLACTIC SHOCK"",
   ""DYSPHAGIA"",
@@ -1237,19 +1818,31 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""Hypersensitivity""
 ]","[
   ""Visited Emergency Room""
-]",TRADER JOE'S CHICKEN CHOW MEIN (FROZEN),17,SUSPECT,Meat -- Meat Products and Poultry,Male,13.0,year(s),1,1
+]",TRADER JOE'S CHICKEN CHOW MEIN (FROZEN),"[
+  ""TRADER JOE'S CHICKEN CHOW MEIN (FROZEN)""
+]",1,17,"[
+  ""17""
+]",1,SUSPECT,Meat -- Meat Products and Poultry,13.0,year(s),Male
 182817,2015-01-08,2015-01-05,"[
   ""ABDOMINAL DISCOMFORT"",
   ""NAUSEA""
 ]","[
   ""Visited Emergency Room""
-]",PEPPERIDGE FARM WHITE SANDWICH BREAD,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Female,53.0,year(s),1,1
+]",PEPPERIDGE FARM WHITE SANDWICH BREAD,"[
+  ""PEPPERIDGE FARM WHITE SANDWICH BREAD""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,53.0,year(s),Female
 182818,2015-01-29,2015-01-22,"[
   ""OEDEMA PERIPHERAL"",
   ""PAIN""
 ]","[
   ""Visited a Health Care Provider""
-]",BEACH CLIFF SARDINES IN MUSTARD SAUCE,16,SUSPECT,Fishery/Seafood Prod,Male,,,1,1
+]",BEACH CLIFF SARDINES IN MUSTARD SAUCE,"[
+  ""BEACH CLIFF SARDINES IN MUSTARD SAUCE""
+]",1,16,"[
+  ""16""
+]",1,SUSPECT,Fishery/Seafood Prod,,,Male
 182820,2015-01-30,2015-01-23,"[
   ""ASTHENIA"",
   ""DIARRHOEA"",
@@ -1257,47 +1850,79 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",SAPUTO STRING CHEESE - MOZZARELLA,12,SUSPECT,Cheese/Cheese Prod,Female,,,1,1
+]",SAPUTO STRING CHEESE - MOZZARELLA,"[
+  ""SAPUTO STRING CHEESE - MOZZARELLA""
+]",1,12,"[
+  ""12""
+]",1,SUSPECT,Cheese/Cheese Prod,,,Female
 182829,2015-01-23,2015-01-08,"[
   ""ABDOMINAL PAIN UPPER"",
   ""DIARRHOEA"",
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",IMEI MULTI GRAIN CRACKERS,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Female,,,1,1
+]",IMEI MULTI GRAIN CRACKERS,"[
+  ""IMEI MULTI GRAIN CRACKERS""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,,,Female
 182832,2015-01-28,2015-01-19,"[
   ""ABDOMINAL PAIN UPPER"",
   ""DIARRHOEA""
 ]","[
   ""Other Outcome""
-]",SEE'S CANDIES SUGAR FREE DARK ALMONDS BRITTLE,34,SUSPECT,Choc/Cocoa Prod,Female,,,1,1
+]",SEE'S CANDIES SUGAR FREE DARK ALMONDS BRITTLE,"[
+  ""SEE'S CANDIES SUGAR FREE DARK ALMONDS BRITTLE""
+]",1,34,"[
+  ""34""
+]",1,SUSPECT,Choc/Cocoa Prod,,,Female
 182834,2015-01-29,2015-01-23,"[
   ""URTICARIA""
 ]","[
   ""Visited Emergency Room""
-]",NABISCO BELVITA BREAKFAST BISCUITS CINNAMON BROWN SUGAR,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Female,,,1,1
+]",NABISCO BELVITA BREAKFAST BISCUITS CINNAMON BROWN SUGAR,"[
+  ""NABISCO BELVITA BREAKFAST BISCUITS CINNAMON BROWN SUGAR""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,,,Female
 182936,2015-01-05,2015-01-05,"[
   ""BURNING SENSATION""
 ]","[
   ""Other Outcome""
-]",PURPLE COW TOFFEE ICE CREAM BARS,13,SUSPECT,Ice Cream Prod,Female,,,1,1
+]",PURPLE COW TOFFEE ICE CREAM BARS,"[
+  ""PURPLE COW TOFFEE ICE CREAM BARS""
+]",1,13,"[
+  ""13""
+]",1,SUSPECT,Ice Cream Prod,,,Female
 182945,2015-01-08,2015-01-05,"[
   ""ABDOMINAL DISCOMFORT"",
   ""NAUSEA""
 ]","[
   ""Visited Emergency Room""
-]",PEPPERIDGE FARM WHITE SANDWICH BREAD,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Female,19.0,year(s),1,1
+]",PEPPERIDGE FARM WHITE SANDWICH BREAD,"[
+  ""PEPPERIDGE FARM WHITE SANDWICH BREAD""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,19.0,year(s),Female
 182955,2015-01-05,2015-01-05,"[
   ""BURNING SENSATION""
 ]","[
   ""Other Outcome""
-]",PURPLE COW TOFFEE ICE CREAM BARS,13,SUSPECT,Ice Cream Prod,Male,,,1,1
+]",PURPLE COW TOFFEE ICE CREAM BARS,"[
+  ""PURPLE COW TOFFEE ICE CREAM BARS""
+]",1,13,"[
+  ""13""
+]",1,SUSPECT,Ice Cream Prod,,,Male
 182989,2015-01-12,2015-01-08,"[
   ""DYSGEUSIA"",
   ""HYPERSENSITIVITY""
 ]","[
   ""Other Outcome""
-]",AUSTINUTS PINE NUTS,23,SUSPECT,Nuts/Edible Seed,Female,,,1,1
+]",AUSTINUTS PINE NUTS,"[
+  ""AUSTINUTS PINE NUTS""
+]",1,23,"[
+  ""23""
+]",1,SUSPECT,Nuts/Edible Seed,,,Female
 183041,2015-01-28,2015-01-28,"[
   ""HICCUPS"",
   ""HYPERSENSITIVITY"",
@@ -1305,7 +1930,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""URTICARIA""
 ]","[
   ""Other Outcome""
-]",SEASONED CHOICE FAVORITES SEASONED FRENCH FRIED POTATOES,25,SUSPECT,Vegetables/Vegetable Products,Female,7.0,year(s),1,1
+]",SEASONED CHOICE FAVORITES SEASONED FRENCH FRIED POTATOES,"[
+  ""SEASONED CHOICE FAVORITES SEASONED FRENCH FRIED POTATOES""
+]",1,25,"[
+  ""25""
+]",1,SUSPECT,Vegetables/Vegetable Products,7.0,year(s),Female
 183047,2015-01-27,2015-01-20,"[
   ""DIARRHOEA"",
   ""NAUSEA"",
@@ -1313,7 +1942,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",FRESH EXPRESS ICEBERG GARDEN SALAD,24,SUSPECT,Vegetables/Vegetable Products,Female,,,1,1
+]",FRESH EXPRESS ICEBERG GARDEN SALAD,"[
+  ""FRESH EXPRESS ICEBERG GARDEN SALAD""
+]",1,24,"[
+  ""24""
+]",1,SUSPECT,Vegetables/Vegetable Products,,,Female
 183589,2015-01-21,2015-01-21,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
@@ -1321,7 +1954,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Visited a Health Care Provider""
-]",CITRUS SUN APPLE JUICE,20,SUSPECT,Fruit/Fruit Prod,,,,1,1
+]",CITRUS SUN APPLE JUICE,"[
+  ""CITRUS SUN APPLE JUICE""
+]",1,20,"[
+  ""20""
+]",1,SUSPECT,Fruit/Fruit Prod,,,
 183591,2015-01-12,2015-01-11,"[
   ""BURNING SENSATION"",
   ""DYSPHAGIA"",
@@ -1331,7 +1968,12 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""Hospitalization"",
   ""Visited Emergency Room"",
   ""Visited a Health Care Provider""
-]",ORTEGA TACO SEASONING MIX -- 40% LESS SODIUM,28,SUSPECT,Spices -- Flavors And Salts,Female,11.0,year(s),1,2
+]",ORTEGA TACO SEASONING MIX -- 40% LESS SODIUM,"[
+  ""ORTEGA TACO SEASONING MIX"",
+  ""40% LESS SODIUM""
+]",2,28,"[
+  ""28""
+]",1,SUSPECT,Spices -- Flavors And Salts,11.0,year(s),Female
 183705,2015-01-21,2015-01-21,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
@@ -1339,7 +1981,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Visited a Health Care Provider""
-]",CITRUS SUN APPLE JUICE,20,SUSPECT,Fruit/Fruit Prod,,,,1,1
+]",CITRUS SUN APPLE JUICE,"[
+  ""CITRUS SUN APPLE JUICE""
+]",1,20,"[
+  ""20""
+]",1,SUSPECT,Fruit/Fruit Prod,,,
 183706,2015-01-21,2015-01-21,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
@@ -1347,7 +1993,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",CITRUS SUN APPLE JUICE,20,SUSPECT,Fruit/Fruit Prod,,,,1,1
+]",CITRUS SUN APPLE JUICE,"[
+  ""CITRUS SUN APPLE JUICE""
+]",1,20,"[
+  ""20""
+]",1,SUSPECT,Fruit/Fruit Prod,,,
 183707,2015-01-21,2015-01-21,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
@@ -1355,7 +2005,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",CITRUS SUN APPLE JUICE,20,SUSPECT,Fruit/Fruit Prod,,,,1,1
+]",CITRUS SUN APPLE JUICE,"[
+  ""CITRUS SUN APPLE JUICE""
+]",1,20,"[
+  ""20""
+]",1,SUSPECT,Fruit/Fruit Prod,,,
 183708,2015-01-21,2015-01-21,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
@@ -1363,7 +2017,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",CITRUS SUN APPLE JUICE,20,SUSPECT,Fruit/Fruit Prod,,,,1,1
+]",CITRUS SUN APPLE JUICE,"[
+  ""CITRUS SUN APPLE JUICE""
+]",1,20,"[
+  ""20""
+]",1,SUSPECT,Fruit/Fruit Prod,,,
 183709,2015-01-21,2015-01-21,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
@@ -1371,7 +2029,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",CITRUS SUN APPLE JUICE,20,SUSPECT,Fruit/Fruit Prod,,,,1,1
+]",CITRUS SUN APPLE JUICE,"[
+  ""CITRUS SUN APPLE JUICE""
+]",1,20,"[
+  ""20""
+]",1,SUSPECT,Fruit/Fruit Prod,,,
 183711,2015-01-21,2015-01-21,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
@@ -1379,7 +2041,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",CITRUS SUN APPLE JUICE,20,SUSPECT,Fruit/Fruit Prod,,,,1,1
+]",CITRUS SUN APPLE JUICE,"[
+  ""CITRUS SUN APPLE JUICE""
+]",1,20,"[
+  ""20""
+]",1,SUSPECT,Fruit/Fruit Prod,,,
 183713,2015-01-21,2015-01-21,"[
   ""ABDOMINAL PAIN"",
   ""DIARRHOEA"",
@@ -1387,18 +2053,32 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",CITRUS SUN APPLE JUICE,20,SUSPECT,Fruit/Fruit Prod,,,,1,1
+]",CITRUS SUN APPLE JUICE,"[
+  ""CITRUS SUN APPLE JUICE""
+]",1,20,"[
+  ""20""
+]",1,SUSPECT,Fruit/Fruit Prod,,,
 183864,2015-01-25,2015-01-23,"[
   ""BURNING SENSATION"",
   ""TONSILLITIS""
 ]","[
   ""Visited a Health Care Provider""
-]",ROUNDYS SELECT MULTI GRAIN CRISP CEREAL W RAISINS DATES PECANS OAT CLUSTERS AND BARLEY CORN AND BRAN FLAKES,5,SUSPECT,Cereal Prep/Breakfast Food,Female,,,1,1
+]",ROUNDYS SELECT MULTI GRAIN CRISP CEREAL W RAISINS DATES PECANS OAT CLUSTERS AND BARLEY CORN AND BRAN FLAKES,"[
+  ""ROUNDYS SELECT MULTI GRAIN CRISP CEREAL W RAISINS DATES PECANS OAT CLUSTERS AND BARLEY CORN AND BRAN FLAKES""
+]",1,5,"[
+  ""5""
+]",1,SUSPECT,Cereal Prep/Breakfast Food,,,Female
 183873,2015-01-05,2015-01-01,"[
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",ESSENTIAL EVERYDAY MUSHROOMS -- PIECES AND STEMS -- CANNED,25,SUSPECT,Vegetables/Vegetable Products,Male,,,1,3
+]",ESSENTIAL EVERYDAY MUSHROOMS -- PIECES AND STEMS -- CANNED,"[
+  ""ESSENTIAL EVERYDAY MUSHROOMS"",
+  ""PIECES AND STEMS"",
+  ""CANNED""
+]",3,25,"[
+  ""25""
+]",1,SUSPECT,Vegetables/Vegetable Products,,,Male
 185036,2015-01-23,2015-01-20,"[
   ""ABDOMINAL PAIN"",
   ""ABDOMINAL PAIN UPPER"",
@@ -1413,7 +2093,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Visited Emergency Room""
-]",CAMPBELLS CREAM OF MUSHROOM SOUP,38,SUSPECT,Soup,Female,,,1,1
+]",CAMPBELLS CREAM OF MUSHROOM SOUP,"[
+  ""CAMPBELLS CREAM OF MUSHROOM SOUP""
+]",1,38,"[
+  ""38""
+]",1,SUSPECT,Soup,,,Female
 185036,2015-01-23,2015-01-20,"[
   ""ABDOMINAL PAIN"",
   ""ABDOMINAL PAIN UPPER"",
@@ -1428,7 +2112,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Visited Emergency Room""
-]",SALAD,24,CONCOMITANT,Vegetables/Vegetable Products,Female,,,1,1
+]",SALAD,"[
+  ""SALAD""
+]",1,24,"[
+  ""24""
+]",1,CONCOMITANT,Vegetables/Vegetable Products,,,Female
 185036,2015-01-23,2015-01-20,"[
   ""ABDOMINAL PAIN"",
   ""ABDOMINAL PAIN UPPER"",
@@ -1443,26 +2131,46 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""VOMITING""
 ]","[
   ""Visited Emergency Room""
-]",SMOOTHIE WITH APPLES -- ORANGES -- STRAWBERRIES & COCONUT MILK,30,CONCOMITANT,Beverage Bases/Conc/Nectar,Female,,,1,3
+]",SMOOTHIE WITH APPLES -- ORANGES -- STRAWBERRIES & COCONUT MILK,"[
+  ""SMOOTHIE WITH APPLES"",
+  ""ORANGES"",
+  ""STRAWBERRIES & COCONUT MILK""
+]",3,30,"[
+  ""30""
+]",1,CONCOMITANT,Beverage Bases/Conc/Nectar,,,Female
 185610,2015-01-02,2015-01-02,"[
   ""Adverse reaction"",
   ""BURNING SENSATION"",
   ""CHEST PAIN""
 ]","[
   ""Other Outcome""
-]",TEDDIE -- SMOOTH -- ALL NATURAL PEANUT BUTTER WITH FLAXSEED,23,SUSPECT,Nuts/Edible Seed,Male,,,1,3
+]",TEDDIE -- SMOOTH -- ALL NATURAL PEANUT BUTTER WITH FLAXSEED,"[
+  ""TEDDIE"",
+  ""SMOOTH"",
+  ""ALL NATURAL PEANUT BUTTER WITH FLAXSEED""
+]",3,23,"[
+  ""23""
+]",1,SUSPECT,Nuts/Edible Seed,,,Male
 185616,2015-01-27,2015-01-27,"[
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",VLASIC SWEET GHERKIN WHOLE PICKLES,24,SUSPECT,Vegetables/Vegetable Products,Female,,,1,1
+]",VLASIC SWEET GHERKIN WHOLE PICKLES,"[
+  ""VLASIC SWEET GHERKIN WHOLE PICKLES""
+]",1,24,"[
+  ""24""
+]",1,SUSPECT,Vegetables/Vegetable Products,,,Female
 185789,2015-01-28,2015-01-23,"[
   ""Adverse reaction"",
   ""NAUSEA"",
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",CHEX MIX CHEX MIX PEANUT LOVERS,7,SUSPECT,Snack Food Item,Male,,,1,1
+]",CHEX MIX CHEX MIX PEANUT LOVERS,"[
+  ""CHEX MIX CHEX MIX PEANUT LOVERS""
+]",1,7,"[
+  ""7""
+]",1,SUSPECT,Snack Food Item,,,Male
 186884,2015-01-27,2015-01-14,"[
   ""BLISTER"",
   ""BURNING SENSATION"",
@@ -1471,7 +2179,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
 ]","[
   ""Visited Emergency Room"",
   ""Visited a Health Care Provider""
-]",SNACK PACK CHOCOLATE PUDDING,35,SUSPECT,Gelatin/Rennet/Pudding Mix/Pie Filling,Female,,,1,1
+]",SNACK PACK CHOCOLATE PUDDING,"[
+  ""SNACK PACK CHOCOLATE PUDDING""
+]",1,35,"[
+  ""35""
+]",1,SUSPECT,Gelatin/Rennet/Pudding Mix/Pie Filling,,,Female
 187345,2015-01-06,2015-01-05,"[
   ""ERYTHEMA"",
   ""FEELING HOT"",
@@ -1482,7 +2194,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""RASH MACULAR""
 ]","[
   ""Other Outcome""
-]",PREMIUM MAHI MAHI - WILD CAUGHT FILLETS,16,SUSPECT,Fishery/Seafood Prod,Female,34.0,year(s),1,1
+]",PREMIUM MAHI MAHI - WILD CAUGHT FILLETS,"[
+  ""PREMIUM MAHI MAHI - WILD CAUGHT FILLETS""
+]",1,16,"[
+  ""16""
+]",1,SUSPECT,Fishery/Seafood Prod,34.0,year(s),Female
 187389,2015-01-06,2015-01-05,"[
   ""ABDOMINAL PAIN"",
   ""COLD SWEAT"",
@@ -1493,18 +2209,30 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",NABISCO ORIGINAL PREMIUM SALTINE CRACKERS,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Female,,,1,1
+]",NABISCO ORIGINAL PREMIUM SALTINE CRACKERS,"[
+  ""NABISCO ORIGINAL PREMIUM SALTINE CRACKERS""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,,,Female
 187704,2015-01-06,2015-01-05,"[
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",PREMIUM MAHI MAHI - WILD CAUGHT FILLETS,16,SUSPECT,Fishery/Seafood Prod,Male,,,1,1
+]",PREMIUM MAHI MAHI - WILD CAUGHT FILLETS,"[
+  ""PREMIUM MAHI MAHI - WILD CAUGHT FILLETS""
+]",1,16,"[
+  ""16""
+]",1,SUSPECT,Fishery/Seafood Prod,,,Male
 188209,2015-01-27,2015-01-21,"[
   ""DIARRHOEA"",
   ""VOMITING""
 ]","[
   ""Visited a Health Care Provider""
-]",GERBER CARROTS-STAGE 2,40,SUSPECT,Baby Food Products,Male,10.0,month(s),1,1
+]",GERBER CARROTS-STAGE 2,"[
+  ""GERBER CARROTS-STAGE 2""
+]",1,40,"[
+  ""40""
+]",1,SUSPECT,Baby Food Products,10.0,month(s),Male
 191031,2015-01-20,2015-01-07,"[
   ""ABDOMINAL DISCOMFORT"",
   ""FAECES DISCOLOURED"",
@@ -1513,7 +2241,11 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""NAUSEA""
 ]","[
   ""Other Outcome""
-]",GROWING NATURAL ORGANIC RICE PROTEIN POWDER,2,SUSPECT,Whole Grain/Milled Grain Prod/Starch,Male,,,1,1
+]",GROWING NATURAL ORGANIC RICE PROTEIN POWDER,"[
+  ""GROWING NATURAL ORGANIC RICE PROTEIN POWDER""
+]",1,2,"[
+  ""2""
+]",1,SUSPECT,Whole Grain/Milled Grain Prod/Starch,,,Male
 191153,2015-01-26,2015-01-21,"[
   ""ABDOMINAL PAIN"",
   ""ABDOMINAL PAIN UPPER"",
@@ -1529,16 +2261,28 @@ report_number,date_created,date_started,REACTIONS_ARRAY,OUTCOMES_ARRAY,PRODUCTS_
   ""Recalled product administered""
 ]","[
   ""Other Outcome""
-]",BADIA GROUND CUMIN,28,SUSPECT,Spices -- Flavors And Salts,Female,24.0,year(s),1,1
+]",BADIA GROUND CUMIN,"[
+  ""BADIA GROUND CUMIN""
+]",1,28,"[
+  ""28""
+]",1,SUSPECT,Spices -- Flavors And Salts,24.0,year(s),Female
 192573,2015-01-07,2015-01-03,"[
   ""GASTROINTESTINAL DISORDER"",
   ""RASH""
 ]","[
   ""Other Outcome""
-]",CRUNCHMASTER ROASTED VEGETABLE CRACKER - GLUTEN FREE,3,SUSPECT,Bakery Prod/Dough/Mix/Icing,Female,,,1,1
+]",CRUNCHMASTER ROASTED VEGETABLE CRACKER - GLUTEN FREE,"[
+  ""CRUNCHMASTER ROASTED VEGETABLE CRACKER - GLUTEN FREE""
+]",1,3,"[
+  ""3""
+]",1,SUSPECT,Bakery Prod/Dough/Mix/Icing,,,Female
 208292,2015-01-14,2015-01-12,"[
   ""MALAISE"",
   ""VOMITING""
 ]","[
   ""Other Outcome""
-]",SIMPLE TRUTH ORGANIC APPLESAUCE UNSWEETENED,20,SUSPECT,Fruit/Fruit Prod,Female,10.0,month(s),1,1
+]",SIMPLE TRUTH ORGANIC APPLESAUCE UNSWEETENED,"[
+  ""SIMPLE TRUTH ORGANIC APPLESAUCE UNSWEETENED""
+]",1,20,"[
+  ""20""
+]",1,SUSPECT,Fruit/Fruit Prod,10.0,month(s),Female

@@ -1,15 +1,15 @@
-geo_name,earnings_2012,earnings_2017,increase_amount
-"Barnstable, MA",45557,49105,3548
-"Berkshire, MA",45316,49674,4358
-"Bristol, MA",51639,55727,4088
-"Dukes, MA",49856,50678,822
-"Essex, MA",58008,61409,3401
-"Franklin, MA",41493,44839,3346
-"Hampden, MA",52128,54856,2728
-"Hampshire, MA",46536,50602,4066
-"Middlesex, MA",76284,82654,6370
-"Nantucket, MA",62451,67704,5253
-"Norfolk, MA",62474,67222,4748
-"Plymouth, MA",51516,56201,4685
-"Suffolk, MA",95575,106239,10664
-"Worcester, MA",55799,59301,3502
+GEONAME,INCREASE
+"Barnstable, MA",3548
+"Berkshire, MA",4358
+"Bristol, MA",4088
+"Dukes, MA",822
+"Essex, MA",3401
+"Franklin, MA",3346
+"Hampden, MA",2728
+"Hampshire, MA",4066
+"Middlesex, MA",6370
+"Nantucket, MA",5253
+"Norfolk, MA",4748
+"Plymouth, MA",4685
+"Suffolk, MA",10664
+"Worcester, MA",3502
