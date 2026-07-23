@@ -48,12 +48,12 @@
 43    sf_local007        Result Error
 
 # 赵
-44    sf_local064        Result Error
-45    sf_local228        Result Error
-46    sf_local262        Result Error
-47    sf_local272        Result Error
-48    sf_local274        Result Error
-49    sf_local277        Result Error
+44    sf_local064        Result Error done
+45    sf_local228        Result Error done
+46    sf_local262        Result Error done
+47    sf_local272        Result Error done
+48    sf_local274        Result Error done
+49    sf_local277        Result Error done
 50    sf_local286        Result Error
 51    sf_local301        Result Error
 52    sf_local302        Result Error
