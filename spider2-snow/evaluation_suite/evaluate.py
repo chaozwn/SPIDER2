@@ -484,7 +484,16 @@ def evaluate_spider2sql(args, temp_dir: Path):
     skipped_ids = sorted(gold_incorrect_ids.intersection(gold_ids))
     if skipped_ids:
         print(f"Ignoring gold-incorrect instances: {skipped_ids}")
-    
+
+    if not eval_ids:
+        print(
+            f"No overlapping instances to evaluate. "
+            f"pred_ids={len(pred_ids)}, gold_ids={len(gold_ids)}, "
+            f"gold_incorrect={len(gold_incorrect_ids)}. "
+            f"Check that --result_dir ({pred_result_dir}) contains .{ 'sql' if mode == 'sql' else 'csv' } files."
+        )
+        return
+
     output_results = []
     max_workers = min(args.max_workers if hasattr(args, 'max_workers') else 8, len(eval_ids))
 
