@@ -1,68 +1,70 @@
 # Spider-Agent Infini
 
-基于 [InfiniSynapse](https://infinisynapse.com) 的 Spider 2.0 评测入口：把题目提交给 InfiniSynapse Agent，回收 `.sql` / `.csv` 提交物，再交给官方 `evaluation_suite` 打分。
+[中文](./README.zh-CN.md)
 
-## 前置准备
+Spider 2.0 evaluation entry point based on [InfiniSynapse](https://infinisynapse.com): submit tasks to the InfiniSynapse Agent, collect `.sql` / `.csv` artifacts, then score them with the official `evaluation_suite`.
 
-在本目录配置两份凭证（不要提交到 git）：
+## Prerequisites
 
-| 文件 | 用途 |
-|------|------|
-| `infini_credential.json` | InfiniSynapse API（`api_key` / `api_url` / `console_url`） |
-| `snowflake_credential.json` | Snowflake 账号（`user` / `password` / `account` / `host`） |
+Configure two credential files in this directory (do not commit them to git):
 
-也可用环境变量覆盖 Infini 配置：`INFINI_CREDENTIAL_PATH`、`INFINI_API_URL`、`INFINI_CONSOLE_URL`、`INFINI_API_KEY`。
+| File | Purpose |
+|------|---------|
+| `infini_credential.json` | InfiniSynapse API (`api_key` / `api_url` / `console_url`) |
+| `snowflake_credential.json` | Snowflake account (`user` / `password` / `account` / `host`) |
 
-安装依赖：
+You can also override Infini settings via environment variables: `INFINI_CREDENTIAL_PATH`, `INFINI_API_URL`, `INFINI_CONSOLE_URL`, `INFINI_API_KEY`.
+
+Install dependencies:
 
 ```bash
 cd methods/spider_agent_infini
 pip install -e .
-# 或：pip install -r requirements.txt
+# or: pip install -r requirements.txt
 ```
 
-## 注册 / 更新数据源
+## Register / Update Data Sources
 
-评测依赖 InfiniSynapse 上已配置好的数据库。首次使用需要注册；之后如果只改了 `snowflake_credential.json`，只需刷新凭证，不必重新注册。
+Evaluation depends on databases already configured on InfiniSynapse. Register them on first use; afterward, if you only changed `snowflake_credential.json`, refresh credentials without re-registering.
 
 ```bash
 cd methods/spider_agent_infini
 
-# 更新 Snowflake 凭证（不重建数据源）
+# Update Snowflake credentials (without rebuilding data sources)
 python -m spider_agent_infini.spider_agent_setup_infini --update-credentials --remote-only
 ```
 
-## 跑 Spider2-Snow（推荐）
+## Run Spider2-Snow (Recommended)
 
 ```bash
 cd methods/spider_agent_infini
 
-# 读取 spider2-snow/spider2-snow.jsonl，并发提交全部题目（默认 csv）
+# Read spider2-snow/spider2-snow.jsonl and submit all tasks concurrently (csv by default)
 python run.py --mode csv
 ```
 
-结果直接落到评测目录，可立刻打分：
+Results land directly in the evaluation directory and can be scored immediately:
 
-| `--mode` | 提交目录 |
-|----------|----------|
-| `csv`（默认） | `spider2-snow/evaluation_suite/example_submission_folder_csv/` |
+| `--mode` | Submission directory |
+|----------|----------------------|
+| `csv` (default) | `spider2-snow/evaluation_suite/example_submission_folder_csv/` |
 
-评测：
+Evaluate:
 
 ```bash
 cd ../../spider2-snow/evaluation_suite
 python evaluate.py --result_dir example_submission_folder_csv --mode exec_result
 ```
 
-## 不想泄露密码
+## Avoid Leaking Passwords
 
 ```bash
 cd methods/spider_agent_infini
 
-# 更新 Snowflake 凭证 直接修改原来的密码即可
+# Update Snowflake credentials by editing the password in place
 python -m spider_agent_infini.spider_agent_setup_infini --update-credentials --remote-only
 ```
 
-## 了解更多
+## Learn More
 
-官网：<https://infinisynapse.com>
+Website: <https://infinisynapse.com>
