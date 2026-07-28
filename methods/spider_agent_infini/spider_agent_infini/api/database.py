@@ -490,6 +490,228 @@ def add_remote_snowflake_database(
     return unwrap(resp.json())
 
 
+def _parse_database_config(config: Any) -> dict[str, Any]:
+    """Normalize a data-source ``config`` field to a plain dict.
+
+    List endpoints may return ``"{}"`` / empty string; detail endpoints return
+    either a JSON object or a JSON-encoded string.
+    """
+    if config is None or config == "":
+        return {}
+    if isinstance(config, dict):
+        return dict(config)
+    if isinstance(config, str):
+        try:
+            parsed = json.loads(config)
+        except json.JSONDecodeError:
+            return {}
+        return dict(parsed) if isinstance(parsed, dict) else {}
+    return {}
+
+
+def _load_snowflake_credential(
+    snowflake_credential_path: str | os.PathLike,
+) -> dict[str, Any]:
+    with open(Path(snowflake_credential_path), "r", encoding="utf-8") as f:
+        sf = json.load(f)
+    missing = [k for k in ("host", "user", "password") if k not in sf]
+    if missing:
+        raise ValueError(
+            f"snowflake credential missing keys {missing}: "
+            f"{snowflake_credential_path}"
+        )
+    return sf
+
+
+def get_database_by_id(
+    database_id: str,
+    *,
+    use_console: bool = False,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any] | None:
+    """Fetch a data source by id.
+
+    Runtime path: ``GET /api/ai_database/getDatabaseById/{id}``.
+    Console path: ``GET /api/admin/database/getDatabaseById/{id}``.
+    """
+    client = InfiniClient(
+        credential_path=credential_path, timeout=timeout, use_console=use_console
+    )
+    path = (
+        "/api/admin/database/getDatabaseById"
+        if use_console
+        else "/api/ai_database/getDatabaseById"
+    )
+    resp = client.get(path, database_id, raise_for_status=False)
+    if resp.status_code == 404:
+        return None
+    if resp.status_code != 200:
+        resp.raise_for_status()
+    data = unwrap(resp.json())
+    if not isinstance(data, dict):
+        return None
+    # Console entities expose Mongo `_id`; runtime uses `id`. Normalize so
+    # callers can always read `id`.
+    if not data.get("id") and data.get("_id") is not None:
+        data = {**data, "id": str(data["_id"])}
+    return data
+
+
+def update_snowflake_database(
+    database_id: str,
+    snowflake_credential_path: str | os.PathLike,
+    *,
+    snowflake_database: str | None = None,
+    snowflake_schema: str | None = None,
+    deep_optimization: bool | None = None,
+    name: str | None = None,
+    nickname: str | None = None,
+    description: str | None = None,
+    enabled: int | None = None,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any]:
+    """Update a local (runtime) Snowflake source via ``POST /api/ai_database/update``.
+
+    ``config`` is sent as a JSON-encoded string. Existing ``snowflake_database`` /
+    ``snowflake_schema`` / ``deep_optimization`` are preserved when not supplied,
+    because the server replaces the whole config object.
+    """
+    sf = _load_snowflake_credential(snowflake_credential_path)
+    existing = get_database_by_id(
+        database_id, credential_path=credential_path, timeout=timeout
+    )
+    if existing is None:
+        raise LookupError(f"database id not found: {database_id}")
+
+    old_cfg = _parse_database_config(existing.get("config"))
+    config = {
+        "snowflake_host": sf["host"],
+        "snowflake_username": sf["user"],
+        "snowflake_password": sf["password"],
+        "snowflake_database": (
+            snowflake_database
+            if snowflake_database is not None
+            else old_cfg.get("snowflake_database", "")
+        ),
+        "snowflake_schema": (
+            snowflake_schema
+            if snowflake_schema is not None
+            else old_cfg.get("snowflake_schema", "")
+        ),
+        "deep_optimization": (
+            deep_optimization
+            if deep_optimization is not None
+            else old_cfg.get("deep_optimization", True)
+        ),
+    }
+
+    payload: dict[str, Any] = {
+        "id": database_id,
+        "name": name if name is not None else existing.get("name"),
+        "nickname": nickname if nickname is not None else existing.get("nickname"),
+        "description": (
+            description if description is not None else existing.get("description")
+        ),
+        "type": "snowflake",
+        "enabled": enabled if enabled is not None else existing.get("enabled", 1),
+        "config": json.dumps(config, ensure_ascii=False),
+    }
+
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    resp = client.post("/api/ai_database/update", json_body=payload)
+    return unwrap(resp.json())
+
+
+def update_remote_snowflake_database(
+    database_id: str,
+    snowflake_credential_path: str | os.PathLike,
+    *,
+    snowflake_database: str | None = None,
+    snowflake_schema: str | None = None,
+    deep_optimization: bool | None = None,
+    name: str | None = None,
+    nickname: str | None = None,
+    description: str | None = None,
+    roles: Sequence[str] | None = None,
+    review_roles: Sequence[str] | None = None,
+    table_access_rules: Sequence[dict[str, Any]] | None = None,
+    public: bool | None = None,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any]:
+    """Update a nest-admin remote Snowflake source.
+
+    Mirrors the web console flow in ``proxy``:
+    ``POST /api/admin/database/update`` with ``DatabaseEditDto``. ``config`` is a
+    plain JSON object (not a string). The server replaces ``config`` wholesale via
+    ``sanitizeDatabaseConfig``, so we always re-send database/schema/deep_opt.
+    """
+    sf = _load_snowflake_credential(snowflake_credential_path)
+    existing = get_database_by_id(
+        database_id,
+        use_console=True,
+        credential_path=credential_path,
+        timeout=timeout,
+    )
+    if existing is None:
+        # Fallback: runtime detail often works even for remote_ sources.
+        existing = get_database_by_id(
+            database_id, credential_path=credential_path, timeout=timeout
+        )
+    if existing is None:
+        raise LookupError(f"remote database id not found: {database_id}")
+
+    old_cfg = _parse_database_config(existing.get("config"))
+    config = {
+        "snowflake_host": sf["host"],
+        "snowflake_username": sf["user"],
+        "snowflake_password": sf["password"],
+        "snowflake_database": (
+            snowflake_database
+            if snowflake_database is not None
+            else old_cfg.get("snowflake_database", "")
+        ),
+        "snowflake_schema": (
+            snowflake_schema
+            if snowflake_schema is not None
+            else old_cfg.get("snowflake_schema", "")
+        ),
+        "deep_optimization": (
+            deep_optimization
+            if deep_optimization is not None
+            else old_cfg.get("deep_optimization", True)
+        ),
+    }
+
+    payload: dict[str, Any] = {
+        "id": database_id,
+        "type": "snowflake",
+        "config": config,
+    }
+    if name is not None:
+        payload["name"] = name
+    if nickname is not None:
+        payload["nickname"] = nickname
+    if description is not None:
+        payload["description"] = description
+    if roles is not None:
+        payload["roles"] = list(roles)
+    if review_roles is not None:
+        payload["reviewRoles"] = list(review_roles)
+    if table_access_rules is not None:
+        payload["tableAccessRules"] = list(table_access_rules)
+    if public is not None:
+        payload["public"] = public
+
+    client = InfiniClient(
+        credential_path=credential_path, timeout=timeout, use_console=True
+    )
+    resp = client.post("/api/admin/database/update", json_body=payload)
+    return unwrap(resp.json())
+
+
 def delete_database(
     database_name: str,
     credential_path: str | os.PathLike | None = None,

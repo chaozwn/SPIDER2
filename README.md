@@ -6,11 +6,11 @@
   <a href="https://docs.google.com/document/d/1sCobAqJZcko-Vl3biOycwvCIR7kTwBPrhsgVfvaX1Fg/edit?usp=sharing">Submission Guidance</a>
 </p>
 
-## 📰 News 
+## 📰 News
 
-- **2025-11-06**: We apologize for the recent Snowflake login and credential issues caused by Snowflake’s password & MFA policy upgrade. Both **Web UI login** and **Python credential access** behaviors have changed.  
+- **2025-11-06**: We apologize for the recent Snowflake login and credential issues caused by Snowflake’s password & MFA policy upgrade. Both **Web UI login** and **Python credential access** behaviors have changed.
   Please **carefully review the updated Snowflake guideline** before continuing:
-  https://github.com/xlang-ai/Spider2/blob/main/assets/Snowflake_Guideline.md  
+  https://github.com/xlang-ai/Spider2/blob/main/assets/Snowflake_Guideline.md
   Thank you for your patience and understanding!
 
 - **2025-10-29**: Major update!
@@ -144,7 +144,7 @@ For more details, please refer to the following links:
 
 
 
-# 📋 Leaderboard Submission 
+# 📋 Leaderboard Submission
 
 We only release the gold answer of about partial examples of Spider 2.0-Lite, Spider 2.0-Snow and Spider 2.0-DBT.
 You must follow this [submission guidance](https://docs.google.com/document/d/1sCobAqJZcko-Vl3biOycwvCIR7kTwBPrhsgVfvaX1Fg/edit?usp=sharing) to upload your score to [leaderboard](https://spider2-sql.github.io/).
@@ -165,12 +165,12 @@ The website and submission guidelines are greatly inspired by [BIRD-SQL](https:/
 If you find our work helpful, please cite as
 ```
 @misc{lei2024spider2,
-      title={Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows}, 
+      title={Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows},
       author={Fangyu Lei and Jixuan Chen and Yuxiao Ye and Ruisheng Cao and Dongchan Shin and Hongjin Su and Zhaoqing Suo and Hongcheng Gao and Wenjing Hu and Pengcheng Yin and Victor Zhong and Caiming Xiong and Ruoxi Sun and Qian Liu and Sida Wang and Tao Yu},
       year={2024},
       eprint={2411.07763},
       archivePrefix={arXiv},
       primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2411.07763}, 
+      url={https://arxiv.org/abs/2411.07763},
 }
 ```

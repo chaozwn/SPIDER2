@@ -323,12 +323,100 @@ def add_sqlite_database_to_infini():
             continue
 
 
+def update_snowflake_credentials_in_infini(
+    *,
+    snowflake_credential_path: str = SNOWFLAKE_CREDENTIAL_PATH,
+    scope: str = "all",
+) -> None:
+    """Refresh Snowflake account/password on already-registered data sources.
+
+    Reads ``host`` / ``user`` / ``password`` from ``snowflake_credential.json``
+    and patches every existing Snowflake source via the nest-admin console
+    ``POST /api/admin/database/update`` (remote_*) or the runtime
+    ``POST /api/ai_database/update`` (local). ``snowflake_database`` /
+    ``snowflake_schema`` on each source are preserved.
+
+    Args:
+        scope: ``all`` (default), ``remote``, or ``local``.
+    """
+    from spider_agent_infini.api.database import (
+        list_databases,
+        update_remote_snowflake_database,
+        update_snowflake_database,
+    )
+
+    if scope not in {"all", "remote", "local"}:
+        raise ValueError(f"unsupported scope: {scope!r}")
+
+    items = list_databases(type="snowflake")
+    logger.info(
+        "Found %d snowflake data source(s); updating credentials from %s "
+        "(scope=%s)",
+        len(items),
+        snowflake_credential_path,
+        scope,
+    )
+
+    updated = 0
+    skipped = 0
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        db_id = item.get("id")
+        name = str(item.get("name") or "")
+        if not db_id:
+            skipped += 1
+            continue
+
+        is_remote = (
+            str(item.get("source") or "") == "remote"
+            or name.startswith("remote_")
+        )
+        if scope == "remote" and not is_remote:
+            skipped += 1
+            continue
+        if scope == "local" and is_remote:
+            skipped += 1
+            continue
+
+        try:
+            if is_remote:
+                logger.info("[update remote] %s (%s)", name, db_id)
+                update_remote_snowflake_database(
+                    database_id=str(db_id),
+                    snowflake_credential_path=snowflake_credential_path,
+                )
+            else:
+                logger.info("[update local ] %s (%s)", name, db_id)
+                update_snowflake_database(
+                    database_id=str(db_id),
+                    snowflake_credential_path=snowflake_credential_path,
+                )
+            updated += 1
+            logger.info("[ok    ] %s", name)
+        except Exception as e:
+            _log_failure(
+                f"Failed to update snowflake credentials for "
+                f"{name!r} (id={db_id}): {e}"
+            )
+            continue
+
+    logger.info(
+        "Credential update done: updated=%d skipped=%d total=%d",
+        updated,
+        skipped,
+        len(items),
+    )
+
+
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Register InfiniSynapse data sources for the Spider 2.0 splits. "
             "By default registers BOTH Snowflake (spider2-snow) and SQLite "
-            "(spider2-lite) sources; pass a flag to scope to one side."
+            "(spider2-lite) sources; pass a flag to scope to one side. "
+            "Use --update-credentials to refresh Snowflake account/password "
+            "from snowflake_credential.json without re-registering sources."
         ),
     )
     group = parser.add_mutually_exclusive_group()
@@ -367,11 +455,34 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
             "`--types sqlite` or `--types snowflake sqlite`."
         ),
     )
+    parser.add_argument(
+        "--update-credentials",
+        action="store_true",
+        help=(
+            "update host/user/password on existing Snowflake data sources "
+            "from snowflake_credential.json (does not create/delete sources). "
+            "Use with --remote-only / --snowflake-only to scope remote vs "
+            "local; default updates both."
+        ),
+    )
+    parser.add_argument(
+        "--snowflake-credential",
+        default=SNOWFLAKE_CREDENTIAL_PATH,
+        help=(
+            "path to Snowflake credential JSON "
+            f"(default: {SNOWFLAKE_CREDENTIAL_PATH})"
+        ),
+    )
     parser.set_defaults(only=None)
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> None:
+    if not logging.getLogger().handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+        )
     args = _parse_args(argv)
 
     if args.types is not None and args.only is not None:
@@ -383,6 +494,37 @@ def main(argv: list[str] | None = None) -> None:
             file=sys.stderr,
         )
         raise SystemExit(2)
+
+    if args.update_credentials:
+        if args.types is not None:
+            print(
+                "error: --update-credentials is mutually exclusive with --types",
+                file=sys.stderr,
+            )
+            raise SystemExit(2)
+        if args.only == "sqlite":
+            print(
+                "error: --update-credentials cannot be combined with "
+                "--sqlite-only",
+                file=sys.stderr,
+            )
+            raise SystemExit(2)
+
+        if args.only == "remote":
+            scope = "remote"
+        elif args.only == "snowflake":
+            scope = "local"
+        else:
+            scope = "all"
+
+        logger.info(
+            "=== STEP: update Snowflake credentials (scope=%s) ===", scope
+        )
+        update_snowflake_credentials_in_infini(
+            snowflake_credential_path=args.snowflake_credential,
+            scope=scope,
+        )
+        return
 
     if args.types is not None:
         selected = list(dict.fromkeys(args.types))  # preserve order, dedupe
