@@ -6,7 +6,8 @@ overall flow — resolve the matching InfiniSynapse data source for a task,
 submit a ``newTask`` scoped via ``databaseIds``, wait for completion, and
 harvest deliverables into the appropriate evaluation_suite folder — but differ in:
 
-- JSONL: ``spider2-snow/spider2-snow.jsonl`` (``db_id`` / ``instruction``).
+- JSONL: ``spider2-snow/spider2-snow.jsonl`` by default (``db_id`` /
+  ``instruction``); override with ``--jsonl`` (e.g. ``spider2-snow-100.jsonl``).
 - Data source lookup: :func:`select_databases_by_snowflake_database` matches
   the nest-admin remote source ``remote_<db_id>`` instead of
   :func:`select_databases_by_sqlite_db_id`.
@@ -90,7 +91,8 @@ logger.addHandler(sdebug_handler)
 _PROJECT_ROOT = Path(__file__).resolve().parent
 # Repo layout: <repo>/methods/spider_agent_infini/run.py
 _REPO_ROOT = _PROJECT_ROOT.parent.parent
-_EVAL_SUITE_DIR = _REPO_ROOT / "spider2-snow" / "evaluation_suite"
+_SNOW_DIR = _REPO_ROOT / "spider2-snow"
+_EVAL_SUITE_DIR = _SNOW_DIR / "evaluation_suite"
 # Successful runs drop deliverables directly into the evaluation_suite so that
 # `python evaluate.py --result_dir example_submission_folder[_csv]` can be run
 # immediately afterwards without an extra copy step.
@@ -114,6 +116,14 @@ def config() -> argparse.Namespace:
         help="submission mode: 'sql' to submit a .sql file, "
              "'csv' to submit a .csv result file, "
              "'both' to require both .sql and .csv deliverables",
+    )
+    parser.add_argument(
+        "--jsonl",
+        type=str,
+        default=None,
+        help="task jsonl to run (default: spider2-snow/spider2-snow.jsonl). "
+             "Accepts an absolute/relative path, or a filename resolved under "
+             "spider2-snow/ (e.g. 'spider2-snow-100.jsonl').",
     )
     parser.add_argument(
         "--instance_id",
@@ -159,6 +169,34 @@ def config() -> argparse.Namespace:
     )
     args = parser.parse_args()
     return args
+
+
+def _resolve_jsonl_path(spec: str | None) -> Path:
+    """Resolve the task jsonl path from ``--jsonl`` or the default.
+
+    Resolution order when *spec* is set:
+    1. As given (absolute, or relative to the current working directory).
+    2. Under ``spider2-snow/`` (so ``spider2-snow-100.jsonl`` works from
+       any cwd).
+    3. Under ``spider2-snow/`` with a ``.jsonl`` suffix appended.
+    """
+    if not spec:
+        return Path(JSONL_PATH)
+
+    candidates = [Path(spec)]
+    if not Path(spec).is_absolute():
+        candidates.append(_SNOW_DIR / spec)
+        if not spec.endswith(".jsonl"):
+            candidates.append(_SNOW_DIR / f"{spec}.jsonl")
+
+    for candidate in candidates:
+        if candidate.is_file():
+            return candidate.resolve()
+
+    tried = ", ".join(str(c) for c in candidates)
+    raise FileNotFoundError(
+        f"--jsonl {spec!r} not found (tried: {tried})"
+    )
 
 
 def _parse_range(spec: str, total: int) -> tuple[int, int]:
@@ -726,7 +764,14 @@ def run():
     args = config()
     logger.info("Args: %s", args)
 
-    with open(JSONL_PATH, "r", encoding="utf-8") as f:
+    try:
+        jsonl_path = _resolve_jsonl_path(args.jsonl)
+    except FileNotFoundError as e:
+        logger.error("%s", e)
+        return
+
+    logger.info("Loading tasks from %s", jsonl_path)
+    with open(jsonl_path, "r", encoding="utf-8") as f:
         task_configs = [json.loads(line) for line in f if line.strip()]
 
     if args.instance_id and args.index_range:
@@ -755,7 +800,7 @@ def run():
         if missing:
             logger.error(
                 "instance_id(s) %s not found in %s",
-                missing, JSONL_PATH,
+                missing, jsonl_path,
             )
             return
 
