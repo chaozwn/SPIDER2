@@ -1,0 +1,501 @@
+TAG_NAME,QUESTION_ID,title,view_count,RANK_IN_TAG
+android-layout,12128331,How to change fontFamily of TextView in Android,976288,1
+android-layout,3496269,How to put a border around an Android TextView?,875256,2
+android-layout,2394935,Can I underline text in an Android layout?,650416,3
+android-layout,9294603,How do I get the currently displayed fragment?,554536,4
+android-layout,16694786,How to customize a Spinner in Android,465467,5
+android-layout,2335813,How to inflate one view with a layout,447688,6
+android-layout,6014028,Closing Application with Exit button,444909,7
+android-layout,8203606,Android: how to draw a border to a LinearLayout,412817,8
+android-layout,28460300,How to build a horizontal ListView with RecyclerView,406362,9
+android-layout,14483393,How do I change the android actionbar title and icon,404845,10
+android-layout,3591784,View's getWidth() and getHeight() returns 0,388561,11
+android-layout,3995825,What does android:layout_weight mean?,373995,12
+android-layout,14779688,Put buttons at bottom of screen with LinearLayout?,367658,13
+android-layout,26492522,How do I remove the title bar from my app?,361852,14
+android-layout,17565307,How to display count of notifications in app launcher icon,359263,15
+android-layout,32671004,How to change the color of a button?,337048,16
+android-layout,4182486,Placing/Overlapping(z-index) a view above another view in android,336481,17
+android-layout,11723881,Android: set view style programmatically,335400,18
+android-layout,8049620,How to set layout_gravity programmatically?,332398,19
+android-layout,26574328,Changing EditText bottom line color with appcompat v7,325998,20
+android-layout,5854047,How to change the color of a CheckBox?,321897,21
+android-layout,9685658,Add padding on view programmatically,321347,22
+android-layout,26724964,How to animate RecyclerView items when they appear,315041,23
+android-layout,4502605,How to programmatically set drawableLeft on Android button?,312855,24
+android-layout,22966143,Android button with icon and text,304165,25
+android-layout,3294590,Set the absolute position of a view,283912,26
+android-layout,3775705,How set the android:gravity to TextView from Java side in Android,275291,27
+android-layout,11078487,"What's ""tools:context"" in Android layout files?",266599,28
+android-layout,43143468,How to center the elements in ConstraintLayout,266538,29
+android-layout,8977212,How is using OnClickListener interface different via XML and Java code?,260727,30
+android-layout,18051472,How to center the content inside a linear layout?,259663,31
+android-layout,4641072,How to set layout_weight attribute dynamically from code?,254535,32
+android-layout,1964789,Move layouts up when soft keyboard is shown?,244165,33
+android-layout,4984313,How to set space between listView Items in Android,242690,34
+android-layout,16411056,How to adjust layout when soft keyboard appears,234587,35
+android-layout,2644134,Android: How to create a Dialog without a title?,223670,36
+android-layout,15111402,How can I create a border around an Android LinearLayout?,217009,37
+android-layout,4755871,How to set image button backgroundimage for different state?,212286,38
+android-layout,20185340,How to align linearlayout to vertical center?,203304,39
+android-layout,1914477,How do I remove lines between ListViews on Android?,200957,40
+android-layout,6557220,Defining a percentage width for a LinearLayout?,195125,41
+android-layout,26969424,How to set Toolbar text and back arrow color,194957,42
+android-layout,32860815,How to define dimens.xml for every different screen size in android?,193987,43
+android-layout,27203817,RecyclerView expand/collapse items,192906,44
+android-layout,4396376,How to get EditText value and display it on screen through TextView?,191807,45
+android-layout,7452741,"What is android:weightSum in android, and how does it work?",188840,46
+android-layout,4858026,Android: alternate layout xml for landscape mode,184474,47
+android-layout,6698927,Border in shape XML,181678,48
+android-layout,8384067,How to dismiss the dialog with click on outside of the dialog?,173552,49
+android-layout,15128652,How to add (vertical) divider to a horizontal LinearLayout?,168631,50
+android-activity,2091465,How do I pass data between Activities in Android application?,1178135,1
+android-activity,4186021,How to start new activity on button click,1001824,2
+android-activity,151777,How can I save an activity state using the save instance state?,879845,3
+android-activity,2736389,How to pass an object from one activity to another on Android,820471,4
+android-activity,1555109,How to stop EditText from gaining focus when an activity starts in Android?,807473,5
+android-activity,4038479,Android: Go back to previous activity,727437,6
+android-activity,2139134,How to send an object from one Android Activity to another using Intents?,679353,7
+android-activity,3631982,Change application's starting activity,661220,8
+android-activity,2868047,Fullscreen Activity in Android?,651101,9
+android-activity,4486034,Get root view from current activity,627175,10
+android-activity,2176922,How do I create a transparent Activity on Android?,489413,11
+android-activity,6147884,onActivityResult is not being called in Fragment,484921,12
+android-activity,456211,Activity restart on rotation Android,403932,13
+android-activity,11411395,How to get current foreground activity context in android?,375132,14
+android-activity,13194081,How to open a second activity on click of button in android app,367926,15
+android-activity,1397361,How to restart Activity in Android,360057,16
+android-activity,2198410,How to change title of Activity in Android?,353154,17
+android-activity,3918517,Calling startActivity() from outside of an Activity context,320046,18
+android-activity,5446565,Android: how do I check if activity is running?,315148,19
+android-activity,2257963,How to show a dialog to confirm that the user wishes to exit an Android Activity?,311375,20
+android-activity,3873659,Android: How can I get the current foreground activity (from a service)?,307797,21
+android-activity,17719634,How to exit an Android app programmatically?,302582,22
+android-activity,62671106,"OnActivityResult method is deprecated, what is the alternative?",299718,23
+android-activity,5794506,Android: Clear the back stack,294060,24
+android-activity,1979369,Android Activity as a dialog,279873,25
+android-activity,4761686,How to set background color of an Activity to white programmatically?,278483,26
+android-activity,3389501,Activity transition in Android,266654,27
+android-activity,3913592,Start an Activity with a parameter,265871,28
+android-activity,3606596,Start Activity from Service in Android,251875,29
+android-activity,19451715,Same Navigation Drawer in different Activities,246480,30
+android-activity,1111980,How to handle screen orientation change when progress dialog and background thread active?,243427,31
+android-activity,1898886,Removing an activity from the history stack,230240,32
+android-activity,20306091,Dilemma: when to use Fragments vs Activities:,228389,33
+android-activity,31297246,"Activity, AppCompatActivity, FragmentActivity, and ActionBarActivity: When to Use Which?",224406,34
+android-activity,12102777,Prevent Android activity dialog from closing on outside touch,205746,35
+android-activity,21295328,Android ListView with onClick items,201228,36
+android-activity,4342761,How do you use Intent.FLAG_ACTIVITY_CLEAR_TOP to clear the Activity Stack?,200223,37
+android-activity,32860815,How to define dimens.xml for every different screen size in android?,193987,38
+android-activity,17436298,"How to pass a variable from Activity to Fragment, and pass it back?",173145,39
+android-activity,2906925,How do I pass an object from one activity to another on Android?,167340,40
+android-activity,2337874,Best way to add Activity to an Android project in Eclipse?,166602,41
+android-activity,20264268,How do I get the height and width of the Android Navigation Bar programmatically?,162412,42
+android-activity,10379134,Finish an activity from another activity,162203,43
+android-activity,6121797,android: how to change layout on button click?,161331,44
+android-activity,2042222,Close application and launch home screen on Android,159142,45
+android-activity,10243557,How to apply slide animation between two activities in Android?,158457,46
+android-activity,14785806,Android: how to make an activity return results to the activity which calls it?,152865,47
+android-activity,18146614,How to send string from one activity to another?,151413,48
+android-activity,3293243,Pass data from Activity to Service using an Intent,150666,49
+android-activity,14292398,How to pass data from 2nd activity to 1st activity when pressed back? - android,150473,50
+android-intent,2091465,How do I pass data between Activities in Android application?,1178135,1
+android-intent,2201917,How can I open a URL in Android's web browser from my application?,1097670,2
+android-intent,4233873,How do I get extra data from intent on Android?,1016834,3
+android-intent,4186021,How to start new activity on button click,1001824,4
+android-intent,5265913,How to use putExtra() and getExtra() for string data,899984,5
+android-intent,11753000,How to open the Google Play Store directly from my Android application?,868588,6
+android-intent,2736389,How to pass an object from one activity to another on Android,820471,7
+android-intent,4038479,Android: Go back to previous activity,727437,8
+android-intent,3004515,Sending an Intent to browser to open specific URL,706889,9
+android-intent,2139134,How to send an object from one Android Activity to another using Intents?,679353,10
+android-intent,9294603,How do I get the currently displayed fragment?,554536,11
+android-intent,3872063,How to launch an Activity from another Application in Android,503573,12
+android-intent,8701634,Send Email Intent,457173,13
+android-intent,2695746,How to get a list of installed android applications and pick one to run,440685,14
+android-intent,13194081,How to open a second activity on click of button in android app,367926,15
+android-intent,2662531,Launching Google Maps Directions via an intent on Android,359859,16
+android-intent,2958701,Launch custom android application from android browser,352506,17
+android-intent,5794506,Android: Clear the back stack,294060,18
+android-intent,2780102,Open another application from your own (intent),251907,19
+android-intent,3606596,Start Activity from Service in Android,251875,20
+android-intent,14685721,How can I do factory reset using adb in android?,236245,21
+android-intent,4342761,How do you use Intent.FLAG_ACTIVITY_CLEAR_TOP to clear the Activity Stack?,200223,22
+android-intent,2448213,How to implement my very own URI scheme on Android,192632,23
+android-intent,1910608,Android ACTION_IMAGE_CAPTURE Intent,188557,24
+android-intent,5026349,How to open a website when a Button is clicked in Android application?,179168,25
+android-intent,11699819,How do I get the dialer to open with phone number displayed?,177410,26
+android-intent,15563921,"How to detect incoming calls, in an Android device?",176544,27
+android-intent,2372248,launch sms application with an intent,176345,28
+android-intent,14333449,Passing data through intent using Serializable,166847,29
+android-intent,2405120,How to start an Intent by passing some parameters to it?,165270,30
+android-intent,10379134,Finish an activity from another activity,162203,31
+android-intent,6121797,android: how to change layout on button click?,161331,32
+android-intent,13601883,How to pass ArrayList of Objects from one to another activity using Intent in android?,160693,33
+android-intent,9467026,Changing position of the Dialog on screen android,160174,34
+android-intent,16636752,Android button onClickListener,158780,35
+android-intent,17526533,Moving from one activity to another Activity in Android,157717,36
+android-intent,3293243,Pass data from Activity to Service using an Intent,150666,37
+android-intent,11387740,Where/How to getIntent().getExtras() in an Android Fragment?,148706,38
+android-intent,19422075,"Open a selected file (image, pdf, ...) programmatically from my Android Application?",136021,39
+android-intent,8945531,Pick any kind of file via an Intent in Android,134997,40
+android-intent,2232238,How to bring an activity to foreground (top of stack)?,133706,41
+android-intent,9989130,Page scroll when soft keyboard popped up,132803,42
+android-intent,3515198,Share Text on Facebook from Android App via ACTION_SEND,125493,43
+android-intent,1572107,Android intent for playing video?,124855,44
+android-intent,2424488,"New Intent() starts new instance with Android: launchMode=""singleTop""",122657,45
+android-intent,4455558,Allow user to select camera or gallery for image,120833,46
+android-intent,19286970,Using intents to pass data between activities,120074,47
+android-intent,32700818,How to open a Fragment on button click from a fragment in Android,116589,48
+android-intent,20333186,How to Share Image + Text together using ACTION_SEND in android?,113963,49
+android-intent,22704451,open google maps through intent for specific location in android,113292,50
+android-edittext,1109022,How to close/hide the Android soft keyboard programmatically?,1752733,1
+android-edittext,1555109,How to stop EditText from gaining focus when an activity starts in Android?,807473,2
+android-edittext,4531396,Get Value of a Edit Text field,791307,3
+android-edittext,2709253,Converting a string to an integer on Android,640937,4
+android-edittext,6290531,How do I check if my EditText fields are empty?,540027,5
+android-edittext,5056734,Android: Force EditText to remove focus?,440327,6
+android-edittext,4233626,Allow multi-line in EditText view in Android?,434742,7
+android-edittext,13975528,How to hide underbar in EditText,394011,8
+android-edittext,2763022,Android: How can I validate EditText input?,351067,9
+android-edittext,2403632,Android: show soft keyboard automatically when focus is on an EditText,347555,10
+android-edittext,12947620,Email Address Validation in Android on EditText,345704,11
+android-edittext,6217378,Place cursor at the end of text in EditText,344527,12
+android-edittext,3646415,How to create EditText with rounded corners?,343608,13
+android-edittext,4590957,How To Set Text In An EditText,340844,14
+android-edittext,26574328,Changing EditText bottom line color with appcompat v7,325998,15
+android-edittext,3928711,How to make EditText not editable through XML in Android?,303795,16
+android-edittext,11134144,android edittext onchange listener,283025,17
+android-edittext,8991522,How can I set the focus (and display the keyboard) on my EditText programmatically,281352,18
+android-edittext,30824009,Change EditText hint color when using TextInputLayout,277415,19
+android-edittext,4645119,How do you set EditText to only accept numeric values in Android?,271141,20
+android-edittext,8035107,How to set cursor position in EditText?,264671,21
+android-edittext,17989733,Move to another EditText when Soft Keyboard Next is clicked on Android,257703,22
+android-edittext,2586301,Set inputType for an EditText Programmatically?,255282,23
+android-edittext,2004344,How do I handle ImeOptions' done button click?,238420,24
+android-edittext,30546430,How to change the floating label color of TextInputLayout,229589,25
+android-edittext,8543449,How to use the TextWatcher class in Android?,204746,26
+android-edittext,6384004,Make EditText ReadOnly,198729,27
+android-edittext,6355096,How to create EditText with cross(x) button at end of it?,188861,28
+android-edittext,3349121,How do I use InputFilter to limit characters in an EditText in Android?,187249,29
+android-edittext,17449169,How to change style of a default EditText,185971,30
+android-edittext,4903515,How do I return an int from EditText? (Android),184298,31
+android-edittext,2712761,"EditText, inputType values (XML)",183311,32
+android-edittext,5618402,How to draw rounded rectangle in Android UI?,182492,33
+android-edittext,1119583,How do I show the number keyboard on an EditText in android?,181350,34
+android-edittext,2342620,how to hide keyboard after typing in EditText in android?,171508,35
+android-edittext,2359176,EditText onClickListener in Android,168988,36
+android-edittext,8063439,android EditText - finished typing event,168774,37
+android-edittext,15961813,"In Android EditText, how to force writing uppercase?",167672,38
+android-edittext,13135447,Setting onClickListener for the Drawable right of an EditText,166507,39
+android-edittext,8077755,EditText request focus,162261,40
+android-edittext,13817521,How do you set the EditText keyboard to only consist of numbers on Android?,161963,41
+android-edittext,10627137,How can I know when an EditText loses focus?,161004,42
+android-edittext,3554377,Handling click events on a drawable within an EditText,159931,43
+android-edittext,19189265,Custom designing EditText,157106,44
+android-edittext,10611833,How to disable keypad popup when on edittext?,155903,45
+android-edittext,15037465,Converting EditText to int? (Android),155776,46
+android-edittext,4886858,Android EditText delete(backspace) key event,151525,47
+android-edittext,5879250,How to disable EditText in Android,146058,48
+android-edittext,5582702,Disable EditText blinking cursor,143023,49
+android-edittext,4175398,How to clear an EditText on click?,140931,50
+android-fragments,5448653,How to implement onBackPressed() in Fragments?,625104,1
+android-fragments,8215308,Using context in a fragment,606927,2
+android-fragments,12739909,Send data from activity to fragment in Android,572740,3
+android-fragments,9294603,How do I get the currently displayed fragment?,554536,4
+android-fragments,6147884,onActivityResult is not being called in Fragment,484921,5
+android-fragments,7575921,IllegalStateException: Can not perform this action after onSaveInstanceState with ViewPager,387999,6
+android-fragments,8308695,How to add Options Menu to Fragment in Android,330360,7
+android-fragments,62671106,"OnActivityResult method is deprecated, what is the alternative?",299718,8
+android-fragments,20812922,How to close the current fragment by using Button like the back button?,294528,9
+android-fragments,9343241,Passing data between a fragment and its container activity,278005,10
+android-fragments,31847080,How to convert any Object to String?,276425,11
+android-fragments,6186433,Clear back stack using fragments,273657,12
+android-fragments,7149802,How to transfer some data to another Fragment?,266618,13
+android-fragments,19353255,How to put Google Maps V2 on a Fragment using ViewPager,263732,14
+android-fragments,4817900,Android Fragments and animation,255284,15
+android-fragments,18609261,Getting the current Fragment instance in the viewpager,254510,16
+android-fragments,20306091,Dilemma: when to use Fragments vs Activities:,228389,17
+android-fragments,31297246,"Activity, AppCompatActivity, FragmentActivity, and ActionBarActivity: When to Use Which?",224406,18
+android-fragments,10903077,Calling a Fragment method from a parent Activity,204449,19
+android-fragments,6374170,How to set a Fragment tag by code?,198254,20
+android-fragments,15560904,Setting Custom ActionBar Title from Fragment,177906,21
+android-fragments,17436298,"How to pass a variable from Activity to Fragment, and pass it back?",173145,22
+android-fragments,5425568,How to use setArguments() and getArguments() methods in Fragments?,171526,23
+android-fragments,13733304,Callback to a Fragment from a DialogFragment,170708,24
+android-fragments,26998455,How to get Toolbar from fragment?,169835,25
+android-fragments,22474584,Remove old Fragment from fragment manager,169282,26
+android-fragments,5194548,How to pass data between fragments,168990,27
+android-fragments,21026409,Fragment transaction animation: slide in and slide out,166990,28
+android-fragments,8163104,Android replace the current fragment with another fragment,160870,29
+android-fragments,6787071,android fragment- How to save states of views in a fragment when another fragment is pushed on top of it,153482,30
+android-fragments,11387740,Where/How to getIntent().getExtras() in an Android Fragment?,148706,31
+android-fragments,36100187,How to start Fragment from an Activity,147216,32
+android-fragments,23212162,How to move from one fragment to another fragment on click of an ImageView in Android?,145025,33
+android-fragments,9702216,get the latest fragment in backstack,143944,34
+android-fragments,14247954,Communicating between a fragment and an activity - best practices,143180,35
+android-fragments,22505327,Android - save/restore fragment state,136939,36
+android-fragments,18755550,Fragment pressing back button,135795,37
+android-fragments,40760625,How to check permission in fragment,131609,38
+android-fragments,16652095,How to know if a Fragment is Visible?,130943,39
+android-fragments,7119203,How to destroy Fragment?,128547,40
+android-fragments,18296868,How to add a fragment to a programmatically generated layout?,125888,41
+android-fragments,13700798,Basic communication between two fragments,125199,42
+android-fragments,32700818,How to open a Fragment on button click from a fragment in Android,116589,43
+android-fragments,18088076,Update Fragment from ViewPager,116528,44
+android-fragments,44272914,Sharing data between fragments using new architecture component ViewModel,116423,45
+android-fragments,13402782,Show DialogFragment with animation growing from a point,115994,46
+android-fragments,9363072,Android - Set fragment id,115894,47
+android-fragments,8532462,How to get the fragment instance from the FragmentActivity?,115797,48
+android-fragments,24555417,How to send data from one Fragment to another Fragment?,110993,49
+android-fragments,17599450,How to inflate view inside fragment,105478,50
+android-recyclerview,24618829,How to add dividers and spaces between items in RecyclerView,777976,1
+android-recyclerview,26245139,How to create RecyclerView with multiple view types,563044,2
+android-recyclerview,28460300,How to build a horizontal ListView with RecyclerView,406362,3
+android-recyclerview,40587168,Simple Android grid example using RecyclerView with GridLayoutManager (like the old GridView),361959,4
+android-recyclerview,26724964,How to animate RecyclerView items when they appear,315041,5
+android-recyclerview,26076965,Android RecyclerView addition & removal of items,314184,6
+android-recyclerview,28531996,Android Recyclerview GridLayoutManager column spacing,301236,7
+android-recyclerview,30531091,How to disable RecyclerView scrolling?,287241,8
+android-recyclerview,26543131,How to implement endless list with RecyclerView?,282249,9
+android-recyclerview,28296708,Get clicked item and its position in RecyclerView,280441,10
+android-recyclerview,31000081,How to use RecyclerView inside NestedScrollView?,258593,11
+android-recyclerview,32457406,How to update/refresh specific item in RecyclerView,252987,12
+android-recyclerview,27194044,How to properly highlight selected item on RecyclerView?,244421,13
+android-recyclerview,31242812,How can a divider line be added in an Android RecyclerView?,239564,14
+android-recyclerview,24440852,How to import RecyclerView for Android L-preview,224279,15
+android-recyclerview,28217436,How to show an empty view with a RecyclerView?,218047,16
+android-recyclerview,26682277,How do I get the position selected in a RecyclerView?,212042,17
+android-recyclerview,27203817,RecyclerView expand/collapse items,192906,18
+android-recyclerview,37733221,Android Horizontal RecyclerView scroll Direction,181770,19
+android-recyclerview,27816217,How to save RecyclerView's scroll position using RecyclerView.State?,153138,20
+android-recyclerview,29424944,RecyclerView itemClickListener in Kotlin,152797,21
+android-recyclerview,28658579,Refreshing data in RecyclerView and keeping its scroll position,150830,22
+android-recyclerview,32136973,How to get a context in a recycler view adapter,148429,23
+android-recyclerview,31235183,RecyclerView - How to smooth scroll to top of item on a certain position?,147689,24
+android-recyclerview,26448717,Android 5.0 - Add header/footer to a RecyclerView,138717,25
+android-recyclerview,30284067,Handle Button click inside a row in RecyclerView,131698,26
+android-recyclerview,30007956,How to center items of a recyclerview?,122696,27
+android-recyclerview,35679776,"How to set RecyclerView app:layoutManager="""" from XML?",119695,28
+android-recyclerview,29024058,RecyclerView scrolled UP/DOWN listener,118955,29
+android-recyclerview,36127734,Detect when RecyclerView reaches the bottom most position while scrolling,118573,30
+android-recyclerview,33328806,How to use RecyclerView.scrollToPosition() to move the position to the top of current view?,116685,31
+android-recyclerview,36369913,How to implement multi-select in RecyclerView?,103917,32
+android-recyclerview,28525112,Android Recyclerview vs ListView with Viewholder,103515,33
+android-recyclerview,27507715,Android: How to get the current X offset of RecyclerView?,101722,34
+android-recyclerview,29665418,How to get item from RecyclerView adapter in Android,99502,35
+android-recyclerview,29929963,Is there a way to show a preview of a RecyclerView's contents in the Android Studio editor?,98902,36
+android-recyclerview,32159724,Scroll to top in RecyclerView with LinearLayoutManager,95539,37
+android-recyclerview,26466877,How to create context menu for RecyclerView,94149,38
+android-recyclerview,26517855,Using the recyclerview with a database,93568,39
+android-recyclerview,41223413,How to hide an item from Recycler View on a particular condition?,91064,40
+android-recyclerview,49969278,RecyclerView Item Click Listener the Right Way,89320,41
+android-recyclerview,26635841,RecyclerView change data set,88091,42
+android-recyclerview,28236390,RecyclerView store / restore state between activities,86936,43
+android-recyclerview,38192841,RecyclerView that does not scroll and shows all items,84581,44
+android-recyclerview,33985719,Android - Swipe to delete RecyclerView,83908,45
+android-recyclerview,26585941,RecyclerView header and footer,83664,46
+android-recyclerview,27293960,Swipe to Dismiss for RecyclerView,83337,47
+android-recyclerview,33454609,Detect start scroll and end scroll in recyclerview,81865,48
+android-recyclerview,29581782,How to get the Scrollposition in the Recyclerview/Layoutmanager?,78487,49
+android-recyclerview,38247602,Android how can I get current positon on recyclerview that user scrolled to item,76605,50
+listview,1555109,How to stop EditText from gaining focus when an activity starts in Android?,807473,1
+listview,4540754,How do you dynamically add elements to a ListView on Android?,608373,2
+listview,8166497,Custom Adapter for List View,413230,3
+listview,473148,"C# listView, how do I add items to columns 2, 3 and 4 etc?",391722,4
+listview,26543131,How to implement endless list with RecyclerView?,282249,5
+listview,28296708,Get clicked item and its position in RecyclerView,280441,6
+listview,4583484,How to implement Android Pull-to-Refresh,267883,7
+listview,2468100,How to handle ListView click in Android,240926,8
+listview,2217753,Changing background color of ListView items on Android,232376,9
+listview,3606530,Listview Scroll to the end of the list after updating the list,227163,10
+listview,1709166,Android: ListView elements with multiple clickable buttons,221888,11
+listview,28217436,How to show an empty view with a RecyclerView?,218047,12
+listview,45669202,How to add a ListView to a Column in Flutter?,210897,13
+listview,4777272,Android ListView with different layouts for each row,204976,14
+listview,12596199,Android : How to set onClick event for Button in List item of ListView,204646,15
+listview,21295328,Android ListView with onClick items,201228,16
+listview,1914477,How do I remove lines between ListViews on Android?,200957,17
+listview,1257500,C# ListView Column Width Auto,196075,18
+listview,5320358,update listview dynamically with adapter,167661,19
+listview,3771568,Showing empty view when ListView is empty,163996,20
+listview,560581,How to autosize and right-align GridViewColumn data in WPF?,161746,21
+listview,49153087,Flutter: Scrolling to a widget in ListView,155634,22
+listview,2562051,ListView item background via custom selector,155016,23
+listview,4709870,setOnItemClickListener on custom ListView,146422,24
+listview,15865829,Add Items to Columns in a WPF ListView,143517,25
+listview,4903758,Android: how to refresh ListView contents?,141268,26
+listview,25885238,Xamarin.Forms ListView: Set the highlight color of a tapped item,139699,27
+listview,8693897,How do I get the SelectedItem or SelectedIndex of ListView in vb.net?,139269,28
+listview,10795424,How to get the bluetooth devices as a list?,138869,29
+listview,16333754,How to customize listview using baseadapter,137454,30
+listview,4508979,android listview get selected item,135188,31
+listview,471859,C#: How do you edit items and subitems in a listview?,133399,32
+listview,13590627,Android ListView headers,133239,33
+listview,435379,C# Clear all items in ListView,124063,34
+listview,4247385,How to change color of ListView items on focus and on click,123021,35
+listview,9097723,Adding an onclicklistener to listview (android),122490,36
+listview,227231,ListBox vs. ListView - how to choose for data binding,120506,37
+listview,12332528,How to display list items as columns?,119280,38
+listview,1080811,Android Endless List,117157,39
+listview,5497580,How to dynamically remove items from ListView on a button click?,116958,40
+listview,18162931,Get Selected Item Using Checkbox in Listview,115757,41
+listview,49331612,Change background color of ListTile upon selection in Flutter,115612,42
+listview,5452940,How can I get Android Wifi Scan Results into a list?,112598,43
+listview,3928193,How to Animate Addition or Removal of Android ListView Rows,111759,44
+listview,5417339,Android ListView with Checkbox and all clickable,111323,45
+listview,7361135,How to change color and font on ListView,110669,46
+listview,5563698,How to change text color of simple list item,109607,47
+listview,7400475,How to remove listview all items,104914,48
+listview,28525112,Android Recyclerview vs ListView with Viewholder,103515,49
+listview,17207366,creating a menu after a long click event on a list view,103361,50
+android-actionbar,3438276,How to change the text on the action bar,468342,1
+android-actionbar,14483393,How do I change the android actionbar title and icon,404845,2
+android-actionbar,10692755,How do I hide a menu item in the actionbar?,375551,3
+android-actionbar,5861661,ActionBar text color,315785,4
+android-actionbar,8500283,"How to hide action bar before activity is created, and then show it again?",309310,5
+android-actionbar,8456835,How to disable action bar permanently,305195,6
+android-actionbar,20653305,Full Screen Theme for AppCompat,242001,7
+android-actionbar,12387345,How to center align the ActionBar title in Android?,235901,8
+android-actionbar,27378981,How to use SearchView in Toolbar Android,221425,9
+android-actionbar,18288402,How to set custom ActionBar color / style?,220300,10
+android-actionbar,19545370,Android: how to hide ActionBar on certain activities,216787,11
+android-actionbar,9252354,How to customize the back button on ActionBar,197178,12
+android-actionbar,21585326,Implementing SearchView in action bar,195508,13
+android-actionbar,12301510,How to get the ActionBar height?,189268,14
+android-actionbar,15560904,Setting Custom ActionBar Title from Fragment,177906,15
+android-actionbar,26998455,How to get Toolbar from fragment?,169835,16
+android-actionbar,6351479,"Android: How to change the ActionBar ""Home"" Icon to be something other than the app icon?",157460,17
+android-actionbar,25863676,Android Activity without ActionBar,155507,18
+android-actionbar,8607707,How to Set a Custom Font in the ActionBar Title?,155009,19
+android-actionbar,14606294,Remove icon/logo from action bar on android,149298,20
+android-actionbar,26554996,Change Toolbar color in Appcompat 21,147388,21
+android-actionbar,17696486,Actionbar notification count icon (badge) like Google has,133184,22
+android-actionbar,15518414,How can I implement custom Action Bar with custom buttons in Android?,127827,23
+android-actionbar,7655874,How do you remove the title text from the Android ActionBar?,123310,24
+android-actionbar,12000562,How to display both icon and title of action inside ActionBar?,113116,25
+android-actionbar,17425742,How to add button in ActionBar(Android)?,110993,26
+android-actionbar,13370719,Remove android default action bar,108830,27
+android-actionbar,12883732,How to display custom view in ActionBar?,107635,28
+android-actionbar,13086840,actionbar up navigation with fragments,104642,29
+android-actionbar,9737101,Padding between ActionBar's home icon and title,104542,30
+android-actionbar,8312344,How to add a Dropdown item on the action bar,101644,31
+android-actionbar,35810229,How to display and set click event on Back Arrow on Toolbar?,100948,32
+android-actionbar,18010072,Menu Items are not showing on Action Bar,93010,33
+android-actionbar,17439683,How to change action bar size,92384,34
+android-actionbar,17791388,Changing action bar searchview hint text color,83859,35
+android-actionbar,16150205,Android action bar home button,82670,36
+android-actionbar,29877692,Why was ActionBarActivity deprecated,81905,37
+android-actionbar,7765184,How can I refresh the ActionBar when onPrepareOptionsMenu switched menu entries?,80820,38
+android-actionbar,9286822,How to force use of overflow menu on devices with menu button,78840,39
+android-actionbar,18015010,Action Bar menu item text color,78077,40
+android-actionbar,24482825,Changing Navigation drawer icon on action bar android,78055,41
+android-actionbar,26558705,Material Design Transparent ActionBar,73742,42
+android-actionbar,17919933,Action bar does not show,70684,43
+android-actionbar,21504088,How to hide action bar for fragment?,70029,44
+android-actionbar,18374183,How To show icons in Overflow menu in ActionBar,68051,45
+android-actionbar,18909273,How to change color of Selected Tab,67303,46
+android-actionbar,23294954,Android Navigation Drawer on top ActionBar,66859,47
+android-actionbar,12897071,How to change size of title's text on Action Bar?,66857,48
+android-actionbar,15035861,(Deprecated) Fragment onOptionsItemSelected not being called,66048,49
+android-actionbar,38189198,how to use setSupportActionBar in fragment,62490,50
+google-maps,9050345,Selecting last element in JavaScript array,1321617,1
+google-maps,2330197,How to disable mouse scroll wheel scaling with Google Maps API,552487,2
+google-maps,1544739,Google Maps API v3: How to remove all markers?,541038,3
+google-maps,2472957,How can I change the color of a Google Maps marker?,478265,4
+google-maps,1300838,How to convert an address into a Google Maps Link (NOT MAP),473752,5
+google-maps,9409195,How to get complete address from latitude and longitude?,461886,6
+google-maps,1556921,Google Map API v3 — set bounds and center,396645,7
+google-maps,1801732,How do I link to Google Maps with a particular longitude and latitude?,382006,8
+google-maps,50977913,"Google Maps shows ""For development purposes only""",381419,9
+google-maps,2662531,Launching Google Maps Directions via an intent on Android,359859,10
+google-maps,4013606,"Google Maps: how to get country, state/province/region, city given a lat/long value?",316836,11
+google-maps,825794,Draw radius around a point in Google map,278892,12
+google-maps,19353255,How to put Google Maps V2 on a Fragment using ViewPager,263732,13
+google-maps,6548504,How can I get city name from a latitude and longitude point?,254162,14
+google-maps,3860277,Google Maps: How to create a custom InfoWindow?,252498,15
+google-maps,5634991,Styling Google Maps InfoWindow,229770,16
+google-maps,2296377,How to get city name from latitude and longitude coordinates in Google Maps?,215555,17
+google-maps,1555253,How to make an autocomplete address field with google maps api?,209312,18
+google-maps,832692,How can I check whether Google Maps is fully loaded?,207547,19
+google-maps,5959788,Google Maps API V3 : How show the direction from a point A to point B (Blue line)?,206034,20
+google-maps,5290336,Getting Lat/Lng from Google marker,202735,21
+google-maps,19511597,How to get address location from latitude and longitude in Google Map.?,200194,22
+google-maps,5100324,How to get the Google Map based on Latitude on Longitude?,195491,23
+google-maps,3490622,Get latitude and longitude based on location name with Google Autocomplete API,194026,24
+google-maps,1941260,Google Maps API v3: How do I dynamically change the marker icon?,191728,25
+google-maps,3574644,How can I find the latitude and longitude from address?,188850,26
+google-maps,24413766,How to use SVG markers in Google Maps API v3,188291,27
+google-maps,14226453,Google Maps API v2: How to make markers clickable?,184439,28
+google-maps,6582834,Use a URL to link to a Google map with a marker on it,183796,29
+google-maps,46991237,How to import JSON File into a TypeScript file?,183208,30
+google-maps,743214,How do I resize a Google Map with JavaScript after it has loaded?,178949,31
+google-maps,39329874,Googlemaps API Key for Localhost,177570,32
+google-maps,6048975,Google Maps V3 - How to calculate the zoom level for a given bounds,174605,33
+google-maps,6205827,How to open standard Google Map application from my application?,172825,34
+google-maps,14828217,Android map v2 zoom to show all the markers,169448,35
+google-maps,16536414,How to use MapView in android using google map V2?,166814,36
+google-maps,4074520,How to Display Multiple Google Maps per page with API V3,164471,37
+google-maps,2176397,Drawing a line/path on Google Maps,164330,38
+google-maps,8428209,Show Current Location and Nearby Places and Route between two places using Google Maps API in Android,161843,39
+google-maps,2223574,Google Maps: Auto close open InfoWindows?,161067,40
+google-maps,5072059,Polygon Drawing and Getting Coordinates with Google Map API v3,159870,41
+google-maps,5807063,Url to a google maps page to show a pin given a latitude / longitude?,158701,42
+google-maps,10089447,jQuery Ajax Request inside Ajax Request,157421,43
+google-maps,31861822,Google Maps how to Show city or an Area outline,151050,44
+google-maps,34582370,How can I show current location on a Google Map on Android Marshmallow?,146886,45
+google-maps,18425141,Android Google Maps API V2 Zoom to Current Location,137470,46
+google-maps,17290256,Get google map link with latitude/longitude,137465,47
+google-maps,7865446,Google maps Places API V3 autocomplete - select first option on enter,135449,48
+google-maps,2436484,How can I create numbered map markers in Google Maps V3?,131626,49
+google-maps,15421369,Responsive Google Map?,131518,50
+android-asynctask,9671546,AsyncTask Android example,1048346,1
+android-asynctask,3028306,"Download a file with Android, and showing the progress in a ProgressDialog",609809,2
+android-asynctask,1560788,How to check internet access on Android? InetAddress never times out,505738,3
+android-asynctask,12575068,How to get the result of OnPostExecute() to main activity because AsyncTask is a separate class?,302448,4
+android-asynctask,5442183,"Using the ""animated circle"" in an ImageView while loading stuff",292898,5
+android-asynctask,9458258,Return a value from AsyncTask in Android,208877,6
+android-asynctask,27086808,Android check null or empty string in Android,188098,7
+android-asynctask,3075009,Android: How can I pass parameters to AsyncTask's onPreExecute()?,152487,8
+android-asynctask,58767733,The AsyncTask API is deprecated in Android 11. What are the alternatives?,148044,9
+android-asynctask,6964011,Handler vs AsyncTask vs Thread,147442,10
+android-asynctask,2735102,Ideal way to cancel an executing AsyncTask,139932,11
+android-asynctask,7821284,How to stop asynctask thread in android?,105807,12
+android-asynctask,4195609,"Passing arguments to AsyncTask, and returning results",101010,13
+android-asynctask,44525388,AsyncTask in Android with Kotlin,100629,14
+android-asynctask,44309241,Warning: This AsyncTask class should be static or leaks might occur,96796,15
+android-asynctask,4748964,Android - Cancel AsyncTask Forcefully,94373,16
+android-asynctask,14250989,How to use AsyncTask correctly in Android,89687,17
+android-asynctask,16920942,getting context in AsyncTask,75705,18
+android-asynctask,2531336,AsyncTask won't stop even when the Activity has destroyed,73212,19
+android-asynctask,8417885,Android Fragments. Retaining an AsyncTask during screen rotation or configuration change,56979,20
+android-asynctask,5457493,AsyncTask return value,55241,21
+android-asynctask,20279216,AsyncTaskLoader basic example. (Android),53930,22
+android-asynctask,7120813,AsyncTaskLoader vs AsyncTask,51558,23
+android-asynctask,14161892,Retrieve Context from a fragment,49231,24
+android-asynctask,18854060,How to implement progressBar while loading data?,49150,25
+android-asynctask,23978400,How to update ui from asynctask,45383,26
+android-asynctask,29937556,AsyncTask execute() or executeOnExecutor()?,44333,27
+android-asynctask,9900834,How to pass variables in and out of AsyncTasks?,42850,28
+android-asynctask,18069678,How to use asynctask to display a progress bar that counts down?,40404,29
+android-asynctask,10737016,Using AsyncTask to start activity,39630,30
+android-asynctask,9296539,Android: RunOnUiThread vs AsyncTask,39499,31
+android-asynctask,10570243,"AsyncTask - after execution, how to update view?",38171,32
+android-asynctask,9118015,How to correctly start activity from PostExecute in Android?,37304,33
+android-asynctask,11752961,"How to show a progress spinner in android, when doInBackground() is being executed",36920,34
+android-asynctask,30416158,Android: Alternatives to AsyncTask?,36642,35
+android-asynctask,18913419,How to use AsyncTask in Services in Android?,36499,36
+android-asynctask,12341840,Android Progress bar on ImageView,35957,37
+android-asynctask,12015130,Android Calling Async Task in an activity,35904,38
+android-asynctask,26890618,AsyncTask ; doInbackground() not called after calling method onPreExecute(),35553,39
+android-asynctask,5335665,Avoid reloading activity with asynctask on orientation change in android,34513,40
+android-asynctask,5832699,AsyncTask onPreExecute progressdialog,33581,41
+android-asynctask,21194762,"What is the different between Handler, Runnable, and Threads?",33385,42
+android-asynctask,28549315,Login Example in Android using POST method using REST API,30158,43
+android-asynctask,9893813,Can an Android AsyncTask doInBackground be synchronized to serialize the task execution?,29139,44
+android-asynctask,23348812,Android Retrofit - onProgressUpdate for showing Progress Notification,28987,45
+android-asynctask,15167152,Should I use AsyncTask or IntentService for my application?,28896,46
+android-asynctask,15739635,How to return value from async task in android,28300,47
+android-asynctask,4429043,how to stop ASyncTask thread in android,28129,48
+android-asynctask,15719942,Get JSON in AsyncTask Android,28072,49
+android-asynctask,6343064,AsyncTask's doInBackground(Params... params),27961,50

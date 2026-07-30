@@ -1,0 +1,3 @@
+case_barcode,cdkn2a_variant_classification,demo__gender,demo__race,demo__ethnicity,demo__vital_status,demo__days_to_death,diag__age_at_diagnosis,diag__ajcc_pathologic_stage,primary_site,disease_type,mdm2_normalized_count,tp53_normalized_count,cdkn1a_normalized_count,ccne1_normalized_count
+TCGA-GD-A3OS,Nonsense_Mutation,female,white,not hispanic or latino,Alive,,19776,Stage II,Bladder,Transitional Cell Papillomas and Carcinomas,,,994.0519,
+TCGA-ZF-A9R4,Missense_Mutation,male,white,not hispanic or latino,Alive,,30398,Stage II,Bladder,Transitional Cell Papillomas and Carcinomas,,2203.6959,,
