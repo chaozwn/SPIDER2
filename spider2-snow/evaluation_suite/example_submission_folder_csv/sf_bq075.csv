@@ -1,7 +1,5 @@
-DIMENSION_TYPE,DIMENSION_VALUE,GOOGLE_HIRING_PCT,GOOGLE_REPRESENTATION_PCT,BLS_AVG_PCT
-gender,U.S. Men,66.9,67.8,63.7
-gender,U.S. Women,33.1,32.2,36.4
-race,Asian,42.8,42.3,26.8
-race,Black,8.8,4.4,8.1
-race,Hispanic/Latinx,8.8,6.4,8.5
-race,White,44.5,50.4,62.2
+source,category,asian,black,hispanic_latinx,white,us_women,us_men
+BLS Tech Sectors,Computer systems design and related services,0.237,0.07,0.081,0.664,0.291,0.7090000000000001
+BLS Tech Sectors,Internet publishing and broadcasting and web search portals,0.299,0.091,0.09,0.58,0.436,0.5640000000000001
+Google Hiring,overall,0.428,0.088,0.088,0.445,0.331,0.669
+Google Representation,overall,0.423,0.044,0.064,0.504,0.322,0.678
