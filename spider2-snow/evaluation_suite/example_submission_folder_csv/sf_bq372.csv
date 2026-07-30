@@ -1,2 +1,2 @@
-CUSTOMER_CATEGORY_NAME,MAX_LOST_ORDER_VALUE,OVERALL_AVG_MAX_LOST_VALUE,ABS_DIFFERENCE
-Gift Store,5796.0,5744.48,51.52000000000044
+customer_category_name,max_lost_order_value,avg_max_lost_order_value,difference_from_average
+Gift Store,5040.0,4995.2,44.80000000000018
