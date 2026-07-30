@@ -1,4 +1,4 @@
-CUSTOMER_ID,MONTH,MONTHLY_CHANGE,CUMULATIVE_BALANCE
+customer_id,month,monthly_change,cumulative_balance
 1,2020-01,312,312
 1,2020-02,0,312
 1,2020-03,-952,-640

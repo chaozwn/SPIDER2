@@ -1,11 +1,11 @@
 id,date,title,COSINE_SIMILARITY
-1feee4b3-3bd1-4b6b-a257-fb57239b9bc1,2019-04-26,Expanding the neurodevelopmental phenotypes of individuals with de novo KMT2A variants,0.6000131394629209
-92a8c26e-165f-4831-8af0-f554bbc53f0b,2020-05-05,De novo variants of NR4A2 are associated with neurodevelopmental disorder and epilepsy,0.5764613004621046
-1e4770c1-360d-4625-9cd2-1a2b4be775b6,2018-08-16,Association of anxiety with subcortical amyloidosis in cognitively normal older adults,0.5626146695647699
-d138eea7-bed7-4aea-8942-7486c1201eff,2019-02-07,Regenerative medicine curriculum for next-generation physicians,0.5558111470231828
-934be6e8-6e5b-4ce0-879c-8113a4cb3d57,2020-01-06,"Efficacy and safety of D,L-3-hydroxybutyrate (D,L-3-HB) treatment in multiple acyl-CoA dehydrogenase deficiency",0.5541663243516662
-2ce39249-e142-4bed-bef2-9e4284b95060,2018-05-31,"Extreme neonatal hyperbilirubinemia, acute bilirubin encephalopathy, and kernicterus spectrum disorder in children with galactosemia",0.5498939549448403
-a5a5df4e-dfdb-40dc-a5f8-acba6e9bda02,2018-01-31,"Dopamine, psychosis and schizophrenia: the widening gap between basic and clinical neuroscience",0.541785937378382
-756855a5-9267-44b3-80c7-ac5f951b7669,2018-01-17,Biallelic variants in KIF14 cause intellectual disability with microcephaly,0.5406673142307715
-366e5b37-5f59-4258-a258-2674cbe1b842,2019-01-16,Should therapeutic hypothermia be offered to babies with mild neonatal encephalopathy in the first 6 h after birth?,0.5400367927438433
-5bb1cdaf-b8d1-4edd-a399-f13ed5c6c8e2,2018-01-22,Neuromyopathy with congenital cataracts and glaucoma: a distinct syndrome caused by POLG variants,0.5394243771779259
+92a8c26e-165f-4831-8af0-f554bbc53f0b,2020-05-05,De novo variants of NR4A2 are associated with neurodevelopmental disorder and epilepsy,0.6871996468316748
+1feee4b3-3bd1-4b6b-a257-fb57239b9bc1,2019-04-26,Expanding the neurodevelopmental phenotypes of individuals with de novo KMT2A variants,0.6552473225209504
+7e8713ed-74a2-4cdd-bbf5-f5d3bbb50a76,2020-01-20,Transcriptome analysis of fibroblasts from schizophrenia patients reveals differential expression of schizophrenia-related genes,0.6352817591648833
+edc48466-6660-44a5-b31d-87e048771a43,2019-12-12,Recent progress in mapping the emerging landscape of the small-cell lung cancer genome,0.6339082435128116
+a5a5df4e-dfdb-40dc-a5f8-acba6e9bda02,2018-01-31,"Dopamine, psychosis and schizophrenia: the widening gap between basic and clinical neuroscience",0.6335905982178759
+40d9c462-8c77-4ba6-9b1d-4772faa11318,2018-01-29,Epigenetic regulation in B-cell maturation and its dysregulation in autoimmunity,0.6320283056858271
+756855a5-9267-44b3-80c7-ac5f951b7669,2018-01-17,Biallelic variants in KIF14 cause intellectual disability with microcephaly,0.6262589343302591
+1647a5b2-efaa-46a0-ac18-e34004eb10f8,2018-01-10,DNA methylome variation in a perinatal nurse-visitation program that reduces child maltreatment: a 27-year follow-up,0.625955354371186
+bc206558-1a39-47ea-8f47-6f734e6d5a30,2017-09-29,Deubiquitylating enzymes and drug discovery: emerging opportunities,0.6214282178136498
+48c7e705-79a9-4ca9-9dab-632e9199795d,2020-03-10,Whole slide images reflect DNA methylation patterns of human tumors,0.6172265809088979
