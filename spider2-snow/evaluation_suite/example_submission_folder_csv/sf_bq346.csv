@@ -1,6 +1,6 @@
-SEGMENTED_PROPERTY_CATEGORY,FREQUENCY
-Tissue,395
+SEGMENTED_PROPERTY_CATEGORY,SEGMENTATION_COUNT
+Anatomical Structure,616
+Tissue,491
 Morphological Abnormal Structure,279
-Anatomical Structure,255
-Morphologically Altered Structure,79
+Morphologically Altered Structure,117
 Morphologically Abnormal Structure,58
