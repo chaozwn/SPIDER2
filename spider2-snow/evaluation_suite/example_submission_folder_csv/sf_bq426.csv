@@ -1,2 +1,2 @@
-usertype,avg_temperature_f,avg_precipitation_in,avg_wind_speed_knots
-Customer,56.666906296479915,0.08788299454635598,4.111279127416957
+usertype,AVG_TEMPERATURE_F,AVG_PRECIP_CM,AVG_WIND_SPEED_MS
+Customer,56.666906296479915,0.22,2.12

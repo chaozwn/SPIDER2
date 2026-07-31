@@ -1,6 +1,6 @@
-CATEGORY_CODE_MEANING,SEGMENTATION_COUNT
-Anatomical Structure,616
-Tissue,491
+SEGMENTED_PROPERTY_CATEGORY,FREQUENCY
+Tissue,395
 Morphological Abnormal Structure,279
-Morphologically Altered Structure,117
+Anatomical Structure,255
+Morphologically Altered Structure,79
 Morphologically Abnormal Structure,58

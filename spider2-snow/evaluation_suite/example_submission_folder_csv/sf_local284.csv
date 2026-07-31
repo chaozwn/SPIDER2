@@ -1,2 +1,2 @@
-average_loss_rate,count_below_1sd,count_above_1sd,count_within_1sd
-9.43,35,29,187
+AVG_LOSS_RATE,COUNT_BELOW,COUNT_WITHIN,COUNT_ABOVE
+9.4267,35,187,29
