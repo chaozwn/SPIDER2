@@ -490,6 +490,134 @@ def add_remote_snowflake_database(
     return unwrap(resp.json())
 
 
+def get_remote_database(
+    database_name: str,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any] | None:
+    """Fetch a remote data source by name via the console API."""
+    database_name = normalize_remote_database_name(database_name)
+    client = InfiniClient(
+        credential_path=credential_path, timeout=timeout, use_console=True
+    )
+    resp = client.get(
+        "/api/admin/database/getDatabaseByName",
+        database_name,
+        raise_for_status=False,
+    )
+    if resp.status_code == 404:
+        return None
+    if resp.status_code != 200:
+        resp.raise_for_status()
+    try:
+        data = unwrap(resp.json())
+    except ValueError:
+        return None
+    return data if isinstance(data, dict) else None
+
+
+def list_remote_snowflake_databases(
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> list[dict[str, Any]]:
+    """Return registered remote Snowflake sources (``remote_*`` names only)."""
+    items = list_databases(
+        type="snowflake",
+        credential_path=credential_path,
+        timeout=timeout,
+    )
+    remote: list[dict[str, Any]] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        name = str(item.get("name") or "")
+        if normalize_remote_database_name(name).startswith("remote_"):
+            remote.append(item)
+    return remote
+
+
+def _parse_remote_config(config: Any) -> dict[str, Any]:
+    if isinstance(config, dict):
+        return dict(config)
+    if isinstance(config, str) and config.strip():
+        return json.loads(config)
+    return {}
+
+
+def update_remote_snowflake_database_credentials(
+    database_name: str,
+    snowflake_credential_path: str | os.PathLike,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any]:
+    """Refresh Snowflake login fields on an existing remote data source.
+
+    Loads the current record from the console API, replaces
+    ``snowflake_host`` / ``snowflake_username`` / ``snowflake_password`` in
+    ``config`` from *snowflake_credential_path*, and POSTs
+    ``/api/admin/database/update``. Other fields are preserved.
+    """
+    existing = get_remote_database(
+        database_name,
+        credential_path=credential_path,
+        timeout=timeout,
+    )
+    if not existing:
+        raise ValueError(
+            f"remote database {database_name!r} not found on InfiniSynapse"
+        )
+
+    with open(Path(snowflake_credential_path), "r", encoding="utf-8") as f:
+        sf = json.load(f)
+
+    config = _parse_remote_config(existing.get("config"))
+    config["snowflake_host"] = sf["host"]
+    config["snowflake_username"] = sf["user"]
+    config["snowflake_password"] = sf["password"]
+
+    db_id = existing.get("id") or existing.get("_id")
+    if not db_id:
+        raise ValueError(
+            f"remote database {database_name!r} has no id in console payload"
+        )
+
+    role_ids = list(existing.get("roles") or [DEFAULT_REMOTE_ROLE_ID])
+    review_role_ids = list(
+        existing.get("reviewRoles")
+        or existing.get("review_roles")
+        or role_ids
+    )
+    table_rules = existing.get("tableAccessRules") or existing.get(
+        "table_access_rules"
+    )
+    if table_rules is None:
+        table_rules = [{"role": rid, "tables": []} for rid in role_ids]
+
+    payload: dict[str, Any] = {
+        "id": db_id,
+        "name": existing.get("name") or normalize_remote_database_name(
+            database_name
+        ),
+        "nickname": existing.get("nickname") or existing.get("name"),
+        "description": existing.get("description") or "",
+        "type": "snowflake",
+        "config": config,
+        "roles": role_ids,
+        "reviewRoles": review_role_ids,
+        "tableAccessRules": table_rules,
+        "ragNames": list(
+            existing.get("ragNames") or existing.get("rag_names") or []
+        ),
+        "public": bool(existing.get("public", False)),
+    }
+
+    client = InfiniClient(
+        credential_path=credential_path, timeout=timeout, use_console=True
+    )
+    resp = client.post("/api/admin/database/update", json_body=payload)
+    return unwrap(resp.json())
+
+
 def delete_database(
     database_name: str,
     credential_path: str | os.PathLike | None = None,
@@ -1209,6 +1337,22 @@ def ask_task(
 
     client = InfiniClient(credential_path=credential_path, timeout=timeout)
     resp = client.post("/api/ai/message", json_body=payload)
+    return unwrap(resp.json())
+
+
+def get_ai_state(
+    task_id: str,
+    credential_path: str | os.PathLike | None = None,
+    timeout: float = DEFAULT_TIMEOUT,
+) -> dict[str, Any]:
+    """Fetch frontend ExtensionState via ``GET /api/ai/state?taskId=...``.
+
+    Returns the unwrapped payload, typically
+    ``{"apiConfiguration": {...}, "infiniMessages": [...], ...}``.
+    Benchmark runners use ``infiniMessages`` as the agent reasoning trace.
+    """
+    client = InfiniClient(credential_path=credential_path, timeout=timeout)
+    resp = client.get("/api/ai/state", params={"taskId": task_id})
     return unwrap(resp.json())
 
 

@@ -42,6 +42,7 @@ from pathlib import Path
 
 from spider_agent_infini.api.database import (
     download_task_zip,
+    get_ai_state,
     list_available_engines,
     new_task,
     select_databases_by_snowflake_database,
@@ -98,6 +99,10 @@ _EVAL_SUITE_DIR = _SNOW_DIR / "evaluation_suite"
 # immediately afterwards without an extra copy step.
 SUBMISSION_DIR_SQL = _EVAL_SUITE_DIR / "example_submission_folder"
 SUBMISSION_DIR_CSV = _EVAL_SUITE_DIR / "example_submission_folder_csv"
+# [reasoning-trace] Agent infiniMessages saved alongside csv/sql submissions.
+SUBMISSION_DIR_REASONING = (
+    _EVAL_SUITE_DIR / "example_submission_folder_Reasoning-trace"
+)
 OUTPUT_DIR = _PROJECT_ROOT / "output"
 
 # Hard timeout for a single InfiniSynapse task run (seconds).
@@ -294,7 +299,7 @@ def _is_done(instance_id: str, mode: str) -> bool:
 
 
 def _clear_submissions(instance_id: str) -> list[Path]:
-    """Remove any existing .sql/.csv submission files for this instance.
+    """Remove any existing .sql/.csv/.json submission files for this instance.
 
     Returns the list of paths that were actually deleted (useful for logging).
     """
@@ -302,6 +307,8 @@ def _clear_submissions(instance_id: str) -> list[Path]:
     for path in (
         SUBMISSION_DIR_CSV / f"{instance_id}.csv",
         SUBMISSION_DIR_SQL / f"{instance_id}.sql",
+        # [reasoning-trace] Cleared on --rerun together with csv/sql.
+        SUBMISSION_DIR_REASONING / f"{instance_id}.json",
     ):
         if path.exists():
             try:
@@ -311,6 +318,70 @@ def _clear_submissions(instance_id: str) -> list[Path]:
                 logger.warning("[warn ] %s: failed to delete %s: %s",
                                instance_id, path, e)
     return removed
+
+
+# [reasoning-trace] Drop entire infiniMessages objects whose "say" field is
+# context-hub auto-recall noise (not useful for downstream reasoning analysis).
+_CONTEXT_HUB_SAY_TO_DROP = frozenset({
+    "context_hub_search",
+    "context_hub_search_result",
+})
+
+
+def _filter_reasoning_messages(messages: list) -> list:
+    """Remove whole ``{}`` entries when the ``say`` field matches context-hub recall."""
+    return [
+        msg for msg in messages
+        if not (
+            isinstance(msg, dict)
+            and msg.get("say") in _CONTEXT_HUB_SAY_TO_DROP
+        )
+    ]
+
+
+def _save_reasoning_trace(instance_id: str, task_id: str) -> bool:
+    """Persist ``infiniMessages`` from ``GET /api/ai/state`` as ``{instance_id}.json``.
+
+    Writes under ``example_submission_folder_Reasoning-trace/``, mirroring the
+    csv/sql submission layout. Returns True on success.
+    """
+    try:
+        state = get_ai_state(task_id, timeout=30.0)
+    except Exception as e:
+        logger.warning(
+            "[warn ] %s: get_ai_state failed (taskId=%s): %s",
+            instance_id, task_id, e,
+        )
+        return False
+
+    messages = state.get("infiniMessages") if isinstance(state, dict) else None
+    if not isinstance(messages, list):
+        messages = []
+
+    # [reasoning-trace] Drop whole objects where say is context_hub_search(_result).
+    before = len(messages)
+    messages = _filter_reasoning_messages(messages)
+    dropped = before - len(messages)
+    if dropped:
+        logger.info(
+            "[trace] %s: dropped %d context_hub message(s)", instance_id, dropped,
+        )
+
+    SUBMISSION_DIR_REASONING.mkdir(parents=True, exist_ok=True)
+    dest = SUBMISSION_DIR_REASONING / f"{instance_id}.json"
+    try:
+        with open(dest, "w", encoding="utf-8") as f:
+            json.dump(messages, f, ensure_ascii=False, indent=2)
+            f.write("\n")
+    except OSError as e:
+        logger.warning(
+            "[warn ] %s: failed to write reasoning trace to %s: %s",
+            instance_id, dest, e,
+        )
+        return False
+
+    logger.info("[trace] %s: reasoning saved -> %s", instance_id, dest)
+    return True
 
 
 def _extract_zip(zip_path: str | os.PathLike, dest: Path) -> None:
@@ -608,6 +679,9 @@ def run_one(
         logger.error("[fail ] %s: wait_for_task error: %s", instance_id, e)
         return False
 
+    # [reasoning-trace] Capture agent reasoning after the task finishes.
+    _save_reasoning_trace(instance_id, task_id)
+
     # 5) Download workspace zip and extract
     task_output_dir = OUTPUT_DIR / instance_id
     task_output_dir.mkdir(parents=True, exist_ok=True)
@@ -847,6 +921,8 @@ def run():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     SUBMISSION_DIR_CSV.mkdir(parents=True, exist_ok=True)
     SUBMISSION_DIR_SQL.mkdir(parents=True, exist_ok=True)
+    # [reasoning-trace] Ensure evaluation_suite reasoning folder exists.
+    SUBMISSION_DIR_REASONING.mkdir(parents=True, exist_ok=True)
 
     try:
         engines = list_available_engines()

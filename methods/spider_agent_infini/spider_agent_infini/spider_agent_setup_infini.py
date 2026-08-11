@@ -221,6 +221,60 @@ def add_remote_database_to_infini():
             continue
 
 
+def update_remote_snowflake_credentials_to_infini() -> None:
+    """Push ``snowflake_credential.json`` to every existing ``remote_*`` source.
+
+    Does not delete, re-create, or register new data sources.
+    """
+    from spider_agent_infini.api.database import (
+        list_remote_snowflake_databases,
+        update_remote_snowflake_database_credentials,
+    )
+
+    if not Path(SNOWFLAKE_CREDENTIAL_PATH).is_file():
+        _log_failure(
+            f"snowflake credential not found: {SNOWFLAKE_CREDENTIAL_PATH}"
+        )
+        raise SystemExit(1)
+
+    try:
+        items = list_remote_snowflake_databases()
+    except Exception as e:
+        _log_failure(f"Failed to list remote Snowflake data sources: {e}")
+        raise SystemExit(1) from e
+
+    if not items:
+        logger.warning(
+            "No remote Snowflake data sources found; nothing to update. "
+            "Run with --remote-only first to register sources."
+        )
+        return
+
+    logger.info("Updating credentials on %d remote Snowflake source(s)", len(items))
+    n_ok = 0
+    for item in items:
+        name = str(item.get("name") or "")
+        if not name:
+            continue
+        try:
+            update_remote_snowflake_database_credentials(
+                name, SNOWFLAKE_CREDENTIAL_PATH
+            )
+            n_ok += 1
+            logger.info("[ok    ] updated credentials for %s", name)
+        except Exception as e:
+            _log_failure(
+                f"Failed to update credentials for remote database {name!r}: {e}"
+            )
+
+    logger.info(
+        "Credential refresh finished: %d/%d source(s) updated",
+        n_ok, len(items),
+    )
+    if n_ok < len(items):
+        raise SystemExit(1)
+
+
 def _load_sqlite_db_ids(local_map_path: str = LOCAL_MAP_PATH) -> list[str]:
     """Return the unique sqlite ``db_id``s referenced by ``local-map.jsonl``.
 
@@ -367,12 +421,25 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
             "`--types sqlite` or `--types snowflake sqlite`."
         ),
     )
+    parser.add_argument(
+        "--update-credentials",
+        action="store_true",
+        help=(
+            "refresh Snowflake credentials on existing remote data sources "
+            "from snowflake_credential.json without re-registering them"
+        ),
+    )
     parser.set_defaults(only=None)
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> None:
     args = _parse_args(argv)
+
+    if args.update_credentials:
+        logger.info("=== STEP: update remote Snowflake credentials ===")
+        update_remote_snowflake_credentials_to_infini()
+        return
 
     if args.types is not None and args.only is not None:
         # argparse can't express "mutually exclusive across a group and a
